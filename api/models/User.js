@@ -7,5 +7,30 @@ _.merge(exports, _super);
 _.merge(exports, {
 
   // Extend with custom logic here by adding additional fields, methods, etc.
+  attributes: {
+  	  age: {
+      type: 'int',
+      notNull: true
+    },
+  	  phonenumber: {
+      type: 'string',
+      notNull: true
+    },
+	myfriends: {
+      type:'array',
+      notNull: true
+    }
+  },
+  addFriend: function (options, cb) {
 
+    User.findOne(options.id).exec(function (err, user) {
+        user.myfriends.push(options.mynewfriend);
+        user.save(function (err) { 
+          if(err) console.log(err);
+          return cb();
+      
+         });
+    })
+
+  }
 });
