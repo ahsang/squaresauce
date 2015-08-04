@@ -10,21 +10,31 @@ _.merge(exports, {
   attributes: {
   	  age: {
       type: 'int',
-      notNull: true
+      
+      defaultsTo:'0'
     },
   	  phonenumber: {
       type: 'string',
-      notNull: true
+      
+      defaultsTo:'1234'
     },
 	myfriends: {
       type:'array',
-      notNull: true
+      notNull: true,
+      defaultsTo:'{0}'
+    },
+    toJSON: function () {
+      var user = this.toObject();
+      // delete user.password;
+      user.gravatarUrl = this.getGravatarUrl();
+      return user;
     }
   },
   addFriend: function (options, cb) {
 
     User.find(options.id).exec(function (err, user) {
     	console.log(user);
+    	if(err)console.log(err);
         // user.myfriends.push(options.mynewfriend);
         // user.save(function (err) { 
         //   if(err) console.log(err);
