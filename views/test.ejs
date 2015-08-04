@@ -1,0 +1,18 @@
+
+
+<h1>Login</h1>
+            <form method="POST" action="/auth/local">
+            <input type="text" name="identifier" value="<%=req.session.autouser%>">
+            <input type="password" name="password" value="<%=req.session.autopwd%>">
+            <input id="loginSubmit" type="submit" value="submit">
+            </form>
+            <%
+            req.session.autouser=null;
+            req.session.autopwd=null;
+
+            %>
+            <%console.log(req.session)%>
+
+            <script>
+            document.getElementById('loginSubmit').click();
+            </script>
