@@ -25,13 +25,14 @@ _.merge(exports, {
     info= new Array();
     info.id=req.param('user1id');
     info.fid=req.param('user2id');
-    info.hash= (1/2)*(info.id + info.fid -7 )*(info.id + info.fid +32) + 69;
+    info.hash= (1/2)*(info.id + info.fid )*(info.id + info.fid);
+    console.log(info.hash);
       Frequest.find({hash: info.hash}).exec(function (err, frequest) {
        
         if(frequest == '')
           {
             Frequest.create({user1id : info.id, user2id: info.fid, hash : info.hash}).exec(function createCB(err){
-               console.log(frequest);
+               console.log('tried creating a request');
             });
           }
         else
@@ -54,9 +55,9 @@ _.merge(exports, {
     // Figure out here how to get id of the user that i currently logged in
     info.id=req.param('user1id');
     info.fid=req.param('user2id');
-    info.hash= (1/2)*(info.id + info.fid -7 )*(info.id + info.fid +32) + 69;
-  //  console.log(info.id);
-      Frequest.find({hash: info.hash}).exec(function (err, frequest) {
+    info.hash= (1/2)*(info.id + info.fid)*(info.id + info.fid);
+    console.log(info.hash);
+      Frequest.find({hash: info.hash}).exec(function (err, frequest) {        
         console.log(frequest);
         if(frequest == '')
           {
@@ -66,8 +67,23 @@ _.merge(exports, {
             {
               Frequest.destroy({hash: info.hash}).exec(function deleteCB(err){});
               console.log('request has been deleted');
-              //TODO: 
-              //Update both the user tables to have friends
+              
+                User.findOne(info.id).exec(function(err,user) {
+                user.myfriends.push( info.fid );
+                user.save(function(err){
+                  console.log('updated firends for user 1');
+                  });
+                });
+                User.findOne(info.fid).exec(function(err,user) {
+                user.myfriends.push( info.id );
+                user.save(function(err){
+                  console.log('updated firends for user 2');
+                  // something here
+                  });
+                });
+
+
+
             }
 
           if(err)console.log(err);
