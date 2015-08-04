@@ -36,7 +36,8 @@ module.exports.policies = {
 
 
     UserController: {
-    'create': true
+    '*': true,
+
   }
 
   /***************************************************************************

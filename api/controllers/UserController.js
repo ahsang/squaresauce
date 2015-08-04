@@ -21,6 +21,19 @@ _.merge(exports, {
       // var hello=req.param.all();
       // AuthController.callback(req,res);
     });
+  },
+  enroll: function(req,res){
+    options= new Array();
+    options.id=req.param('myuserid');
+    options.mynewfriend=req.param('mynewfriend');
+    
+    User.addFriend(options,function(err){
+      if (err) return next(err);
+      res.ok();
+
+
+    })
+
   }
 
 

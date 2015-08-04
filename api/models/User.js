@@ -23,13 +23,15 @@ _.merge(exports, {
   },
   addFriend: function (options, cb) {
 
-    User.findOne(options.id).exec(function (err, user) {
-        user.myfriends.push(options.mynewfriend);
-        user.save(function (err) { 
-          if(err) console.log(err);
-          return cb();
+    User.find(options.id).exec(function (err, user) {
+    	console.log(user);
+        // user.myfriends.push(options.mynewfriend);
+        // user.save(function (err) { 
+        //   if(err) console.log(err);
+        //   return cb();
       
-         });
+        //  });
+    	cb();
     })
 
   }
