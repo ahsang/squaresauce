@@ -26,34 +26,6 @@ _.merge(exports, {
 
   },
 
-  //   send: function(req,res){
-  //   var info;
-  //   info.id=req.param('myuserid');
-  //   info.fid=req.param('mynewfriend');
-  //   Frequest.create({user1id : info.id},{user2id : info.fid}).exec(function createCB(err, created){
-  //   console.log('Created friend request between: ' + created.user1id + 'and' + created.user2id);
-  //   });
 
 
-
-
-
-
-  // },
-
-
-  addFriend: function (options, cb) {
-    User.find(options.id).exec(function (err, user) {
-    	console.log(user);
-    	if(err)console.log(err);
-        // user.myfriends.push(options.mynewfriend);
-        // user.save(function (err) { 
-        //   if(err) console.log(err);
-        //   return cb();
-      
-        //  });
-    	cb();
-    })
-
-  }
 });

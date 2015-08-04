@@ -16,10 +16,15 @@ module.exports = {
       type: 'int',
       notNull: true
     },
+      	hash: {
+      type: 'int',
+      notNull: true,
+      unique: true
+    },
     status:{
     	type:'string',
     	notNull : true,
-    	defaultsto: 'pending'
+    	defaultsTo: 'pending'
     }
   
 

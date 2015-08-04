@@ -41,8 +41,9 @@ module.exports.routes = {
   },
 
   'POST /user/add' : 'User.send',
+  'POST /user/accept' : 'User.accept',
   'POST /user/sent' : 'Frequest.viewbysent',
-  'POST /user/recieved' : 'Frequest.viewbyrecieved'
+  'POST /user/recieved' : 'Frequest.viewbyrecieved',
 
   /***************************************************************************
   *                                                                          *
