@@ -22,16 +22,27 @@ _.merge(exports, {
       type:'array',
       notNull: true,
       defaultsTo:'{0}'
-    },
-    toJSON: function () {
-      var user = this.toObject();
-      // delete user.password;
-      user.gravatarUrl = this.getGravatarUrl();
-      return user;
     }
-  },
-  addFriend: function (options, cb) {
 
+  },
+
+  //   send: function(req,res){
+  //   var info;
+  //   info.id=req.param('myuserid');
+  //   info.fid=req.param('mynewfriend');
+  //   Frequest.create({user1id : info.id},{user2id : info.fid}).exec(function createCB(err, created){
+  //   console.log('Created friend request between: ' + created.user1id + 'and' + created.user2id);
+  //   });
+
+
+
+
+
+
+  // },
+
+
+  addFriend: function (options, cb) {
     User.find(options.id).exec(function (err, user) {
     	console.log(user);
     	if(err)console.log(err);

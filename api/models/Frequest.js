@@ -13,7 +13,7 @@ module.exports = {
       notNull: true
     },
   	user2id: {
-      type: 'id',
+      type: 'int',
       notNull: true
     },
     status:{

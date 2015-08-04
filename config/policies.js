@@ -38,6 +38,9 @@ module.exports.policies = {
     UserController: {
     '*': true,
 
+  },
+    FrequestController:{
+    '*':true
   }
 
   /***************************************************************************

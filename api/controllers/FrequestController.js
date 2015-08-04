@@ -7,18 +7,32 @@
 
 module.exports = {
 	
-	// acceptRequest: function (options, cb) {
+  viewbyrecieved: function(req,res){
+    info = new Array();
+    // Figure out here how to get id of the user that i currently logged in
+    // info.myid=req.param('user1id');
+    info.id=req.param('user2id');
+    console.log(info.id);
+      Frequest.find({user2id: info.id}).exec(function (err, frequest) {
+        console.log(frequest);
+          if(err)console.log(err);
 
-	// 	User.update({id:'Walter Jr'},{status:'Accepted'}).exec(function afterwards(err, updated){
+        res.ok();
+    });
+  },
 
- //  		if (err) {
- //    			// handle error here- e.g. `res.serverError(err);`
- //    		return;
- //  			}
+  viewbysent: function(req,res){
+    info = new Array();
+    // Figure out here how to get id of the user that i currently logged in
+    // info.myid=req.param('user1id');
+    info.id=req.param('user1id');
+    console.log(info.id);
+      Frequest.find({user1id: info.id}).exec(function (err, frequest) {
+        console.log(frequest);
+          if(err)console.log(err);
 
- //  				console.log('Updated friend request to state: ' + updated[0].status);
-	// 		});
-
- //  }
+        res.ok();
+    });
+  }
 };
 

@@ -38,7 +38,11 @@ module.exports.routes = {
 
     '/test':{
     view: 'test'
-  }
+  },
+
+  'POST /user/add' : 'User.send',
+  'POST /user/sent' : 'Frequest.viewbysent',
+  'POST /user/recieved' : 'Frequest.viewbyrecieved'
 
   /***************************************************************************
   *                                                                          *
