@@ -39,6 +39,10 @@ module.exports.policies = {
     '*': true,
 
   },
+   SquareController: {
+    '*': true,
+
+  },
     FrequestController:{
     '*':true
   }
