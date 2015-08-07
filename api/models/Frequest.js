@@ -17,7 +17,7 @@ module.exports = {
       notNull: true
     },
       	hash: {
-      type: 'int',
+      type: 'string',
       notNull: true,
       unique: true
     },

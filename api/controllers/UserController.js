@@ -31,6 +31,7 @@ _.merge(exports, {
         if(frequest == '')
           {
             Frequest.create({user1id : info.id, user2id: info.fid, hash : info.hash}).exec(function createCB(err){
+               if(err){console.log(err);}
                console.log('tried creating a request');
             });
           }
