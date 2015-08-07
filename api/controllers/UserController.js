@@ -8,7 +8,7 @@ _.merge(exports, {
 
   // Extend with custom logic here by adding additional fields, methods, etc.
 
-   create: function (req, res, next) {
+  create: function (req, res, next) {
       req.session.autouser = req.param('username');
       req.session.autopwd = req.param('password');
       req.session.autouser = req.param('username');
@@ -24,7 +24,7 @@ _.merge(exports, {
     info= new Array();
     info.id=req.param('user1id');
     info.fid=req.param('user2id');
-    info.hash= (1/2)*(info.id + info.fid )*(info.id + info.fid);
+    info.hash= (info.id + info.fid )*(info.id + info.fid);
     console.log(info.hash);
       Frequest.find({hash: info.hash}).exec(function (err, frequest) {
        
@@ -50,7 +50,7 @@ _.merge(exports, {
     // Figure out here how to get id of the user that i currently logged in
     info.id=req.param('user1id');
     info.fid=req.param('user2id');
-    info.hash= (1/2)*(info.id + info.fid)*(info.id + info.fid);
+    info.hash= (info.id + info.fid)*(info.id + info.fid);
     console.log(info.hash);
       Frequest.find({hash: info.hash}).exec(function (err, frequest) {        
         console.log(frequest);
@@ -63,19 +63,21 @@ _.merge(exports, {
               Frequest.destroy({hash: info.hash}).exec(function deleteCB(err){});
               console.log('request has been deleted');
               
-                User.findOne(info.id).exec(function(err,user) {
-                user.myfriends.push( info.fid );
+                User.findOne(info.id).exec(function (err,user) {
+                user.friends.add(info.fid);
+                if(err)console.log(err);
                 user.save(function(err){
-                  console.log('updated firends for user 1');
+                  console.log('updated firends for user 1 and 2');
+                  if(err)console.log(err);
                   });
                 });
-                User.findOne(info.fid).exec(function(err,user) {
-                user.myfriends.push( info.id );
-                user.save(function(err){
-                  console.log('updated firends for user 2');
-                  // something here
-                  });
-                });
+                // User.findOne(info.fid).exec(function(err,user) {
+                // user.myfriends.push( info.id );
+                // user.save(function(err){
+                //   console.log('updated firends for user 2');
+                //   // something here
+                //   });
+                // });
 
 
 
@@ -109,6 +111,12 @@ _.merge(exports, {
           res.ok();
       });
   },
+
+  updateInfo: function(req,res){
+      if(err)console.log(err);
+          res.ok();
+  },
+
 
 
 });

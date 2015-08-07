@@ -26,11 +26,12 @@ _.merge(exports, {
     mysquares:{
       collection:'Square',
       via:'people'
-
-
-    }
-
-  },
+    },
+    friends: {
+      collection: 'friend',
+      via: 'user'
+}
+  }
 
 
 
