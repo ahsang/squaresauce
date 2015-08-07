@@ -46,13 +46,67 @@ module.exports = {
 	          if(err)console.log(err);
 	        res.ok();
 	    });
+	},
 
+	deleteSquare: function(req,res){
+			if(err)console.log(err);
+	        res.ok();
+	},
 
-	}
+	updateInfo: function(req,res){
+		if(err)console.log(err);
+		res.ok();
+	},
 
+	addAdmin: function(req,res){
+			if(err)console.log(err);
+	        res.ok();
+	},
 
+	removeAdmin: function(req,res){
+			if(err)console.log(err);
+	        res.ok();
+	},
 
+	addMembers: function(req,res){
+			if(err)console.log(err);
+	        res.ok();
+	},	
 
+	removeMembers: function(req,res){
+			if(err)console.log(err);
+	        res.ok();
+	},
+
+	addDiscussionForum: function(req,res){
+			if(err)console.log(err);
+	        res.ok();
+	},
+
+	removeDiscussionForum: function(req,res){
+			if(err)console.log(err);
+	        res.ok();
+	},
+
+	addChat: function(req,res){
+			if(err)console.log(err);
+	        res.ok();
+	},
+
+	removeChat: function(req,res){
+			if(err)console.log(err);
+	        res.ok();
+	},
+
+	addWorkSpace: function(req,res){
+			if(err)console.log(err);
+	        res.ok();
+	},
+
+	removeWorkspace: function(req,res){
+			if(err)console.log(err);
+	        res.ok();
+	},
 
 
 };
