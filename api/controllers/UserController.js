@@ -8,7 +8,7 @@ _.merge(exports, {
 
   // Extend with custom logic here by adding additional fields, methods, etc.
 
-   create: function (req, res, next) {
+  create: function (req, res, next) {
       req.session.autouser = req.param('username');
       req.session.autopwd = req.param('password');
       req.session.autouser = req.param('username');
@@ -109,5 +109,11 @@ _.merge(exports, {
       });
   },
 
+  updateInfo: function(req,res){
+      if(err)console.log(err);
+          res.ok();
+  },
 
+  
+  
 });
