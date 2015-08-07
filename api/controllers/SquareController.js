@@ -57,20 +57,70 @@
     info.uid=req.param('user_id');
 
 
-	    Square.findOne(info.sid).exec(function(err,square) {
-	    	if(err){console.log("Square not found");}
-	    	else{	
-	    		square.people.add( info.uid );
-	    		square.save(function(err){
-	    			console.log('updated user for square 1');
-	    		});
-	    	}
+	    Square.findOne({ id : info.sid}).exec(function (err,square) {
+	    	if(square == '')
+	    		{
+	    			console.log("Square not found");
+	   			}
+	    	else
+	    		{	
+		    		User.find({ id : info.uid}).exec(function (err,user) {
+		    			if(user == '')
+		    			{
+		    				console.log('User not found');
+		    			}
+		    			else
+		    			{
+		    				//TODO: Cannot add if user already exists in members.
+		    				square.people.add( info.uid );
+		    				square.save(function(err){
+		    				console.log('added the following user for square ' + square.name);
+		    				console.log(info.uid);
+		    				});	    				
+		    			}
+		    		});
+	    		}
+	    	res.ok();
+	    });
+    
+	},
+
+ 	removeUser: function(req,res){
+			// if(err)console.log(err);
+			
+			info = new Array();
+    // Figure out here how to get id of the user that i currently logged in
+    info.sid=req.param('square_id');
+    info.uid=req.param('user_id');
+
+
+	    Square.findOne({ id : info.sid}).exec(function (err,square) {
+	    	if(square == '')
+	    		{
+	    			console.log("Square not found");
+	   			}
+	    	else
+	    		{	
+		    		User.findOne({ id : info.uid}).exec(function (err,user) {
+		    			if(user == '')
+		    			{
+		    				console.log('User not found');
+		    			}
+		    			else
+		    			{
+		    				//TODO: Cannot remove if user doesnt exist.
+		    				square.people.remove( info.uid );
+		    				square.save(function(err){
+		    				console.log('removed the following user for square ' + square.name);
+		    				console.log(info.uid);
+		    				});	    				
+		    			}
+		    		});
+	    		}
 
 	    });
     res.ok();
 	},
-
-
 
 
 deleteSquare: function(req,res){
@@ -95,15 +145,6 @@ removeAdmin: function(req,res){
 	res.ok();
 },
 
-addMembers: function(req,res){
-	if(err)console.log(err);
-	res.ok();
-},	
-
-removeMembers: function(req,res){
-	if(err)console.log(err);
-	res.ok();
-},
 
 addDiscussionForum: function(req,res){
 	if(err)console.log(err);
