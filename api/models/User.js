@@ -22,6 +22,12 @@ _.merge(exports, {
       type:'array',
       notNull: true,
       defaultsTo:'{0}'
+    },
+    mysquares:{
+      collection:'Square',
+      via:'people'
+
+
     }
 
   },

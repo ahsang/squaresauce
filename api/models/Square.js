@@ -16,10 +16,9 @@ module.exports = {
   	admin: {
       type: 'int'
     },
-	people: {
-      type:'array',
-      // notNull: true,
-      defaultsTo:''
+	  people: {
+      collection:'User',
+      via:'mysquares'
     },
     flags: {
     	type:'array',
