@@ -46,7 +46,8 @@ module.exports.routes = {
   'POST /user/recieved' : 'Frequest.viewbyrecieved',
   'POST /square/add' : 'Square.createSquare',
   'POST /square/addUser' : 'Square.addUser',
-  'POST /square/remUser' : 'Square.removeUser'
+  'POST /square/remUser' : 'Square.removeUser',
+  'POST /square/remove' : 'Square.deleteSquare'
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
