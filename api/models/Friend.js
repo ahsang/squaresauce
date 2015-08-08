@@ -8,10 +8,9 @@
 module.exports = {
 
   attributes: {
-  	user: {
-  model: 'user',
-  via: 'friends'
-}
+  	theuser: {
+  	model: 'user'
+  	}
   }
 };
 

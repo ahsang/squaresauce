@@ -64,20 +64,28 @@ _.merge(exports, {
               console.log('request has been deleted');
               
                 User.findOne(info.id).exec(function (err,user) {
-                user.friends.add(info.fid);
+                user.mfriends.add(info.fid);
                 if(err)console.log(err);
                 user.save(function(err){
-                  console.log('updated firends for user 1 and 2');
+                  console.log('updated firends for user 1');
                   if(err)console.log(err);
+                  
                   });
                 });
-                // User.findOne(info.fid).exec(function(err,user) {
-                // user.myfriends.push( info.id );
-                // user.save(function(err){
-                //   console.log('updated firends for user 2');
-                //   // something here
-                //   });
-                // });
+                User.findOne(info.fid).exec(function(err,user) {
+                user.mfriends.add( info.id ,function(err){
+                  if(err)console.log(err);
+                  console.log('updated firends for user 2');
+
+                  // something here
+                  });
+                user.save(function(err){
+                  if(err)console.log(err);
+                  console.log('updated firends for user 2');
+
+                  // something here
+                  });
+                });
 
 
 

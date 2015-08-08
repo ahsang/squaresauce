@@ -45,7 +45,10 @@ module.exports.policies = {
   },
     FrequestController:{
     '*':true
+  }, FriendController:{
+    '*':true
   }
+
 
   /***************************************************************************
   *                                                                          *
