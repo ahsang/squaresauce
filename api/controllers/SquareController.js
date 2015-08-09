@@ -153,11 +153,9 @@
  		var temp;
  		var users_check=false;
  			Square.findOne({id: info.sid}).populate('people').then(function(sq){
- 				// console.log(sq.length);
- 				// while(sq.length!=0){
  					var temp_square=sq;
-
- 					while(temp_square.people.length!=0){
+ 					//check if the user is in the square or not
+ 					while(temp_square.people.length!=0){//since people object is an array we have to iterate through it
  						var temp_people=temp_square.people.pop();
  						if(temp_people.id==info.uid){
  							console.log("The user exists in this square");
@@ -169,7 +167,6 @@
  					}
 
  					return [users_check,sq];
- 				// }
  			}).spread(function(users_check,sq){
 
  				console.log(sq);

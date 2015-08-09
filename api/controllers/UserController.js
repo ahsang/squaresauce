@@ -15,7 +15,7 @@ _.merge(exports, {
       req.session.autoaction = 'login';
       sails.services.passport.protocols.local.register(req.body, function (err, user) {
         if (err) return next(err);
-
+        console.log("heleu brother");
         res.redirect('test');
     });
   },
