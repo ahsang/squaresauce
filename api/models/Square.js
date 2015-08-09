@@ -13,8 +13,10 @@ module.exports = {
   		notNull: true,
   		unique: true
   	},
-  	admin: {
-      type: 'int'
+  	admins: {
+      collection:'User',
+      via: "isAdmin",
+      unique:true
     },
 	  people: {
       collection:'User',
@@ -39,6 +41,10 @@ module.exports = {
     UniversityTag: {
     	type: 'string',
     	defaultsTo: null
+    },
+    toJSON: function() {
+      var obj = this.toObject();
+      return obj;
     }
     
 

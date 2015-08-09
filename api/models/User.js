@@ -30,6 +30,10 @@ _.merge(exports, {
   mfriends: {
     collection:'Friend',
     via:'theuser'
+  },
+  isAdmin: {
+    collection:'Square',
+    via:'admins'
   }
 }
 
