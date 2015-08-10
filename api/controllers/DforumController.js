@@ -7,6 +7,79 @@
 
 module.exports = {
 
+	addUser: function(req,res){
+
+ 		info = new Array();
+ 		info.dfid=req.param('dforum_id');
+ 		info.uid=req.param('user_id');
+
+
+ 		Dforum.findOne({ id : info.dfid}).exec(function (err, dforum) {
+ 			if(dforum == '')
+ 			{
+ 				console.log("Discussion forum not found");
+ 			}
+ 			else
+ 			{	
+ 				User.find({ id : info.uid}).exec(function (err,user) {
+ 					if(user == '')
+ 					{
+ 						console.log('User not found');
+ 					}
+ 					else
+ 					{
+			    				//TODO: Cannot add if user already exists in members.
+			    				dforum.fmembers.add( info.uid );
+			    				dforum.save(function(err){
+			    					console.log('added the following user to the discussion forum ' + dforum.name);
+			    					console.log(info.uid);
+			    				});	    				
+			    			}
+			    		});
+ 			}
+ 			res.ok();
+ 		});
+ 	},
+
+ 	removeUser: function(req,res){
+
+ 		info = new Array();
+
+ 		info.dfid=req.param('dforum_id');
+ 		info.uid=req.param('user_id');
+
+
+ 		Dforum.findOne({ id : info.dfid}).exec(function (err, dforum) {
+ 			if(dforum == '')
+ 			{
+ 				console.log("Discussion forum not found");
+ 			}
+ 			else
+ 			{	
+ 				User.findOne({ id : info.uid}).exec(function (err,user) {
+ 					if(user == '')
+ 					{
+ 						console.log('User not found');
+ 					}
+ 					else
+ 					{
+			    				//TODO: Cannot remove if user doesnt exist.
+			    				dforum.people.remove( info.uid );
+			    				dforum.save(function(err){
+			    					console.log('removed the following user from the discusison forum ' + dforum.name);
+			    					console.log(info.uid);
+			    				});	    				
+			    			}
+			    		});
+ 			}
+ 			res.ok();
+ 		});
+ 	}
+
+
+
+
+
 	addAdmin: function(req,res){
  		
  		info = new Array();
