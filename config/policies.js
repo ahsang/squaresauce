@@ -39,6 +39,10 @@ module.exports.policies = {
     '*': true,
 
   },
+  DforumController: {
+    '*': true,
+
+  },  
    SquareController: {
     '*': true,
 

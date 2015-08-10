@@ -4,7 +4,7 @@
  * @description :: Server-side logic for managing squares
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
-
+require('./DforumController.js');
  module.exports = {
 
  	createSquare: function(req,res){
@@ -46,6 +46,7 @@
  			if(err)console.log(err);
  			res.ok();
  		});
+ 	//IT WORKS FOR NOW! :D
  	},
 
  	addUser: function(req,res){
@@ -80,6 +81,8 @@
  			}
  			res.ok();
  		});
+	//TODO: Add checks here to see, if any submodules exist within this square, if yes, then update all their users 
+	// 		as well!
  	},
 
  	removeUser: function(req,res){
@@ -115,9 +118,12 @@
  			}
  			res.ok();
  		});
+	//TODO: Add checks here to see, if any submodules exist within this square, if yes, then update all their users 
+	// 		as well!
  	},
 
  	deleteSquare: function(req,res){
+
  		info = new Array();
  		info.id=req.param('id')
  		Square.find({id: info.id}).exec(function (err, square) {
@@ -135,15 +141,19 @@
  			if(err)console.log(err);
  			res.ok();
  		});
+	 //TODO: Add checks here to see, if any submodules exist within this square, if yes, then destroy them 
+	 // 	 as well
  	},
 
  	updateInfo: function(req,res){
  		if(err)console.log(err);
  		res.ok();
+	//TODO: Write the function maybe?:p
  	},
 
  	addAdmin: function(req,res){
  		
+
  		info = new Array();
 
  		info.sid=req.param('square_id');
@@ -187,10 +197,13 @@
 
  			});
 		res.ok();
-	
+	//TODO: Add checks here to see, if any submodules exist within this square, if yes, then update all their admins 
+ 	// 		as well!
  	},
 
  	removeAdmin: function(req,res){
+
+
 
  		info = new Array();
 
@@ -235,7 +248,8 @@
 
  			});
 		res.ok();
-
+ 	//TODO: Add checks here to see, if any submodules exist within this square, if yes, then update all their admins 
+	// 		as well!
  	},
 
 
@@ -254,43 +268,54 @@
  			{	
  				Dforum.create({name:info.name}).exec(function createCB(err, dforum) {		
  						console.log('Created a forum');
- 						consile.log(dforum.id);
- 						Dforum.portOver({dfid : dforum.id}).exec(function createCB(err) {});
-						//TODO: Associate the Dforum, with all the people in the square,
-						//  	and also add the admin of the current square to the admin 
-						// 		of the forum as well.
-						//Update: Doing this in the dforum controller!
-
-	    				
-			    			
+ 						console.log(dforum.id);
+ 						square.sforums.add(dforum.id);
+ 						square.save(function(err){
+			    		if(err){
+			    			console.log(err);
+			    		}else{
+			    		console.log('added' + dforum.id +' as discussion forum for square ' + square.name);
+			    		}
+			    	});
+ 					//	Dforum.portOver({name : dforum.name , sid : square.id , dfid : dforum.id }).exec(function createCB(err, dforum) {
+ 					//	 });
+ 						if(err)console.log(err);
 			    		});
+
+
  			}
  			res.ok();
- 		});
+ 		});	
+ 	//TODO: Test functionality of the function
  	},
 
  	removeDiscussionForum: function(req,res){
- 		if(err)console.log(err);
+	//TODO: Port over the adddiscussion forum function here, then ensure that removal works as well for it,
+	//      might need to add a fucntion in the dforum controller too.
  		res.ok();
  	},
 
  	addChat: function(req,res){
- 		if(err)console.log(err);
+	//Create the chat model
+	//TODO: Write the function maybe?:p
  		res.ok();
  	},
 
  	removeChat: function(req,res){
- 		if(err)console.log(err);
+	//Create the chat model
+	//TODO: Write the function maybe?:p
  		res.ok();
  	},
 
  	addWorkSpace: function(req,res){
- 		if(err)console.log(err);
+	//Create the workspace module
+	//TODO: Write the function maybe?:p
  		res.ok();
  	},
 
  	removeWorkspace: function(req,res){
- 		if(err)console.log(err);
+	//Create the workspace module
+	//TODO: Write the function maybe?:p
  		res.ok();
  	}
 

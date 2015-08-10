@@ -47,7 +47,9 @@ module.exports.routes = {
   'POST /square/add' : 'Square.createSquare',
   'POST /square/addUser' : 'Square.addUser',
   'POST /square/remUser' : 'Square.removeUser',
-  'POST /square/remove' : 'Square.deleteSquare'
+  'POST /square/remove' : 'Square.deleteSquare',
+  'POST /square/addforum' : 'Square.addDiscussionForum',
+  'POST /square/addadmin' : 'Square,addAdmin'
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
