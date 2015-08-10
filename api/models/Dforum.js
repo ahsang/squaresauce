@@ -17,8 +17,7 @@ module.exports = {
 		via: 'myforums'
     },
     fsquares: {
-    	collection: 'Square',
-    	via : 'sforums'
+    	model: 'Square'
     },
     Tags: {
     	type: 'array'
@@ -32,7 +31,14 @@ module.exports = {
 	via: "isForumAdmin",
 	unique:true
     }
+  },
+  afterCreate: function (values, cb) {
+
+    // Encrypt password
+    console.log(values);
+    cb();
   }
+
 
 
   	
