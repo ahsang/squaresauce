@@ -7,6 +7,61 @@
 
 module.exports = {
 
+	portOver: function(req,res){
+
+ 		info = new Array();
+ 		info.sid=req.param('sid');
+ 		info.dfid=req.param('dfid');
+ 		info.name=req.param('name');
+
+ 		var temp;
+ 		var users_check=false;
+ 		 	//port over all the users from the square to the discussion forum
+ 			Square.findOne({id: info.sid}).populate('people').then(function(sq){
+ 					var temp_square=sq;
+ 					while(temp_square.people.length!=0){//since people object is an array we have to iterate through it
+ 						var temp_people=temp_square.people.pop();
+ 						
+			 			Dforum.findOne({id: info.sid}).exec(function (err, dforum){
+			 				dforum.members.add(temp_people.id);
+			 				dforum.save(function(err){
+			    			console.log('added the following user to the discussion forum ' + dforum.name);
+			    			console.log(temp_people.id);
+			    				});
+			 			});
+ 					}
+ 					return [users_check,sq];
+ 			}).spread(function(users_check,sq){		
+ 				// Do Nothing lelz
+ 			}).catch(function(err){
+ 				console.log(err);
+ 			});
+
+ 		 	//port over all the admins from the square to the discussion forum
+			Square.findOne({id: info.sid}).populate('admins').then(function(sq){
+ 					var temp_square=sq;
+ 					while(temp_square.admins.length!=0){//since admins object is an array we have to iterate through it
+ 						var temp_admins=temp_square.admins.pop();
+ 						
+			 			Dforum.findOne({id: info.sid}).exec(function (err, dforum){
+			 				dforum.admins.add(temp_admins.id);
+			 				dforum.save(function(err){
+			    			console.log('added the following admin to the discussion forum ' + dforum.name);
+			    			console.log(temp_admins.id);
+			    				});
+			 			});
+ 					}
+ 					return [users_check,sq];
+ 			}).spread(function(users_check,sq){		
+ 				// Do Nothing lelz
+ 			}).catch(function(err){
+ 				console.log(err);
+ 			});
+
+
+
+ 	},
+
 	addUser: function(req,res){
 
  		info = new Array();
@@ -74,10 +129,7 @@ module.exports = {
  			}
  			res.ok();
  		});
- 	}
-
-
-
+ 	},
 
 
 	addAdmin: function(req,res){

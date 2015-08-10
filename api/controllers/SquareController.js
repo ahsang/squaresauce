@@ -252,11 +252,14 @@
  			}
  			else
  			{	
- 				Dforum.create({name : info.name}).exec(function createCB(err) {		
+ 				Dforum.create({name:info.name}).exec(function createCB(err, dforum) {		
  						console.log('Created a forum');
+ 						consile.log(dforum.id);
+ 						Dforum.portOver({dfid : dforum.id}).exec(function createCB(err) {});
 						//TODO: Associate the Dforum, with all the people in the square,
 						//  	and also add the admin of the current square to the admin 
 						// 		of the forum as well.
+						//Update: Doing this in the dforum controller!
 
 	    				
 			    			
