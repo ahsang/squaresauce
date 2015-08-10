@@ -130,6 +130,12 @@ module.exports = {
  			res.ok();
  		});
  	},
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> origin/master
 
 
 	addAdmin: function(req,res){
