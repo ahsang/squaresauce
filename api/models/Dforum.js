@@ -8,17 +8,17 @@
 module.exports = {
 
   attributes: {
-  	forumname:{
+  	name:{
   		type: 'string',
   		notNull: true
   	},
-  	admin: {
-      type: 'int',
+	fmembers: {
+		collection: 'User',
+		via: 'myforums'
     },
-	people: {
-      type:'array',
-      notNull: true,
-      defaultsTo:''
+    fsquares: {
+    	collection: 'Square',
+    	via : 'sforums'
     },
     Tags: {
     	type: 'array'
@@ -26,6 +26,11 @@ module.exports = {
     Comments: {
     	type: 'array',
     	defaultsTo: ''
+    },
+	admins: {
+	collection:'User',
+	via: "isForumAdmin",
+	unique:true
     }
   }
 };

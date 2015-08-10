@@ -182,26 +182,88 @@
 			    }else{
 			    	console.log("The user you are trying to add as an admin is not in this square");
 			    }
+ 			}).catch(function(err){
+ 				console.log(err);
 
+ 			});
+		res.ok();
+	
+ 	},
+
+ 	removeAdmin: function(req,res){
+
+ 		info = new Array();
+
+ 		info.sid=req.param('square_id');
+ 		info.uid=req.param('user_id');
+
+ 		
+ 		var temp;
+ 		var users_check=false;
+ 			Square.findOne({id: info.sid}).populate('admins').then(function(sq){
+ 					var temp_square=sq;
+ 					//check if the user is an admin in the square or not
+ 					while(temp_square.people.length!=0){//since people object is an array we have to iterate through it
+ 						var temp_people=temp_square.people.pop();
+ 						if(temp_people.id==info.uid){
+ 							console.log("The user is an admin in this square");
+ 							users_check=true;
+ 							return [users_check,sq];
+ 						}else{
+ 						console.log(temp_people);	
+ 						}
+ 					}
+
+ 					return [users_check,sq];
+ 			}).spread(function(users_check,sq){
+
+ 				console.log(sq);
+ 				if(users_check){
+ 					sq.admins.remove( info.uid );
+			    	sq.save(function(err){
+			    		if(err){
+			    			console.log(err);
+			    		}else{
+			    		console.log('removed' + info.uid +' as admin for square ' + sq.name);
+			    		}
+			    	});
+			    }else{
+			    	console.log("The user you are trying to remove is not an admin in this square");
+			    }
  			}).catch(function(err){
  				console.log(err);
 
  			});
 		res.ok();
 
- 		
- 		
- 	},
-
- 	removeAdmin: function(req,res){
- 		if(err)console.log(err);
- 		res.ok();
  	},
 
 
  	addDiscussionForum: function(req,res){
- 		if(err)console.log(err);
- 		res.ok();
+ 		info = new Array();
+ 		info.sid=req.param('square_id');
+ 		info.name=req.param('Forum_name');
+
+
+ 		Square.findOne({ id : info.sid}).exec(function (err,square) {
+ 			if(square == '')
+ 			{
+ 				console.log("Square not found");
+ 			}
+ 			else
+ 			{	
+ 				Dforum.create({name : info.name}).exec(function createCB(err) {		
+ 						console.log('Created a forum');
+						//TODO: Associate the Dforum, with all the people in the square,
+						//  	and also add the admin of the current square to the admin 
+						// 		of the forum as well.
+
+	    				
+			    			
+			    		});
+ 			}
+ 			res.ok();
+ 		});
  	},
 
  	removeDiscussionForum: function(req,res){

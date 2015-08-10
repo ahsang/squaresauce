@@ -31,10 +31,19 @@ _.merge(exports, {
     collection:'Friend',
     via:'theuser'
   },
+  myforums: {
+    collection: 'Dforum',
+    via: 'fmembers'
+  },  
   isAdmin: {
     collection:'Square',
     via:'admins'
+  },
+    isForumAdmin: {
+    collection:'Dforum',
+    via:'admins'
   }
+
 }
 
 

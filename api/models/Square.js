@@ -27,9 +27,9 @@ module.exports = {
     	notNull: true,
     	defaultsTo:'[0,0,0,0,0,0,0]'
     },
-    dfroums: {
-    	type: 'array',
-    	defaultsTo: ''
+    sforums: {
+    	collection: 'Dforum',
+    	via : 'fsquares'
     },
     Tags: {
     	type: 'array'
