@@ -5,13 +5,19 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
+ 	//	Everything square related is found here, from creation, to update to addition/deletion
+ 	//	of modules.
+ 	//	Function paramters required are given in the first line, "" indicate mandatory 
+ 	//	while '' mean optional params.
+ 	//	
+
  module.exports = {
 
 	createSquare: function(req,res){
 	 		info = new Array();
 	 		tags = new Array();
 	 		info.name=req.param('name');
-	 		info.uni=req.param('uniflag');
+	 		//info.uni=req.param('uniflag');
 	 		info.unitag=req.param('unitag');
 	 		settags = req.param('tags');
 	 		info.admin = req.param('admin');
@@ -24,7 +30,7 @@
 
 	 					if(square == '')
 	 					{
-	 						Square.create({name : info.name, UniversityTag: info.unitag, admin: info.admin, tags: settags}).exec(function createCB(err){
+	 						Square.create({name : info.name, UniversityTag: info.unitag, tags: settags}).exec(function createCB(err){
 	 							console.log('tried creating a new square with the following stuff: ');
 	 							console.log(settags);
 	 						});					          
@@ -46,7 +52,8 @@
 	 			if(err)console.log(err);
 	 			res.ok();
 	 		});
-	//IT WORKS FOR NOW! :D
+	// 		"name" "unitag" 'tags' 		
+	//		WORKING!
 	},
 
 	addUser: function(req,res){
@@ -81,8 +88,10 @@
 	 		}
 	 		res.ok();
 	 	});
-		//TODO: Add checks here to see, if any submodules exist within this square, if yes, then update all their users 
-		// 		as well!
+	//		"square_id" "user_id"
+	//TODO: Add checks here to see, if any submodules exist within this square, if yes, then update all their users 
+	// 		as well.
+	//		WORKING!			
 	},
 
 	removeUser: function(req,res){
@@ -118,14 +127,16 @@
 			}
 			res.ok();
 		});
-		//TODO: Add checks here to see, if any submodules exist within this square, if yes, then update all their users 
-		// 		as well!
+	//		"square_id" "user_id"
+	//TODO: Add checks here to see, if any submodules exist within this square, if yes, then update all their users 
+	// 		as well.
+	//		WORKING!
 	},
 
 	deleteSquare: function(req,res){
 
 		info = new Array();
-		info.id=req.param('id')
+		info.id=req.param('square_id')
 		Square.find({id: info.id}).exec(function (err, square) {
 
 			if(square == '')
@@ -141,15 +152,12 @@
 			if(err)console.log(err);
 			res.ok();
 		});
-		 //TODO: Add checks here to see, if any submodules exist within this square, if yes, then destroy them 
-		 // 	 as well
-		},
-
-		updateInfo: function(req,res){
-			if(err)console.log(err);
-			res.ok();
-		//TODO: Write the function maybe?:p
+	//		"square_id"
+	//TODO: Add checks here to see, if any submodules exist within this square, if yes, then destroy them 
+	// 	 	as well.
+	//		WORKING!
 	},
+
 
 	addAdmin: function(req,res){
 
@@ -197,13 +205,13 @@
 
 	 				});
 	 				res.ok();
-		//TODO: Add checks here to see, if any submodules exist within this square, if yes, then update all their admins 
-	 	// 		as well!
+	//		"square_id" "user_id"
+	//TODO: Add checks here to see, if any submodules exist within this square, if yes, then update all their admins 
+ 	// 		as well.
+ 	//		WORKING!
 	 },
 
-	 removeAdmin: function(req,res){
-
-
+	removeAdmin: function(req,res){
 
 	 	info = new Array();
 
@@ -248,8 +256,10 @@
 
 	 				});
 	 				res.ok();
-	 	//TODO: Add checks here to see, if any submodules exist within this square, if yes, then update all their admins 
-		// 		as well!
+	//		"square_id" "user_id"
+	//TODO: Add checks here to see, if any submodules exist within this square, if yes, then update all their admins 
+	// 		as well.
+	//		NEED TO TEST!
 	},
 
 	addDiscussionForum: function(req,res){
@@ -292,7 +302,9 @@
 	 		}).catch(function(err){
 	 			console.log(err);
 	 		});	
-	 	//TODO: Test functionality of the function
+	//		"square_id" "forumm_name"
+	//TODO: Nothing in mind yet... think perhaps?
+	//		WORKING!
 	},
 
 	removeDiscussionForum: function(req,res){
@@ -348,30 +360,37 @@
 		 	}).catch(function(err){
 			console.log(err);
 		});	
+	//		"square_id" "forumm_id"
+	//TODO: Nothing in mind yet... think perhaps?
+	//		WORKING!
 	},
 
 	addChat: function(req,res){
 		//Create the chat model
 		//TODO: Write the function maybe?:p
 		res.ok();
+	//TODO: Need to figure out the chat module first...
 	},
 
 	removeChat: function(req,res){
 		//Create the chat model
 		//TODO: Write the function maybe?:p
 		res.ok();
+	//TODO: Need to figure out the chat module first...
 	},
 
 	addWorkSpace: function(req,res){
 		//Create the workspace module
 		//TODO: Write the function maybe?:p
 		res.ok();
+	//TODO: Scrape this for now? MVP focus somewhere else?
 	},
 
 	removeWorkspace: function(req,res){
 		//Create the workspace module
 		//TODO: Write the function maybe?:p
 		res.ok();
+	//TODO: Scrape this for now? MVP focus somewhere else?
 	}
 
 

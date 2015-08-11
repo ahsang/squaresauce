@@ -22,11 +22,6 @@ module.exports = {
       collection:'User',
       via:'mysquares'
     },
-    flags: {
-    	type:'array',
-    	notNull: true,
-    	defaultsTo:'[0,0,0,0,0,0,0]'
-    },
     sforums: {
     	collection: 'Dforum',
     	via : 'fsquares'

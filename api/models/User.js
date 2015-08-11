@@ -8,21 +8,6 @@ _.merge(exports, {
 
   // Extend with custom logic here by adding additional fields, methods, etc.
   attributes: {
-   age: {
-    type: 'int',
-
-    defaultsTo:'0'
-  },
-  phonenumber: {
-    type: 'string',
-
-    defaultsTo:'1234'
-  },
-  myfriends: {
-    type:'array',
-    notNull: true,
-    defaultsTo:'{0}'
-  },
   mysquares:{
     collection:'Square',
     via:'people'

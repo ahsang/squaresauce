@@ -9,15 +9,15 @@ _.merge(exports, {
   // Extend with custom logic here by adding additional fields, methods, etc.
 
   create: function (req, res, next) {
-      req.session.autouser = req.param('username');
-      req.session.autopwd = req.param('password');
-      req.session.autouser = req.param('username');
-      req.session.autoaction = 'login';
-      sails.services.passport.protocols.local.register(req.body, function (err, user) {
-        if (err) return next(err);
-        console.log("heleu brother");
-        res.redirect('test');
-      });
+    req.session.autouser = req.param('username');
+    req.session.autopwd = req.param('password');
+    req.session.autouser = req.param('username');
+    req.session.autoaction = 'login';
+    sails.services.passport.protocols.local.register(req.body, function (err, user) {
+      if (err) return next(err);
+      console.log("heleu brother");
+      res.redirect('test');
+    });
   },
 
   send: function(req,res){
@@ -125,6 +125,16 @@ _.merge(exports, {
           res.ok();
   },
 
+  getProfile: function(req,res){
+  //  GET USER PROFILE HERE. Perhaps have a seperate model for profiles, and reference all 
+  //  the users friends over there to have easy access policies?
+  },
 
+  isFriends: function(req,res){
+  //  Do we need this funciton?
+  //  Can help to have a simple friends check, for easier policy implementaion?
+  //  But then we should not check for policies in profiles or users themselves.
+  //  Food for thoguht....
+  }
 
 });
