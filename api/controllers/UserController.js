@@ -17,7 +17,7 @@ _.merge(exports, {
         if (err) return next(err);
         console.log("heleu brother");
         res.redirect('test');
-    });
+      });
   },
 
   send: function(req,res){

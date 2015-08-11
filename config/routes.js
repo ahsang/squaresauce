@@ -49,6 +49,7 @@ module.exports.routes = {
   'POST /square/remUser' : 'Square.removeUser',
   'POST /square/remove' : 'Square.deleteSquare',
   'POST /square/addforum' : 'Square.addDiscussionForum',
+  'POST /square/removeforum' : 'Square.removeDiscussionForum',
   'POST /square/addadmin' : 'Square,addAdmin'
   /***************************************************************************
   *                                                                          *

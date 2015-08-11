@@ -57,9 +57,6 @@ module.exports = {
  			}).catch(function(err){
  				console.log(err);
  			});
-
-
-
  	},
 
 	addUser: function(req,res){
@@ -131,8 +128,6 @@ module.exports = {
  		});
  	},
 
-
-
 	addAdmin: function(req,res){
  		
  		info = new Array();
@@ -177,8 +172,7 @@ module.exports = {
  				console.log(err);
 
  			});
-		res.ok();
-	
+		res.ok();	
  	},
 
  	removeAdmin: function(req,res){
@@ -226,7 +220,6 @@ module.exports = {
 
  			});
 		res.ok();
-	
  	}
 	
 };
