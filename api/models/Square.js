@@ -26,8 +26,9 @@ module.exports = {
     	collection: 'Dforum',
     	via : 'fsquares'
     },
-    Tags: {
-    	type: 'array'
+    gentags: {
+    	collection: 'Gentag',
+    	via : 'squares'
     },
     UniversitySquare: {
     	type: 'boolean',

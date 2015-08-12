@@ -8,26 +8,29 @@ _.merge(exports, {
 
   // Extend with custom logic here by adding additional fields, methods, etc.
   attributes: {
-  mysquares:{
-    collection:'Square',
-    via:'people'
-  },
-  mfriends: {
-    collection:'Friend',
-    via:'theuser'
-  },
-  myforums: {
-    collection: 'Dforum',
-    via: 'fmembers'
-  },  
-  isAdmin: {
-    collection:'Square',
-    via:'admins'
-  },
-    isForumAdmin: {
-    collection:'Dforum',
-    via:'admins'
-  }
+    Profile:{
+      Model: 'Profile'
+    },
+    mysquares:{
+      collection:'Square',
+      via:'people'
+    },
+    mfriends: {
+      collection:'Friend',
+      via:'theuser'
+    },
+    myforums: {
+      collection: 'Dforum',
+      via: 'fmembers'
+    },  
+    isAdmin: {
+      collection:'Square',
+      via:'admins'
+    },
+      isForumAdmin: {
+      collection:'Dforum',
+      via:'admins'
+    }
 
 }
 

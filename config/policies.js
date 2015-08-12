@@ -28,30 +28,43 @@ module.exports.policies = {
 
   // '*': true,
 
-    '*': [ 'basicAuth', 'passport', 'sessionAuth' ],
+      '*': [ 'basicAuth', 'passport', 'sessionAuth' ],
 
-  AuthController: {
-    '*': [ 'passport' ]
-  },
-
-
+    AuthController: {
+      '*': [ 'passport' ]
+    },
     UserController: {
-    '*': true,
-
-  },
-  DforumController: {
-    '*': true,
-
-  },  
-   SquareController: {
-    '*': true,
-
-  },
+      '*': true
+    },
+    DforumController: {
+      '*': true
+    },  
+    SquareController: {
+      '*': true
+    },
     FrequestController:{
-    '*':true
-  }, FriendController:{
-    '*':true
-  }
+      '*': true
+    }, 
+    // SomeController:{
+    //   '*': true
+    // },
+    // SomeController:{
+    //   '*': true
+    // },
+    // SomeController:{
+    //   '*': true
+    // },            
+    FriendController:{
+      '*': true
+    },
+    ProfileController:{
+      '*': true
+    },
+    GentagController:{
+      '*': true
+    }
+
+
 
 
   /***************************************************************************
