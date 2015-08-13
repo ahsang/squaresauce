@@ -8,6 +8,15 @@
 module.exports = {
 
   attributes: {
+  	sid:{
+  		type: 'integer',
+  		autoIncrement: true,
+  		unique: true
+  	},
+  	subsquares:{
+  		collection: 'Square',
+  		via : 'sid'
+  	},
   	name: {
   		type: 'string',
   		notNull: true,

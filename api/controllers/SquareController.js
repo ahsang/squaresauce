@@ -17,32 +17,41 @@
 	 		info = new Array();
 	 		tags = new Array();
 	 		info.name=req.param('name');
+	 		info.sid=req.param('sid');
 	 		//info.uni=req.param('uniflag');
 	 		info.unitag=req.param('unitag');
 	 		settags = req.param('tags');
 	 		info.admin = req.param('admin');
+	 		console.log('something happened 1');
 
 	 		Square.find({name: info.name}).exec(function (err, square) {
-
+	 			console.log('something happened 2');
 	 			if(square == '')
 	 			{
-	 				Square.find({UniversityTag: info.unitag}).exec(function (err, square) {
-
-	 					if(square == '')
-	 					{
-	 						Square.create({name : info.name, UniversityTag: info.unitag, tags: settags}).exec(function createCB(err){
-	 							console.log('tried creating a new square with the following stuff: ');
-	 							console.log(settags);
-	 						});					          
-	 					}
-	 					else
-	 					{
+	 				console.log('something happened 3');
+	 				//Square.findOne({UniversityTag: info.unitag}).exec(function (err, absquare) {
+	 				//	console.log('something happened 4');
+	 				//	console.log(absquare);
+	 				//	if(absquare == '')
+	 				//	{
+	 						console.log('something happened 5');
+	 						Square.findOne({sid: info.sid}).exec(function (err, subsquare) {
+	 							Square.create({name : info.name, UniversityTag: info.unitag, tags: settags, subsqares: subsquare}).exec(function createCB(err){
+	 								console.log('tried creating a new square with the following stuff: ');
+	 								console.log(settags);
+	 							});
+	 							if(err)console.log(err);
+	 							res.ok();					          
+	 						});	
+	 				//	}
+	 				//	else
+	 				//	{
 	 						console.log('This university already has a square, go look it up!');
-	 					}
+	 				//	}
 
-	 					if(err)console.log(err);
-	 					res.ok();
-	 				});
+	 			//		if(err)console.log(err);
+	 			//		res.ok();
+	 			//	});
 	 			}
 	 			else
 	 			{

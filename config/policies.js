@@ -34,7 +34,7 @@ module.exports.policies = {
       '*': [ 'passport' ]
     },
     UserController: {
-      '*': true
+      'create': true
     },
     DforumController: {
       '*': true

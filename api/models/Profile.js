@@ -12,11 +12,17 @@ module.exports = {
     	model: 'User'
     },   
     Picture: {
-
+    	type: 'string'
     },
     gentags:{
     	collection:'Gentag',
     	via:'profiles'
+    },
+    About:{
+    	type:'string'
+    },
+    Unisquare:{
+    	model: 'Unisquare'
     }
 
 
