@@ -13,10 +13,13 @@ _.merge(exports, {
     req.session.autopwd = req.param('password');
     req.session.autouser = req.param('username');
     req.session.autoaction = 'login';
-    sails.services.passport.protocols.local.register(req.body, function (err, user) {
+    sails.services.passport.protocols.local.register(req.body, function (err, created) {
       if (err) return next(err);
-      console.log("heleu brother");
       res.redirect('test');
+      Profile.create({user : created}).exec(function createCB(err){
+        if(err){console.log(err);}
+        console.log('tried creating a request');
+      });
     });
   },
 
