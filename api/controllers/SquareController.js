@@ -48,7 +48,7 @@
 	 				});	
 		
 
-	// 		"name" "unitag" 'tags' 		
+	// 		"name" "tag" 'sid' 'uid' 		
 	//		WORKING!
 	},
 

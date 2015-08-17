@@ -36,7 +36,7 @@ module.exports = {
     	via : 'squares'
     },
     unisquare:{
-      model: 'Unisquare'
+      model: 'UniSquare'
     },
     sqrtag:{
       model: 'Sqrtag'

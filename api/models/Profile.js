@@ -22,7 +22,7 @@ module.exports = {
     	type:'string'
     },
     unisquare:{
-    	model: 'Unisquare'
+    	model: 'UniSquare'
     }
     	
 

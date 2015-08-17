@@ -47,13 +47,13 @@ module.exports.policies = {
     }, 
     // SomeController:{
     //   '*': true
-    // },
-    // SomeController:{
-    //   '*': true
-    // },
-    // SomeController:{
-    //   '*': true
-    // },            
+    //},
+    SqrtagController:{
+      '*': true
+    },
+    UniSquareController:{
+      '*': true
+    },            
     FriendController:{
       '*': true
     },

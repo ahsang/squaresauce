@@ -17,7 +17,7 @@ module.exports = {
     },
 	squares: {
 		collection: 'Square',
-		via: 'uniSquare'
+		via: 'unisquare'
 	}
   }
 };
