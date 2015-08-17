@@ -13,10 +13,6 @@ module.exports = {
   		autoIncrement: true,
   		unique: true
   	},
-  	subsquares:{
-  		collection: 'Square',
-  		via : 'sid'
-  	},
   	name: {
   		type: 'string',
   		notNull: true,
@@ -39,17 +35,11 @@ module.exports = {
     	collection: 'Gentag',
     	via : 'squares'
     },
-    UniversitySquare: {
-    	type: 'boolean',
-    	defaultsTo: false
+    unisquare:{
+      model: 'Unisquare'
     },
-    UniversityTag: {
-    	type: 'string',
-    	defaultsTo: null
-    },
-    toJSON: function() {
-      var obj = this.toObject();
-      return obj;
+    sqrtag:{
+      model: 'Sqrtag'
     }
     
 

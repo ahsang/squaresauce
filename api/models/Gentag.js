@@ -13,11 +13,11 @@ module.exports = {
   		type:'string'
   	},
 
-  	squares:{
+  	squares: {
       collection:'Square',
       via:'gentags'
     },
-    profiles:{
+    profiles: {
     	collection:'Profile',
     	via: 'gentags'
     }

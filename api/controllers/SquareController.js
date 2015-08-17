@@ -16,51 +16,38 @@
 	createSquare: function(req,res){
 	 		info = new Array();
 	 		tags = new Array();
-	 		info.name=req.param('name');
+	 		info.tag=req.param('name')
+	 		info.tag=req.param('tag');
 	 		info.sid=req.param('sid');
-	 		//info.uni=req.param('uniflag');
-	 		info.unitag=req.param('unitag');
-	 		settags = req.param('tags');
-	 		info.admin = req.param('admin');
-	 		console.log('something happened 1');
+	 		info.uid=req.param('uid');
+				
+	 				UniSquare.findOne({id: info.uid}).exec(function (err, unisquare) {
 
-	 		Square.find({name: info.name}).exec(function (err, square) {
-	 			console.log('something happened 2');
-	 			if(square == '')
-	 			{
-	 				console.log('something happened 3');
-	 				//Square.findOne({UniversityTag: info.unitag}).exec(function (err, absquare) {
-	 				//	console.log('something happened 4');
-	 				//	console.log(absquare);
-	 				//	if(absquare == '')
-	 				//	{
-	 						console.log('something happened 5');
-	 						Square.findOne({sid: info.sid}).exec(function (err, subsquare) {
-	 							Square.create({name : info.name, UniversityTag: info.unitag, tags: settags, subsqares: subsquare}).exec(function createCB(err){
-	 								console.log('tried creating a new square with the following stuff: ');
-	 								console.log(settags);
-	 							});
+	 					if(unisquare == '')
+	 					{
+							console.log('The university you requested this square to be added to does not exist!');
+	 					}
+	 					else
+	 					{
+	 						Square.findOne({sqrtag: info.tag}).exec(function (err, subsquare) {
+	 							if(subsquare = '')
+	 							{
+	 								Square.create({name : info.name}).exec(function createCB(err){
+		 								console.log('Created a new square with the following stuff: ');
+		 								console.log(name);
+		 							});	 									
+	 							}
+	 							else
+	 							{
+									console.log('The University already has this square!');
+	 							}
 	 							if(err)console.log(err);
 	 							res.ok();					          
-	 						});	
-	 				//	}
-	 				//	else
-	 				//	{
-	 						console.log('This university already has a square, go look it up!');
-	 				//	}
+	 						});
+	 					}
+	 				});	
+		
 
-	 			//		if(err)console.log(err);
-	 			//		res.ok();
-	 			//	});
-	 			}
-	 			else
-	 			{
-	 				console.log('A square with this name already exists, choose a different name');
-	 			}
-
-	 			if(err)console.log(err);
-	 			res.ok();
-	 		});
 	// 		"name" "unitag" 'tags' 		
 	//		WORKING!
 	},

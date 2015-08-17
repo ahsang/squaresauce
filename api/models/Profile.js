@@ -8,23 +8,23 @@
 module.exports = {
 
   attributes: {
-  	User: {
+  	user: {
     	model: 'User'
     },   
-    Picture: {
+    picture: {
     	type: 'string'
     },
     gentags:{
     	collection:'Gentag',
     	via:'profiles'
     },
-    About:{
+    about:{
     	type:'string'
     },
-    Unisquare:{
+    unisquare:{
     	model: 'Unisquare'
     }
-
+    	
 
 
   }
