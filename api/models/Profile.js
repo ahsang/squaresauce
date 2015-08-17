@@ -31,8 +31,9 @@ module.exports = {
         collection: 'Badge',
         via : 'profiles'
     },
-    oongals:{
-        type: 'INT'
+    oongal:{
+        type: 'integer',
+        defaultsTo : 3
     }
     	
 

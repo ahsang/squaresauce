@@ -11,7 +11,7 @@ _.merge(exports, {
 
     
     profile:{
-      Model: 'Profile'
+      model: 'Profile'
     },
     mysquares:{
       collection:'Square',

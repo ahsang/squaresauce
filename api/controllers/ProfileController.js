@@ -49,15 +49,17 @@ module.exports = {
   	  					// A user can suggest a badge to a fellow user which he will approve, then it will forward to the appropriate square
   	  },
 
-  	  raiseOongal: function(req,res){
+  	  increaseOongal: function(req,res){
   	  	info = new Array();
   	  	info.id = req.param('uid')
+  	  	console.log('i just got called yeah');
 			Profile.findOne({id: info.id}).then(function(profile){
-					var temp = profile.Oongal;
-					temp = temp +1;
-					profile.Oongal = temp;
+				console.log('something happened');
+					var temp = profile.oongal;
+					temp = temp + 1;
+					profile.oongal = temp;
 					profile.save(function(err){
-					    	console.log('Raised the oongal to '+profile.Oongal);
+					    	console.log('Raised the oongal to '+profile.oongal);
 					    });
 				res.ok();	 
 			}).catch(function(err){
@@ -69,11 +71,11 @@ module.exports = {
   	  	 info = new Array();
   	  	 info.id = req.param('uid')
 			Profile.findOne({id: info.id}).then(function(profile){
-					var temp = profile.Oongal;
+					var temp = profile.oongal;
 					temp = temp -1;
-					profile.Oongal = temp;
+					profile.oongal = temp;
 					profile.save(function(err){
-					    	console.log('Reduced the oongal to '+profile.Oongal);
+					    	console.log('Reduced the oongal to '+profile.oongal);
 					    });
 				res.ok();	 
 			}).catch(function(err){
