@@ -264,7 +264,7 @@ module.exports = {
  		Forumcomment.findOne({id:info.cid}).then(function(comm){
  				console.log(comm.dforum);
  				Dforum.findOne({id: comm.dforum}).populate('comments').then(function(df){
- 					df.comments.remove(comm);
+ 					df.comments.remove(comm.id);
  					df.save(function(err){
 					    	console.log('Removed the comment, '+comm.content+'to the univeristy ');
 					});
@@ -284,6 +284,14 @@ module.exports = {
  		}).catch(function(err){
  			console.log(err);
  		});
+
+
+ 		Forumcomment.destroy({id:info.cid}).then(function (a){
+ 				console.log(a);
+  				console.log('The record has been deleted');
+		}).catch(function(err){
+			console.log(err);
+		});
  		res.ok();
 
 	}
