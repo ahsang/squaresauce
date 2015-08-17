@@ -26,17 +26,18 @@ module.exports = {
     	type: 'array',
     	defaultsTo: ''
     },
-	admins: {
-	collection:'User',
-	via: "isForumAdmin",
-	unique:true
+	  admins: {
+	    collection:'User',
+	    via: "isForumAdmin",
+	    unique:true
+    },
+    comments:{
+      collection:'Forumcomment',
+      via:'dforum'
     }
-  },
-  afterCreate: function (values, cb) {
 
-    // Encrypt password
-    console.log(values);
-    cb();
+
+
   }
 
 
