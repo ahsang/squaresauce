@@ -222,5 +222,12 @@ module.exports = {
 		res.ok();
  	}
 	
+	addComment: function(req,res){
+	}
+
+	removeComment: function(req,res){		
+	}
+
+
 };
 
