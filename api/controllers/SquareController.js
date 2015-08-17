@@ -32,9 +32,13 @@
 	 						Square.findOne({sqrtag: info.tag}).exec(function (err, subsquare) {
 	 							if(subsquare = '')
 	 							{
-	 								Square.create({name : info.name}).exec(function createCB(err){
+	 								Square.create({name : info.name}).exec(function createCB(err, created){
 		 								console.log('Created a new square with the following stuff: ');
 		 								console.log(name);
+		 								unisquare.squares.add( info.uid );
+				    					unisquare.save(function(err){
+					    					console.log('Added the square '+created.name+'to the univeristy ' +unisquare.name);
+					    				});
 		 							});	 									
 	 							}
 	 							else
