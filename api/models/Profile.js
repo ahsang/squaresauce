@@ -30,6 +30,9 @@ module.exports = {
     badges:{
         collection: 'Badge',
         via : 'profiles'
+    },
+    oongals:{
+        type: 'INT'
     }
     	
 

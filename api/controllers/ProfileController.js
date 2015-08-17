@@ -47,8 +47,39 @@ module.exports = {
 
   	  suggestBadge: function(req,res){
   	  					// A user can suggest a badge to a fellow user which he will approve, then it will forward to the appropriate square
-  	  }
+  	  },
 
+  	  raiseOongal: function(req,res){
+  	  	info = new Array();
+  	  	info.id = req.param('uid')
+			Profile.findOne({id: info.id}).then(function(profile){
+					var temp = profile.Oongal;
+					temp = temp +1;
+					profile.Oongal = temp;
+					profile.save(function(err){
+					    	console.log('Raised the oongal to '+profile.Oongal);
+					    });
+				res.ok();	 
+			}).catch(function(err){
+				console.log(err);
+			});
+  	  },
+
+  	  decreaseOongal: function(req,res){
+  	  	 info = new Array();
+  	  	 info.id = req.param('uid')
+			Profile.findOne({id: info.id}).then(function(profile){
+					var temp = profile.Oongal;
+					temp = temp -1;
+					profile.Oongal = temp;
+					profile.save(function(err){
+					    	console.log('Reduced the oongal to '+profile.Oongal);
+					    });
+				res.ok();	 
+			}).catch(function(err){
+				console.log(err);
+			});
+  	  }
 
 };
 
