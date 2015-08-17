@@ -11,8 +11,11 @@ module.exports = {
   	user: {
     	model: 'User'
     },   
-    picture: {
+    pictureurl: {
     	type: 'string'
+    },
+    pictureid: {
+        type: 'string'
     },
     gentags:{
     	collection:'Gentag',
@@ -23,6 +26,10 @@ module.exports = {
     },
     unisquare:{
     	model: 'UniSquare'
+    },
+    badges:{
+        collection: 'Badge',
+        via : 'profiles'
     }
     	
 
