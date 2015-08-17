@@ -14,12 +14,15 @@ module.exports = {
   		required: true
   	},
   	timestamp:{
-  		type: 'datetime',
-  		required: true	
+  		type: 'string',
+  		// required: true	
   	},
   	dforum:{
   		model: 'Dforum'
-  	}
+  	},
+    owner:{
+      model:'User'
+    }
   }
   
 };

@@ -30,11 +30,12 @@ module.exports.policies = {
 
       '*': [ 'basicAuth', 'passport', 'sessionAuth' ],
 
+
     AuthController: {
       '*': [ 'passport' ]
     },
     UserController: {
-      'create': true
+      '*': true
     },
     DforumController: {
       '*': true
@@ -61,6 +62,9 @@ module.exports.policies = {
       '*': true
     },
     GentagController:{
+      '*': true
+    },
+    ForumcommentController:{
       '*': true
     }
 

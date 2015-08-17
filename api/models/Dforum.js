@@ -22,11 +22,7 @@ module.exports = {
     Tags: {
     	type: 'array'
     },
-    Comments: {
-    	type: 'array',
-    	defaultsTo: ''
-    },
-	  admins: {
+    admins: {
 	    collection:'User',
 	    via: "isForumAdmin",
 	    unique:true

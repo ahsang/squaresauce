@@ -222,10 +222,70 @@ module.exports = {
 		res.ok();
  	},
 	
-	addComment: function(req,res){
+	addComment: function(req,res){//wow
+		info = new Array();
+
+ 		info.dfid=req.param('dforum_id');
+ 		info.cont=req.param('content');
+		info.timestamp=req.param('timestamp')||"1234";
+ 		info.owner=req.param('user_id');
+		
+		Dforum.findOne({id: info.dfid}).then(function(df){
+			User.findOne({id: info.owner}).then(function(user){
+				Forumcomment.create({content : info.cont, timestamp: info.timestamp, dforum:df,owner:user}).exec(function createCB(err, created){
+						console.log('Created a new comment with the following stuff: ');
+						console.log(created);
+						console.log("the df is ");
+						console.log(df);
+						df.comments.add(created);
+						df.save(function(err){
+					    	console.log('Added the comment, '+created.content+'to the univeristy ');
+					    });
+				});
+				res.ok();	 
+			}).catch(function(err){
+				console.log(err);
+			});
+
+		}).catch(function(err){
+			console.log(err);
+		});
+		res.view('404');
+
+
+
 	},
 
-	removeComment: function(req,res){		
+	removeComment: function(req,res){
+
+		info = new Array();
+
+ 		info.cid=req.param('cid');
+ 		Forumcomment.findOne({id:info.cid}).then(function(comm){
+ 				console.log(comm.dforum);
+ 				Dforum.findOne({id: comm.dforum}).populate('comments').then(function(df){
+ 					df.comments.remove(comm);
+ 					df.save(function(err){
+					    	console.log('Removed the comment, '+comm.content+'to the univeristy ');
+					});
+
+ 				}).catch(function(err){
+ 					console.log(err);
+ 				})
+
+ 				// comm.dforum.comments.remove(comm.id);
+ 				
+
+ 			// 	df.save(function(err){
+				// 	    	console.log('Added the comment, '+created.content+'to the univeristy ');
+				// });
+
+
+ 		}).catch(function(err){
+ 			console.log(err);
+ 		});
+ 		res.ok();
+
 	}
 
 
