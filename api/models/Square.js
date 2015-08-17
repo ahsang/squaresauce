@@ -40,6 +40,10 @@ module.exports = {
     },
     sqrtag:{
       model: 'Sqrtag'
+    },
+    badges:{
+      collection: 'Badge',
+      via: 'squares'
     }
     
 

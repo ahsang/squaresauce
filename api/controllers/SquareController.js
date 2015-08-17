@@ -391,9 +391,23 @@
 		//TODO: Write the function maybe?:p
 		res.ok();
 	//TODO: Scrape this for now? MVP focus somewhere else?
+	},
+
+	addBadge: function(req,res){
+		// Add a badge that can be alotted to members or people in general
+	},
+
+	removeBadge: function(req,res){
+		// Remove from the list of badges than can be alloted
+	},
+
+	approveBadge: function(req,res){
+		// Approve a users request for a badge
+	},
+
+	rejectBadge: function(req,res){
+		// Reject a users request for a badge
 	}
-
-
 };
 
 

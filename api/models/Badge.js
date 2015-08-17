@@ -14,6 +14,10 @@ module.exports = {
   	profiles:{
   		collection: 'Profile',
   		via: 'badges'
+  	},
+  	squares:{
+  		collection: 'Square',
+  		via: 'badges'
   	}
 
 
