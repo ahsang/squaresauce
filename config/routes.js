@@ -41,6 +41,9 @@ module.exports.routes = {
   '/oweek': {
     view: 'oweek'
   },
+  '/forbidden': {
+    view: 'forbidden'
+  },
     '/test':{
     view: 'test'
   },
