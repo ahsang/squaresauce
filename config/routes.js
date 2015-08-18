@@ -47,6 +47,9 @@ module.exports.routes = {
   '/oweeksignup': {
     view: 'oweeksignup'
   },
+  '/login': {
+    view: 'login'
+  },
   '/forbidden': {
     view: 'forbidden'
   },
