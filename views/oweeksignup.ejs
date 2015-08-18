@@ -1,0 +1,108 @@
+
+    <title>oWeek Sign Up</title>
+
+    <link href="styles/specific/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="styles/specific/ss-icons.css" rel="stylesheet" type="text/css">
+    <link class="main-stylesheet" href="styles/specific/squaresauce.css" rel="stylesheet" type="text/css" />
+   
+
+
+  <body class="fixed-header   ">
+    <div class="register-container full-height sm-p-t-30">
+      <div class="container-sm-height full-height">
+        <div class="row row-sm-height">
+          <div class="col-sm-12 col-sm-height col-middle">
+            <img src="images/squaresauce-logo.png" alt="logo" data-src="images/squaresauce-logo.png" data-src-retina="images/squaresauce-logo.png" width="180">
+            <h3>Please tell us more about yourself</h3>
+            <p>
+              <small>
+        To create a Squaresauce account, provide us with a few more details.
+    </small>
+            </p>
+            <form id="form-register" class="p-t-15" role="form" action="index.html">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group form-group-default">
+                    <label>First Name</label>
+                    <input type="text" name="fname" value="<Facebook First Name>" class="form-control" required>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group form-group-default">
+                    <label>Last Name</label>
+                    <input type="text" name="lname" value="<Facebook Last Name>" class="form-control" required>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group form-group-default">
+                    <label>Username</label>
+                    <input type="text" name="uname" placeholder="Lowercase username e.g. @yourname" class="form-control" required>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group form-group-default">
+                    <label>Password</label>
+                    <input type="password" name="pass" placeholder="Minimum of 5 charactors" class="form-control" required>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group form-group-default">
+                    <label>Email</label>
+                    <input type="email" name="email" placeholder="We will send login details to you" class="form-control" required>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group form-group-default">
+                    <label>Institution</label>
+                    <input type="text" name="institution" value="Lahore University of Management Sciences" class="form-control" required>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group form-group-default">
+                    <label>Major</label>
+                    <input type="text" name="major" placeholder="Your field of study" class="form-control" required>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group form-group-default">
+                    <label>Batch</label>
+                    <input type="text" name="major" placeholder="e.g. Class of 2019" class="form-control" required>
+                  </div>
+                </div>
+              </div> 
+              <div class="row m-t-10">
+                <div class="col-md-6">
+                  <p>I agree to the <a href="#" class="text-info small">Squaresauce Terms</a> and <a href="#" class="text-info small">Privacy</a>.</p>
+                </div>
+                <div class="col-md-6 text-right">
+                  <a href="#" class="text-info small">Help? Contact Support</a>
+                </div>
+              </div>
+              <button class="btn btn-primary btn-cons m-t-10" type="submit">Create a new account</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END OVERLAY -->
+    
+    <script>
+    $(function()
+    {
+      $('#form-register').validate()
+    })
+    </script>
+  </body>
+</html>
