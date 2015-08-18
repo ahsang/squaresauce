@@ -132,6 +132,8 @@ _.merge(exports, {
   },
 
   getProfile: function(req,res){
+    console.log(req.session);
+    res.ok();
   //  GET USER PROFILE HERE. Perhaps have a seperate model for profiles, and reference all 
   //  the users friends over there to have easy access policies?
   },

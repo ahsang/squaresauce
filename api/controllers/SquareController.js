@@ -365,6 +365,7 @@
 	},
 
 	addChat: function(req,res){
+		console.log(req.param('hello'));
 		//Create the chat model
 		//TODO: Write the function maybe?:p
 		res.ok();

@@ -27,15 +27,17 @@ module.exports.policies = {
   ***************************************************************************/
 
   // '*': true,
+      '*': false,
 
-      '*': [ 'basicAuth', 'passport', 'sessionAuth' ],
 
 
     AuthController: {
       '*': [ 'passport' ]
     },
     UserController: {
-      '*': true
+
+      'me': [ 'basicAuth', 'passport', 'sessionAuth' ],
+      'create': true
     },
     DforumController: {
       '*': true
