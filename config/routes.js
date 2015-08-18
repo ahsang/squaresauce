@@ -38,6 +38,9 @@ module.exports.routes = {
   '/chatio': {
     view: 'chatio'
   },
+  '/oweek': {
+    view: 'oweek'
+  },
     '/test':{
     view: 'test'
   },
