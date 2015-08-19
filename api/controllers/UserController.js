@@ -21,7 +21,7 @@ _.merge(exports, {
           User.update({id:newuser.id},{profile:profile}).exec(function afterwards(err, updated){
             if(err){console.log(err);}
             console.log('im sending this via http: ' + newuser.id);
-            res.send(newuser);
+            res.send(newuser.username);
           });
       });
     });
