@@ -14,12 +14,21 @@ _.merge(exports, {
     req.session.autouser = req.param('username');
     req.session.autoaction = 'login';
     sails.services.passport.protocols.local.register(req.body, function (err, newuser) {
-      if (err) return next(err);
-      Profile.create({user : newuser}).exec(function createCB(err, profile){
-        if(err){console.log(err);}
-      //  console.log(newuser.profile);
-          User.update({id:newuser.id},{profile:profile}).exec(function afterwards(err, updated){
+      if (err)
+      { 
+        return next(err);
+        console.log('i sent and error!');
+        res.send(err);
+      }
+          Profile.create({user : newuser}).exec(function createCB(err, profile){
             if(err){console.log(err);}
+      
+          User.update({id:newuser.id},{profile:profile}).exec(function afterwards(err, updated){
+            if(err){
+              console.log(err)
+              console.log('i sent and error!');
+              res.send(err);
+            }
             console.log('im sending this via http: ' + newuser.id);
             res.send(newuser.username);
           });

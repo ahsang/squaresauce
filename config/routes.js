@@ -59,7 +59,8 @@ module.exports.routes = {
     '/signup-test':{
     view: 'signup-test'
   },
-
+  
+  'POST /invitereqs/create' : 'Invitereqs.create',
   'POST /user/send' : 'User.send',
   'POST /user/accept' : 'User.accept',
   'POST /user/sent' : 'Frequest.viewbysent',

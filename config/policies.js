@@ -49,9 +49,9 @@ module.exports.policies = {
     FrequestController:{
       '*': true
     }, 
-    // SomeController:{
-    //   '*': true
-    //},
+     InvitereqsController:{
+       '*': true
+    },
     SqrtagController:{
       '*': true
     },
