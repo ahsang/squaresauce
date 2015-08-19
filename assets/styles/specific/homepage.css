@@ -47,8 +47,8 @@ abbr,acronym { border: 0;
 /* Custom CSS
  * --------------------------------------- */
 body{
-	font-family: 'Lato', Calibri, Arial, sans-serif;
-	color: #f2f2f2;
+	font-family: 'Montserrat', Calibri, Arial, sans-serif;
+	color: #666666;
 }
 h1{
 	font-size: 6em;
@@ -56,9 +56,7 @@ h1{
 p{
 	font-size: 2em;
 }
-.section{
-	text-align: center;
-}
+
 
 /* Menu
  * --------------------------------------- */
@@ -241,7 +239,6 @@ p{
 }
 #section1 img{
 	margin: 20px 0;
-	opacity: 0.7;
 }
 
 /* Section 2
@@ -249,9 +246,7 @@ p{
 #section2 h1,
 #section2 p{
 	z-index: 3;
-}
-#section2 p{
-	opacity: 0.8;
+	text-align: center;
 }
 
 #section2 #colors{
@@ -260,8 +255,7 @@ p{
 	position: absolute;
 	height: 413px;
 	width: 258px;
-	background-image: url(imgs/colors.gif);
-	background-repeat: no-repeat;
+	color: #303030;
 }
 
 /* Section 3

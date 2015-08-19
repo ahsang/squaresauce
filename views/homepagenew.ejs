@@ -1,4 +1,4 @@
-  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat:300,400,700" />
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat:400,700" />
   <link rel="stylesheet" type="text/css" href="styles/specific/jquery.pagepiling.css" />
   <link rel="stylesheet" type="text/css" href="styles/specific/homepage.css" />
 
@@ -13,7 +13,7 @@
         $('#pagepiling').pagepiling({
           menu: '#menu',
           anchors: ['page1', 'page2', 'page3', 'page4'],
-          sectionsColor: ['#CC1F35', '#2ebe21', '#2C3E50', '#51bec4'],
+          sectionsColor: ['#CC1F35', '#fff', '#2C3E50', '#51bec4'],
           onLeave: function(index, nextIndex, direction){
             if(deleteLog){
               $('#callbacksDiv').html('');
@@ -29,9 +29,9 @@
             //section 2
           if(index == 2){
             //moving the image
-            $('#section2').find('.intro').delay(100).animate({
+            $('#section2').find('.intro').delay(1).animate({
               left: '0%'
-            }, 1500, 'easeOutExpo', function(){
+            }, 100, 'easeOutExpo', function(){
               $('#section2').find('p').first().fadeIn(700, function(){
                 $('#section2').find('p').last().fadeIn(600);
               });
@@ -71,26 +71,29 @@
 </head>
 <body>
 
-  <ul id="menu" class=" pull-right">
-    <li data-menuanchor="page1" class="active"><a href="#page1">Page 1</a></li>
-    <li data-menuanchor="page2"><a href="#page2">Page 2</a></li>
-    <li data-menuanchor="page3"><a href="#page3">Page 3</a></li>
-    <li data-menuanchor="page4"><a href="#page4">Page 4</a></li>
-  </ul>
 
 
 
   <div id="pagepiling">
       <div class="section" id="section1">
-        <h1>Callbacks</h1>
-      <p>Totally open to your imagination!</p>
-      <br />
+        <div class="section1logo" style=" position: absolute; top: 20px; margin-left: 40px; opacity: 1;"><img src="images/landing-page/squaresauce-white.png" alt="Squaresauce" width="150"/></div>
+    
+
+<div class="section1menu" style=" position: absolute; top: 40px;  right: 70px; font-family: 'Montserrat', Arial; font-size: 12px;"><a href="/login">LOGIN</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#page3">SIGNUP</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#page3">EXPLORE</a></div>
+    
+    <div class="section1scroll" style=" position: absolute; overflow: auto;margin: auto;position: absolute; left: 0; bottom: 0; right: 0; ">
+     
+<img src="images/landing-page/squarekingdom.png" alt="Squaresauce" class="img-responsive"/>
+    </div>
+    <div class="section1punchline" style="width: 50%;height: 50%;overflow: auto;margin: auto;position: absolute; left: 0; bottom: 0; right: 0; text-align: center; top: 100px; font-family: 'Montserrat', Arial; font-size: 24px; font-weight: 400; color: white;">Connecting campuses — one square at a time</div>
+
+
+
+
       </div>
       <div class="section" id="section2">
         <div class="intro">
-          <h1>Feel free</h1>
-          <p>All the callbacks you need to do whatever you need.</p>
-          <p>Just what you would expect.</p>
+          <p>the secret sauce is nothing but a genuine red chemical substance combined with high tech sails found at the Barcelona beach. the secret sauce is nothing but a genuine red chemical substance combined with high tech sails found at the Barcelona beach. the secret sauce is nothing but a genuine red chemical substance combined with high tech sails found at the Barcelona beach. the secret sauce is nothing but a genuine red chemical substance combined with high tech sails found at the Barcelona beach.</p>
         </div>
       </div>
       <div class="section" id="section3">
