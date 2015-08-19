@@ -12,15 +12,7 @@ module.exports = {
   		type: 'integer',
   		unique: true,
   		required: true
-
-  		},
-  		squareid:{
-  			type: 'integer'
-  		},
-  		group:{
-  			type: 'integer'
-  		}
   	}
-  
+  }
 };
 
