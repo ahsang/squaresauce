@@ -35,6 +35,9 @@ module.exports.routes = {
   '/': {
     view: 'homepage'
   },
+  '/testhome': {
+    view: 'homepagenew'
+  },
   '/chatio': {
     view: 'chatio'
   },
