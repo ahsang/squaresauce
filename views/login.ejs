@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
     <title>Login</title>
 
     <link href="styles/specific/font-awesome.css" rel="stylesheet" type="text/css" />
@@ -31,12 +31,12 @@
           <img src="images/gifs/squaresaucebubbles.gif" alt="logo" data-src="images/gifs/squaresaucebubbles.gif" data-src-retina="images/gifs/squaresaucebubbles.gif" width="58">
           <p class="p-t-35">Login to your Squaresauce</p>
           <!-- START Login Form -->
-          <form id="form-login" class="p-t-15" role="form" action="">
+          <form id="form-login" class="p-t-15" method="POST" action="/auth/local">
             <!-- START Form Control-->
             <div class="form-group form-group-default">
               <label>Email Address</label>
               <div class="controls">
-                <input type="email" name="email"  class="form-control" required>
+                <input type="email" name="identifier"  class="form-control" required>
               </div>
             </div>
             <div class="form-group form-group-default">
