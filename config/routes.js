@@ -56,6 +56,9 @@ module.exports.routes = {
     '/test':{
     view: 'test'
   },
+    '/signup-test':{
+    view: 'signup-test'
+  },
 
   'POST /user/send' : 'User.send',
   'POST /user/accept' : 'User.accept',
