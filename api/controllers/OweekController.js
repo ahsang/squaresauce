@@ -11,7 +11,8 @@ module.exports = {
 	 		info = new Array();
 	 		info.voucher = req.param('voucher')
 				
-	 				Oweek.findOne({voucher : info.voucher}).exec(function (err, oweek) {
+
+	 				Oweek.findOne({voucher: info.voucher}).exec(function (err, oweek) {
 
 	 					if(unisquare == '')
 	 					{
