@@ -9039,7 +9039,7 @@ Responsive Util
 */
 .login-wrapper {
   height: 100%;
-  background-color: #6d5cae;
+  background-color: #fff;
 }
 .login-wrapper > * {
   height: 100%;
@@ -9051,7 +9051,6 @@ Responsive Util
 }
 .login-wrapper .bg-pic > img {
   height: 100%;
-  opacity: 0.6;
 }
 .login-wrapper .login-container {
   width: 496px;
