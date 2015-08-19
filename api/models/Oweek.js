@@ -8,10 +8,11 @@
 module.exports = {
 
   attributes: {
-  		voucher:{}
+  		voucher:{
   		type: 'integer',
   		unique: true,
   		required: true
+  	}
   }
 };
 
