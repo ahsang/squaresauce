@@ -27,15 +27,15 @@
                     url     : '/user',
                     data    : $.param($scope.formData),  // pass in data as strings
                     headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  // set the headers so angular passing info as form data (not request payload)
-                })
-                    .success(function(data) {
-                        console.log(data);
-                        if (!data.success) {
+                }).success(function(res) {
+                        if (!res.user) {
+                            console.log('response: ' + res);
                             // if not successful, bind errors to error variables
-                            $scope.errorUsername = data.errors.username;
+                            $scope.errorUsername = 'ahahahhah';
                             $scope.errorEmail = data.errors.email;
                             $scope.errorPassword = data.errors.password;
                         } else {
+                          //  console.log('response: ' + res);
                             // if successful, bind success message to message
                             $scope.message = data.message;
                             $scope.errorUsername = 'errrrrrr';
