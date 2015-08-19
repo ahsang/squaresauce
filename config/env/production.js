@@ -17,7 +17,8 @@ module.exports = {
    * environment (see config/connections.js and config/models.js )           *
    ***************************************************************************/
    proxyHost: 'squaresauce.herokuapp.com',
-   proxyPort: 443
+   proxyPort: 443,
+   hookTimeout: 30000
   // models: {
   //   connection: 'someMysqlServer'
   // },
