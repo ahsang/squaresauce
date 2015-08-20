@@ -55,7 +55,11 @@
                                         }).success(function(izdone){
                                           alert("You have been logged in brother");
                                           console.log(izdone);
-                                          
+                                                    <%
+                                                    req.session.autouser=null;
+                                                    req.session.autopwd=null;
+
+                                                    %>
                                       });
 
 
