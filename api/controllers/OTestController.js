@@ -31,7 +31,7 @@ module.exports = {
 
 	 		}).catch(function(err){
 	 			console.log(err);
-	 			res.send('Error 0070');
+	 			//res.send('Error 0070');
 	 		});
 
 
