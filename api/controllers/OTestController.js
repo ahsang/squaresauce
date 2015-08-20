@@ -23,8 +23,12 @@ module.exports = {
 		
 		// 2. Add this user to his relavant oweek square!
 
-			OTest.findOne({ VoucherNo : info.voucher }).then(function (otest) {
-	 			res.send(otest);
+			OTest.find({ VoucherNo : info.voucher }).then(function (otest) {
+	 			if(otest==''){res.send('Error 0070');}
+	 			else{res.send(otest);}
+
+	 			
+
 	 		}).catch(function(err){
 	 			console.log(err);
 	 			res.send('Error 0070');
