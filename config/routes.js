@@ -35,9 +35,6 @@ module.exports.routes = {
   '/': {
     view: 'homepage'
   },
-  '/testhome': {
-    view: 'homepagenew'
-  },
   '/chatio': {
     view: 'chatio'
   },
@@ -59,8 +56,8 @@ module.exports.routes = {
     '/test':{
     view: 'test'
   },
-    '/signup-test':{
-    view: 'signup-test'
+    '/oldhomepage':{
+    view: 'homepageold'
   },
   
   'POST /invitereqs/create' : 'Invitereqs.create',
