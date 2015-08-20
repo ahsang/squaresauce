@@ -20,12 +20,12 @@
                     data    : $.param($scope.formData),  // pass in data as strings
                     headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  // set the headers so angular passing info as form data (not request payload)
 
-                }).success(function(headers) {
-                        if (headers=='Error 0070') {
+                }).success(function(headerz) {
+                        if (headerz=='Error 0070') {
                             // if not successful, bind errors to error variables
                          
                          alert("error 70");
-                          console.log(headers);
+                          console.log(headerz);
 
                             }
                             else {
@@ -34,13 +34,13 @@
                                  $http({
                     method  : 'POST',
                     url     : '/oweek/createUser',
-                    data    : $.param(headers),  // pass in data as strings
+                    data    : headerz,  // pass in data as strings
                     headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  // set the headers so angular passing info as form data (not request payload)
                                       })
 
 
 
-                                 console.log(headers); 
+                                 console.log(headerz); 
 
                             }
 
