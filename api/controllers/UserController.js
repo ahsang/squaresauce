@@ -153,6 +153,17 @@ _.merge(exports, {
   //  Can help to have a simple friends check, for easier policy implementaion?
   //  But then we should not check for policies in profiles or users themselves.
   //  Food for thoguht....
+  },
+  me: function (req, res) {
+    console.log(req.session.passport.user);
+    User.find({id:req.session.passport.user}).populate('profile').populate('mysquares').populate('myforums').then(function(user){
+      console.log(user);
+      res.ok(user);
+    }).catch(function(err){
+      console.log(err);
+      res.ok();
+    })
+    
   }
 
 });
