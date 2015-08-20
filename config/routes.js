@@ -59,8 +59,11 @@ module.exports.routes = {
     '/test':{
     view: 'test'
   },
-    '/signup-test':{
+  '/signup-test':{
     view: 'signup-test'
+  },
+  '/testing-home':{
+    view: 'sails-homepage'
   },
   
   'POST /invitereqs/create' : 'Invitereqs.create',
