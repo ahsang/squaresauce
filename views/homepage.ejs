@@ -3,8 +3,9 @@
     <link class="main-stylesheet" href="styles/specific/squaresauce.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" type="text/css" href="styles/specific/homepage.css" />
 
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
 
   <script type="text/javascript" src="js/specific/jquery.pagepiling.min.js"></script>
   <script type="text/javascript">
@@ -53,6 +54,53 @@
           }
       });
       });
+
+
+// SIGN UP FORM
+
+ // define angular module/app
+        var formApp = angular.module('formApp', []);
+        // create angular controller and pass in $scope and $http
+        function formController($scope, $http) {
+            // create a blank object to hold our form information
+            // $scope will allow this to pass between controller and view
+            $scope.formData = {};
+            // process the form
+            $scope.processForm = function() {
+                $http({
+                    method  : 'POST',
+                    url     : '/invitereqs/create',
+                    data    : $.param($scope.formData),  // pass in data as strings
+                    headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  // set the headers so angular passing info as form data (not request payload)
+
+                }).success(function(headers) {
+                        if (headers=='Error 0069') {
+                            // if not successful, bind errors to error variables
+                            var str = "Uh Oh, it seems like you have already registered. Please login to continue.";
+
+                              document.getElementById('successfulsignup').innerHTML = str;
+
+                            $('#successfulsignup').fadeIn('slow');
+                            }
+                            else {
+                                    $('#signupform').fadeOut(0);
+
+                                    var str = "Hi " + headers + "! Thanks for signing up! Spread the word. Get your friends on this.";
+
+                              document.getElementById('successfulsignup').innerHTML = str;
+
+                            $('#successfulsignup').fadeIn('slow');
+
+                            }
+
+
+                            
+
+
+                    });
+            };
+        }
+
     </script>
 
     <style>
@@ -126,7 +174,7 @@ line-height: 30px;
     </style>
 
 </head>
-<body>
+<body ng-app="formApp" ng-controller="formController">
 
 
 
@@ -161,19 +209,21 @@ line-height: 30px;
           <div class="signup-wrap">
           <h1 style=" font-family: Montserrat, Arial; font-size: 32px; color: #cc1f35;">Create a new Square</h1>
           <p>Get a Square for your own campus.<br/><br/><br/><br/></p>
-          <form style="font-family: segoe UI;">
+          
+    <div id="successfulsignup" style="display: none; text-align: center; font-size: 16px;"></div>
+    <form id="signupform" ng-submit="processForm()" style="font-family: segoe UI;">
            
      <div class="form-group form-group-default">
               <label>Full Name</label>
               <div class="controls">
-                <input type="text" name="identifier"  class="form-control" required>
+                <input type="text" name="name" ng-model="formData.name" class="form-control" required>
               </div>
             </div>
 
      <div class="form-group form-group-default">
               <label>Email Address</label>
               <div class="controls">
-                <input type="email" name="identifier"  class="form-control" required>
+                <input type="email" name="email" class="form-control" ng-model="formData.email" required>
               </div>
             </div>
 
@@ -181,7 +231,7 @@ line-height: 30px;
      <div class="form-group form-group-default">
               <label>Institution</label>
               <div class="controls">
-                <input type="text" name="identifier"  class="form-control" required>
+                <input type="text" name="institution" class="form-control"  ng-model="formData.institution" required>
               </div>
             </div>
 
@@ -190,7 +240,7 @@ line-height: 30px;
     <br/><br/>
      <button class="btn btn-success btn-cons m-t-10" type="submit">Create</button>
     <br/><br/>
-    
+   
     <br/><br/>
     <font size="2" color="#ccc">By proceeding to create your Square, you are agreeing to our Terms of Service and Privacy Policy. If you do not agree, you cannot use Squaresauce.</font>
           </form>

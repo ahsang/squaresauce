@@ -2512,15 +2512,15 @@ fieldset[disabled] .btn-primary.active {
 .btn-success:active:focus,
 .btn-success:active:hover,
 .open .dropdown-toggle.btn-success {
-  background-color: #0da899;
-  border-color: #0da899;
+  background-color: #a3243a;
+  border-color: #a3243a;
   color: #ffffff;
 }
 .btn-success.hover,
 .btn-success:hover,
 .open .dropdown-toggle.btn-success {
-  background-color: #40d9ca;
-  border-color: #40d9ca;
+  background-color: #a3243a;
+  border-color: #a3243a;
   color: #ffffff;
 }
 .btn-success.active:hover {
