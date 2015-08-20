@@ -111,18 +111,35 @@
 
  setInterval(function(){
         $("#explainer1").fadeOut(function() {
-            $(this).attr("src","images/landing-page/slide2-1b.png").fadeIn().delay(1000).fadeOut(function(){
-                $(this).attr('src', 'images/landing-page/slide2-2.png').fadeIn().delay(1000).fadeOut(function(){
-                  $(this).attr('src', 'images/landing-page/slide2-3.png').fadeIn().delay(1000).fadeOut(function(){
-                  $(this).attr('src', 'images/landing-page/slide2-1.png').fadeIn().delay(1000);
+            $(this).attr("src","images/landing-page/slide2-1b.png").fadeIn().delay(2000).fadeOut(function(){
+                $(this).attr('src', 'images/landing-page/slide2-2.png').fadeIn().delay(2000).fadeOut(function(){
+                  $(this).attr('src', 'images/landing-page/slide2-3.png').fadeIn().delay(2000).fadeOut(function(){
+                  $(this).attr('src', 'images/landing-page/slide2-1.png').fadeIn().delay(2000);
             });
             });
             });
          }
         );
-    }, 8000);        
+    }, 12000);        
     
 
+setInterval(function(){
+
+var sectionid = location.hash.replace(/^#/, "");
+
+if(sectionid=='page4') {
+
+setInterval(function(){
+        $("#squarecampus1").fadeOut(function() {
+            
+                 $('#squarecampus2').fadeIn(3000);
+          
+         });
+    }, 1000);   
+
+}
+
+}, 1000); 
 
     </script>
 
@@ -300,7 +317,8 @@ line-height: 30px;
       <li id="place" class="selected">
         <div class="cd-full-width">
           <img src="images/landing-page/tiny-square.png" /><br/><br/>
-          <p style="font-size: 40px; color: #fff !important; opacity: 1; font-weight: 100;">This is a square</p>
+          <div id="squarecampus1"><p style="font-size: 40px; color: #fff !important; opacity: 1; font-weight: 100;">This is a square</p></div>
+          <div id="squarecampus2" style="display: none; "><p style="font-size: 40px; color: #fff !important; opacity: 1; font-weight: 100;">This is your campus</p></div>
 
 
         </div> <!-- .cd-full-width -->
@@ -360,7 +378,7 @@ line-height: 30px;
         
         <ul>
           <li class="selected"><a href="#0">Intro</a></li>
-          <li><a href="#0">Tech 1</a></li>
+          <li><a href="#0">Types</a></li>
           <li><a href="#0">Tech 2</a></li>
           <li><a href="#0">Video</a></li>
           <li><a href="#0">Image</a></li>
