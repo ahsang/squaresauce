@@ -8,6 +8,13 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
 
   <script type="text/javascript" src="js/specific/jquery.pagepiling.min.js"></script>
+
+
+  <link rel="stylesheet" href="styles/specific/homepage-slider-style.css"> <!-- Resource style -->
+  <script src="js/specific/modernizr.js"></script> <!-- Modernizr -->
+<script src="js/specific/main.js"></script> 
+
+
   <script type="text/javascript">
     var deleteLog = false;
 
@@ -15,7 +22,7 @@
         $('#pagepiling').pagepiling({
           menu: '#menu',
           anchors: ['page1', 'page2', 'page3', 'page4'],
-          sectionsColor: ['#CC1F35', '#fff', '#2C3E50', '#51bec4'],
+          sectionsColor: ['#CC1F35', '#fff', '#2C3E50', '#CC1F35'],
           onLeave: function(index, nextIndex, direction){
             if(deleteLog){
               $('#callbacksDiv').html('');
@@ -270,9 +277,81 @@ line-height: 30px;
 
       </div>
       <div class="section" id="section4">
-        <div class="intro">
-          <h1>Ideal for animations</h1>
-          <p>Total control over your website.</p>
-        </div>
+        
+
+  <section class="cd-hero" style="height: 100vh !important;">
+    <ul class="cd-hero-slider autoplay" style="height: 100vh !important;">
+      <li class="selected">
+        <div class="cd-full-width">
+          <h2>Hero slider</h2>
+          <p>A simple, responsive slideshow in CSS &amp; jQuery.</p>
+          <a href="http://codyhouse.co/?p=675" class="cd-btn">Article &amp; Download</a>
+        </div> <!-- .cd-full-width -->
+      </li>
+
+      <li>
+        <div class="cd-half-width">
+          <h2>Slide title here</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In consequatur cumque natus!</p>
+          <a href="#0" class="cd-btn">Start</a>
+          <a href="#0" class="cd-btn secondary">Learn More</a>
+        </div> <!-- .cd-half-width -->
+
+        <div class="cd-half-width cd-img-container">
+          <img src="assets/tech-1.jpg" alt="tech 1">
+        </div> <!-- .cd-half-width.cd-img-container -->
+      </li>
+
+      <li>
+        <div class="cd-half-width cd-img-container">
+          <img src="assets/tech-2.jpg" alt="tech 2">
+        </div> <!-- .cd-half-width.cd-img-container -->
+
+        <div class="cd-half-width">
+          <h2>Slide title here</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In consequatur cumque natus!</p>
+          <a href="#0" class="cd-btn">Start</a>
+          <a href="#0" class="cd-btn secondary">Learn More</a>
+        </div> <!-- .cd-half-width -->
+        
+      </li>
+
+      <li class="cd-bg-video">
+        <div class="cd-full-width">
+          <h2>Slide title here</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, explicabo.</p>
+          <a href="#0" class="cd-btn">Learn more</a>
+        </div> <!-- .cd-full-width -->
+
+        <div class="cd-bg-video-wrapper" data-video="assets/video/video">
+          <!-- video element will be loaded using jQuery -->
+        </div> <!-- .cd-bg-video-wrapper -->
+      </li>
+
+      <li>
+        <div class="cd-full-width">
+          <h2>Slide title here</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, explicabo.</p>
+          <a href="#0" class="cd-btn">Start</a>
+          <a href="#0" class="cd-btn secondary">Learn More</a>
+        </div> <!-- .cd-full-width -->
+      </li>
+    </ul> <!-- .cd-hero-slider -->
+
+    <div class="cd-slider-nav">
+      <nav>
+        <span class="cd-marker item-1"></span>
+        
+        <ul>
+          <li class="selected"><a href="#0">Intro</a></li>
+          <li><a href="#0">Tech 1</a></li>
+          <li><a href="#0">Tech 2</a></li>
+          <li><a href="#0">Video</a></li>
+          <li><a href="#0">Image</a></li>
+        </ul>
+      </nav> 
+    </div> <!-- .cd-slider-nav -->
+  </section>
+
       </div>
   </div>
