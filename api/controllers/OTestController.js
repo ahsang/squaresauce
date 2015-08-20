@@ -84,13 +84,23 @@ module.exports = {
               User.update({id:newuser.id},{profile:profile}).then(function (updated){
                 
                 console.log('im sending this via http: ' + newuser.id);
-                res.send(newuser.username);
+                var temp=new Object();
+                temp.identifier=req.session.autouser;
+                temp.password=req.session.autopwd;
+
+                return [temp];
 
                 //Code to add this user to the relevant square goes here!
 
 
+              }).spread(function(tem){
+
+                  res.send(tem);
+
+
+
               }).catch(function(err){
-                  console.log(err)
+                  console.log(err);
                   res.send(err);
                 
 
