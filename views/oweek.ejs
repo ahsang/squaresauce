@@ -33,10 +33,13 @@
 
                                  $http({
                     method  : 'POST',
+                    contentType: "application/json; charset=utf-8",
                     url     : '/oweek/createUser',
-                    data    : headerz,  // pass in data as strings
+                    data    : '{"CampusID":"' + headerz+ '"}',  // pass in data as strings
                     dataType: 'json',
                     headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  // set the headers so angular passing info as form data (not request payload)
+
+
                                       })
 
 
