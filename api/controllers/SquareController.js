@@ -15,7 +15,7 @@
 
 	createSquare: function(req,res){
 	 		info = new Array();
-	 		info.tag=req.param('name')
+	 		info.name=req.param('name')
 	 		info.tag=req.param('tag');
 	 		info.sid=req.param('sid');
 	 		info.uid=req.param('uid');
