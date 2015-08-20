@@ -1,615 +1,228 @@
-<script src="js/specific/jquery-1.11.1.min.js"></script>
-<link rel="stylesheet" type="text/css" href="styles/specific/normalize.css" />
-<link rel="stylesheet" type="text/css" href="styles/specific/component.css" />
-<style>
-@import url(http://fonts.googleapis.com/css?family=Montserrat:300,200,400);
-@import url(styles/specific/fonts/segoe.ttf);
-@import url(styles/specific/fonts/segoelight.ttf);
-html,body {
-    height:100%;
-    background-color: #fff;
-}
-h1 {
-    font-family: 'montserrat', arial, sans-serif;
-    font-weight: 300;
-    font-size: 40px;
-    letter-spacing: -1px;
-}
-p {
-    font-family: Segoe UI, helvetica, arial, sans-serif;
-    font-size: 22px;
-    font-weight: 100;
-}
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat:400,700" />
+  <link rel="stylesheet" type="text/css" href="styles/specific/jquery.pagepiling.css" />
+    <link class="main-stylesheet" href="styles/specific/squaresauce.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" type="text/css" href="styles/specific/homepage.css" />
 
-section {
-    padding-top:70px;  
-    padding-bottom:50px; 
-    min-height:calc(100% - 1px);
-}
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
 
-.v-center {
-    padding-top:10%;
-    font-size:70px;
-}
-  
-.well {
-    border-color:transparent;
-}
+  <script type="text/javascript" src="js/specific/jquery.pagepiling.min.js"></script>
+  <script type="text/javascript">
+    var deleteLog = false;
 
-a.list-group-item.active,[class*='-info'] {
-    background-color: #440d2b;
-    color:#fff;
-}
-  
-#section1 {
-    background-color: #440d2b;
-    color:#fff;
-}
-  
-#section2 {
-    background-color: #fff;
-    color:#686868;
-}
-  
-#section3 {
-    background-color: #440d2b;
-    color:#fff;
-}
+    $(document).ready(function() {
+        $('#pagepiling').pagepiling({
+          menu: '#menu',
+          anchors: ['page1', 'page2', 'page3', 'page4'],
+          sectionsColor: ['#CC1F35', '#fff', '#2C3E50', '#51bec4'],
+          onLeave: function(index, nextIndex, direction){
+            if(deleteLog){
+              $('#callbacksDiv').html('');
+            }
+            $('#callbacksDiv').append('<p>onLeave - index:' + index + ' nextIndex:' + nextIndex + ' direction:' + direction + '</p>')
+          },
+          afterRender: function(){
+            $('#callbacksDiv').append('<p>afterRender</p>');
+          },
+          afterLoad: function(anchorLink, index){
+            $('#callbacksDiv').append('<p>afterLoad - anchorLink:' + anchorLink + " index:" + index + '</p>');
 
-#section4 {
-    background-color: #fff;
-    color:#444;
-}
+            //section 2
+          if(index == 2){
+            //moving the image
+            $('#section2').find('.intro').delay(1).animate({
+              left: '0%'
+            }, 100, 'easeOutExpo', function(){
+              $('#section2').find('p').first().fadeIn(700, function(){
+                $('#section2').find('p').last().fadeIn(600);
+              });
+            });
 
-#section5,#section7,#section7 a {
-    color:#fff;
-}
 
-#section6 {
-    background-color: #440d2b;
-    color:#fff;
-}
+          }
 
-footer {
-    background-color:#494949;
-    color:#fff;
-    min-height:100px;
-    padding-top:20px;
-    padding-bottom:40px;
-}
+          //section 3
+          if(anchorLink == 'page3'){
+            //section 3
+            $('#section3').find('.intro').delay(100).animate({
+                left: '0%'
+            }, 1500, 'easeOutExpo');
+          }
 
-footer .nav>li>a {
-    padding:3px;
-    color:#ccc;
-}
+          deleteLog = true;
+          }
+      });
+      });
+    </script>
 
-footer .nav>li>a:hover {
-    background-color:transparent;
-    color:#fff;
-}
+    <style>
+    #section2 .intro{
+      left: -150%;
+    position: relative;
+    }
+    #section2 p{
+      display: none;
+    }
+    #section3 .intro{
+      left: 140%;
+    position: relative;
+    }
 
-#sudiv {
-  background: #FFF;
-  position: relative;
-  width: 70%;
-  border: 1px solid #CCC;
-  border-radius: 3px;
-}
-#sudiv input {
-  display: block;
-  position: relative;
-  background: #FFF;
-  height: 3em;
-  width: 98%;
-  padding: 0.5em 2%;
-  font-size: 1em;
-  border: none;
-  z-index: 1;
-}
-#sudiv input:invalid {
-  background: none;
-}
-#sudiv label {
-  display: block;
+ .section1logo {
   position: absolute;
-  top: 0.5em;
-  left: -110%;
-    font-family: helvetica neue, helvetica, arial, sans-serif;
-    font-size: 18px;
-    font-weight: 200;
-  text-align: right;
-  height: 3em;
-  width: 100%;
-  padding: 0 3%;
-  color: #EEE;
-}
-#sudiv input:invalid + label {
-  display: block;
-  position: absolute;
-  text-align: left;
-  top: 0.5em;
-  left: auto;
-  color: #C0C0C0;
-}
-#sudiv input:valid + label {
-  visibility: hidden;
-}
-
- .signup-wrap {
-padding: 40px;
+  top: 20px;
+  margin-left: 40px;
+  opacity: 1;
  }
- .nextup-wrap {
- padding: 30px;
+.section1menu {
+position: absolute;
+top: 48px;
+right: 70px;
 }
+.section1menu a {
+
+font-family: 'Montserrat', Arial;
+font-size: 12px;
+margin-left: 10px;
+color: white;
+}
+.section1menu a:hover {
+opacity:0.6;
+text-decoration: none;
+}
+.section1scroll {
+position: absolute;
+overflow: auto;
+margin: auto;
+position: absolute;
+left: 0;
+bottom: 0;
+right: 0;
+}
+.section1punchline {
+width: 50%;
+height: 50%;
+overflow: auto;
+margin: auto;
+position: absolute;
+left: 0;
+bottom: 0;
+right: 0;
+text-align: center;
+top: 100px;
+font-family: 'Montserrat', Arial;
+font-size: 24px;
+font-weight: 400;
+color: white;
+
+}
+
+.explain {
+font-family: Segoe UI, Arial, sans serif;
+font-weight: 100;
+line-height: 30px;
+}
+
+    </style>
+
+</head>
+<body>
+
+
+
+
+  <div id="pagepiling">
+      <div class="section" id="section1">
         
-        .button {
-  border: 0 none;
-  border-radius: 2px 2px 2px 2px;
-  color: #FFFFFF;
-  cursor: pointer;
-  display: inline-block;
-  font-family: 'Helvetica Neue',Arial,sans-serif;
-  font-size: 18px;
-  font-weight: 200;
-  line-height: 40px;
-  margin-bottom: 0;
-  margin-top: 10px;
-  padding: 7px 10px;
-  text-transform: none;
-  transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -webkit-transition: all 0.3s ease 0s;
-  width: 25%;
-  /* auto */
-  text-align: center;
-  /* DELETE WHEN WIDTH AUTO */
-}
-.button.red {
-  background: none repeat scroll 0 0 #cc1f35;
-  color: #FFFFFF;
-}
-.button.red:hover {
-  background: none repeat scroll 0 0 #6b0d37;
-  color: #FFFFFF;
-}
-
-#section1 {
-background-color: #eee;
-}
-
-</style>
-<title>Squaresauce</title>
-
-<section class="container-fluid" id="section1" style="position:relative; z-index:900; background-color: #D23C34;">
+        <div class="section1logo" style=" "><img src="images/landing-page/squaresauce-white.png" alt="Squaresauce" width="150"/></div>
     
-    <div class="container">
+        <div class="section1menu">
+          <a href="/login">LOGIN</a>
+          <a href="#page3">SIGNUP</a>
+          <a href="#page3">EXPLORE</a>
+        </div>
     
-    <div class="section1logo" style=" position: absolute; margin-top: -20px; margin-left: -20px;"><img src="images/landing-page/squaresauce-white.png" alt="Squaresauce" width="200"/></div>
-    
-    <div class="section1menu" style=" position: absolute; margin-top: -5px;  right: 70px; font-family: 'Montserrat', Arial; font-size: 12px;">LOGIN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SIGNUP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CONTACT</div>
-    
-    <div class="section1scroll" style=" position: absolute; overflow: auto;margin: auto;position: absolute; left: 0; bottom: 0; right: 0; ">
-     
-<img src="images/landing-page/squarekingdom.png" alt="Squaresauce" class="img-responsive"/>
+    <div class="section1scroll">
+     <img src="images/landing-page/squarekingdom.png" alt="Squaresauce" class="img-responsive"/>
     </div>
-    <div class="section1punchline" style="width: 50%;height: 50%;overflow: auto;margin: auto;position: absolute; left: 0; bottom: 0; right: 0; text-align: center; top: 100px; font-family: 'Montserrat', Arial; font-size: 32px;">Connecting campuses — one square at a time</div>
-    
-    
-  </div><!--/container-->
-</section>
+    <div class="section1punchline">Connecting campuses — one square at a time</div>
 
-<section class="container-fluid" id="section2" style="position:relative; z-index:1000;background-color: #fff; display: table;z-index:210; background-image: url('helloworldbg.png');background-position: center top; background-repeat: no-repeat;">
-  <div class="row text-center" style="position:relative; z-index:1000;">
-   <h1>Hello World</h1>
-    <p style="max-width: 600px; margin: auto;">the secret sauce is nothing but a genuine red chemical substance combined with high tech sails found at the Barcelona beach. the secret sauce is nothing but a genuine red chemical substance combined with high tech sails found at the Barcelona beach. the secret sauce is nothing but a genuine red chemical substance combined with high tech sails found at the Barcelona beach. the secret sauce is nothing but a genuine red chemical substance combined with high tech sails found at the Barcelona beach.</p>
- <br/><br/>
- 
-     <div class='button red center' style="width: 200px;">Explore Squaresauce</div>&nbsp;&nbsp;&nbsp;
-     <div class='button red center' style="width: 200px;">Create a Square</div>
-  </div>
-</section>
+      </div>
+      <div class="section" id="section2">
+        <div class="intro">
+          <p class="explain">the secret sauce is nothing but a genuine red chemical substance combined with high tech sails found at the Barcelona beach. the secret sauce is nothing but a genuine red chemical substance combined with high tech sails found at the Barcelona beach. the secret sauce is nothing but a genuine red chemical substance combined with high tech sails found at the Barcelona beach. the secret sauce is nothing but a genuine red chemical substance combined with high tech sails found at the Barcelona beach.</p>
+        </div>
+      </div>
+      <div class="section" id="section3" style="padding: none;">
+        
 
-<section class="container-fluid" id="section3" style="padding:0;">
 <div class="row">
-        <div class="col-xs-9 col-md-6" style="background-color: #fdfbf7; color: rgb(99, 115, 112); height:100vh;">
-            <div class="signup-wrap">
-            <h1 style="color: #cc1f35;">Create a new Square</h1>
-            <p>Get a Square for your own campus.<br/></p>
-            
-            <form>
-             <div style="padding:10px 0; color: #000;">Your <b>full name</b> (you can change this later)</div>
-             <div id="sudiv">
-      <input type="text" name="name" id="name" required>
-      <label for="name">Your good name</label>
-    </div>
-    
-     <div style="padding:10px 0; color: #000;">Type your <b>email address</b></div>
-             <div id="sudiv">
-      <input type="text" name="name" id="name" required>
-      <label for="name">Your favourite email address</label>
-    </div>
-     <div style="padding:10px 0; color: #000;">You would like to have a <b>Square</b> for</div>
-             <div id="sudiv">
-      <input type="text" name="name" id="name" required>
-      <label for="name">Your institution name</label>
-    </div>
-    
+        <div class="col-xs-9 col-md-6" style="background-color: #fdfbf7; color: rgb(99, 115, 112); height:100vh; padding: 40px;">
+          <div class="signup-wrap">
+          <h1 style=" font-family: Montserrat, Arial; font-size: 32px; color: #cc1f35;">Create a new Square</h1>
+          <p>Get a Square for your own campus.<br/><br/><br/><br/></p>
+          <form style="font-family: segoe UI;">
+           
+     <div class="form-group form-group-default">
+              <label>Full Name</label>
+              <div class="controls">
+                <input type="text" name="identifier"  class="form-control" required>
+              </div>
+            </div>
+
+     <div class="form-group form-group-default">
+              <label>Email Address</label>
+              <div class="controls">
+                <input type="email" name="identifier"  class="form-control" required>
+              </div>
+            </div>
+
+
+     <div class="form-group form-group-default">
+              <label>Institution</label>
+              <div class="controls">
+                <input type="text" name="identifier"  class="form-control" required>
+              </div>
+            </div>
+
+
+           
     <br/><br/>
-     <div class='button red center'>Create</div>
+     <button class="btn btn-success btn-cons m-t-10" type="submit">Create</button>
+    <br/><br/>
     
     <br/><br/>
     <font size="2" color="#ccc">By proceeding to create your Square, you are agreeing to our Terms of Service and Privacy Policy. If you do not agree, you cannot use Squaresauce.</font>
-            </form>
-            </div>
+          </form>
+          </div>
         </div>
         <div class="clear"></div>
-        <div class="col-xs-9 col-md-6" style="background-color: #440d2b; height:100vh;">
-        <div class="nextup-wrap text-center">
-        <h1 style="color: #fff;">Up next</h1>
-            <p>The next square is...<br/></p><br/>
-            
-            <div style="width: 300px; height: 300px; background-color: #cc1f35; margin: auto; text-align: center; font-family: 'Museo Sans', Arial; font-size: 72px; font-weight: 100;"><br/>NUST</div>
-            <br/>
-            <div style="margin-left:10px;">
-            <div style="display: inline-block; width: 90px; height: 90px; background-color: #cc1f35; margin-right: 10px; font-family: 'Museo Sans', Arial; font-size: 22px; font-weight: 100;"><br/>GIKI</div>
-            <div style="display: inline-block; width: 90px; height: 90px; background-color: #cc1f35; margin-right: 10px; font-family: 'Museo Sans', Arial; font-size: 22px; font-weight: 100;"><br/>LUMS</div>
-            <div style="display: inline-block; width: 90px; height: 90px; background-color: #cc1f35; margin-right: 10px; font-family: 'Museo Sans', Arial; font-size: 22px; font-weight: 100;"><br/>...</div>
-            </div>
-            <br/><br/>
-            <font size="2" color="#cc1f35"><b>Secret Sauce:</b> If more people create Squares from your campus,<br/>it will become the upcoming square automatically. Share.</font>
+        <div class="col-xs-9 col-md-6" style="background-color: #440d2b; height:100vh; padding: 40px;">
+        <div class="nextup-wrap text-center" style="font-family: segoe UI;">
+        <h1 style="color: #fff; font-family: Montserrat, Arial; font-size: 32px;">Up next</h1>
+          <p style=" color: white;">The next square is...<br/></p><br/>
+          
+          <div style="width: 300px; height: 300px; background-color: #cc1f35; margin: auto; text-align: center; font-family: 'Segoe UI', Arial; font-size: 72px; font-weight: 100; color: white;"><br/>NUST</div>
+          <br/>
+          <div style="margin-left:10px;">
+          <div style="display: inline-block; width: 90px; height: 90px; background-color: #cc1f35; margin-right: 10px; font-family: 'Segoe UI', Arial; font-size: 22px; font-weight: 100; color: white;"><br/>GIKI</div>
+          <div style="display: inline-block; width: 90px; height: 90px; background-color: #cc1f35; margin-right: 10px; font-family: 'Segoe UI', Arial; font-size: 22px; font-weight: 100; color: white;"><br/>LUMS</div>
+          <div style="display: inline-block; width: 90px; height: 90px; background-color: #cc1f35; margin-right: 10px; font-family: 'Segoe UI', Arial; font-size: 22px; font-weight: 100; color: white;"><br/>...</div>
+          </div>
+          <br/><br/>
+          <font size="2" color="#cc1f35"><b>Secret Sauce:</b> If more people create Squares from your campus,<br/>it will become the upcoming square automatically. Share.</font>
     
         </div>
         </div>
 </div>
-</section>
 
 
-<section class="container" id="section7" style="color: #303030;">
-    <div class="row">
-     
-    <h1 class="text-center">What is Square?</h1>
-    <p class="text-center">the secret sauce is nothing but a genuine red chemical substance combined with high tech sails found at the Barcelona beach.</p>
-  <br/> <br/> <br/>
-                         <br/> <br/> <br/>
-                        <div class="mycontent" >
-                            <div class="row">
 
-                                <!-- Item box -->
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <div class="element-line">
-                                        <div class="item_left" style="text-align: right;">
-                                            <div class="parallax-box"><h3>This is a Square</h3>
-                                                <p>
-                                                    This is a Campus Square. Squaresauce has many Campus Squares like this.
-                                                </p> 
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Item box -->
-
-                                <!-- Item box -->
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                
-                                
-            <div id="main" class="main" style="margin-left: 185px;">
-                <figure>
-                    <div class="drawings" style="width: 200px; height: 200px;">
-                        <img class="illustration" src="images/landing-page/sq-1.png" width="200" height="200"  />
-                        <svg style="margin-left: 1px; margin-top:-250px; padding-top: -20px;" class="line-drawing" id="mac" width="200" height="200" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
-                            <path class="stroke-medium" d="M44.5,74.7v851.6c0,0,6.2,25,26.6,28.1h853.1
-    c0,0,23.4-1.6,31.2-28.1V74.7c0,0,3.1-23.4-21.9-28.1H74.2C74.2,46.6,44.5,37.2,44.5,74.7z"/>
-<path class="stroke-medium" d="M205.4,220.1v553.1c0,0,3.1,17.2,20.3,20.3h548.4
-    c0,0,25,0,25-18.8V220.1c0,0,0-17.2-23.4-17.2H222.6C222.6,202.9,205.4,201.3,205.4,220.1z"/>
-                        </svg>
-                    </div>
-                </figure>
-            </div>
-                                </div>
-                                <!-- Item box -->
-
-
-                                <!-- Item box -->
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <div class="element-line">
-                                        <div class="item_right">
-                                            <div class="parallax-box">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Item box -->
-
-                            </div>
-                        </div>
-                        
-                         <br/> <br/> <br/>
-                         <br/> <br/> <br/>
-                        <div class="mycontent" >
-                            <div class="row">
-
-                                <!-- Item box -->
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <div class="element-line">
-                                        <div class="item_left" style="text-align: right;">
-                                            <div class="parallax-box">
-                                            
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Item box -->
-
-                                <!-- Item box -->
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                
-                                
-            <div id="main" class="main" style="margin-left: 185px;">
-                <figure>
-                    <div class="drawings" style="width: 400px; height: 400px;">
-                        <img style="margin-left: -100px; top:100px" class="illustration" src="images/landing-page/sq-3.png" width="400" height="400"  />
-                        <svg style="margin-left: 1px; margin-top:-250px;" class="line-drawing" id="mac" width="200" height="200" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
-                                <path  class="stroke-medium" d="M44.5,74.7v851.6c0,0,6.2,25,26.6,28.1h853.1
-        c0,0,23.4-1.6,31.2-28.1V74.7c0,0,3.1-23.4-21.9-28.1H74.2C74.2,46.6,44.5,37.2,44.5,74.7z"/>
-                                
-                                <path class="stroke-medium" d="M239.7,477.6v255c0,0,2.2,16.7,16.6,16.7h257.9
-        c0,0,12.5,1.6,12.5-14.8v-257c0,0,3.9-15.5-13.4-15.5H255.3C255.3,462.1,241.4,458.3,239.7,477.6z"/>
-    <path class="stroke-medium" d="M246.9,261.3V415c0,0,0.7,15.2,14.2,15.2h153
-        c0,0,9.8-3.6,9.8-11.3V261.3c0,0,1.7-8.5-11.7-8.5H256.3C256.3,252.8,248.2,250.1,246.9,261.3z"/>
-    <path class="stroke-medium" d="M558.1,261.3v172.9c0,0-1.5,16,15.8,16h172.7
-        c0,0,8.5-1.6,8.5-12.1V265.8c0,0-0.2-13.6-14.7-13.3l-167.5,0C572.9,252.5,558.1,247.2,558.1,261.3z"/>
-    <path class="stroke-medium" d="M335.5,252.8v177.4h78.7c0,0,9.8-2.7,9.8-11.3
-        v-77.3l-155.1-0.1"/>
-    <line fill="none" stroke="#D23D36" stroke-width="18" stroke-miterlimit="10" x1="246.9" y1="341.4" x2="423.9" y2="341.5"/>
-    <path class="stroke-medium" d="M335.4,462.1l0,287.2l174.9,0
-        c0,0,16.3,3.5,16.3-14.8l0.4-175.9h-266"/>
-    <path class="stroke-medium" d="M432.1,462.1v287.2h82.1c0,0,12.4-2.3,12.5-14.8
-        l0.4-73.9H268.8"/>
-    <line fill="none" stroke="#D23D36" stroke-width="18" stroke-miterlimit="10" x1="239" y1="558.6" x2="364.1" y2="558.6"/>
-    <line fill="none" stroke="#D23D36" stroke-width="18" stroke-miterlimit="10" x1="239" y1="660.6" x2="316" y2="660.6"/>
-    <path class="stroke-medium" d="M593.1,571.9h149.2c0,0,12.8,0.9,12.8,12.5v76.2
-        h-177l0,78.7c0,0,5.4,10.6,13.1,10.3l149.2-0.3c0,0,14.7-4.2,14.7-13.8l0-53.9"/>
-    <path class="stroke-medium" d="M666.6,571.9v177.7l73.8-0.3
-        c8.7,0,14.7-13.8,14.7-13.8v-74.9h-177l0-67.6"/>
-    <path class="stroke-medium" d="M693.2,571.9H585.4c0,0-6.1-1-7.4,15.3l0,85.7"/>
-    <path class="stroke-medium" d="M656.6,252.8v197.4l83.8-0.6c0,0,15.9,0,14.7-11.5
-        l0.1-86.6H583.5"/>
-    <line fill="none" stroke="#D23D36" stroke-width="18" stroke-miterlimit="10" x1="558.1" y1="351.5" x2="610.5" y2="351.5"/>
-                        </svg>
-                    </div>
-                </figure>
-            </div>
-                                </div>
-                                <!-- Item box -->
-
-
-                                <!-- Item box -->
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <div class="element-line">
-                                        <div class="item_right">
-                                            <div class="parallax-box">
-                                                <p>
-                                                    <br/><br/><br/><br/>You can create as many Squares as you want within it. Square is a group of people interacting about a particular topic.
-                                                </p> 
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Item box -->
-
-                            </div>
-                        </div>
-                        <br/><br/><br/>
-                         <br/> <br/> <br/>
-                        <div class="mycontent" >
-                            <div class="row">
-
-                                <!-- Item box -->
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <div class="element-line">
-                                        <div class="item_left" style="text-align: right;">
-                                            <div class="parallax-box">
-                                                <p><br/><br/><br/><br/>
-                                                    This is a Square within a Square. It's a Square of all the clubs.
-                                                </p> 
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Item box -->
-
-                                <!-- Item box -->
-                                <div class="col-md-6 col-sm-6 col-xs-12 text-center" >
-                                
-                        <img  src="images/landing-page/sq-4.png" width="400" height="400"  />
-                                
-                                </div>
-                                <!-- Item box -->
-
-
-                                <!-- Item box -->
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <div class="element-line">
-                                        <div class="item_right">
-                                            <div class="parallax-box">
-                                                
-                        
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Item box -->
-
-                            </div>
-                        </div>
-                        <br/><br/><br/>
-                         <br/> <br/> <br/>
-                        <div class="mycontent" >
-                            <div class="row">
-
-                                <!-- Item box -->
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <div class="element-line">
-                                        <div class="item_left">
-                                            <div class="parallax-box">
-                                            
-                        
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Item box -->
-
-                                <!-- Item box -->
-                                <div class="col-md-6 col-sm-6 col-xs-12 text-center" >
-                                
-                        <img  src="images/landing-page/sq-5.png" width="400" height="400"  />
-                                
-                                </div>
-                                <!-- Item box -->
-
-
-                                <!-- Item box -->
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <div class="element-line">
-                                        
-                                        <div class="item_left">
-                                            <div class="parallax-box">
-                                                <p><br/><br/><br/><br/>
-                                                    This is a Square within a Square. It's a Club Square within all clubs.
-                                                </p> 
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Item box -->
-
-                            </div>
-                        </div>
-                        <br/><br/><br/>
-                         <br/> <br/> <br/>
-                        <div class="mycontent" >
-                            <div class="row">
-
-                                <!-- Item box -->
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <div class="element-line">
-                                        <div class="item_left" style="text-align: right;">
-                                            <div class="parallax-box">
-                                                <p><br/><br/><br/><br/><br/>
-                                                    This is a Square within a Square. It's a Square of all the clubs.
-                                                </p> 
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Item box -->
-
-                                <!-- Item box -->
-                                <div class="col-md-6 col-sm-6 col-xs-12 text-center" >
-                                
-                        <img  src="images/landing-page/sq-6.png" width="400" height="400"  />
-                                
-                                </div>
-                                <!-- Item box -->
-
-
-                                <!-- Item box -->
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <div class="element-line">
-                                        <div class="item_right">
-                                            <div class="parallax-box" style="margin-left: -40px;">
-                                                
-                        
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Item box -->
-
-                            </div>
-                        </div>
-                        <br/><br/><br/>
-                         <br/> <br/> <br/>
-                        <div class="mycontent" >
-                            <div class="row">
-
-                                <!-- Item box -->
-                                <div class="col-md-9 col-sm-9 col-xs-24">
-                                    <div class="element-line">
-                                        <div class="item_left" style="text-align: right;">
-                                            <div class="parallax-box">
-                        <img  src="images/landing-page/sq-map.png" class="img-responsive"  />
-                                                </p> 
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Item box -->
-
-
-                                <!-- Item box -->
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <div class="element-line">
-                                        <div class="item_right">
-                                            <div class="parallax-box" >
-                                                <br/><br/><br/><br/>
-                                                    All of the Squares lie within larger Squares i.e. the city, province or country squares.
-                        
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Item box -->
-
-                            </div>
-                        </div>
-  </div><!--/row-->
-</section>
-
-<footer id="footer">
-  <div class="container">
-    <div class="row">    
-      <div class="col-xs-6 col-sm-6 col-md-3 column">          
-          <h4>Information</h4>
-          <ul class="nav">
-            <li><a href="about-us.html">Products</a></li>
-            <li><a href="about-us.html">Services</a></li>
-            <li><a href="about-us.html">Benefits</a></li>
-            <li><a href="elements.html">Developers</a></li>
-          </ul> 
+      </div>
+      <div class="section" id="section4">
+        <div class="intro">
+          <h1>Ideal for animations</h1>
+          <p>Total control over your website.</p>
         </div>
-      <div class="col-xs-6 col-md-3 column">          
-          <h4>Follow Us</h4>
-          <ul class="nav">
-            <li><a href="#">Twitter</a></li>
-            <li><a href="#">Facebook</a></li>
-            <li><a href="#">Google+</a></li>
-            <li><a href="#">Pinterest</a></li>
-          </ul> 
       </div>
-      <div class="col-xs-6 col-md-3 column">          
-          <h4>Contact Us</h4>
-          <ul class="nav">
-            <li><a href="#">Email</a></li>
-            <li><a href="#">Headquarters</a></li>
-            <li><a href="#">Management</a></li>
-            <li><a href="#">Support</a></li>
-          </ul> 
-      </div>
-      <div class="col-xs-6 col-md-3 column">          
-          <h4>Customer Service</h4>
-          <ul class="nav">
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Delivery Information</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms &amp; Conditions</a></li>
-          </ul> 
-      </div>
-    </div><!--/row-->
   </div>
-</footer>
-
-
-        <script src="js/specific/svganimations.js"></script>
-        <script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js"></script>
