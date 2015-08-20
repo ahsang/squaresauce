@@ -28,6 +28,9 @@ module.exports = {
   	},
   	cell:{
   		type: 'string'
+  	},
+  	key:{
+  		type: 'string'
   	}
   }
 };
