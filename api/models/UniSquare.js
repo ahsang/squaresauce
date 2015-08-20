@@ -15,10 +15,10 @@ module.exports = {
       collection: 'Profile',
       via:'unisquare'
     },
-	squares: {
+	  squares: {
 		collection: 'Square',
 		via: 'unisquare'
-	}
+	 }
   }
 };
 

@@ -15,8 +15,7 @@ module.exports = {
   	},
   	name: {
   		type: 'string',
-  		notNull: true,
-  		unique: true
+  		notNull: true
   	},
   	admins: {
       collection:'User',
