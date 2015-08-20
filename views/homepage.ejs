@@ -109,6 +109,20 @@
         }
 
 
+ setInterval(function(){
+        $("#explainer1").fadeOut(function() {
+            $(this).attr("src","images/landing-page/slide2-1b.png").fadeIn().delay(1000).fadeOut(function(){
+                $(this).attr('src', 'images/landing-page/slide2-2.png').fadeIn().delay(1000).fadeOut(function(){
+                  $(this).attr('src', 'images/landing-page/slide2-3.png').fadeIn().delay(1000).fadeOut(function(){
+                  $(this).attr('src', 'images/landing-page/slide2-1.png').fadeIn().delay(1000);
+            });
+            });
+            });
+         }
+        );
+    }, 8000);        
+    
+
 
     </script>
 
@@ -300,7 +314,7 @@ line-height: 30px;
         </div> <!-- .cd-half-width -->
 
         <div class="cd-half-width cd-img-container">
-          <img src="images/landing-page/slide2-1.png" alt="tech 1">
+          <img src="images/landing-page/slide2-1.png" id="explainer1" alt="squaresauce explainer">
         </div> <!-- .cd-half-width.cd-img-container -->
       </li>
 
