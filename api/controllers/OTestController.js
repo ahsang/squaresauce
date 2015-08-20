@@ -21,30 +21,43 @@ module.exports = {
 		// then it logs in the user, deletes the voucer entry from the otest model.
 		
 		// 2. Add this user to his relavant oweek square!
-
+      
 			OTest.find({ VoucherNo : info.voucher }).then(function (otest) {
-	 			if(otest=='')
+	 			var temp=new Object();
+        if(otest=='')
 	 				{
-	 					res.send('Error 0070');
+            console.log("sending  "+otest);
+	 					temp='Error 0070';
 	 				}
 	 			else
 	 				{	
-	 					var temp;
-	 					temp.username   = 	otest.UserName;
-	 					temp.email 	    =	otest.Email;
-	 					temp.password   = 	otest.VoucherNo;
-	 					temp.name 	    = 	otest.FullName;
-	 					temp.city 	    =	otest.City;
-	 					temp.cell 	    =	otest.Cell;
-	 					temp.gender     =	otest.Gender;
- 	 					temp.programme  =	otest.Programme;
-	 					temp.lastdegree =	otest.LastDegree;
- 	 					res.send(temp); 
-	 				}
+            console.log(otest);
+          
+	 		      			
+	 					temp.username   = otest[0].Username;
+	 					temp.email 	    =	otest[0].Email;
+	 					temp.password   = 	otest[0].VoucherNo;
+	 					temp.name 	    = 	otest[0].FullName;
+	 					temp.city 	    =	otest[0].City;
+	 					temp.cell 	    =	otest[0].Cell;
+	 					temp.gender     =	otest[0].Gender;
+ 	 					temp.programme  =	otest[0].Programme;
+	 					temp.lastdegree =	otest[0].LastDegree;
+            // console.log("sending  "+temp);
+ 	 				
+          	
+	 			   
+        	}
 
-	 			
+          return [temp];		 
 
-	 		}).catch(function(err){
+	 		}).spread(function(temp){
+          // console.log("I am spreading");
+          // console.log(temp);
+          res.send(temp);
+          
+
+      }).catch(function(err){
 	 			console.log(err);
 	 			//res.send('Error 0070');
 	 		});
@@ -53,35 +66,37 @@ module.exports = {
 	},
 
 	createSpecialUser : function(req,res){
-    req.session.autouser = req.param('username');
+    console.log(req.body);
+
+    console.log(req.param('username'));
     req.session.autopwd = req.param('password');
     req.session.autouser = req.param('username');
     req.session.autoaction = 'login';
-    sails.services.passport.protocols.local.register(req.body, function (err, newuser) {
-      if (err)
-      { 
-        return next(err);
-        console.log('i sent and error!');
-        res.send(err);
-      }
-          Profile.create({user : newuser}).exec(function createCB(err, profile){
-            if(err){console.log(err);}
+    // sails.services.passport.protocols.local.register(req.body, function (err, newuser) {
+    //   if (err)
+    //   { 
+    //     return next(err);
+    //     console.log('i sent and error!');
+    //     res.send(err);
+    //   }
+    //       Profile.create({user : newuser}).exec(function createCB(err, profile){
+    //         if(err){console.log(err);}
       
-          User.update({id:newuser.id},{profile:profile}).exec(function afterwards(err, updated){
-            if(err){
-              console.log(err)
-              console.log('i sent and error!');
-              res.send(err);
-            }
-            console.log('im sending this via http: ' + newuser.id);
-            res.send(newuser.username);
+    //       User.update({id:newuser.id},{profile:profile}).exec(function afterwards(err, updated){
+    //         if(err){
+    //           console.log(err)
+    //           console.log('i sent and error!');
+    //           res.send(err);
+    //         }
+    //         console.log('im sending this via http: ' + newuser.id);
+    //         res.send(newuser.username);
 
-            //Code to add this user to the relevant square goes here!
+    //         //Code to add this user to the relevant square goes here!
 
 
-          });
-      });
-    });
+    //       });
+    //   });
+    // });
 
 	}
 
