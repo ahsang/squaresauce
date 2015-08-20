@@ -60,10 +60,6 @@ module.exports.routes = {
     '/oldhomepage':{
     view: 'homepageold'
   },
-  '/signup-test':{
-    view: 'signup-test'
-
-  },
   '/testing-home':{
     view: 'sails-homepage'
   },
