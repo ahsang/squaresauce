@@ -863,7 +863,7 @@ body.dashboard .page-container {
 .breadcrumb li .active {
   font-weight: 600;
   font-size: 11px;
-  color: #0090d9;
+  color: #440d2b;
 }
 .breadcrumb > li + li:before {
   padding: 0 5px;
@@ -3904,7 +3904,7 @@ body > .pgn-wrapper {
   cursor: pointer;
 }
 .notification-positions .position.active img {
-  border-color: #0090d9;
+  border-color: #440d2b;
 }
 .notification-positions .position.pull-top,
 .notification-positions .position.pull-bottom {
@@ -6006,11 +6006,11 @@ fieldset[disabled] .form-control {
   color: #6d5cae;
 }
 .input-group-addon.success {
-  background-color: #0090d9;
+  background-color: #440d2b;
   color: #ffffff;
 }
 .input-group-addon.success .arrow {
-  color: #0090d9;
+  color: #440d2b;
 }
 .input-group-addon.info {
   background-color: #1f3853;
