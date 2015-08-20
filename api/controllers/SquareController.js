@@ -20,7 +20,7 @@
 	 		info.sid=req.param('sid');
 	 		info.uid=req.param('uid');
 				
-	 				UniSquare.findOne({id: info.uid}).exec(function (err, unisquare) {
+	 				UniSquare.find({id: info.uid}).exec(function (err, unisquare) {
 
 	 					if(unisquare == '')
 	 					{
@@ -28,8 +28,9 @@
 	 					}
 	 					else
 	 					{
-	 						Square.findOne({sqrtag: info.tag}).exec(function (err, subsquare) {
+	 						Square.find({sqrtag: info.tag}).exec(function (err, subsquare) {
 	 							if(subsquare = '')
+	 								
 	 							{
 	 								Square.create({name : info.name}).exec(function createCB(err, created){
 		 								console.log('Created a new square with the following stuff: ');
@@ -62,7 +63,7 @@
 	 	info.uid=req.param('user_id');
 
 
-	 	Square.findOne({ id : info.sid}).exec(function (err,square) {
+	 	Square.find({ id : info.sid}).exec(function (err,square) {
 	 		if(square == '')
 	 		{
 	 			console.log("Square not found");
@@ -101,14 +102,14 @@
 		info.uid=req.param('user_id');
 
 
-		Square.findOne({ id : info.sid}).exec(function (err,square) {
+		Square.find({ id : info.sid}).exec(function (err,square) {
 			if(square == '')
 			{
 				console.log("Square not found");
 			}
 			else
 			{	
-				User.findOne({ id : info.uid}).exec(function (err,user) {
+				User.find({ id : info.uid}).exec(function (err,user) {
 					if(user == '')
 					{
 						console.log('User not found');
