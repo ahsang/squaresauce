@@ -7,8 +7,8 @@
 
 module.exports = {
 	getData: function(req,res){
-		OTest.find().then(function(ot){
-			console.log(ot.length);
+		OTest.find().done(function(err, ot) {
+  			console.log(ot.length);
 			res.ok(ot);
 		})
 	}
