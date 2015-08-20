@@ -16,7 +16,6 @@ module.exports = {
 	retrieveVoucher: function(req,res){
     	info= new Array();
     	info.voucher=req.param('voucher');
-    	var tmp_pass = req.param('voucher');
 		//This function does two things!
 		// 1. Creates a new user account once a user adds the voucher number, returns user name to the front end,
 		// then it logs in the user, deletes the voucer entry from the otest model.
@@ -24,8 +23,24 @@ module.exports = {
 		// 2. Add this user to his relavant oweek square!
 
 			OTest.find({ VoucherNo : info.voucher }).then(function (otest) {
-	 			if(otest==''){res.send('Error 0070');}
-	 			else{res.send(otest);}
+	 			if(otest=='')
+	 				{
+	 					res.send('Error 0070');
+	 				}
+	 			else
+	 				{	
+	 					var temp;
+	 					temp.username   = 	otest.UserName;
+	 					temp.email 	    =	otest.Email;
+	 					temp.password   = 	otest.VoucherNo;
+	 					temp.name 	    = 	otest.FullName;
+	 					temp.city 	    =	otest.City;
+	 					temp.cell 	    =	otest.Cell;
+	 					temp.gender     =	otest.Gender;
+ 	 					temp.programme  =	otest.Programme;
+	 					temp.lastdegree =	otest.LastDegree;
+ 	 					res.send(temp); 
+	 				}
 
 	 			
 
