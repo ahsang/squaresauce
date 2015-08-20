@@ -23,7 +23,7 @@ module.exports = {
 		
 		// 2. Add this user to his relavant oweek square!
 
-			Otest.findOne({ VoucherNo : info.voucher }).then(function (otest) {
+			OTest.findOne({ VoucherNo : info.voucher }).then(function (otest) {
 	 			res.send(otest);
 	 		}).catch(function(err){
 	 			console.log(err);
