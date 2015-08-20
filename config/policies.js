@@ -67,6 +67,9 @@ module.exports.policies = {
     GentagController:{
       '*': true
     },
+    OTestController:{
+      '*': true
+    },
     ForumcommentController:{
       '*': true
     }
