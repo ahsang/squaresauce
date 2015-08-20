@@ -32,19 +32,23 @@
                                  alert("done");
 
                                  $http({
-                    method  : 'POST',
-                    contentType: "application/json; charset=utf-8",
-                    url     : '/oweek/createUser',
-                    data    : '{"CampusID":"' + headerz+ '"}',  // pass in data as strings
-                    dataType: 'json',
-                    headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  // set the headers so angular passing info as form data (not request payload)
+                                    method  : 'POST',
+                                    contentType: "application/json; charset=utf-8",
+                                    url     : '/oweek/createUser',
+                                    data    : headerz,  // pass in data as strings
+                                    dataType: 'json',
+                                    headers : { 'Content-Type': 'application/json' }  // set the headers so angular passing info as form data (not request payload)
 
 
-                                      })
+                                  }).success(function(abc){
+                                    alert("success");
+                                    console.log(abc+"Helooooo"); 
+
+                                  });
 
 
 
-                                 console.log(headerz); 
+                                 
 
                             }
 

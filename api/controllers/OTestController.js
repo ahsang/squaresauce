@@ -36,7 +36,7 @@ module.exports = {
 	 		      			
 	 					temp.username   = otest[0].Username;
 	 					temp.email 	    =	otest[0].Email;
-	 					temp.password   = 	otest[0].VoucherNo;
+	 					temp.password   = 	otest[0].VoucherNo+"000";
 	 					temp.name 	    = 	otest[0].FullName;
 	 					temp.city 	    =	otest[0].City;
 	 					temp.cell 	    =	otest[0].Cell;
@@ -53,7 +53,7 @@ module.exports = {
 
 	 		}).spread(function(temp){
           // console.log("I am spreading");
-          // console.log(temp);
+          console.log(temp);
           res.send(temp);
           
 
@@ -72,31 +72,36 @@ module.exports = {
     req.session.autopwd = req.param('password');
     req.session.autouser = req.param('username');
     req.session.autoaction = 'login';
-    // sails.services.passport.protocols.local.register(req.body, function (err, newuser) {
-    //   if (err)
-    //   { 
-    //     return next(err);
-    //     console.log('i sent and error!');
-    //     res.send(err);
-    //   }
-    //       Profile.create({user : newuser}).exec(function createCB(err, profile){
-    //         if(err){console.log(err);}
-      
-    //       User.update({id:newuser.id},{profile:profile}).exec(function afterwards(err, updated){
-    //         if(err){
-    //           console.log(err)
-    //           console.log('i sent and error!');
-    //           res.send(err);
-    //         }
-    //         console.log('im sending this via http: ' + newuser.id);
-    //         res.send(newuser.username);
+    sails.services.passport.protocols.local.register(req.body, function (err, newuser) {
+      if (err)
+      { 
+        // return next(err);
+        console.log(err);
+        res.send(err);
+      }else{
+          Profile.create({user : newuser}).then(function (profile){
+            
+              User.update({id:newuser.id},{profile:profile}).then(function (updated){
+                
+                console.log('im sending this via http: ' + newuser.id);
+                res.send(newuser.username);
 
-    //         //Code to add this user to the relevant square goes here!
+                //Code to add this user to the relevant square goes here!
 
 
-    //       });
-    //   });
-    // });
+              }).catch(function(err){
+                  console.log(err)
+                  res.send(err);
+                
+
+              });
+        }).catch(function(err){
+              console.log("Error in Profile Creation: "+err);
+              res.send(err);
+
+        });
+      }
+    });
 
 	}
 
