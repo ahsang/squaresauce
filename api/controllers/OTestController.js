@@ -50,9 +50,13 @@ module.exports = {
 	 			   
         	}
 
-          return [temp];		 
+          return [temp,otest];		 
 
-	 		}).spread(function(temp){
+	 		}).spread(function(temp,otest){
+          OTest.destroy(otest.id).then(function(destroyed){
+            console.log(destroyed);
+            console.log("destroyed");
+          });
           // console.log("I am spreading");
           console.log(temp);
           res.send(temp);
@@ -95,6 +99,8 @@ module.exports = {
                 // DO HERE: ADD THIS USER TO HIS SQUARE VIA adduser or whatever
 
               }).spread(function(tem){
+                  req.session.autopwd=null;
+                  req.session.autouser=null;
 
                   res.send(tem);
 
