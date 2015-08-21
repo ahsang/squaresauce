@@ -40,19 +40,21 @@ $('#loadit').fadeIn(100);
                 }).success(function(headerz) {
                         if (headerz=='Error 0070') {
                             // if voucher code invalid
-                         alert("error 70");
-                       /* var str1 = "<p class='pull-left no-margin p-t-10 p-b-10 font-montserrat all-caps semi-bold small'>Uh oh! It seems like your Access Code is invalid, or you have already signed up. Please log in to continue.</p>";
+                         
+                       var str1 = "<p class='pull-left no-margin p-t-10 p-b-10 font-montserrat semi-bold small'>Uh oh! It seems like your Access Code is invalid, or you have already signed up. Please log in to continue.</p>";
 
                                               document.getElementById('error70').innerHTML = str1;
                                               $('#error70').delay(50).fadeIn('slow');
-                                          $('#loadit').fadeOut(50);
+                                          
+                              $('#loadit').fadeOut(50);
+                            $('#loadithide').fadeIn(100);
 
-                                          */
+                                        
 
 
                             }
                             else {
-                                alert("done");
+                                
                                  $http({
                                     method  : 'POST',
                                     contentType: "application/json; charset=utf-8",
@@ -63,7 +65,7 @@ $('#loadit').fadeIn(100);
 
 
                                   }).success(function(abc){
-                                    alert("success");
+                                    
                                     console.log(abc + "hello");
                                       $http({
                                           method  : 'POST',
@@ -90,7 +92,7 @@ $('#loadit').fadeIn(100);
 
                                                    
                                       }).error(function(errr){
-                                        alert("error 20938");
+                                        alert("Oops! Something unexpected happened. Please contact Squaresauce support for details.");
                                       });
 
 
