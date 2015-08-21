@@ -26,7 +26,7 @@ module.exports = {
 	 			var temp=new Object();
         if(otest=='')
 	 				{
-            console.log("sending  "+otest);
+            // console.log("sending  "+otest);
 	 					temp='Error 0070';
 	 				}
 	 			else
@@ -57,8 +57,8 @@ module.exports = {
           
               OTest.destroy({VoucherNo : info.voucher}).exec(function destroyer(err,destroyed){
                 if(err)console.log(err);
-                console.log(destroyed);
-                console.log("destroyed");
+                // console.log(destroyed);
+                // console.log("destroyed");
               });
           
           // console.log("I am spreading");
@@ -75,9 +75,9 @@ module.exports = {
 	},
 
 	createSpecialUser : function(req,res){
-    console.log(req.body);
+    // console.log(req.body);
 
-    console.log(req.param('username'));
+    // console.log(req.param('username'));
     req.session.autopwd = req.param('password');
     req.session.autouser = req.param('username');
     req.session.autoaction = 'login';
@@ -92,7 +92,7 @@ module.exports = {
             
               User.update({id:newuser.id},{profile:profile}).then(function (updated){
                 
-                console.log('im sending this via http: ' + newuser.id);
+                // console.log('im sending this via http: ' + newuser.id);
                 var temp=new Object();
                 temp.identifier=req.session.autouser;
                 temp.password=req.session.autopwd;
