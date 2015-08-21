@@ -80,6 +80,11 @@ module.exports = {
     // console.log(req.param('username'));
     req.session.autopwd = req.param('password');
     req.session.autouser = req.param('username');
+    req.session.username = req.param('username');
+    req.session.password = req.param('password');
+    req.session.email = req.param('email');
+
+
     req.session.autoaction = 'login';
     sails.services.passport.protocols.local.register(req.body, function (err, newuser) {
       if (err)
@@ -105,6 +110,7 @@ module.exports = {
               }).spread(function(tem){
                   req.session.autopwd=null;
                   req.session.autouser=null;
+
 
                   res.send(tem);
 

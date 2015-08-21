@@ -30,7 +30,7 @@
                 <div class="col-sm-6">
                   <div class="form-group form-group-default">
                     <label>Last Name</label>
-                    <input type="text" name="lname" value="<Facebook Last Name>" class="form-control" required>
+                    <input type="text" name="lname" value="<%= req.session.fbk_data.last_name%>" class="form-control" required>
                   </div>
                 </div>
               </div>
@@ -38,7 +38,7 @@
                 <div class="col-sm-12">
                   <div class="form-group form-group-default">
                     <label>Username</label>
-                    <input type="text" name="uname" placeholder="Lowercase username e.g. yourname" class="form-control" required>
+                    <input type="text" name="uname" placeholder="<%= req.session.username%>" class="form-control" required>
                   </div>
                 </div>
               </div>
@@ -46,7 +46,7 @@
                 <div class="col-sm-12">
                   <div class="form-group form-group-default">
                     <label>Password</label>
-                    <input type="password" name="pass" placeholder="Minimum of 5 charactors" class="form-control" required>
+                    <input type="password" name="pass" placeholder="<%= req.session.password%>" class="form-control" required>
                   </div>
                 </div>
               </div>
@@ -54,7 +54,7 @@
                 <div class="col-sm-12">
                   <div class="form-group form-group-default">
                     <label>Primary Email</label>
-                    <input type="email" name="email" placeholder="We will send login details to you" class="form-control" required>
+                    <input type="email" name="email" placeholder="<%= req.session.email%>" class="form-control" required>
                   </div>
                 </div>
               </div>
