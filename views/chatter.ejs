@@ -124,8 +124,9 @@
 
 				$http.get('/ChatSquare/find?cid='+ $scope.chatSquareId)
 					 .success(function(success_data){
-					 		console.log(success_data);
-					 		$scope.chatList = success_data;
+					 		
+					 		console.log("This is success_data");
+					 		$scope.chatList = success_data[0].messages;
 					 		$log.info(success_data);
 					 });
 			};
@@ -136,8 +137,9 @@
 
 			io.socket.on('chatsquare',function(obj){
 					console.log('i was turned on');
+					console.log(obj.data);
 					$log.info(obj)
-					$scope.chatList.push(obj.data);
+					$scope.chatList.push(obj.data.messages);
 					$scope.$digest();
 				
 
