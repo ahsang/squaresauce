@@ -78,9 +78,9 @@ window.setInterval(function() {
 		<script>
 		(adsbygoogle = window.adsbygoogle || []).push({});
 		</script>
-		<table id="data" class="table">
+		<table class="table">
 			<tr class="chat_message" ng-repeat="chat in chatList | limitTo: 100">
-				<td class="col-md-12 td_class"><strong>{{ chat.user }} : </strong> {{ chat.message }}</td>
+				<td class="col-md-12 td_class"><div  id="data"><strong>{{ chat.user }} : </strong> {{ chat.message }}</div></td>
 			</tr>
 		</table>
 		
