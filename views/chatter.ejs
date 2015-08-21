@@ -49,10 +49,11 @@
 
 	</style>
 	<script>
-window.setInterval(function() {
-  var elem = document.getElementById('data');
-  elem.scrollTop = elem.scrollHeight;
-}, 5000);
+ window.setInterval(scrollit, 1000);
+
+function scrollit() {
+window.scrollTo(0, document.body.scrollHeight);
+}
 	</script>
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css'>
 </head>
@@ -80,7 +81,7 @@ window.setInterval(function() {
 		</script>
 		<table class="table">
 			<tr class="chat_message" ng-repeat="chat in chatList | limitTo: 100">
-				<td class="col-md-12 td_class"><div  id="data"><strong>{{ chat.user }} : </strong> {{ chat.message }}</div></td>
+				<td class="col-md-12 td_class"><strong>{{ chat.user }} : </strong> {{ chat.message }}</td>
 			</tr>
 		</table>
 		
