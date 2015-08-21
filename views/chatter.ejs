@@ -48,6 +48,12 @@
 	}
 
 	</style>
+	<script>
+window.setInterval(function() {
+  var elem = document.getElementById('data');
+  elem.scrollTop = elem.scrollHeight;
+}, 5000);
+	</script>
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css'>
 </head>
 <body ng-app="socketApp" ng-controller="ChatController">
@@ -59,14 +65,8 @@
 	    		<span class="icon-bar"></span>
 	    		<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">Socket Sails Demo - Maangalabs</a>
+			<a class="navbar-brand" href="#">Squaresauce Chat</a>
 		</div>
-		 <div class="navbar-collapse collapse navbar-responsive-collapse">
-		     <ul class="nav navbar-nav navbar-right">
-		      <li><a href="//maangalabs.com/blog/2014/12/04/socket-in-sails/"><strong>Go to the tutorial Page >> &nbsp;&nbsp;&nbsp;</strong></a></li>
-		      
-		    </ul>
-		  </div>
 	</div>
 	<div class="col-md-12" style="padding:100px">
 		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -78,8 +78,8 @@
 		<script>
 		(adsbygoogle = window.adsbygoogle || []).push({});
 		</script>
-		<table  class="table">
-			<tr class="chat_message" ng-repeat="chat in chatList | orderBy:predicate:reverse | limitTo: 100">
+		<table id="data" class="table">
+			<tr class="chat_message" ng-repeat="chat in chatList | limitTo: 100">
 				<td class="col-md-12 td_class"><strong>{{ chat.user }} : </strong> {{ chat.message }}</td>
 			</tr>
 		</table>
