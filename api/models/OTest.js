@@ -10,7 +10,7 @@ module.exports = {
   attributes: {
   	GroupNo: {type:'string'},
     Programme : {type:'string'},
-    Username : {type: 'string'},
+    UserName : {type: 'string'},
     Email: {type:'string'},
     CampusID: {type:'string'},
     FullName: {type:'string'},
