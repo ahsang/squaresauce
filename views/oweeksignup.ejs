@@ -6,9 +6,29 @@
     <link class="main-stylesheet" href="styles/specific/squaresauce.css" rel="stylesheet" type="text/css" />
   
 <script type="text/javascript">
-//if (window.location == "https://squaresauce.herokuapp.com/oweeksignup#_=_") {
- //  window.location.href = 'http://squaresauce.com/oweeksignup'; 
-//}
+
+    $(document).ready(function () {
+        var txtSectorE = $('#sector_e');
+
+        // Save the initial value
+        $.data(txtSectorE, "last", txtSectorE.val());
+
+        // Setup the event
+        txtSectorE.focusout(function () {
+            var last = $.data(txtSectorE, "last");
+            if (last != $(this).val())
+                var usern = $("#sector_e").val();
+
+                                        $http({
+                                          method  : 'POST',
+                                          contentType: "application/json; charset=utf-8",
+                                          dataType: 'json',
+                                          headers : { 'Content-Type': 'application/json' }  // set the headers so angular passing info as form data (not request payload)
+
+
+                                        }).success(function(izdone){
+                                          alert(izdone);
+
 </script>
   <body class="fixed-header   ">
     <div class="register-container full-height sm-p-t-30">
@@ -41,7 +61,6 @@
                 <div class="col-sm-12">
                   <div class="form-group form-group-default">
                     <label>Username</label>
-                    <input type="text" name="uname" value="<%= req.session.username%>" class="form-control" required>
                   </div>
                 </div>
               </div>
