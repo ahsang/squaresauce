@@ -79,7 +79,7 @@
 		(adsbygoogle = window.adsbygoogle || []).push({});
 		</script>
 		<table  class="table">
-			<tr class="chat_message" ng-repeat="chat in chatList | orderBy:predicate:reverse | limitTo: 100">
+			<tr class="chat_message" ng-repeat="chat in chatList | limitTo: 100">
 				<td class="col-md-12 td_class"><strong>{{ chat.user }} : </strong> {{ chat.message }}</td>
 			</tr>
 		</table>
