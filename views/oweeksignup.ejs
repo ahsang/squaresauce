@@ -31,16 +31,14 @@
                                         })
 
                                         .success(function(izdone){
-                                          if(izdone=="true") {
-                                              $('#userno').fadeIn(600);
-                                              $('#useryes').fadeOut(600);
-                                              alert(izdone);
+                                          if(izdone==true) {
+                                              $('#userno').fadeOut(600);
+                                              $('#useryes').fadeIn(600);
 
                                           }
                                           else {
-                                              alert(izdone);
-                                              $('#userno').fadeOut(600);
-                                              $('#useryes').fadeIn(600);
+                                              $('#userno').fadeIn(600);
+                                              $('#useryes').fadeOut(600);
                                           }
                                                    
                                       })
