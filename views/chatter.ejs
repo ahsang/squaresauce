@@ -92,11 +92,9 @@
 	    <form class="form_chat">
 	    	<div class="col-lg-3 col-md-3">
 	      		<input type="text" ng-model = "chatUser" class="form-control" placeholder="TypeYourNameHere">
-	    	</div><div class="col-lg-2 col-md-1">
-	      		<input type="text" ng-model = "chatSquareId" class="form-control" placeholder="Square ID">
-          	</div>
+	    	</div>
           	
-	    	<div class="col-lg-5 col-md-4">
+	    	<div class="col-lg-6 col-md-5">
 	      		<input type="text" ng-model = "chatMessage" class="form-control" placeholder="TypeYourMessageHere">
           	</div>
           	<button class="btn btn-default col-lg-2 col-md-2" ng-click="sendMsg()">Send</button>  
@@ -118,7 +116,7 @@
 			$scope.predicate = '-id';
 			$scope.reverse = false;
 			$scope.chatList =[];
-			$scope.chatSquareId = "2";   //INSERT THE CURRENT SQUARE ID HERE!!
+			$scope.chatSquareId = location.hash.replace(/^#/, "");   //chatter/#2 means this is 2
 			$scope.getAllchat = function(){
 
 				io.socket.get('/chat/addconv');
