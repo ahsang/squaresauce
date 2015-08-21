@@ -53,10 +53,14 @@ module.exports = {
           return [temp,otest];		 
 
 	 		}).spread(function(temp,otest){
-          OTest.destroy(otest.id).then(function(destroyed){
-            console.log(destroyed);
-            console.log("destroyed");
-          });
+          console.log(otest);
+          if(otest==''){
+          }else{
+              OTest.destroy(otest.id).then(function(destroyed){
+                console.log(destroyed);
+                console.log("destroyed");
+              });
+          }
           // console.log("I am spreading");
           console.log(temp);
           res.send(temp);

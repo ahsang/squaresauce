@@ -12,12 +12,12 @@ module.exports = {
         recipientName: "Joe",
         senderName: "Sue"
       }, {
-        to: "joe@example.com",
+        to: "ahsangondal15@gmail.com",
         subject: "Hi there"
       },
       function(err) {
         if (err) {return res.serverError(err);}
-        return res.ok();
+        return res.ok("Email Sent");
       }
     );
   },
