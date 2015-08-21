@@ -262,6 +262,14 @@
 	//		NEED TO TEST!
 	},
 
+	addSubsquare: function(req,res){
+
+	},
+
+	removeSubsquare: function(req,res){
+
+	},
+
 	addDiscussionForum: function(req,res){
 		info = new Array();
 		info.sid=req.param('square_id');

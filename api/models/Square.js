@@ -43,6 +43,12 @@ module.exports = {
     badges:{
       collection: 'Badge',
       via: 'squares'
+    },
+    subsquares:{
+      type:'array'
+    },
+    pid:{
+      type:'integer'
     }
     
 
