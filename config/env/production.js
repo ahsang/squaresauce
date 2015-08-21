@@ -16,7 +16,7 @@ module.exports = {
    * Set the default database connection for models in the production        *
    * environment (see config/connections.js and config/models.js )           *
    ***************************************************************************/
-   proxyHost: 'squaresauce.herokuapp.com',
+   proxyHost: 'http://squaresauce.com',
    proxyPort: 443,
    hookTimeout: 40000
   // models: {
