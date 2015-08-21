@@ -54,13 +54,13 @@ module.exports = {
 
 	 		}).spread(function(temp,otest){
           console.log(otest);
-          if(otest==''){
-          }else{
-              OTest.destroy(otest.id).then(function(destroyed){
+          
+              OTest.destroy({VoucherNo : info.voucher}).exec(function destroyer(err,destroyed){
+                if(err)console.log(err);
                 console.log(destroyed);
                 console.log("destroyed");
               });
-          }
+          
           // console.log("I am spreading");
           console.log(temp);
           res.send(temp);
