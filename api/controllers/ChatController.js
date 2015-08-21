@@ -58,20 +58,22 @@ module.exports = {
 				if(req.isSocket && req.method === 'POST'){
 				//console.log(data_from_client.cid);
 				ChatSquare.find({cid:data_from_client.cid}).exec(function (err, chatsquare){
-					if(chatsquare=''){
-						res.send("Error 0090: No such chat square exists")
-					}
+					if(chatsquare=='')
+						{
+							console.log('square doesnt exist, i also tried send a response');
+							res.send("Error 0090: No such chat square exists");
 
+						}
+						else
+						{
+					console.log(chatsquare);
 					var temp = chatsquare[0].cid;
-      			ChatSquare.subscribe(req, temp);
-      			console.log( 'The socket: ' + req.socket.id +' is now subscribed to the chatsquare: '+ chatsquare[0].cid );
-      			if(err) console.log(err);
-      			});
-
-      				return res.ok();
-
-
-			
+      				ChatSquare.subscribe(req, temp);
+      				console.log( 'The socket: ' + req.socket.id +' is now subscribed to the chatsquare: '+ chatsquare[0].cid );
+      				if(err) console.log(err);
+      					res.ok();
+      					}
+      				});
 		}else
 		{
 			res.send("Error 0091: Your sauce couldnt be processed by the chat controller");
