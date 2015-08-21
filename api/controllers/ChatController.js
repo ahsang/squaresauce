@@ -17,7 +17,7 @@ module.exports = {
 			Chat.create(data_from_client)
 				.exec(function(error,data_from_client){
 					console.log(data_from_client);
-					Chat.publishCreate({id : data_from_client.id, message : data_from_client.message , user:data_from_client.user});
+					//Chat.publishCreate({id : data_from_client.id, message : data_from_client.message , user:data_from_client.user});
 					ChatSquare.find({cid:data_from_client.cid}).exec(function (err, chatsquare){
 						//console.log(chatobj);
 						if(chatsquare=='')
@@ -26,21 +26,33 @@ module.exports = {
 						}
 						else
 						{
-							console.log('i searched for a chatsquare with id: ' +data_from_client.cid);
-							console.log('i found a chatsqr');
+							// console.log('i searched for a chatsquare with id: ' +data_from_client.cid);
+							// console.log('i found a chatsqr');
 							console.log(chatsquare);
 							chatsquare[0].messages.add( data_from_client.id );
 				    		chatsquare[0].save(function(err){
 					    		console.log('Added the message '+data_from_client.message+'to the chatsquare ' +data_from_client.cid);
 					    	});
+					    	ChatSquare.publishUpdate(chatsquare[0].cid, {messages: chatsquare[0].messages});
+					    	console.log('i sent a broadcast to all subscribers of chatsquare: '+ chatsquare[0].cid);
 				    	}
 				    	if(err) console.log(err);
 					});
 				}); 
 		}
 		else if(req.isSocket){
-			Chat.watch(req.socket);
-			console.log( 'User subscribed to ' + req.socket.id );
+				
+				ChatSquare.find({cid:"2"}).exec(function (err, chatsquare){
+					var temp = chatsquare[0].cid;
+      			ChatSquare.subscribe(req, temp);
+      			console.log( 'The socket: ' + req.socket.id +' is now subscribed to the chatsquare: '+ chatsquare[0].cid );
+      			if(err) console.log(err);
+      			});
+
+      				return res.ok();
+
+
+			
 		}
 	}
 };

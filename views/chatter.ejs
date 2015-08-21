@@ -133,13 +133,12 @@
 			$scope.chatUser = "nikkyBot"
 			$scope.chatMessage="";
 
-			io.socket.on('chat',function(obj){
-
-				if(obj.verb === 'created'){
+			io.socket.on('chatsquare',function(obj){
+					console.log('i was turned on');
 					$log.info(obj)
 					$scope.chatList.push(obj.data);
 					$scope.$digest();
-				}
+				
 
 			});
 
