@@ -49,6 +49,9 @@ module.exports = {
     },
     pid:{
       type:'integer'
+    },
+    chatSquare:{
+      model: 'ChatSquare'
     }
     
 

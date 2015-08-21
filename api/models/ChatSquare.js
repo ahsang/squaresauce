@@ -14,7 +14,14 @@ module.exports = {
   		messages:{
   			collection: 'Chat',
   			via : 'myparent'
-  		}
+  	},
+  		users:{
+  			collection : 'User',
+  			via : 'myChats'
+  		},
+      square:{
+        model : 'Square'
+      }
   }
 };
 

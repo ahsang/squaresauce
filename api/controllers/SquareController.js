@@ -59,8 +59,8 @@
 	addUser: function(req,res){
 
 	 	info = new Array();
-	 	info.sid=req.param('square_id');
-	 	info.uid=req.param('user_id');
+	 	info.sid=req.param('sid');
+	 	info.uid=req.param('uid');
 
 
 	 	Square.find({ id : info.sid}).exec(function (err,square) {
@@ -78,8 +78,8 @@
 	 				else
 	 				{
 				    				//TODO: Cannot add if user already exists in members.
-				    				square.people.add( info.uid );
-				    				square.save(function(err){
+				    				square[0].people.add( info.uid );
+				    				square[0].save(function(err){
 				    					console.log('added the following user for square ' + square.name);
 				    					console.log(info.uid);
 				    				});	    				
@@ -374,13 +374,37 @@
 	},
 
 	addChat: function(req,res){
-		console.log(req.param('hello'));
-		//Create the chat model
-		//TODO: Write the function maybe?:p
-		res.ok();
-	//TODO: Need to figure out the chat module first...
-	},
+		info = new Array();
+		info.sid=req.param('sid');
+		info.cid=req.param('cid');
 
+
+		Square.findOne({ id : info.sid }).populate('people').exec(function (err, square) {
+
+			var temp;
+
+	 					//	Dforum.portOver({name : dforum.name , sid : square.id , dfid : dforum.id }).exec(function createCB(err, dforum) {
+	 					//	 });
+	 						// if(err)console.log(err);
+	 						console.log(square);
+
+
+	 						ChatSquare.create({cid:info.cid,users:square.people}).exec(function (err, chatsqr) {		
+	 							// console.log('Created a chat square');
+	 							// console.log(dforum.id);
+	 							Square.update({sid:info.sid},{chatSquare:chatsqr.id}).exec(function (err, updated){
+	 								if(err) console.log(err);
+	 							});
+	 							ChatSquare.update({cid:info.cid},{square:info.sid}).exec(function (err, updated){
+	 								if(err) console.log(err);
+	 							});	 							
+	 							if(err) console.log(err);
+	 						});
+
+	 					if(err) console.log(err);
+	 			res.ok();
+	 		});
+},
 	removeChat: function(req,res){
 		//Create the chat model
 		//TODO: Write the function maybe?:p

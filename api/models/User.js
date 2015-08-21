@@ -32,6 +32,10 @@ _.merge(exports, {
       isForumAdmin: {
       collection:'Dforum',
       via:'admins'
+    },
+    myChats:{
+      collection: 'ChatSquare',
+      via: 'users'
     }
 
 }
