@@ -90,11 +90,13 @@
 	  <div class="col-lg-12">
 	    
 	    <form class="form_chat">
-	    	<div class="col-lg-4 col-md-3">
+	    	<div class="col-lg-3 col-md-3">
 	      		<input type="text" ng-model = "chatUser" class="form-control" placeholder="TypeYourNameHere">
+	    	</div><div class="col-lg-2 col-md-1">
+	      		<input type="text" ng-model = "chatSquareId" class="form-control" placeholder="Square ID">
           	</div>
           	
-	    	<div class="col-lg-6 col-md-5">
+	    	<div class="col-lg-5 col-md-4">
 	      		<input type="text" ng-model = "chatMessage" class="form-control" placeholder="TypeYourMessageHere">
           	</div>
           	<button class="btn btn-default col-lg-2 col-md-2" ng-click="sendMsg()">Send</button>  
