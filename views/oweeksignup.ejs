@@ -18,9 +18,9 @@
             var last = $.data(txtSectorE, "last");
             if (last != $(this).val())
                 var usern = {
-                  username: $("#sector_e").val()
+                  username: $("#sector_e").val();
                 };
-                alert(usern);
+                alert(usern.username);
 
                                         $.ajax({
                                           method  : 'POST',
