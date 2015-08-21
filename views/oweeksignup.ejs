@@ -17,13 +17,15 @@
         txtSectorE.focusout(function () {
             var last = $.data(txtSectorE, "last");
             if (last != $(this).val())
-                var usern = $("#sector_e").val();
+                var usern = {
+                  username: $("#sector_e").val()
+                };
 
                                         $.ajax({
                                           method  : 'POST',
                                           contentType: "application/json; charset=utf-8",
                                           url     : '/user/verifyusername',
-                                          data    : '{username:"'+usern+'"}', 
+                                          data    : usern, 
                                           dataType: 'json',
                                           headers : { 'Content-Type': 'application/json' }  
 
