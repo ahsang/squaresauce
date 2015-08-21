@@ -33,8 +33,9 @@ module.exports = {
 				    		chatsquare[0].save(function(err){
 					    		console.log('Added the message '+data_from_client.message+'to the chatsquare ' +data_from_client.cid);
 					    	});
-					    	ChatSquare.publishUpdate(chatsquare[0].cid, {messages: chatsquare[0].messages});
+					    	ChatSquare.publishUpdate(chatsquare[0].cid, {messages: data_from_client});
 					    	console.log('i sent a broadcast to all subscribers of chatsquare: '+ chatsquare[0].cid);
+					    	console.log('The message that i brodcasted was: '+ data_from_client);
 				    	}
 				    	if(err) console.log(err);
 					});
