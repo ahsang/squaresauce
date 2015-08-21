@@ -22,15 +22,73 @@
                                         $http({
                                           method  : 'POST',
                                           contentType: "application/json; charset=utf-8",
+                                          url     : '/user/verifyusername',
+                                          data    : usern, 
                                           dataType: 'json',
                                           headers : { 'Content-Type': 'application/json' }  // set the headers so angular passing info as form data (not request payload)
 
 
                                         }).success(function(izdone){
                                           alert(izdone);
+                                                   
+                                      }).error(function(errr){
+                                        alert("Oops! Something unexpected happened. Please contact Squaresauce support for details.");
+                                      });
 
+
+        });
+    });
+/*
+ var formApp = angular.module('formApp', []);
+        // create angular controller and pass in $scope and $http
+        function formController($scope, $http) {
+            // create a blank object to hold our form information
+            // $scope will allow this to pass between controller and view
+            $scope.formData = {};
+            // process the form
+            $scope.processForm = function() {
+                $http({
+                    method  : 'POST',
+                    url     : '/users/update',
+                    data    : $.param($scope.formData),  // pass in data as strings
+                    headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  // set the headers so angular passing info as form data (not request payload)
+
+                }).success(function(headers) {
+                        if (headers=='Error 0073') {
+                            // if not successful, bind errors to error variables
+                           var str = "Uh Oh, it seems like you have already registered. Please login to continue.";
+
+                              document.getElementById('successfulsignup').innerHTML = str;
+
+                            $('#successfulsignup').fadeIn('slow');
+                            
+
+                            alert("error");
+                            }
+                            else {
+                                   $('#signupform').fadeOut(0);
+
+                                    var str = "Hi " + headers + "! Thanks for signing up! How about we take things to the next level now?<br/> But before we move in, make babies and live happily ever after, we'd like to meet some of your friends.</br> So why don't you call them over too?";
+
+                              document.getElementById('successfulsignup').innerHTML = str;
+
+                            $('#successfulsignup').fadeIn('slow'); 
+
+
+                            alert("sign up completed");
+
+                            }
+
+
+                            
+
+
+                    });
+            };
+        }
+*/
 </script>
-  <body class="fixed-header   ">
+  <body class="fixed-header" ng-app="formApp" ng-controller="formController">
     <div class="register-container full-height sm-p-t-30">
       <div class="container-sm-height full-height">
         <div class="row row-sm-height">
@@ -42,18 +100,18 @@
         To create a Squaresauce account, provide us with a few more details.
     </small>
             </p>
-            <form id="form-register" class="p-t-15" role="form" action="index.html">
+            <form id="signupform" ng-submit="processForm()"  class="p-t-15" role="form">
               <div class="row">
                 <div class="col-sm-6">
                   <div class="form-group form-group-default">
                     <label>First Name</label>
-                    <input type="text" name="fname" value="<%= req.session.fbk_data.first_name%>" class="form-control" required>
+                    <input type="text" name="fname" ng-model="formData.fname" value="<%= req.session.fbk_data.first_name%>" class="form-control" required>
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group form-group-default">
                     <label>Last Name</label>
-                    <input type="text" name="lname" value="<%= req.session.fbk_data.last_name%>" class="form-control" required>
+                    <input type="text" name="lname" ng-model="formData.lname" value="<%= req.session.fbk_data.last_name%>" class="form-control" required>
                   </div>
                 </div>
               </div>
@@ -61,6 +119,10 @@
                 <div class="col-sm-12">
                   <div class="form-group form-group-default">
                     <label>Username</label>
+                    <input type="text" id="sector_e" name="uname"  ng-model="formData.uname" value="<%= req.session.username%>" class="form-control" required>
+                    <div style="display:none;" id="useryes"><br/> <p class="p-t-35"><font color="green">Username Available</font></p></div>
+                    <div style="display:none;" id="userno"><br/> <p class="p-t-35"><font color="red">Username not available</font></p></div>
+
                   </div>
                 </div>
               </div>
@@ -68,7 +130,7 @@
                 <div class="col-sm-12">
                   <div class="form-group form-group-default">
                     <label>Password</label>
-                    <input type="password" name="pass" value="<%= req.session.password%>" class="form-control" required>
+                    <input type="password" name="pass"  ng-model="formData.pass" value="" class="form-control" required>
                   </div>
                 </div>
               </div>
@@ -76,7 +138,7 @@
                 <div class="col-sm-12">
                   <div class="form-group form-group-default">
                     <label>Primary Email</label>
-                    <input type="email" name="email" value="<%= req.session.fbk_data.email%>" class="form-control" required>
+                    <input type="email" name="email" ng-model="formData.email" class="form-control" required>
                   </div>
                 </div>
               </div>
@@ -84,7 +146,7 @@
                 <div class="col-sm-12">
                   <div class="form-group form-group-default">
                     <label>Campus Email</label>
-                    <input type="email" name="cemail" value="<%= req.session.email%>" class="form-control">
+                    <input type="email" name="cemail" ng-model="formData.cemail" value="<%= req.session.email%>" class="form-control">
                   </div>
                 </div>
               </div>
@@ -92,7 +154,7 @@
                 <div class="col-sm-12">
                   <div class="form-group form-group-default">
                     <label>Institution</label>
-                    <input type="text" name="institution" value="Lahore University of Management Sciences" class="form-control"  disabled>
+                    <input type="text" name="institution" ng-model="formData.institution" value="Lahore University of Management Sciences" class="form-control"  disabled>
                   </div>
                 </div>
               </div>
@@ -100,7 +162,7 @@
                 <div class="col-sm-12">
                   <div class="form-group form-group-default">
                     <label>Previous Institution</label>
-                    <input type="text" name="previousinstitution" placeholder="Your high school / college" class="form-control" required>
+                    <input type="text" name="pinstitution" ng-model="formData.pinstitution" placeholder="Your high school / college" class="form-control" required>
                   </div>
                 </div>
               </div>
@@ -108,7 +170,7 @@
                 <div class="col-sm-12">
                   <div class="form-group form-group-default">
                     <label>Major</label>
-                    <input type="text" name="major" placeholder="Your field of study" class="form-control" required>
+                    <input type="text" name="major" ng-model="formData.major" placeholder="Your field of study" class="form-control" required>
                   </div>
                 </div>
               </div>
@@ -116,7 +178,7 @@
                 <div class="col-sm-12">
                   <div class="form-group form-group-default">
                     <label>Batch</label>
-                    <input type="text" name="major" placeholder="e.g. Class of 2019" class="form-control" required>
+                    <input type="text" name="batch" ng-model="formData.batch" placeholder="e.g. Class of 2019" class="form-control" required>
                   </div>
                 </div>
               </div> 
