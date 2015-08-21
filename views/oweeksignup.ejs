@@ -23,15 +23,19 @@
                                           method  : 'POST',
                                           contentType: "application/json; charset=utf-8",
                                           url     : '/user/verifyusername',
-                                          data    : usern, 
+                                          data    : '{username:"'+usern+'"}', 
                                           dataType: 'json',
-                                          headers : { 'Content-Type': 'application/json' }  // set the headers so angular passing info as form data (not request payload)
+                                          headers : { 'Content-Type': 'application/json' }  
 
 
-                                        }).success(function(izdone){
+                                        })
+
+                                        .success(function(izdone){
                                           alert(izdone);
                                                    
-                                      }).error(function(errr){
+                                      })
+
+                                        .error(function(errr){
                                         alert("Oops! Something unexpected happened. Please contact Squaresauce support for details.");
                                       });
 
