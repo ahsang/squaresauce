@@ -38,7 +38,7 @@
                 <div class="col-sm-12">
                   <div class="form-group form-group-default">
                     <label>Username</label>
-                    <input type="text" name="uname" placeholder="<%= req.session.username%>" class="form-control" required>
+                    <input type="text" name="uname" value="<%= req.session.username%>" class="form-control" required>
                   </div>
                 </div>
               </div>
@@ -46,7 +46,7 @@
                 <div class="col-sm-12">
                   <div class="form-group form-group-default">
                     <label>Password</label>
-                    <input type="password" name="pass" placeholder="<%= req.session.password%>" class="form-control" required>
+                    <input type="password" name="pass" value="<%= req.session.password%>" class="form-control" required>
                   </div>
                 </div>
               </div>
@@ -54,7 +54,7 @@
                 <div class="col-sm-12">
                   <div class="form-group form-group-default">
                     <label>Primary Email</label>
-                    <input type="email" name="email" placeholder="<%= req.session.email%>" class="form-control" required>
+                    <input type="email" name="email" value="<%= req.session.fbk_data.email%>" class="form-control" required>
                   </div>
                 </div>
               </div>
@@ -62,7 +62,7 @@
                 <div class="col-sm-12">
                   <div class="form-group form-group-default">
                     <label>Campus Email</label>
-                    <input type="email" name="cemail" placeholder="Your campus email address (optional)" class="form-control">
+                    <input type="email" name="cemail" value="<%= req.session.email%>" class="form-control">
                   </div>
                 </div>
               </div>
