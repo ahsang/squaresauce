@@ -1,6 +1,8 @@
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat:400,700" />
   <link rel="stylesheet" type="text/css" href="styles/specific/jquery.pagepiling.css" />
     <link class="main-stylesheet" href="styles/specific/squaresauce.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
   <link rel="stylesheet" type="text/css" href="styles/specific/homepage.css" />
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -92,11 +94,12 @@
                             else {
                                     $('#signupform').fadeOut(0);
 
-                                    var str = "Hi " + headers + "! Thanks for signing up! How about we take things to the next level now?<br/> We'd like to meet some of your friends before we move in together though. <br/> What do you say?";
+                                    var str = "Hi " + headers + "! Thanks for signing up! How about we take things to the next level now?<br/> We'd like to meet some of your friends before we move in together though. <br/> What do you say?<br/><br/>";
 
                               document.getElementById('successfulsignup').innerHTML = str;
 
                             $('#successfulsignup').fadeIn('slow');
+                            $('#successfulsignup2').delay(1000).fadeIn('slow');
 
                             }
 
@@ -250,7 +253,26 @@ line-height: 30px;
           <h1 style=" font-family: Montserrat, Arial; font-size: 32px; color: #cc1f35;">Create a new Square</h1>
           <p>Get a Square for your own campus.<br/><br/><br/><br/></p>
           
-    <div id="successfulsignup" style="display: none; text-align: center; font-size: 16px;"></div>
+    <div id="successfulsignup" style="display: none; text-align: center; font-size: 14px;"></div>
+    <div id="successfulsignup2" style="display: none; text-align: center; font-size: 16px;">
+<br/><br/>
+  <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.squaresauce.com&t=Squaresauce" class="btn btn-block btn-primary" type="button">
+                      <span class="pull-left"><i class="fa fa-facebook"></i>
+                                    </span>
+                      <span class="bold">Share on Facebook</span>
+                    </a>
+                    <a target="_blank" href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fwww.squaresauce.com&text=Squaresauce:%20http%3A%2F%2Fwww.squaresauce.com&via=Squarrrre" class="btn btn-block btn-primary" type="button">
+                      <span class="pull-left"><i class="fa fa-twitter"></i>
+                                    </span>
+                      <span class="bold">Tweet</span>
+                    </a>
+                    <a href="mailto:?subject=Squaresauce&body=Create%20online%20campuses%20-%20one%20square%20at%20a%20time:%20http%3A%2F%2Fwww.squaresauce.com" class="btn btn-block btn-primary"  type="button">
+                      <span class="pull-left"><i class="fa fa-envelope"></i>
+                                    </span>
+                      <span class="bold">Email it</span>
+                    </a>
+
+    </div>
     <form id="signupform" ng-submit="processForm()" style="font-family: segoe UI;">
            
      <div class="form-group form-group-default">
