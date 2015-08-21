@@ -85,6 +85,9 @@ _.extend(exports, {
 
 
         sails.log.info('user', user, 'authenticated successfully');
+        if(req.session.provider=='facebook'){
+          return res.redirect('/oweeksignup');
+        }
         return res.json(user);
       });
     });
