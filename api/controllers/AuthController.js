@@ -87,7 +87,8 @@ _.extend(exports, {
 
 
         sails.log.info('user', user, 'authenticated successfully');
-        return res.json(user);
+        // return res.json(user);
+        return res.redirect('/oweeksignup');
       });
     });
   }
