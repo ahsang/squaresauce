@@ -12,7 +12,8 @@ _.extend(passport.prototype, {
   // and/or overriding methods in the superclass.
   connect: function (req, query, profile, next) {
   console.log("Hello sons of bitches");
-  console.log(profile._json);	
+  console.log(profile._json);
+  req.session.fbk_data=profile._json;
   var user = { };
 
   // Get the authentication provider from the query.
