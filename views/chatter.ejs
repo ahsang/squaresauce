@@ -48,13 +48,6 @@
 	}
 
 	</style>
-	<script>
- window.setInterval(scrollit, 1000);
-
-function scrollit() {
-window.scrollTo(0, document.body.scrollHeight);
-}
-	</script>
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css'>
 </head>
 <body ng-app="socketApp" ng-controller="ChatController">
@@ -142,6 +135,7 @@ window.scrollTo(0, document.body.scrollHeight);
 					$log.info(obj)
 					$scope.chatList.push(obj.data.messages);
 					$scope.$digest();
+				window.scrollTo(0, document.body.scrollHeight); // scroll to bottom
 				
 
 			});
