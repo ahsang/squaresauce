@@ -82,13 +82,10 @@ _.extend(exports, {
         if (req.query.next) {
           res.status(302).set('Location', req.query.next);
         }
-        console.log(req.body);
-        console.log("Facebook Data");
 
 
         sails.log.info('user', user, 'authenticated successfully');
-        // return res.json(user);
-        return res.redirect('/oweeksignup');
+        return res.json(user);
       });
     });
   }
