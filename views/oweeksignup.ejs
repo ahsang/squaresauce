@@ -32,15 +32,15 @@
 
                                         .success(function(izdone){
                                           if(izdone=="true") {
-                                              $('#useryes').fadeIn(600);
-                                              $('#userno').fadeOut(600);
+                                              $('#userno').fadeIn(600);
+                                              $('#useryes').fadeOut(600);
                                               alert(izdone);
 
                                           }
                                           else {
                                               alert(izdone);
-                                              $('#useryes').fadeOut(600);
-                                              $('#userno').fadeIn(600);
+                                              $('#userno').fadeOut(600);
+                                              $('#useryes').fadeIn(600);
                                           }
                                                    
                                       })
@@ -134,8 +134,8 @@
                     
 
                   </div>
-                  <div style="display:none;" id="useryes"><br/> <p class="p-t-35"><font color="green">Username Available</font></p></div>
-                    <div style="display:none;" id="userno"><br/> <p class="p-t-35"><font color="red">Username not available</font></p></div>
+                  <div style="display:none;" id="useryes"><p class="p-t-35"><font color="green">Username Available</font></p></div>
+                    <div style="display:none;" id="userno"><p class="p-t-35"><font color="red">Username not available</font></p></div>
                 </div>
               </div>
               <div class="row">
