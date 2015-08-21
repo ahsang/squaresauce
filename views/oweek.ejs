@@ -54,9 +54,10 @@
 
                                         }).success(function(izdone){
                                           
-
+                                              console.log(izdone);
+                                              // izdone.Name
                                           // display facebook
-                                               var str1 = "<p class='p-t-35'>Hello, thanks for dropping by. Click the button below to complete the sign up process<br/><br/></p>";
+                                               var str1 = "<p class='p-t-35'>Hello " + izdone.name + ", thanks for dropping by. Click the button below to complete the sign up process<br/><br/></p>";
 
                                          document.getElementById('fb-1').innerHTML = str1;
 
