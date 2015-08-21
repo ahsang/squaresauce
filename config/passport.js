@@ -12,8 +12,8 @@ _.merge(exports.passport, {
     protocol: 'oauth2',
     strategy: require('passport-facebook').Strategy,
     options: {
-      clientID: '436918573176696',
-      clientSecret: 'acfc7bd6a5eb4eecbd684ce4bd249a13',
+      clientID: '784864048275345',
+      clientSecret: 'c3b0de096a8df07d5115fc305973471b',
       profileFields: ['id', 'first_name', 'last_name', 'email'] 
     }
   }
