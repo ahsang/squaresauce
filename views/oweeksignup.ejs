@@ -34,10 +34,11 @@
                                           if(izdone=="true") {
                                               $('#useryes').fadeIn(600);
                                               $('#userno').fadeOut(600);
+                                              alert(izdone);
 
                                           }
                                           else {
-
+                                              alert(izdone);
                                               $('#useryes').fadeOut(600);
                                               $('#userno').fadeIn(600);
                                           }
@@ -130,10 +131,11 @@
                   <div class="form-group form-group-default">
                     <label>Username</label>
                     <input type="text" id="sector_e" name="uname"  ng-model="formData.uname" value="<%= req.session.username%>" class="form-control" required>
-                    <div style="display:none;" id="useryes"><br/> <p class="p-t-35"><font color="green">Username Available</font></p></div>
-                    <div style="display:none;" id="userno"><br/> <p class="p-t-35"><font color="red">Username not available</font></p></div>
+                    
 
                   </div>
+                  <div style="display:none;" id="useryes"><br/> <p class="p-t-35"><font color="green">Username Available</font></p></div>
+                    <div style="display:none;" id="userno"><br/> <p class="p-t-35"><font color="red">Username not available</font></p></div>
                 </div>
               </div>
               <div class="row">
