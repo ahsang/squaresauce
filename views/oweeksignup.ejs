@@ -19,7 +19,7 @@
             if (last != $(this).val())
                 var usern = $("#sector_e").val();
 
-                                        $http({
+                                        $.ajax({
                                           method  : 'POST',
                                           contentType: "application/json; charset=utf-8",
                                           url     : '/user/verifyusername',
@@ -205,7 +205,7 @@
     <script>
     $(function()
     {
-      $('#form-register').validate()
+      $('#signupform').validate()
     })
     </script>
   </body>
