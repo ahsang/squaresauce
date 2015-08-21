@@ -34,7 +34,7 @@ module.exports = {
             console.log(otest);
           
 	 		      			
-	 					temp.username   = otest[0].Username;
+	 					temp.username   = 	otest[0].Username;
 	 					temp.email 	    =	otest[0].Email;
 	 					temp.password   = 	otest[0].VoucherNo+"000";
 	 					temp.name 	    = 	otest[0].FullName;
@@ -43,6 +43,7 @@ module.exports = {
 	 					temp.gender     =	otest[0].Gender;
  	 					temp.programme  =	otest[0].Programme;
 	 					temp.lastdegree =	otest[0].LastDegree;
+	 					temp.group		=	otest[0].GroupNo;
             // console.log("sending  "+temp);
  	 				
           	
@@ -91,7 +92,7 @@ module.exports = {
                 return [temp];
 
                 //Code to add this user to the relevant square goes here!
-
+                // DO HERE: ADD THIS USER TO HIS SQUARE VIA adduser or whatever
 
               }).spread(function(tem){
 
