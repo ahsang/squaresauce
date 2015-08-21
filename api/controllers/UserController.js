@@ -164,6 +164,22 @@ _.merge(exports, {
       res.ok();
     })
     
+  },
+
+  verifyusername:  function(req,res){
+    var id=req.param('username');
+    User.find({username:id}).then(function(user){
+      if(user==''){
+        res.send("true");
+      }else{
+        res.send("false");
+      }
+
+    }).catch(function(err){
+      console.log("Error verifying the user");
+    })
+
+
   }
 
 });
