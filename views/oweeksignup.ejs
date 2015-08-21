@@ -17,16 +17,13 @@
         txtSectorE.focusout(function () {
             var last = $.data(txtSectorE, "last");
             if (last != $(this).val())
-                var usern = {
-                  username: $("#sector_e").val();
-                };
-                alert(usern.username);
+                var  username= $("#sector_e").val();
 
                                         $.ajax({
                                           method  : 'POST',
                                           contentType: "application/json; charset=utf-8",
                                           url     : '/user/verifyusername',
-                                          data    : usern, 
+                                          data    : '{"username": "'+username+'"}', 
                                           dataType: 'json',
                                           headers : { 'Content-Type': 'application/json' }  
 
@@ -34,13 +31,19 @@
                                         })
 
                                         .success(function(izdone){
-                                          alert(izdone);
+                                          if(izdone=="true") {
+                                              $('#useryes').fadeIn(600);
+                                              $('#userno').fadeOut(600);
+
+                                          }
+                                          else {
+
+                                              $('#useryes').fadeOut(600);
+                                              $('#userno').fadeIn(600);
+                                          }
                                                    
                                       })
 
-                                        .error(function(errr){
-                                        alert("Oops! Something unexpected happened. Please contact Squaresauce support for details.");
-                                      });
 
 
         });

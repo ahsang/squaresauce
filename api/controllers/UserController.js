@@ -167,6 +167,7 @@ _.merge(exports, {
   },
 
   verifyusername:  function(req,res){
+    console.log(req.body);
     var id=req.param('username');
     User.find({username:id}).then(function(user){
       if(user==''){
