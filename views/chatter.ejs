@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<title>Shah Chat - By Shah</title>
+	<link rel="stylesheet" type="text/css" href="/styles/bootstrap.min.css">
+	<style type="text/css">
+	body{
+		background: #ededed;
+		font-family: 'Open Sans', sans-serif;
+
+	}
+	.navbar{
+		border-radius: 0px;
+	}
+	.form_chat{
+		padding:10px;
+	}
+	.form-control{
+		width: inherit;
+	}
+	.chat_message{
+		padding: 10px;
+		color: #000;
+		font-size: 15px;
+	background: #fff;
+		font-family: 'Open Sans', sans-serif;
+	}
+	.td_class{
+		word-break:break-all;
+		padding: 34px;
+		padding-bottom: 0px;
+		padding-top: 20px;
+		border:0;
+	}
+	.navbar-brand{
+		font-size: 14px;
+		font-weight: 600;
+		text-decoration: none;
+	}
+	.user_name{
+		padding-bottom: 0;
+		color: #fff;
+		font-size: 15px;
+	}
+	.col-lg-4,.col-lg-6{
+		padding-right: 3px;
+		padding-left: 3px;
+	}
+
+	</style>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css'>
+</head>
+<body ng-app="socketApp" ng-controller="ChatController">
+
+	<div class="navbar navbar-default navbar-fixed-top">
+		<div class="navbar-header">
+	    	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+	    		<span class="icon-bar"></span>
+	    		<span class="icon-bar"></span>
+	    		<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">Socket Sails Demo - Maangalabs</a>
+		</div>
+		 <div class="navbar-collapse collapse navbar-responsive-collapse">
+		     <ul class="nav navbar-nav navbar-right">
+		      <li><a href="//maangalabs.com/blog/2014/12/04/socket-in-sails/"><strong>Go to the tutorial Page >> &nbsp;&nbsp;&nbsp;</strong></a></li>
+		      
+		    </ul>
+		  </div>
+	</div>
+	<div class="col-md-12" style="padding:100px">
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- Heroku Sails App Socket-1 -->
+		<ins class="adsbygoogle"
+		     style="display:inline-block;width:728px;height:90px"
+		     data-ad-client="ca-pub-7831813631234919"
+		     data-ad-slot="8454230873"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+		<table  class="table">
+			<tr class="chat_message" ng-repeat="chat in chatList | orderBy:predicate:reverse | limitTo: 100">
+				<td class="col-md-12 td_class"><strong>{{ chat.user }} : </strong> {{ chat.message }}</td>
+			</tr>
+		</table>
+		
+	</div>
+
+	<div class="navbar navbar-inverse navbar-fixed-bottom" >
+	  <div class="col-lg-12">
+	    
+	    <form class="form_chat">
+	    	<div class="col-lg-4 col-md-3">
+	      		<input type="text" ng-model = "chatUser" class="form-control" placeholder="TypeYourNameHere">
+          	</div>
+          	
+	    	<div class="col-lg-6 col-md-5">
+	      		<input type="text" ng-model = "chatMessage" class="form-control" placeholder="TypeYourMessageHere">
+          	</div>
+          	<button class="btn btn-default col-lg-2 col-md-2" ng-click="sendMsg()">Send</button>  
+	    </form>
+	    
+	  </div>
+	</div>
+	<script type="text/javascript" src="/js/dependencies/sails.io.js"></script>
+	<script type="text/javascript">
+	</script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js"></script>
+	<script type="text/javascript">
+
+		var socketApp = angular.module('socketApp',[]);
+
+		socketApp.controller('ChatController',['$http','$log','$scope',function($http,$log,$scope){
+
+
+			$scope.predicate = '-id';
+			$scope.reverse = false;
+			$scope.chatList =[];
+			$scope.chatSquareId = "2";   //INSERT THE CURRENT SQUARE ID HERE!!
+			$scope.getAllchat = function(){
+
+				io.socket.get('/chat/addconv');
+
+				$http.get('/ChatSquare/find?cid='+ $scope.chatSquareId)
+					 .success(function(success_data){
+					 		console.log(success_data);
+					 		$scope.chatList = success_data;
+					 		$log.info(success_data);
+					 });
+			};
+
+			$scope.getAllchat();
+			$scope.chatUser = "nikkyBot"
+			$scope.chatMessage="";
+
+			io.socket.on('chat',function(obj){
+
+				if(obj.verb === 'created'){
+					$log.info(obj)
+					$scope.chatList.push(obj.data);
+					$scope.$digest();
+				}
+
+			});
+
+			$scope.sendMsg = function(){
+				$log.info($scope.chatMessage);
+				io.socket.post('/chat/addconv/',{user:$scope.chatUser,message: $scope.chatMessage,cid: $scope.chatSquareId});
+				$scope.chatMessage = "";
+			};
+		}]);
+	</script>
+</body>
+</html>
