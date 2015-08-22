@@ -48,11 +48,11 @@ module.exports.routes = {
   '/oweek': {
     view: 'oweek'
   },
-  '/oweekwelcome': {
-    view: 'oweekwelcome'
-  },
   '/oweeksignup': {
     view: 'oweeksignup'
+  },
+  '/oweeksignupcomplete': {
+    view: 'oweeksignupcomplete'
   },
   '/login': {
     view: 'login'
