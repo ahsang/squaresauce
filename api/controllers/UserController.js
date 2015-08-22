@@ -217,7 +217,7 @@ updatedata: function(req,res){
 
   console.log(req.body);
   var uid=req.session.passport.user;
-  User.update({id:uid},{username:req.param('uname'),email:req.param('email')}).populate('profile')then(function(updated){
+  User.update({id:uid},{username:req.param('uname'),email:req.param('email')}).populate('profile').then(function(updated){
     // if(err)console.log(err);
     console.log("User object updated" + updated);
         Profile.update({id:updated.profile.id},{fbkid:req.session.fbk_data.id,
