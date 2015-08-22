@@ -1368,7 +1368,7 @@
                   <div class="col-xs-8 no-padding">
                      <form class="form_chat">
                     <input type="text" class="form-control chat-input" ng-model = "chatMessage" data-chat-input="" data-chat-conversation="#my-conversation" placeholder="Say something">
-
+                     
                     <div style="display:none;">
                       <input type="text" ng-model = "chatUser" class="form-control" placeholder="TypeYourNameHere">
                     <button class="btn btn-default col-lg-2 col-md-2" ng-click="sendMsg()">Send</button>  
@@ -1393,9 +1393,6 @@
  <script type="text/javascript" src="/js/dependencies/sails.io.js"></script>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js"></script>
   <script type="text/javascript">
-var url = window.location.pathname;
-var iddd = url.substring(url.lastIndexOf('/') + 1);
-
 
     var socketApp = angular.module('socketApp',[]);
 
@@ -1406,7 +1403,7 @@ var iddd = url.substring(url.lastIndexOf('/') + 1);
       $scope.reverse = false;
       $scope.chatList =[];
       $scope.userId = '22';
-      $scope.chatSquareId = iddd;   //chatter/2 means this is 2
+      $scope.chatSquareId = location.hash.replace(/^#/, "");   //chatter/#2 means this is 2
       $scope.getAllchat = function(){
 
         io.socket.post('/chat/subSocket/',{cid: $scope.chatSquareId});
