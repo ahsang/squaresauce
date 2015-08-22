@@ -193,7 +193,7 @@ verifyemail:  function(req,res){
   console.log(req.body);
   console.log("email verfying");
   var id=req.param('email');
-  User.find({id:req.session.passport.user}).then(function(user){
+  User.find({id:req.param('uid')}).then(function(user){
     if(user.email==id){
       res.send("true");
     }else{

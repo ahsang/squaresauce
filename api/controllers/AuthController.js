@@ -21,10 +21,13 @@ _.extend(exports, {
     }
   },
   provider: function (req, res) {
-    req.session.yoyo=req.param('flag');
+
     sails.services.passport.endpoint(req, res);
   },
   callback: function (req, res) {
+    console.log(req.body);
+    console.log("Provider");
+    req.session.yoyo=req.param('flag');
     function tryAgain (err) {
 
       // Only certain error messages are returned via req.flash('error', someError)
