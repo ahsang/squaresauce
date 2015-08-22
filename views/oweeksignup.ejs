@@ -78,16 +78,20 @@
    });
  });
 
-     $(document).ready(function() {
+
+  $(document).ready(function() {
    var txtSectorEEE = $('#sector_emm');
    // Save the initial value
    $.data(txtSectorEEE, "lastvv", txtSectorEEE.val());
    // Setup the event
    txtSectorEEE.focusout(function() {
      var last = $.data(txtSectorEEE, "lastvv");
-     if (last != $(this).val()) {
+     if (last != $(this).val())
+      {
 
-          if($(this).val()<8) {
+var n = $(this).val().length;
+        
+          if(n<8) {
 
          $('#passcheck').fadeIn(600);
          $('#sbutton').fadeOut(600);
@@ -101,12 +105,13 @@
          $('#sbutton').fadeIn(600);
 
           }
-        
 
-          }
-     
+      }
+
    });
  });
+
+
 
 </script>
   <body class="fixed-header" ng-app="formApp" ng-controller="formController">
