@@ -36,6 +36,10 @@ _.merge(exports, {
     myChats:{
       collection: 'ChatSquare',
       via: 'users'
+    },
+    myPChats:{
+    collection: 'PersonalChat',
+    via: 'users'
     }
 
 }

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<title>Shah Chat - By Shah</title>
+
+	<style type="text/css">
+	body{
+		background: #ededed;
+		font-family: 'Open Sans', sans-serif;
+
+	}
+	.navbar{
+		border-radius: 0px;
+	}
+	.form_chat{
+		padding:10px;
+	}
+	.form-control{
+		width: inherit;
+	}
+	.chat_message{
+		padding: 10px;
+		color: #000;
+		font-size: 15px;
+	background: #fff;
+		font-family: 'Open Sans', sans-serif;
+	}
+	.td_class{
+		word-break:break-all;
+		padding: 34px;
+		padding-bottom: 0px;
+		padding-top: 20px;
+		border:0;
+	}
+	.navbar-brand{
+		font-size: 14px;
+		font-weight: 600;
+		text-decoration: none;
+	}
+	.user_name{
+		padding-bottom: 0;
+		color: #fff;
+		font-size: 15px;
+	}
+	.col-lg-4,.col-lg-6{
+		padding-right: 3px;
+		padding-left: 3px;
+	}
+
+	</style>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css'>
+	
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+</head>
+<body ng-app="socketApp" ng-controller="PChatController">
+
+	<div class="navbar navbar-default navbar-fixed-top">
+		<div class="navbar-header">
+	    	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+	    		<span class="icon-bar"></span>
+	    		<span class="icon-bar"></span>
+	    		<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">Squaresauce Chat</a>
+
+		</div>
+		<div id="onlinetag" style="display: none; position: absolute;top:15px; right:15px; color: green;">Online</div>
+		<div id="offlinetag" style="display: none; position: absolute;top:15px; right:15px;color:red;">Offline</div>
+	</div>
+	<div class="col-md-12" style="padding:100px">
+		
+		<table class="table">
+			<tr class="chat_message" ng-repeat="chat in chatList | limitTo: 10000">
+				<td class="col-md-12 td_class"><strong>{{ chat.user }} : </strong> {{ chat.message }}</td>
+			</tr>
+		</table>
+		
+	</div>
+
+	<div class="navbar navbar-inverse navbar-fixed-bottom" >
+	  <div class="col-lg-12">
+	    
+	    <form class="form_chat">
+	    	<div class="col-lg-3 col-md-3">
+	      		<input type="text" ng-model = "chatUser" class="form-control" placeholder="TypeYourNameHere">
+	    	</div>
+          	
+	    	<div class="col-lg-6 col-md-5">
+	      		<input type="text" ng-model = "chatMessage" class="form-control" placeholder="TypeYourMessageHere">
+          	</div>
+          	<button class="btn btn-default col-lg-2 col-md-2" ng-click="sendMsg()">Send</button>  
+	    </form>
+	    
+	  </div>
+	</div>
+	<script type="text/javascript" src="/js/dependencies/sails.io.js"></script>
+	<script type="text/javascript">
+	</script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js"></script>
+	<script type="text/javascript">
+
+		var socketApp = angular.module('socketApp',[]);
+
+		socketApp.controller('PChatController',['$http','$log','$scope',function($http,$log,$scope){
+
+
+			$scope.predicate = '-id';
+			$scope.reverse = false;
+			$scope.chatList =[];
+			$scope.userId = '22';
+			$scope.personalChatId = location.hash.replace(/^#/, "");   //chatter/#2 means this is 2
+			$scope.subSocket = function(){
+				io.socket.post('/pchat/subSocket/',{pid: $scope.personalChatId});
+			};
+			$scope.getAllchat = function(){
+
+				
+
+				$http.get('/personalchat/find?pid='+ $scope.personalChatId)
+					 .success(function(success_data){
+					 		
+					 		console.log("This is success_data");
+					 		$scope.chatList = success_data[0].messages;
+					 		$log.info(success_data);
+					 });
+			};
+			$scope.subSocket();
+			$scope.getAllchat();
+			$scope.chatUser = "nikkyBot"
+			$scope.chatMessage="";
+
+
+			io.socket.on('personalchat',function(obj){
+					console.log('i was turned on');
+					console.log(obj.data);
+					$log.info(obj)
+					$scope.chatList.push(obj.data.messages);
+					$scope.$digest();
+				window.scrollTo(0, document.body.scrollHeight); // scroll to bottom
+				
+
+			});
+
+			$scope.sendMsg = function(){
+				$log.info($scope.chatMessage);
+				io.socket.post('/pchat/addconv/',{user:$scope.chatUser,message: $scope.chatMessage,pid: $scope.personalChatId});
+				$scope.chatMessage = "";
+			};
+		}]);
+
+
+
+setInterval(function(){ checkInternetConnection(); },1000);
+function checkInternetConnection() {
+  var isOnLine = navigator.onLine;
+   if (isOnLine) {
+        $('#onlinetag').fadeIn(1);
+        $('#offlinetag').fadeOut(1);
+   } else {
+        $('#offlinetag').fadeIn(1);
+        $('#onlinetag').fadeOut(1);
+   }
+}
+</script>

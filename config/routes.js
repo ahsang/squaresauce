@@ -39,9 +39,11 @@ module.exports.routes = {
     view: 'chatio'
   },
   '/chatter':{
-
     view: 'chatter'
   },
+  '/pchatter':{
+    view: 'pchatter'
+  },  
   '/home': {
     view: 'home'
   },

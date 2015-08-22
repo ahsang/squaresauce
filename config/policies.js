@@ -49,7 +49,7 @@ module.exports.policies = {
     FrequestController:{
       '*': true
     }, 
-     InvitereqsController:{
+    InvitereqsController:{
        '*': true
     },
     SqrtagController:{
@@ -75,8 +75,10 @@ module.exports.policies = {
     },
     ChatController:{
       'loadChat': ['basicAuth', 'passport', 'sessionAuth','hasAccessToChatRoom']
+    },
+    PChatController:{
+      'loadChat': ['basicAuth', 'passport', 'sessionAuth','isMemberOfPersonalChat']
     }
-
 
 
 
