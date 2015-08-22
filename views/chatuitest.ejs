@@ -1348,12 +1348,13 @@
               </div>
               <!-- END Header  !-->
               <!-- BEGIN Conversation  !-->
-              <div class="chat-inner" id="my-conversation"  ng-repeat="chat in chatList | limitTo: 10000">
+              <div class="chat-inner" id="my-conversation" >
                 <!-- BEGIN From Me Message  !-->
-                
-                  <div class="message clearfix chat-bubble from-me">
+                <div class="message clearfix">
+                  <div  ng-repeat="chat in chatList | limitTo: 10000" class="chat-bubble from-me">
                     <strong>{{ chat.user }} : </strong> {{ chat.message }}
                   </div>
+                </div>
                 <!-- END From Me Message  !-->
                 
               </div>
