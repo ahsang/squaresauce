@@ -192,7 +192,7 @@ verifyusername:  function(req,res){
 updatedata: function(req,res){
 
   console.log(req.body);
-  var uid=req.param('uid');
+  var uid=req.session.passport.user;
   User.update({id:uid},{username:req.param('uname'),email:req.param('email')}).exec(function(err,updated){
     if(err)console.log(err);
     console.log("User object updated" + updated);
