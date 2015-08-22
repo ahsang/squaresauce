@@ -85,11 +85,11 @@ module.exports = {
       viewProfile:function(req,res){
         if(req.session.passport){
          User.find({id:req.session.passport.user}).populate('profile').populate('mysquares').then(function(user){
-            req.session.user_data=user;
+
             return [user];
          }).spread(function(usero){
 
-            res.view('home');
+            res.view('home',{user:usero});
 
          }).catch(function(err){
           console.log(err);
