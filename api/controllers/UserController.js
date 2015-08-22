@@ -217,8 +217,8 @@ updatedata: function(req,res){
 
   console.log(req.body);
   var uid=req.session.passport.user;
-  User.update({id:uid},{username:req.param('uname'),email:req.param('email')}).exec(function(err,updated){
-    if(err)console.log(err);
+  User.update({id:uid},{username:req.param('uname'),email:req.param('email')}).then(function(updated){
+    // if(err)console.log(err);
     console.log("User object updated" + updated);
         Profile.update({id:updated.profile},{fbkid:req.session.fbk_data.id,
         fname:req.param('fname'),
@@ -232,13 +232,11 @@ updatedata: function(req,res){
         }).catch(function(err){
           console.log(err);
         });
-
         Passport.update({user:uid,protocol:'local'},{password:req.param('pass')}).exec(function abc(err,prt){
             if(err)console.log(err);
-
         });
-
-
+  }).catch(function(err){
+    console.log("Error in the updateData");
   });
 
 

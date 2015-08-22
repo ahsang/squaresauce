@@ -84,16 +84,19 @@ module.exports = {
   	  },
       viewProfile:function(req,res){
         if(req.session.passport){
-         User.find({id:req.session.passport.user}).populate('profile').populate('mysquares').then(function(user){
+         User.find({id:req.session.passport.user}).populate('profile').populate('mysquares').exec(function(err,user){
+            if(err){
+              console.log(err)
+            }else{
 
-            return [user];
-         }).spread(function(usero){
 
-            res.view('home',{user:usero});
-
-         }).catch(function(err){
-          console.log(err);
-          console.log("Error in Profile.viewProfile");
+            req.session.user_data=user;
+            req.session.profile_data=user[0].profile;
+            // console.log(user);
+            console.log("Profile");
+            console.log(req.session.profile_data.name);
+            res.view('home');  
+            }
          });
         }else{
             console.log("Hello");
