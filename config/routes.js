@@ -98,7 +98,7 @@ module.exports.routes = {
   'POST /square/profile/minus': 'Profile.decreaseOongal',
   'GET /chatter2':'Chat.loadChat',
   'GET /home':'Profile.viewProfile',
-  'GET /user/:username': 'ProfileController.username'
+  'GET /users/:username': 'ProfileController.username'
 
   /***************************************************************************
   *                                                                          *

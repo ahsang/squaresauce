@@ -94,7 +94,7 @@ module.exports = {
             req.session.profile_data=user[0].profile;
             // console.log(user);
             console.log("Profile");
-            console.log(req.session.profile_data.name);
+            // console.log(req.session.profile_data.name);
             res.view('home');  
             }
          });
@@ -107,14 +107,14 @@ module.exports = {
       },
       username:function(req,res){
         // console.log("yeah");
-        // console.log("username"+req.param('username'));
-        if(req.param('username')=="favicon.ico"){
+        console.log("username"+req.param('username'));
+        if(!req.param('username')){
         res.view('homepage');
         }else{
           User.find({username:req.param('username')}).populate('profile').then(function(usr){
-            
+            console.log(usr);
             if(usr==''){
-
+              res.view('abc');
             }else{
             req.session.profile_data=usr[0].profile;
             res.view('profile');
