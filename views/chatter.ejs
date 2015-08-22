@@ -112,9 +112,12 @@
 			$scope.chatList =[];
 			$scope.userId = '22';
 			$scope.chatSquareId = location.hash.replace(/^#/, "");   //chatter/#2 means this is 2
+			$scope.subSocket = function(){
+				io.socket.post('/chat/subSocket/',{cid: $scope.chatSquareId});
+			};
 			$scope.getAllchat = function(){
 
-				io.socket.post('/chat/subSocket/',{cid: $scope.chatSquareId});
+				
 
 				$http.get('/ChatSquare/find?cid='+ $scope.chatSquareId)
 					 .success(function(success_data){
@@ -124,8 +127,8 @@
 					 		$log.info(success_data);
 					 });
 			};
-
 			$scope.getAllchat();
+			$scope.subSocket;
 			$scope.chatUser = "nikkyBot"
 			$scope.chatMessage="";
 
