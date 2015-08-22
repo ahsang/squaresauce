@@ -26,8 +26,8 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  '*': true,
-      // '*': false,
+  // '*': true,
+      '*': false,
 
 
 
@@ -35,16 +35,16 @@ module.exports.policies = {
       '*': [ 'passport' ]
     },
     UserController: {
-      '*': true
-      // 'me': [ 'basicAuth', 'passport', 'sessionAuth' ],
-      // 'create': true,
+      // '*': true
+      'me': [ 'basicAuth', 'passport', 'sessionAuth' ],
+      'create': true,
       // 'read': true
     },
-    DforumController: {
-      '*': true
-    },  
+    // DforumController: {
+      // '*': true
+    // },  
     SquareController: {
-      '*': true
+      'createSquare': true
     },
     FrequestController:{
       '*': true
@@ -55,24 +55,24 @@ module.exports.policies = {
     SqrtagController:{
       '*': true
     },
-    UniSquareController:{
-      '*': true
-    },            
-    FriendController:{
-      '*': true
-    },
-    ProfileController:{
-      '*': true
-    },
-    GentagController:{
-      '*': true
-    },
-    OTestController:{
-      '*': true
-    },
-    ForumcommentController:{
-      '*': true
-    },
+    // UniSquareController:{
+      // '*': true
+    // },            
+    // FriendController:{
+    //   '*': true
+    // },
+    // ProfileController:{
+    //   '*': true
+    // },
+    // GentagController:{
+    //   '*': true
+    // },
+    // OTestController:{
+    //   '*': true
+    // },
+    // ForumcommentController:{
+    //   '*': true
+    // },
     ChatController:{
       'loadChat': ['basicAuth', 'passport', 'sessionAuth','hasAccessToChatRoom']
     },
