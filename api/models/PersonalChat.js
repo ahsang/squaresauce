@@ -18,7 +18,7 @@ module.exports = {
   		users:{
   			collection: 'User',
         via : 'myPChats'
-  		},
+  		}
   }
 };
 
