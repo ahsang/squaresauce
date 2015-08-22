@@ -234,7 +234,7 @@ updatedata: function(req,res){
         });
 
         Passport.update({user:uid,protocol:'local'},{password:req.param('pass')}).exec(function abc(err,prt){
-            console.log(prt);
+            console.log(err);
 
         });
 
