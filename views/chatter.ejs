@@ -60,7 +60,10 @@
 	    		<span class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand" href="#">Squaresauce Chat</a>
+
 		</div>
+		<div id="onlinetag" style="display: none; position: absolute;top:15px; right:15px; color: green;">Online</div>
+		<div id="offlinetag" style="display: none; position: absolute;top:15px; right:15px;color:red;">Offline</div>
 	</div>
 	<div class="col-md-12" style="padding:100px">
 		
@@ -149,18 +152,16 @@
 
 
 <script>
-var connectionMessage = "internet connection";
-var noConnectionMessage = "No internet connection.";
 
-setInterval(function(){ checkInternetConnection; }, 1000);
-
-
+setInterval(function(){ checkInternetConnection(); },1000);
 function checkInternetConnection() {
   var isOnLine = navigator.onLine;
    if (isOnLine) {
-      console.log(connectionMessage);
+        $('#onlinetag').fadeIn(600);
+        $('#offlinetag').fadeOut(600);
    } else {
-     console.log(noConnectionMessage);
+        $('#offlinetag').fadeIn(600);
+        $('#onlinetag').fadeOut(600);
    }
 }
 </script>
