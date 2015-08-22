@@ -57,13 +57,12 @@
         txtSectorEE.focusout(function () {
             var last = $.data(txtSectorEE, "lastv");
             if (last != $(this).val())
-                var  email = $("#sector_em").val();
-              alert(email);
+              alert($("#sector_em").val());
                                         $.ajax({
                                           method  : 'POST',
                                           contentType: "application/json; charset=utf-8",
                                           url     : '/user/verifyemail',
-                                          data    : '{"email": "'+email+'"}', 
+                                          data    : '{"email": "'+ $("#sector_em").val() +'"}', 
                                           dataType: 'json',
                                           headers : { 'Content-Type': 'application/json' }  
 
