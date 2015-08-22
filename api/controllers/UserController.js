@@ -188,6 +188,10 @@ verifyusername:  function(req,res){
   }).catch(function(err){
     console.log(err);
   });
+},
+updatedata: function(req,res){
+
+  console.log(req.body);
 }
 
 

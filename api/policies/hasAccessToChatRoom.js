@@ -1,16 +1,22 @@
 module.exports = function(req, res, next) {
+	
 	var userId = req.session.passport.user;
+
 	var roomId = req.param('cid');  // GET THE ROOM ID HERE!
   // User is allowed, proceed to the next policy, 
   // or if this is the last policy, the controller
-  			ChatSquare.findOne({cid: roomid}).populate('users').then(function (csqr){
+  			ChatSquare.findOne({cid: roomId}).populate('users').then(function (csqr){
   				var users_check = false;	
 				var temp_square = csqr;
 				//check if the user is in the square or not
+				console.log(csqr);
+
 				while(temp_square.users.length!=0)
 				{//since people object is an array we have to iterate through it
+
 					var temp_users=temp_square.users.pop();
-					if(temp_user.id==userId)
+					console.log(temp_users);
+					if(temp_users.id==userId)
 					{
 						console.log("The user exists in this square");
 						users_check=true;
@@ -32,7 +38,7 @@ module.exports = function(req, res, next) {
 
 			});
 
-  return res.forbidden('There are no users in this chat...');
+  // return res.forbidden('There are no users in this chat...');
   };
 
   // User is not allowed

@@ -72,6 +72,9 @@ module.exports.policies = {
     },
     ForumcommentController:{
       '*': true
+    },
+    ChatController:{
+      'loadChat': ['basicAuth', 'passport', 'sessionAuth','hasAccessToChatRoom']
     }
 
 
