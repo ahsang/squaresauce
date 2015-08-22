@@ -65,7 +65,9 @@ module.exports.routes = {
     '/test':{
     view: 'test'
   },
-
+    '/profile':{
+    view: 'profile'
+  },
     '/oldhomepage':{
     view: 'homepageold'
   },
