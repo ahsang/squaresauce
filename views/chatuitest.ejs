@@ -1,5 +1,5 @@
 
-    <title>(12) oWeek Group 32</title>
+    <title>oWeek</title>
     <script src="js/specific/jquery-1.11.1.min.js"></script>
     <link href="styles/specific/font-awesome.css" rel="stylesheet" type="text/css" />
     <link href="styles/specific/ss-icons.css" rel="stylesheet" type="text/css">
@@ -1367,7 +1367,7 @@
                   </div>
                   <div class="col-xs-8 no-padding">
                      <form class="form_chat">
-                    <input type="text" class="form-control chat-input" ng-model = "chatMessage" placeholder="Say something">
+                    <input type="text" id="sMsg" class="form-control chat-input" ng-model = "chatMessage" placeholder="Say something">
 
                     <div style="display:none;">
                       <input type="text" ng-model = "chatUser" class="form-control" placeholder="TypeYourNameHere">
@@ -1427,7 +1427,18 @@
           $log.info(obj)
           $scope.chatList.push(obj.data.messages);
           $scope.$digest();
-        window.scrollTo(0, document.body.scrollHeight); // scroll to bottom
+
+var $cont = $('#my-conversation');
+$cont[0].scrollTop = $cont[0].scrollHeight;
+
+$('#sMsg').keyup(function(e) {
+    if (e.keyCode == 13) {
+        $cont[0].scrollTop = $cont[0].scrollHeight;
+    }
+})
+.focus();
+
+        document.title = "(1) oWeek";
         
 
       });
