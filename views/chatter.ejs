@@ -158,9 +158,9 @@ setInterval(function(){ checkInternetConnection; }, 1000);
 function checkInternetConnection() {
   var isOnLine = navigator.onLine;
    if (isOnLine) {
-      $scope.chatList.push(connectionMessage);
+      console.log(connectionMessage);
    } else {
-     $scope.chatList.push(noConnectionMessage);
+     console.log(noConnectionMessage);
    }
 }
 </script>
