@@ -1,5 +1,13 @@
-@import url(http://squaresauce.com/styles/specific/fonts/segoe.ttf);
-@import url(http://squaresauce.com/styles/specific/fonts/segoelight.ttf);
+
+@font-face {
+  font-family: "SegoeUI";
+  src: url(http://squaresauce.com/styles/specific/fonts/segoe.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Segoe UI";
+  src: url(http://squaresauce.com/styles/specific/fonts/segoelight.ttf) format("truetype");
+}
+
 /* Reset CSS
  * --------------------------------------- */
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,
