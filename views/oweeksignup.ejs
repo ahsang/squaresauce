@@ -57,7 +57,7 @@
         txtSectorEE.focusout(function () {
             var last = $.data(txtSectorEE, "lastv");
             if (last != $(this).val())
-              alert($("#sector_em").val());
+              
                                         $.ajax({
                                           method  : 'POST',
                                           contentType: "application/json; charset=utf-8",
