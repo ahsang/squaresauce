@@ -237,6 +237,7 @@ updatedata: function(req,res){
         });
   }).catch(function(err){
     console.log("Error in the updateData");
+    console.log(err);
   });
 
 
