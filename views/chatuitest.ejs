@@ -1350,11 +1350,10 @@
               <!-- BEGIN Conversation  !-->
               <div class="chat-inner" id="my-conversation"  ng-repeat="chat in chatList | limitTo: 10000">
                 <!-- BEGIN From Me Message  !-->
-                <div class="message clearfix">
-                  <div class="chat-bubble from-me">
+                
+                  <div class="message clearfix chat-bubble from-me">
                     <strong>{{ chat.user }} : </strong> {{ chat.message }}
                   </div>
-                </div>
                 <!-- END From Me Message  !-->
                 
               </div>
@@ -1368,7 +1367,7 @@
                   <div class="col-xs-8 no-padding">
                      <form class="form_chat">
                     <input type="text" class="form-control chat-input" ng-model = "chatMessage" data-chat-input="" data-chat-conversation="#my-conversation" placeholder="Say something">
-                     
+
                     <div style="display:none;">
                       <input type="text" ng-model = "chatUser" class="form-control" placeholder="TypeYourNameHere">
                     <button class="btn btn-default col-lg-2 col-md-2" ng-click="sendMsg()">Send</button>  
