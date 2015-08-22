@@ -43,10 +43,49 @@
                                           }
                                                    
                                       })
+        });
+
+   var txtSectorEE = $('#sector_em');
+
+        // Save the initial value
+        $.data(txtSectorEE, "lastv", txtSectorEE.val());
+
+        // Setup the event
+        txtSectorE.focusout(function () {
+            var last = $.data(txtSectorEE, "lastv");
+            if (last != $(this).val())
+                var  email= $("#sector_em").val();
+
+                                        $.ajax({
+                                          method  : 'POST',
+                                          contentType: "application/json; charset=utf-8",
+                                          url     : '/user/verifyemail',
+                                          data    : '{"email": "'+email+'"}', 
+                                          dataType: 'json',
+                                          headers : { 'Content-Type': 'application/json' }  
+
+
+                                        })
+
+                                        .success(function(izdone){
+                                          if(izdone==true) {
+                                              $('#sbutton').fadeOut(600);
+                                              $('#smsg').fadeIn(600);
+
+                                          }
+                                          else {
+                                              $('#smsg').fadeIn(600);
+                                              $('#sbutton').fadeOut(600);
+                                          }
+                                                   
+                                      })
 
 
 
         });
+
+
+
     });
 /*
  var formApp = angular.module('formApp', []);
@@ -150,7 +189,7 @@
                 <div class="col-sm-12">
                   <div class="form-group form-group-default">
                     <label>Primary Email</label>
-                    <input type="email" name="email"  value="<%= req.session.fbk_data.email%>" class="form-control" required>
+                    <input type="email" id="sector_em" name="email" ng-model="formData.email" value="<%= req.session.fbk_data.email%>" class="form-control" required>
                   </div>
                 </div>
               </div>
@@ -216,7 +255,9 @@
                   <a href="#" class="text-info small">Help? Contact Support</a>
                 </div>
               </div>
-              <button class="btn btn-success btn-cons m-t-10" type="submit">Create a new account</button>
+              <div id="sbutton"><button class="btn btn-success btn-cons m-t-10" type="submit">Create a new account</button></div>
+
+                    <div style="display:none;" id="smsg"><p><font color="red">Email already exists. Please <a href="http://squaresauce.com/login">login</a> to continue.</font></p></div>
             </form>
           </div>
         </div>
