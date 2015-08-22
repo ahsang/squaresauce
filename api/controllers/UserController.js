@@ -191,7 +191,17 @@ verifyusername:  function(req,res){
 },
 updatedata: function(req,res){
 
-  console.log(req.body);
+  // console.log(req.body);
+  User.update({id:req.session.passport.user},{username:req.uname,email:req.email}).then(function(updated){
+    console.log("User object updated");
+    console.log(updated);
+  }).catch(function (err){
+    console.log("Error in verifyUsername");
+    console.log(err);
+  })
+
+
+  res.redirect('/oweeksignupcomplete');
 }
 
 

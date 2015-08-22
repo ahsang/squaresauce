@@ -17,6 +17,27 @@ module.exports = {
     pictureid: {
         type: 'string'
     },
+    fbkid: {
+        type:'string'
+    },
+    fname: {
+        type:'string'
+    }, 
+    lname: {
+        type:'string'
+    },
+    // uname: 'fhatim303', 
+    // pass: 'hahahhahahahah123456', 
+    // email: 'tworldpk@gmail.com', 
+    cemail:{
+        type:'string'
+    },
+    pinstitution: {
+        type:'string'
+    },
+    major:{
+        type:'string'
+    },
     gentags:{
     	collection:'Gentag',
     	via:'profiles'
