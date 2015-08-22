@@ -63,15 +63,7 @@
 		</div>
 	</div>
 	<div class="col-md-12" style="padding:100px">
-		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-		<!-- Heroku Sails App Socket-1 -->
-		<ins class="adsbygoogle"
-		     style="display:inline-block;width:728px;height:90px"
-		     data-ad-client="ca-pub-7831813631234919"
-		     data-ad-slot="8454230873"></ins>
-		<script>
-		(adsbygoogle = window.adsbygoogle || []).push({});
-		</script>
+		
 		<table class="table">
 			<tr class="chat_message" ng-repeat="chat in chatList | limitTo: 10000">
 				<td class="col-md-12 td_class"><strong>{{ chat.user }} : </strong> {{ chat.message }}</td>
@@ -132,6 +124,7 @@
 			$scope.chatUser = "nikkyBot"
 			$scope.chatMessage="";
 
+
 			io.socket.on('chatsquare',function(obj){
 					console.log('i was turned on');
 					console.log(obj.data);
@@ -149,6 +142,25 @@
 				$scope.chatMessage = "";
 			};
 		}]);
+
+
 	</script>
-</body>
-</html>
+
+
+
+<script>
+var connectionMessage = "internet connection";
+var noConnectionMessage = "No internet connection.";
+
+setInterval(function(){ checkInternetConnection; }, 1000);
+
+
+function checkInternetConnection() {
+  var isOnLine = navigator.onLine;
+   if (isOnLine) {
+      $scope.chatList.push(connectionMessage);
+   } else {
+     $scope.chatList.push(noConnectionMessage);
+   }
+}
+</script>
