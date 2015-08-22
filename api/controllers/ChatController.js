@@ -78,6 +78,9 @@ module.exports = {
 		{
 			res.send("Error 0091: Your sauce couldnt be processed by the chat controller");
 		}
+	},
+	loadChat: function(req,res){
+		res.view('chatter');
 	}
 
 };

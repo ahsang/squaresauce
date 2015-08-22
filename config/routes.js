@@ -39,6 +39,7 @@ module.exports.routes = {
     view: 'chatio'
   },
   '/chatter':{
+
     view: 'chatter'
   },
   '/home': {
@@ -73,6 +74,7 @@ module.exports.routes = {
     view: 'chatuitest'
   },
 
+
   'POST /oweek/voucher' : 'Otest.retrieveVoucher',
   'POST /oweek/createUser' : 'Otest.createSpecialUser',
   'POST /invitereqs/create' : 'Invitereqs.create',
@@ -88,7 +90,9 @@ module.exports.routes = {
   'POST /square/removeforum' : 'Square.removeDiscussionForum',
   'POST /square/addadmin' : 'Square,addAdmin',
   'POST /square/profile/plus': 'Profile.increaseOongal',
-  'POST /square/profile/minus': 'Profile.decreaseOongal'
+  'POST /square/profile/minus': 'Profile.decreaseOongal',
+  'GET /chatter2':'Chat.loadChat'
+
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
