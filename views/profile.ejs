@@ -1,5 +1,5 @@
 
-    <title>(12) oWeek Group 32</title>
+    <title><% if(req.session.profile_data){ %><%= req.session.profile_data.fname %><%}%> <% if(req.session.profile_data){ %><%= req.session.profile_data.lname %><%}%></title>
 
 
 
@@ -220,12 +220,12 @@
           <!-- START User Info-->
           <div class="visible-lg visible-md m-t-10">
             <div class="pull-left p-r-10 p-t-10 fs-16 font-heading">
-              <span class="semi-bold">Ammar</span> <span class="text-master">Suria</span>
+              <span class="semi-bold"><%= req.session.profile_data.fname %></span> <span class="text-master"><%= req.session.profile_data.lname %></span>
             </div>
             <div class="dropdown pull-right">
               <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="thumbnail-wrapper d32 circular inline m-t-5">
-                <img src="http://squaresauce.com/images/profiles/avatar.jpg" alt="" data-src="http://squaresauce.com/images/profiles/avatar.jpg" data-src-retina="http://squaresauce.com/images/profiles/avatar_small2x.jpg" width="32" height="32">
+                <img src="https://graph.facebook.com/<%= req.session.profile_data.fbkid %>/picture" alt="" data-src="https://graph.facebook.com/<%= req.session.profile_data.fbkid %>/picture" data-src-retina="https://graph.facebook.com/<%= req.session.profile_data.fbkid %>/picture" width="32" height="32">
             </span>
               </button>
               <ul class="dropdown-menu profile-dropdown" role="menu">
@@ -280,7 +280,7 @@
 
                       <div class="social-user-profile col-xs-height text-center col-top">
                                   <div class=" bordered b-white">
-                                    <img alt="Avatar" width="80" height="80" data-src-retina="http://squaresauce.com/images/profiles/avatar_small2x.jpg" data-src="http://squaresauce.com/images/profiles/avatar.jpg" src="http://squaresauce.com/images/profiles/avatar.jpg">
+                                    <img alt="Avatar" width="80" height="80" data-src-retina="https://graph.facebook.com/<% if(req.session.profile_data){ %><%= req.session.profile_data.fbkid %><%}%>/picture" data-src="https://graph.facebook.com/<% if(req.session.profile_data){ %><%= req.session.profile_data.fbkid %><%}%>/picture" src="https://graph.facebook.com/<% if(req.session.profile_data){ %><%= req.session.profile_data.fbkid %><%}%>/picture">
                                   </div>
                                 </div>
                       <div class="col-xs-height p-l-20">
@@ -289,7 +289,12 @@
                         <% if(req.session.profile_data){ %>
                         <%= req.session.profile_data.fname %>
                         <%}%>
-                      </span> <%= req.session.profile_data.lname %></h3>
+                      </span> 
+                      <% if(req.session.profile_data){ %>
+                        <%= req.session.profile_data.lname %>
+                        <%}%>
+
+                    </h3>
                                   <p class="text-white no-margin fs-16">Lahore University of Management Sciences</p>
                                   <p class="text-white hint-text m-t-5 small"><%= req.session.profile_data.cemail %> | <%= req.session.profile_data.major %></p>
                                 </div>
