@@ -1350,8 +1350,8 @@
               <!-- BEGIN Conversation  !-->
               <div class="chat-inner" id="my-conversation" >
                 <!-- BEGIN From Me Message  !-->
-                <div class="message clearfix">
-                  <div  ng-repeat="chat in chatList | limitTo: 10000" class="chat-bubble from-me">
+                <div ng-repeat="chat in chatList | limitTo: 10000" class="message clearfix">
+                  <div  class="chat-bubble from-me">
                     <strong>{{ chat.user }} : </strong> {{ chat.message }}
                   </div>
                 </div>
@@ -1367,7 +1367,7 @@
                   </div>
                   <div class="col-xs-8 no-padding">
                      <form class="form_chat">
-                    <input type="text" class="form-control chat-input" ng-model = "chatMessage" data-chat-input="" data-chat-conversation="#my-conversation" placeholder="Say something">
+                    <input type="text" class="form-control chat-input" ng-model = "chatMessage" placeholder="Say something">
 
                     <div style="display:none;">
                       <input type="text" ng-model = "chatUser" class="form-control" placeholder="TypeYourNameHere">
@@ -1418,7 +1418,7 @@
       };
 
       $scope.getAllchat();
-      $scope.chatUser = "nikkyBot"
+      $scope.chatUser = "Tashfeen"
       $scope.chatMessage="";
 
       io.socket.on('chatsquare',function(obj){
