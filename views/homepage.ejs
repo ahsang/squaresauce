@@ -86,7 +86,7 @@
                 }).success(function(headers) {
                         if (headers=='Error 0069') {
                             // if not successful, bind errors to error variables
-                            var str = "Uh Oh, it seems like you have already registered. Please login to continue.";
+                            var str = "Uh Oh, it seems like you have already asked us for an invite.</br>We will invite you very soon.</br></br>";
 
                               document.getElementById('successfulsignup').innerHTML = str;
 
@@ -95,7 +95,7 @@
                             else {
                                     $('#signupform').fadeOut(0);
 
-                                    var str = "Hi " + headers + "! Thanks for signing up! How about we take things to the next level now?<br/> But before we move in, make babies and live happily ever after, we'd like to meet some of your friends.</br> So why don't you call them over too?";
+                                    var str = "Hi " + headers + "! Thanks for signing up! How about we take things to the next level now?<br/></br> But before we move in, make babies and live happily ever after, we'd like to meet some of your friends.</br></br> So why don't you call them over too?";
 
                               document.getElementById('successfulsignup').innerHTML = str;
 
