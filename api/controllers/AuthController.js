@@ -95,7 +95,7 @@ _.extend(exports, {
         if(req.session.provider=='facebook'){
           return res.redirect('/oweeksignup');
         }
-        if(req.param('flag')=="user"){
+        if(req.session.yoyo=="login"){
           return res.redirect('/home');
         }
         return res.json(user);
