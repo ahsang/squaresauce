@@ -189,7 +189,7 @@ verifyusername:  function(req,res){
     console.log(err);
   });
 },
-verifyusername:  function(req,res){
+verifyemail:  function(req,res){
   console.log(req.body);
   console.log("email verfying");
   var id=req.param('email');
