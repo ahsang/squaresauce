@@ -20,6 +20,10 @@ _.extend(exports, {
       res.ok();
     }
   },
+  provider: function (req, res) {
+    req.session.yoyo=req.param('flag');
+    sails.services.passport.endpoint(req, res);
+  },
   callback: function (req, res) {
     function tryAgain (err) {
 
@@ -87,6 +91,9 @@ _.extend(exports, {
         sails.log.info('user', user, 'authenticated successfully');
         if(req.session.provider=='facebook'){
           return res.redirect('/oweeksignup');
+        }
+        if(req.param('flag')=="user"){
+          return res.redirect('/home');
         }
         return res.json(user);
       });

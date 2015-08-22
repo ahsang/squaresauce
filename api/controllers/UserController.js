@@ -189,6 +189,30 @@ verifyusername:  function(req,res){
     console.log(err);
   });
 },
+verifyusername:  function(req,res){
+  console.log(req.body);
+  console.log("email verfying");
+  var id=req.param('email');
+  User.find({id:req.session.passport.user}).then(function(user){
+    if(user.email==id){
+      res.send("true");
+    }else{
+      User.find({email:id}).then(function(user){
+        if(user==''){
+          res.send("true");
+        }else{
+          res.send("false");
+        }
+
+      }).catch(function(err){
+        console.log("Error verifying the email");
+      })
+    }
+  }).catch(function(err){
+    console.log(err);
+  });
+},
+
 updatedata: function(req,res){
 
   console.log(req.body);
