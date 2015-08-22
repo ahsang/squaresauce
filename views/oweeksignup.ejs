@@ -48,46 +48,65 @@
   });
 
 
-    $(document).ready(function () {
+    $(document).ready(function() {
    var txtSectorEE = $('#sector_em');
-        // Save the initial value
-        $.data(txtSectorEE, "lastv", txtSectorEE.val());
+   // Save the initial value
+   $.data(txtSectorEE, "lastv", txtSectorEE.val());
+   // Setup the event
+   txtSectorEE.focusout(function() {
+     var last = $.data(txtSectorEE, "lastv");
+     if (last != $(this).val())
+       $.ajax({
+       method: 'POST',
+       contentType: "application/json; charset=utf-8",
+       url: '/user/verifyemail',
+       data: '{"email": "' + $("#sector_em").val() + '"}',
+       dataType: 'json',
+       headers: {
+         'Content-Type': 'application/json'
+       }
+     })
+     .success(function(izdone) {
+       if (izdone == true) {
+         $('#sbutton').fadeIn(600);
+         $('#smsg').fadeOut(600);
+       } else {
+         $('#smsg').fadeIn(600);
+         $('#sbutton').fadeOut(600);
+       }
+     })
+   });
+ });
 
-        // Setup the event
-        txtSectorEE.focusout(function () {
-            var last = $.data(txtSectorEE, "lastv");
-            if (last != $(this).val())
-              
-                                        $.ajax({
-                                          method  : 'POST',
-                                          contentType: "application/json; charset=utf-8",
-                                          url     : '/user/verifyemail',
-                                          data    : '{"email": "'+ $("#sector_em").val() +'"}', 
-                                          dataType: 'json',
-                                          headers : { 'Content-Type': 'application/json' }  
+     $(document).ready(function() {
+   var txtSectorEEE = $('#sector_emm');
+   // Save the initial value
+   $.data(txtSectorEEE, "lastvv", txtSectorEEE.val());
+   // Setup the event
+   txtSectorEEE.focusout(function() {
+     var last = $.data(txtSectorEEE, "lastvv");
+     if (last != $(this).val()) {
+
+          if($(this).val()<8) {
+
+         $('#passcheck').fadeIn(600);
+         $('#sbutton').fadeOut(600);
 
 
-                                        })
+          }
+          else
+          {
 
-                                        .success(function(izdone){
-                                          if(izdone==true) {
-                                              $('#sbutton').fadeIn(600);
-                                              $('#smsg').fadeOut(600);
-                                          }
-                                          else {
-                                              $('#smsg').fadeIn(600);
-                                              $('#sbutton').fadeOut(600);
-                                          }
-                                                   
-                                      })
+         $('#passcheck').fadeOut(600);
+         $('#sbutton').fadeIn(600);
 
+          }
+        
 
-
-        });
-
-
-
-    });
+          }
+     
+   });
+ });
 
 </script>
   <body class="fixed-header" ng-app="formApp" ng-controller="formController">
@@ -135,6 +154,7 @@
                     <label>Password</label>
                     <input type="password" name="pass"   value="" class="form-control" required>
                   </div>
+                    <div style="display:none;" id="userno"><p><font color="red">Your password must be more than 9 characters and should contain alphabets and numbers</font></p></div>
                 </div>
               </div>
               <div class="row">
