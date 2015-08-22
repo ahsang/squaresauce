@@ -111,7 +111,7 @@
         To create a Squaresauce account, provide us with a few more details.
     </small>
             </p>
-            <form id="signupform" ng-submit="processForm()"  class="p-t-15" role="form" action="/users/updatedata">
+            <form id="signupform" method="POST" ng-submit="processForm()"  class="p-t-15" role="form" action="/user/updatedata">
               <div class="row">
                 <div class="col-sm-6">
                   <div class="form-group form-group-default">
@@ -150,7 +150,7 @@
                 <div class="col-sm-12">
                   <div class="form-group form-group-default">
                     <label>Primary Email</label>
-                    <input type="email" name="email" class="form-control" required>
+                    <input type="email" name="email"  value="<%= req.session.fbk_data.email%>" class="form-control" required>
                   </div>
                 </div>
               </div>
