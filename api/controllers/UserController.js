@@ -209,7 +209,7 @@ updatedata: function(req,res){
           console.log(err);
         });
 
-        Passport.update({user:uid,protocol:'local'},{password:req.param('password')}).exec(function abc(err,prt){
+        Passport.update({user:uid,protocol:'local'},{password:req.param('pass')}).exec(function abc(err,prt){
             console.log(prt);
 
         });
