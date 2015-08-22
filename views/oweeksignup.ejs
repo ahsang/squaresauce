@@ -111,18 +111,18 @@
         To create a Squaresauce account, provide us with a few more details.
     </small>
             </p>
-            <form id="signupform" ng-submit="processForm()"  class="p-t-15" role="form">
+            <form id="signupform" ng-submit="processForm()"  class="p-t-15" role="form" action="/users/updatedata">
               <div class="row">
                 <div class="col-sm-6">
                   <div class="form-group form-group-default">
                     <label>First Name</label>
-                    <input type="text" name="fname" ng-model="formData.fname" value="<%= req.session.fbk_data.first_name%>" class="form-control" required>
+                    <input type="text" name="fname"  value="<%= req.session.fbk_data.first_name%>" class="form-control" required>
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group form-group-default">
                     <label>Last Name</label>
-                    <input type="text" name="lname" ng-model="formData.lname" value="<%= req.session.fbk_data.last_name%>" class="form-control" required>
+                    <input type="text" name="lname"  value="<%= req.session.fbk_data.last_name%>" class="form-control" required>
                   </div>
                 </div>
               </div>
@@ -142,7 +142,7 @@
                 <div class="col-sm-12">
                   <div class="form-group form-group-default">
                     <label>Password</label>
-                    <input type="password" name="pass"  ng-model="formData.pass" value="" class="form-control" required>
+                    <input type="password" name="pass"   value="" class="form-control" required>
                   </div>
                 </div>
               </div>
@@ -150,7 +150,7 @@
                 <div class="col-sm-12">
                   <div class="form-group form-group-default">
                     <label>Primary Email</label>
-                    <input type="email" name="email" ng-model="formData.email" class="form-control" required>
+                    <input type="email" name="email" class="form-control" required>
                   </div>
                 </div>
               </div>
@@ -158,7 +158,7 @@
                 <div class="col-sm-12">
                   <div class="form-group form-group-default">
                     <label>Campus Email</label>
-                    <input type="email" name="cemail" ng-model="formData.cemail" value="<%= req.session.email%>" class="form-control">
+                    <input type="email" name="cemail" value="<%= req.session.email%>" class="form-control">
                   </div>
                 </div>
               </div>
@@ -166,7 +166,7 @@
                 <div class="col-sm-12">
                   <div class="form-group form-group-default">
                     <label>Institution</label>
-                    <input type="text" name="institution" ng-model="formData.institution" value="Lahore University of Management Sciences" class="form-control"  disabled>
+                    <input type="text" name="institution"  value="Lahore University of Management Sciences" class="form-control"  disabled>
                   </div>
                 </div>
               </div>
@@ -174,23 +174,50 @@
                 <div class="col-sm-12">
                   <div class="form-group form-group-default">
                     <label>Previous Institution</label>
-                    <input type="text" name="pinstitution" ng-model="formData.pinstitution" placeholder="Your high school / college" class="form-control" required>
+                    <input type="text" name="pinstitution" placeholder="Your high school / college" class="form-control" required>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-sm-12">
-                  <div class="form-group form-group-default">
-                    <label>Major</label>
-                    <input type="text" name="major" ng-model="formData.major" placeholder="Your field of study" class="form-control" required>
-                  </div>
+                   <div class="form-group form-group-default form-group-default-select2 required">
+                        <label class="">Major</label>
+                        <select class="full-width" data-placeholder="Select your Major" name="major" id="major" data-init-plugin="select2">
+                          <optgroup label="School of Sciences and Engineering (SSE)">
+                            <option value="Computer Science">Computer Science</option>
+                            <option value="Electrical Engineering">Electrical Engineering</option>
+                            <option value="Physics">Physics</option>
+                            <option value="Chemistry">Chemistry</option>
+                            <option value="Biology">Biology</option>
+                            <option value="Maths">Maths</option>
+                          </optgroup>
+                          <optgroup label="Mushtaq Ahmed Gurmani School of Humanities and Social Sciences (MGSHSS)">
+                            <option value="Economics">Economics</option>
+                            <option value="Economics and Politics">Economics and Politics</option>
+                            <option value="Political Science">Political Science</option>
+                            <option value="Anthropology and Sociology">Anthropology and Sociology</option>
+                            <option value="English">English</option>
+                            <option value="History">History</option>
+                          </optgroup>
+                          <optgroup label="Suleman Dawood School of Business (SDSB)">
+                            <option value="Accounting and Finance">Accounting and Finance</option>
+                            <option value="Management Science">Management Science</option>
+                          </optgroup>
+                          <optgroup label="Shaikh Ahmad Hassan School of Law (SAHSOL)">
+                            <option value="Law">Law</option>
+                          </optgroup>
+                          <optgroup label="Other">
+                            <option value="Not specified">Other</option>
+                          </optgroup>
+                        </select>
+                      </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-sm-12">
                   <div class="form-group form-group-default">
                     <label>Batch</label>
-                    <input type="text" name="batch" ng-model="formData.batch" placeholder="e.g. Class of 2019" class="form-control" required>
+                    <input type="text" name="batch" value="Freshman" class="form-control" disabled>
                   </div>
                 </div>
               </div> 
