@@ -111,7 +111,7 @@ module.exports = {
         if(!req.param('username')){
         res.view('homepage');
         }else{
-          User.find({id:req.session.passport.user}.populate('profile').then(function(user){
+          User.find({id:req.session.passport.user}).populate('profile').then(function(user){
               if(user==''){
                 req.session.userd="hello";
                 req.session.userd.profile="hello";
@@ -123,6 +123,8 @@ module.exports = {
               }else{
               req.session.userd=user[0].profile;
             }
+          }).catch(function(err){
+              console.log(err);
           });
           
           User.find({username:req.param('username')}).populate('profile').then(function(usr){
