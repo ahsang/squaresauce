@@ -1,7 +1,8 @@
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat:400,700" />
+
+
   <link rel="stylesheet" type="text/css" href="styles/specific/jquery.pagepiling.css" />
     <link class="main-stylesheet" href="styles/specific/squaresauce.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
   <link rel="stylesheet" type="text/css" href="styles/specific/homepage.css" />
 
@@ -85,7 +86,7 @@
                 }).success(function(headers) {
                         if (headers=='Error 0069') {
                             // if not successful, bind errors to error variables
-                            var str = "Uh Oh, it seems like you have already registered. Please login to continue.";
+                            var str = "Uh Oh, it seems like you have already asked us for an invite.</br>We will invite you very soon.</br></br>";
 
                               document.getElementById('successfulsignup').innerHTML = str;
 
@@ -94,7 +95,7 @@
                             else {
                                     $('#signupform').fadeOut(0);
 
-                                    var str = "Hi " + headers + "! Thanks for signing up! How about we take things to the next level now?<br/> But before we move in, make babies and live happily ever after, we'd like to meet some of your friends.</br> So why don't you call them over too?";
+                                    var str = "Hi " + headers + "! Thanks for signing up! How about we take things to the next level now?<br/></br> But before we move in, make babies and live happily ever after, we'd like to meet some of your friends.</br></br> So why don't you call them over too?";
 
                               document.getElementById('successfulsignup').innerHTML = str;
 
@@ -209,11 +210,62 @@ color: white;
 }
 
 .explain {
-font-family: Segoe UI, Arial, sans serif;
+font-family: 'Segoe UI', Arial, sans serif;
 font-weight: 100;
 line-height: 30px;
 }
 
+
+#onm1 { display:none; }
+#onm2 { display:none; }
+#onm3 { display:none; }
+#onm4 { display:none; }
+
+@media only screen and (max-device-width: 480px) {
+
+.section1punchline {
+font-size: 16px;
+}
+
+.section1menu { display:none; }
+
+.section1logo {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: -250px;
+  left: 40px;
+  bottom: 0;
+  right: 0;
+  opacity: 1;
+  overflow: auto;
+  margin: auto;
+ }
+
+
+.explain {
+font-size: 15px !important;
+line-height: 18px;
+}
+
+
+#upnext { display:none; }
+#upnextfix { width:100%; margin:0; padding:0; }
+
+#nom1 { display:none; }
+#nom2 { display:none; }
+#nom3 { display:none; }
+#nom4 { display:none; }
+#nom5 { display:none; }
+#nom6 { display:none; }
+#nom7 { display:none; }
+#nom8 { display:none; }
+#onm1 { display:block; }
+#onm2 { display:block; }
+#onm3 { display:block; }
+#onm4 { display:block; }
+
+}
     </style>
 
 </head>
@@ -248,7 +300,7 @@ line-height: 30px;
         
 
 <div class="row">
-        <div class="col-xs-9 col-md-6" style="background-color: #fdfbf7; color: rgb(99, 115, 112); height:100vh; padding: 40px;">
+        <div id="upnextfix" class="col-xs-9 col-md-6" style="background-color: #fdfbf7; color: rgb(99, 115, 112); height:100vh; padding: 40px;">
           <div class="signup-wrap">
           <h1 style=" font-family: Montserrat, Arial; font-size: 32px; color: #cc1f35;">Create a new Square</h1>
           <p>Get a Square for your own campus.<br/><br/><br/><br/></p>
@@ -273,7 +325,7 @@ line-height: 30px;
                     </a>
 
     </div>
-    <form id="signupform" ng-submit="processForm()" style="font-family: segoe UI;">
+    <form id="signupform" ng-submit="processForm()" style="font-family: 'Segoe UI';">
            
      <div class="form-group form-group-default">
               <label>Full Name</label>
@@ -309,8 +361,8 @@ line-height: 30px;
           </div>
         </div>
         <div class="clear"></div>
-        <div class="col-xs-9 col-md-6" style="background-color: #440d2b; height:100vh; padding: 40px;">
-        <div class="nextup-wrap text-center" style="font-family: segoe UI;">
+        <div id="upnext" class="col-xs-9 col-md-6" style="background-color: #440d2b; height:100vh; padding: 40px;">
+        <div class="nextup-wrap text-center" style="font-family: 'Segoe UI';">
         <h1 style="color: #fff; font-family: Montserrat, Arial; font-size: 32px;">Up next</h1>
           <p style=" color: white;">And the next square is...<br/></p><br/>
           
@@ -344,53 +396,93 @@ line-height: 30px;
 
 
         </div> <!-- .cd-full-width -->
+
       </li>
 
       <li>
-        <div class="cd-half-width">
+        <div id="nom1" class="cd-half-width">
           
           <p style="font-size: 24px; color: #fff !important; opacity: 1; font-weight: 100;"><br/>
             <br/><br/>Within it, you can create as many<br/>squares as you want</p>
         </div> <!-- .cd-half-width -->
 
-        <div class="cd-half-width cd-img-container">
+        <div id="nom2" class="cd-half-width cd-img-container">
           <img src="images/landing-page/slide2-1.png" id="explainer1" alt="squaresauce explainer">
         </div> <!-- .cd-half-width.cd-img-container -->
+
+
+      <div  id="onm1" class="cd-full-width">
+          <img src="images/landing-page/slide2-1.png" id="explainer1" alt="squaresauce explainer"><br/><br/>
+          <p style="font-size: 30px; color: #fff !important; opacity: 1; font-weight: 100;">Within it, you can create as many<br/>squares as you want
+          </p>
+
+        </div> <!-- .cd-full-width -->
+
       </li>
 
       <li>
-        <div class="cd-half-width cd-img-container">
+        <div id="nom3" class="cd-half-width cd-img-container">
           <img src="images/landing-page/football-square.png" alt="football">
         </div> <!-- .cd-half-width.cd-img-container -->
 
-        <div class="cd-half-width">
+        <div id="nom4" class="cd-half-width">
           <p style="font-size: 24px; color: #fff !important; opacity: 1; font-weight: 100;"><br/>
             <br/><br/>So here's your college football team</p>
         </div> <!-- .cd-half-width -->
         
+
+      <div  id="onm2" class="cd-full-width">
+          <img src="images/landing-page/football-square.png" id="explainer1" alt="squaresauce explainer"><br/><br/>
+          <p style="font-size: 30px; color: #fff !important; opacity: 1; font-weight: 100;">So here's your college football team
+          </p>
+
+        </div> <!-- .cd-full-width -->
+
       </li>
 
       <li class="cd-bg-video">
-        <div class="cd-half-width cd-img-container">
+        <div id="nom5" class="cd-half-width cd-img-container">
           <img src="images/landing-page/square-tags.png" alt="football" height="300">
         </div> <!-- .cd-half-width.cd-img-container -->
 
-        <div class="cd-half-width">
+        <div id="nom6" class="cd-half-width">
           <p style="font-size: 24px; color: #fff !important; opacity: 1; font-weight: 100;"><br/>
             <br/><br/>As soon as you create a square,<br/>we add some tags to it.</p>
         </div> <!-- .cd-half-width -->
+
+
+
+
+      <div  id="onm3" class="cd-full-width">
+          <img src="images/landing-page/square-tags.png" alt="football" height="300"><br/><br/>
+          <p style="font-size: 30px; color: #fff !important; opacity: 1; font-weight: 100;">As soon as you create a square,<br/>we add some tags to it.
+          </p>
+        </div> <!-- .cd-full-width -->
+
+
+
       </li>
 
       <li>
-        <div class="cd-half-width">
+        <div id="nom7" class="cd-half-width">
           
           <p style="font-size: 24px; color: #fff !important; opacity: 1; font-weight: 100;"><br/>
             <br/><br/>All just like that, all similar teams in the city, or country, are tossed into same square!</p>
         </div> <!-- .cd-half-width -->
 
-        <div class="cd-half-width cd-img-container">
+        <div  id="nom8" class="cd-half-width cd-img-container">
           <img src="images/landing-page/all-squares.png" id="explainer5" alt="squaresauce explainer">
         </div> <!-- .cd-half-width.cd-img-container -->
+
+
+
+      <div  id="onm4" class="cd-full-width">
+          <img src="images/landing-page/all-squares.png" id="explainer5" alt="squaresauce explainer"><br/><br/>
+          <p style="font-size: 30px; color: #fff !important; opacity: 1; font-weight: 100;">All just like that, all similar teams in the city, or country, are tossed into same square!
+          </p>
+        </div> <!-- .cd-full-width -->
+
+
       </li>
     </ul> <!-- .cd-hero-slider -->
 
