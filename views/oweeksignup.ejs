@@ -50,16 +50,15 @@
 
     $(document).ready(function () {
    var txtSectorEE = $('#sector_em');
-
         // Save the initial value
         $.data(txtSectorEE, "lastv", txtSectorEE.val());
 
         // Setup the event
-        txtSectorE.focusout(function () {
+        txtSectorEE.focusout(function () {
             var last = $.data(txtSectorEE, "lastv");
             if (last != $(this).val())
-                var  email= $("#sector_em").val();
-
+                var  email = $("#sector_em").val();
+              alert(email);
                                         $.ajax({
                                           method  : 'POST',
                                           contentType: "application/json; charset=utf-8",
@@ -75,11 +74,13 @@
                                           if(izdone==true) {
                                               $('#sbutton').fadeIn(600);
                                               $('#smsg').fadeOut(600);
+                                              alert("true");
 
                                           }
                                           else {
                                               $('#smsg').fadeOut(600);
                                               $('#sbutton').fadeIn(600);
+                                              alert("f");
                                           }
                                                    
                                       })
