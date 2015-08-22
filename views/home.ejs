@@ -241,12 +241,12 @@ console.log(user);
           <!-- START User Info-->
           <div class="visible-lg visible-md m-t-10">
             <div class="pull-left p-r-10 p-t-10 fs-16 font-heading">
-              <span class="semi-bold"><%= req.session.user_data.profile.fname %></span> <span class="text-master"><%= req.session.user_data.profile.lname %></span>
+              <span class="semi-bold"><%console.log(req.session.user_data) %></span> <span class="text-master"><%= req.session.user_data.name %></span>
             </div>
             <div class="dropdown pull-right">
               <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="thumbnail-wrapper d32 circular inline m-t-5">
-                <img src="https://graph.facebook.com/<%= req.session.user_data.profile.fbkid %>/picture" alt="" data-src="https://graph.facebook.com/<%= req.session.user_data.profile.fbkid %>/picture" data-src-retina="https://graph.facebook.com/<%= req.session.user_data.profile.fbkid %>/picture" width="32" height="32">
+                <img src="https://graph.facebook.com/picture" alt="" data-src="https://graph.facebook.com/picture" data-src-retina="https://graph.facebook.com/picture" width="32" height="32">
             </span>
               </button>
               <ul class="dropdown-menu profile-dropdown" role="menu">
