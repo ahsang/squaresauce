@@ -2,7 +2,7 @@
 <html >
 <head>
 	<title>Shah Chat - By Shah</title>
-	<link rel="stylesheet" type="text/css" href="/styles/bootstrap.min.css">
+
 	<style type="text/css">
 	body{
 		background: #ededed;
@@ -49,6 +49,8 @@
 
 	</style>
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css'>
+	
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 </head>
 <body ng-app="socketApp" ng-controller="ChatController">
 
@@ -152,11 +154,11 @@ setInterval(function(){ checkInternetConnection(); },1000);
 function checkInternetConnection() {
   var isOnLine = navigator.onLine;
    if (isOnLine) {
-        $('#onlinetag').fadeIn(600);
-        $('#offlinetag').fadeOut(600);
+        $('#onlinetag').fadeIn(1);
+        $('#offlinetag').fadeOut(1);
    } else {
-        $('#offlinetag').fadeIn(600);
-        $('#onlinetag').fadeOut(600);
+        $('#offlinetag').fadeIn(1);
+        $('#onlinetag').fadeOut(1);
    }
 }
 </script>
