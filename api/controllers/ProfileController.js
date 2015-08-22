@@ -111,22 +111,30 @@ module.exports = {
         if(!req.param('username')){
         res.view('homepage');
         }else{
-          User.find({id:req.session.passport.user}).populate('profile').then(function(user){
-              if(user==''){
-                req.session.userd="hello";
-                req.session.userd.profile="hello";
-                req.session.userd.profile.fname="Not";
-                req.session.userd.profile.lname="Not Logged in";
-                req.session.userd.profile.fbkid="123456";
-                
-                  
-              }else{
-              req.session.userd=user[0].profile;
-            }
-          }).catch(function(err){
-              console.log(err);
-          });
-          
+          if(req.session.passport){
+              User.find({id:req.session.passport.user}).populate('profile').then(function(user){
+                  if(user==''){
+                    req.session.userd="hello";
+                    req.session.userd.profile="hello";
+                    req.session.userd.profile.fname="Not";
+                    req.session.userd.profile.lname="Not Logged in";
+                    req.session.userd.profile.fbkid="123456";
+    
+                      
+                  }else{
+                  req.session.userd=user[0].profile;
+                }
+              }).catch(function(err){
+                  console.log(err);
+              });
+          }else{
+                    req.session.userd=new Object();
+                    profile=new Object();
+                    profile.fname="Not";
+                    profile.lname="Not Logged in";
+                    profile.fbkid="123456";
+                    
+          }
           User.find({username:req.param('username')}).populate('profile').then(function(usr){
             console.log(usr);
             if(usr==''){
