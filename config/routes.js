@@ -69,6 +69,9 @@ module.exports.routes = {
   '/testing-home':{
     view: 'sails-homepage'
   },
+  '/chatuitest':{
+    view: 'chatuitest'
+  },
 
   'POST /oweek/voucher' : 'Otest.retrieveVoucher',
   'POST /oweek/createUser' : 'Otest.createSpecialUser',
