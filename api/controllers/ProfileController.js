@@ -117,7 +117,7 @@ module.exports = {
                     req.session.userd="hello";
                     req.session.userd.profile="hello";
                     req.session.userd.profile.fname="Not";
-                    req.session.userd.profile.lname="Not Logged in";
+                    req.session.userd.profile.lname="Logged in";
                     req.session.userd.profile.fbkid="123456";
     
                       
@@ -128,12 +128,12 @@ module.exports = {
                   console.log(err);
               });
           }else{
-                    req.session.userd=new Object();
                     profile=new Object();
                     profile.fname="Not";
                     profile.lname="Not Logged in";
                     profile.fbkid="123456";
-                    
+                    req.session.userd=profile;
+                                        
           }
           User.find({username:req.param('username')}).populate('profile').then(function(usr){
             console.log(usr);
