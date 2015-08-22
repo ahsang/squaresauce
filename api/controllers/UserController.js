@@ -220,7 +220,7 @@ updatedata: function(req,res){
   User.update({id:uid},{username:req.param('uname'),email:req.param('email')}).then(function(updated){
     // if(err)console.log(err);
     console.log("User object updated" + updated);
-        Profile.update({id:uid},{fbkid:req.session.fbk_data.id,
+        Profile.update({id:updated.profile.id},{fbkid:req.session.fbk_data.id,
         fname:req.param('fname'),
         lname:req.param('lname'),
         cemail:req.param('cemail'),
