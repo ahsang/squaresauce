@@ -192,13 +192,30 @@ verifyusername:  function(req,res){
 updatedata: function(req,res){
 
   console.log(req.body);
-  User.update({id:req.session.passport.user},{username:req.uname,email:req.email}).then(function(updated){
+  var uid=req.param('uid');
+  User.update({id:uid},{username:req.param('uname'),email:req.param('email')}).exec(function(err,updated){
+    if(err)console.log(err);
     console.log("User object updated" + updated);
-    
-  }).catch(function (err){
-    console.log("Error in verifyUsername");
-    console.log(err);
-  })
+        Profile.update({id:updated.profile},{fbkid:req.session.fbk_data.id,
+        fname:req.param('fname'),
+        lname:req.param('lname'),
+        cemail:req.param('cemail'),
+        pinstitution:req.param('pinstitution'),
+        major:req.param('major')
+        }).then(function(updatedProf){
+          console.log("The profile has been updated");
+
+        }).catch(function(err){
+          console.log(err);
+        });
+
+        Passport.update({user:uid,protocol:'local'},{password:req.param('password')}).exec(function abc(err,prt){
+            console.log(prt);
+
+        });
+
+
+  });
 
 
   res.redirect('/oweeksignupcomplete');
