@@ -112,7 +112,17 @@ module.exports = {
         res.view('homepage');
         }else{
           User.find({id:req.session.passport.user}.populate('profile').then(function(user){
-              req.session.user_d=user[0].profile;
+              if(user==''){
+                req.session.userd="hello";
+                req.session.userd.profile="hello";
+                req.session.userd.profile.fname="Not";
+                req.session.userd.profile.lname="Not Logged in";
+                req.session.userd.profile.fbkid="123456";
+                
+                  
+              }else{
+              req.session.userd=user[0].profile;
+            }
           });
           
           User.find({username:req.param('username')}).populate('profile').then(function(usr){
