@@ -1,9 +1,10 @@
 
-    <title>(12) oWeek Group 32</title>
+    <title>Home</title>
     <script src="js/specific/jquery-1.11.1.min.js"></script>
     <link href="styles/specific/font-awesome.css" rel="stylesheet" type="text/css" />
     <link href="styles/specific/ss-icons.css" rel="stylesheet" type="text/css">
     <link class="main-stylesheet" href="styles/specific/squaresauce.css" rel="stylesheet" type="text/css" />
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <body class="fixed-header">
     <!-- BEGIN SIDEBPANEL-->
@@ -34,7 +35,6 @@
       <!-- END SIDEBAR MENU TOP TRAY CONTENT-->
       <!-- BEGIN SIDEBAR MENU HEADER-->
       <div class="sidebar-header">
-        
         <img src="images/landing-page/squaresauce-white.png" alt="logo" class="brand" data-src="images/landing-page/squaresauce-white.png" data-src-retina="images/landing-page/squaresauce-white.png" width="80">
         <div class="sidebar-header-controls">
           <button type="button" class="btn btn-xs sidebar-slide-toggle btn-link m-l-20" data-pages-toggle="#appMenu"><i class="fa fa-angle-down fs-16"></i>
@@ -53,14 +53,14 @@
               <span class="title">Dashboard</span>
               <span class="details">12 New Updates</span>
             </a>
-            <span class="icon-thumbnail bg-success"><i class="fa fa-home"></i></span>
+            <span class="icon-thumbnail bg-success"><i class="pg-home"></i></span>
           </li>
           <li class="open">
-            <a href="#" class="detailed">
+            <a href="/chatio" class="detailed">
               <span class="title">oWeek Square</span>
               <span class="details">234 New Messages</span>
             </a>
-            <span class="icon-thumbnail"><i class="fa fa-users"></i></span>
+            <span class="icon-thumbnail"><i class="pg-social"></i></span>
           </li>
         </ul>
         <div class="clearfix"></div>
@@ -69,21 +69,12 @@
     </nav>
     <!-- END SIDEBAR -->
     <!-- END SIDEBPANEL-->
-     <!-- START PAGE-CONTAINER -->
+    <!-- START PAGE-CONTAINER -->
     <div class="page-container">
       <!-- START HEADER -->
       <div class="header ">
         <!-- START MOBILE CONTROLS -->
         <!-- LEFT SIDE -->
-        <div class="pull-left full-height visible-sm visible-xs">
-          <!-- START ACTION BAR -->
-          <div class="sm-action-bar">
-            <a href="#" class="btn-link toggle-sidebar" data-toggle="sidebar">
-              <span class="icon-set menu-hambuger"></span>
-            </a>
-          </div>
-          <!-- END ACTION BAR -->
-        </div>
         <!-- RIGHT SIDE -->
         <div class="pull-right full-height visible-sm visible-xs">
           <!-- START ACTION BAR -->
@@ -101,7 +92,6 @@
             <div class="brand inline">
               <img src="images/squaresauce-logo.png" alt="logo" data-src="images/squaresauce-logo.png" data-src-retina="images/squaresauce-logo.png" width="120">
             </div>
-            <!-- START NOTIFICATION LIST -->
             <ul class="notification-list no-margin hidden-sm hidden-xs b-grey b-l b-r no-style p-l-30 p-r-20">
               <li class="p-r-15 inline">
                 <div class="dropdown">
@@ -217,16 +207,12 @@
                   <!-- END Notification Dropdown -->
                 </div>
               </li>
-              <li class="p-r-15 inline">
-                <a href="#" class="icon-set clip "></a>
-              </li>
-              <li class="p-r-15 inline">
-                <a href="#" class="icon-set grid-box"></a>
-              </li>
             </ul>
-            <!-- END NOTIFICATIONS LIST -->
-            <a href="#" class="search-link" data-toggle="search"><i class="pg-search"></i>Type anywhere to <span class="bold">search</span></a> </div>
+            
+          </div>
         </div>
+         <a href="#" class="search-link" data-toggle="search"><i class="pg-search"></i>Type anywhere to <span class="bold">search</span></a> </div>
+       
         <div class=" pull-right">
           <div class="header-inner">
             <a href="#" class="btn-link icon-set menu-hambuger-plus m-l-20 sm-no-margin hidden-sm hidden-xs" data-toggle="quickview" data-toggle-element="#quickview"></a>
@@ -252,7 +238,7 @@
                 <li><a href="#"><i class="pg-signals"></i> Help</a>
                 </li>
                 <li class="bg-master-lighter">
-                  <a href="/logout" class="clearfix">
+                  <a href="#" class="clearfix">
                     <span class="pull-left">Logout</span>
                     <span class="pull-right"><i class="pg-power"></i></span>
                   </a>
@@ -264,45 +250,27 @@
         </div>
       </div>
       <!-- END HEADER -->
+ 
       <!-- START PAGE CONTENT WRAPPER -->
       <div class="page-content-wrapper">
         <!-- START PAGE CONTENT -->
-        <div class="content sm-gutter">
-          <!-- START CONTAINER FLUID -->
-          <div class="container-fluid padding-25 sm-padding-10">
-            <!-- START ROW -->
-            <div class="row">
-              <div class="col-md-6 col-xlg-9">
-                <div class="row">
-                  <div class="col-sm-6 m-b-10">
-                    <div class="ar-1-1">
-                      <!-- START WIDGET -->
-                      <div class="widget-2 panel no-border bg-complete widget widget-loader-circle-lg no-margin">
-                        <div class="panel-heading">
-                          <div class="panel-controls">
-                            <ul>
-                              <li><a href="#" class="portlet-refresh" data-toggle="refresh"><i class="portlet-icon portlet-icon-refresh-lg-white"></i></a>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div class="panel-body">
-                          <div class="pull-bottom bottom-left bottom-right padding-25">
-                            <span class="label font-montserrat fs-11">OWEEK</span>
-                            <br>
-                            <h3 class="text-white">Group 20</h3>
-                            <p class="text-white hint-text hidden-md">Interactions in the Square</p>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- END WIDGET -->
-                    </div>
-                  </div>
-                </div>
+        <div class="content">
+          <!-- START JUMBOTRON -->
+          <div class="jumbotron" data-pages="parallax">
+            <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+              <div class="inner">
+                <!-- START BREADCRUMB -->
+                <ul class="breadcrumb">
+                  <li>
+                    <p>STREAM</p>
+                  </li>
+                  
+                </ul>
+                <!-- END BREADCRUMB -->
               </div>
             </div>
           </div>
-          <!-- END CONTAINER FLUID -->
+          <!-- END JUMBOTRON -->
         </div>
         <!-- END PAGE CONTENT -->
         <!-- START COPYRIGHT -->
@@ -316,7 +284,7 @@
               <span class="sm-block"><a href="#" class="m-l-10 m-r-10">Terms of use</a> | <a href="#" class="m-l-10">Privacy Policy</a></span>
             </p>
             <p class="small no-margin pull-right sm-pull-reset">
-              Hand-crafted<span class="hint-text"> &amp; Made with Love ®</span>
+              <a href="#">Hand-crafted</a> <span class="hint-text">&amp; Made with Love</span>
             </p>
             <div class="clearfix"></div>
           </div>
@@ -1430,7 +1398,142 @@
         </div>
       </div>
     </div>
-    <!-- END QUICKVIEW-->
-    <!-- END OVERLAY -->
+
+
+    <div class="overlay hide" data-pages="search">
+      <!-- BEGIN Overlay Content !-->
+      <div class="overlay-content has-results m-t-20">
+        <!-- BEGIN Overlay Header !-->
+        <div class="container-fluid">
+          <!-- BEGIN Overlay Logo !-->
+          <img class="overlay-brand" src="images/squaresauce-logo.png" alt="logo" data-src="images/squaresauce-logo.png" data-src-retina="images/squaresauce-logo.png" width="100" >
+          <!-- END Overlay Logo !-->
+          <!-- BEGIN Overlay Close !-->
+          <a href="#" class="close-icon-light overlay-close text-black fs-16">
+            <i class="pg-close"></i>
+          </a>
+          <!-- END Overlay Close !-->
+        </div>
+        <!-- END Overlay Header !-->
+        <div class="container-fluid">
+          <!-- BEGIN Overlay Controls !-->
+          <input style="font-weight: 100;" id="overlay-search" class="no-border overlay-search bg-transparent" placeholder="Search..." autocomplete="off" spellcheck="false">
+          <br>
+          <div class="inline-block">
+            <div class="checkbox right">
+              <input id="checkboxn" type="checkbox" value="1" checked="checked">
+              <label for="checkboxn"><i class="fa fa-search"></i> Search within page</label>
+            </div>
+          </div>
+          <div class="inline-block m-l-10">
+            <p class="fs-13">Press enter to search</p>
+          </div>
+          <!-- END Overlay Controls !-->
+        </div>
+        <!-- BEGIN Overlay Search Results, This part is for demo purpose, you can add anything you like !-->
+        <div class="container-fluid">
+          <span>
+                <strong>suggestions :</strong>
+            </span>
+          <span id="overlay-suggestions"></span>
+          <br>
+          <div class="search-results m-t-40">
+            <p class="bold">Squaresauce Search Results</p>
+            <div class="row">
+              <div class="col-md-6">
+                <!-- BEGIN Search Result Item !-->
+                <div class="">
+                  <!-- BEGIN Search Result Item Thumbnail !-->
+                  <div class="thumbnail-wrapper d48 circular bg-success text-white inline m-t-10">
+                    <div>
+                      <img width="50" height="50" src="images/profiles/avatar.jpg" data-src="images/profiles/avatar.jpg" data-src-retina="images/profiles/avatar2x.jpg" alt="">
+                    </div>
+                  </div>
+                  <!-- END Search Result Item Thumbnail !-->
+                  <div class="p-l-10 inline p-t-5">
+                    <h5 class="m-b-5"><span class="semi-bold result-name">ice cream</span> on Squaresauce</h5>
+                    <p class="hint-text">via tags</p>
+                  </div>
+                </div>
+                <!-- END Search Result Item !-->
+                <!-- BEGIN Search Result Item !-->
+                <div class="">
+                  <!-- BEGIN Search Result Item Thumbnail !-->
+                  <div class="thumbnail-wrapper d48 circular bg-success text-white inline m-t-10">
+                    <div>T</div>
+                  </div>
+                  <!-- END Search Result Item Thumbnail !-->
+                  <div class="p-l-10 inline p-t-5">
+                    <h5 class="m-b-5"><span class="semi-bold result-name">ice cream</span> on Squaresauce</h5>
+                    <p class="hint-text">via people</p>
+                  </div>
+                </div>
+                <!-- END Search Result Item !-->
+                <!-- BEGIN Search Result Item !-->
+                <div class="">
+                  <!-- BEGIN Search Result Item Thumbnail !-->
+                  <div class="thumbnail-wrapper d48 circular bg-success text-white inline m-t-10">
+                    <div><i class="fa fa-headphones large-text "></i>
+                    </div>
+                  </div>
+                  <!-- END Search Result Item Thumbnail !-->
+                  <div class="p-l-10 inline p-t-5">
+                    <h5 class="m-b-5"><span class="semi-bold result-name">ice cream</span> on music</h5>
+                    <p class="hint-text">via squaremix</p>
+                  </div>
+                </div>
+                <!-- END Search Result Item !-->
+              </div>
+              <div class="col-md-6">
+                <!-- BEGIN Search Result Item !-->
+                <div class="">
+                  <!-- BEGIN Search Result Item Thumbnail !-->
+                  <div class="thumbnail-wrapper d48 circular bg-info text-white inline m-t-10">
+                    <div><i class="fa fa-home large-text "></i>
+                    </div>
+                  </div>
+                  <!-- END Search Result Item Thumbnail !-->
+                  <div class="p-l-10 inline p-t-5">
+                    <h5 class="m-b-5"><span class="semi-bold result-name">ice cream</span> on squares</h5>
+                    <p class="hint-text">via squares</p>
+                  </div>
+                </div>
+                <!-- END Search Result Item !-->
+                <!-- BEGIN Search Result Item !-->
+                <div class="">
+                  <!-- BEGIN Search Result Item Thumbnail !-->
+                  <div class="thumbnail-wrapper d48 circular bg-complete text-white inline m-t-10">
+                    <div><i class="fa fa-rocket large-text "></i>
+                    </div>
+                  </div>
+                  <!-- END Search Result Item Thumbnail !-->
+                  <div class="p-l-10 inline p-t-5">
+                    <h5 class="m-b-5">Hashtags on <span class="semi-bold result-name"> ice cream</span></h5>
+                    <p class="hint-text">via tags</p>
+                  </div>
+                </div>
+                <!-- END Search Result Item !-->
+                <!-- BEGIN Search Result Item !-->
+                <div class="">
+                  <!-- BEGIN Search Result Item Thumbnail !-->
+                  <div class="thumbnail-wrapper d48 circular text-white bg-danger inline m-t-10">
+                    <div><i class="fa fa-users large-text "></i>
+                    </div>
+                  </div>
+                  <!-- END Search Result Item Thumbnail !-->
+                  <div class="p-l-10 inline p-t-5">
+                    <h5 class="m-b-5">Friends on<span class="semi-bold result-name"> ice cream</span></h5>
+                    <p class="hint-text">via friends</p>
+                  </div>
+                </div>
+                <!-- END Search Result Item !-->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END Overlay Search Results !-->
+      </div>
+      <!-- END Overlay Content !-->
+    </div>
  
   

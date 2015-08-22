@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
     <title>Login</title>
 <script src="js/specific/jquery-1.11.1.min.js"></script>
     <link href="styles/specific/font-awesome.css" rel="stylesheet" type="text/css" />
@@ -16,10 +16,9 @@
         <!-- END Background Pic-->
         <!-- START Background Caption-->
         <div class="bg-caption pull-bottom sm-pull-bottom text-white p-l-20 m-b-20">
-          <h2 class="semi-bold text-white">
-			All interactions in one place</h2>
+          <h2 class="semi-bold text-white">Your Campus in a Square</h2>
           <p class="small">
-            This image was captured by LUMS alumnus Pharan Tanveer.
+             Photo by Pharan Tanveer (LUMS '15).
           </p>
         </div>
         <!-- END Background Caption-->
@@ -43,12 +42,13 @@
               <label>Password</label>
               <div class="controls">
                 <input type="password" name="password"  class="form-control" required>
+                <input type="hidden" name="flag" value="login" class="form-control">
               </div>
             </div>
+            
             <button class="btn btn-success btn-cons m-t-10" type="submit">Login</button>
             <div class="col-sm-12 no-padding m-t-10">
-                <p><small>Retrieve Password | Create a New Account</small>
-                </p>
+                <a href="http://squaresauce.com/#page3"><small>Request Invite</small></a>
               </div>
           </form>
           <!--END Login Form-->
