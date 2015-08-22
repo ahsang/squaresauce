@@ -104,6 +104,30 @@ module.exports = {
 
         } 
         
+      },
+      username:function(req,res){
+        // console.log("yeah");
+        // console.log("username"+req.param('username'));
+        if(req.param('username')=="favicon.ico"){
+        res.view('homepage');
+        }else{
+          User.find({username:req.param('username')}).populate('profile').then(function(usr){
+            
+            if(usr==''){
+
+            }else{
+            req.session.profile_data=usr[0].profile;
+            res.view('profile');
+            }
+          }).catch(function(err){
+            console.log(err);
+            console.log("Error in user finding");
+          });
+
+
+
+          // res.send(req.param('username'));
+        }
       }
 
 };
