@@ -81,7 +81,27 @@ module.exports = {
 			}).catch(function(err){
 				console.log(err);
 			});
-  	  }
+  	  },
+      viewProfile:function(req,res){
+        if(req.session.passport){
+         User.find({id:req.session.passport.user}).populate('profile').populate('mysquares').then(function(user){
+            req.session.user_data=user;
+            return [user];
+         }).spread(function(usero){
+
+            res.view('home');
+
+         }).catch(function(err){
+          console.log(err);
+          console.log("Error in Profile.viewProfile");
+         });
+        }else{
+            console.log("Hello");
+            res.view("403");
+
+        } 
+        
+      }
 
 };
 

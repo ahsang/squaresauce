@@ -44,9 +44,9 @@ module.exports.routes = {
   '/pchatter':{
     view: 'pchatter'
   },  
-  '/home': {
-    view: 'home'
-  },
+  // '/home': {
+  //   view: 'home'
+  // },
   '/oweek': {
     view: 'oweek'
   },
@@ -60,7 +60,7 @@ module.exports.routes = {
     view: 'login'
   },
   '/forbidden': {
-    view: 'forbidden'
+    view: '403'
   },
     '/test':{
     view: 'test'
@@ -93,7 +93,8 @@ module.exports.routes = {
   'POST /square/addadmin' : 'Square,addAdmin',
   'POST /square/profile/plus': 'Profile.increaseOongal',
   'POST /square/profile/minus': 'Profile.decreaseOongal',
-  'GET /chatter2':'Chat.loadChat'
+  'GET /chatter2':'Chat.loadChat',
+  'GET /home':'Profile.viewProfile'
 
   /***************************************************************************
   *                                                                          *
