@@ -280,7 +280,7 @@
                           <div class="row" ng-repeat="chat in chatList | limitTo: 10000">
                             <a ng-href="http://squaresauce.com/users/{{ chat.username }}">
                               <div class="col-md-1">
-                              {{ chat.fbkid }}
+                              <img style="margin-top: 5px;"width="50" height="50" data-src-retina="https://graph.facebook.com/{{ chat.fbkid }}/picture" data-src="https://graph.facebook.com/{{ chat.fbkid }}/picture" alt="" src="https://graph.facebook.com/{{ chat.fbkid }}/picture" ng-src="https://graph.facebook.com/{{ chat.fbkid }}/picture">
                               <div class="chat-status available">
                                <p class="small hint-text m-t-5"> {{ chat.user }} </p>
                               </div>
@@ -1452,8 +1452,8 @@
       $scope.Userfname = "";          // the data gets pushed into these variables..
       $scope.Userlname = "";          // use them where needed.. they should contain the names
       $scope.currUser =  "<%= req.session.passport.user %>";     //##### I load the user id from session here! ######3
-      $scope.fbkid = '<img style="margin-top: 5px;"width="50" height="50" data-src-retina="https://graph.facebook.com/<%= req.session.userd.fbkid %>/picture" data-src="https://graph.facebook.com/<%= req.session.userd.fbkid %>/picture" alt="" src="https://graph.facebook.com/<%= req.session.userd.fbkid %>/picture" ng-src="https://graph.facebook.com/<%= req.session.userd.fbkid %>/picture"';
-      $scope.username =  '<a href="<%= req.session.user_data.username %>"><%= req.session.passport.user %></a>'; 
+      $scope.fbkid =  "https://graph.facebook.com/<%= req.session.userd.fbkid %>/picture";
+      $scope.username =  "<%= req.session.user_data.username %>";
       //console.log(req.session.userId);
       $scope.chatSquareId = location.hash.replace(/^#/, "");   //chatter/#2 means this is 2
       $scope.subSocket = function(){
