@@ -82,6 +82,9 @@ module.exports.routes = {
   '/policy':{
     view: 'policy'
   },
+  '/support':{
+    view: 'support'
+  },
   
 
 
