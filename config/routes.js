@@ -57,9 +57,7 @@ module.exports.routes = {
   '/oweeksignupcomplete': {
     view: 'oweeksignupcomplete'
   },
-  '/login': {
-    view: 'login'
-  },
+  
   '/forbidden': {
     view: '403'
   },
@@ -103,6 +101,7 @@ module.exports.routes = {
   'POST /square/profile/plus': 'Profile.increaseOongal',
   'POST /square/profile/minus': 'Profile.decreaseOongal',
   'GET /chatter2':'Chat.loadChat',
+  'GET /login':'Main.login',
   'GET /home':'Profile.viewProfile',
   'GET /users/:username': 'ProfileController.username'
 
