@@ -307,11 +307,13 @@
 
 
 
-        <div style="background-color: #eee; padding: 10px; position:absolute; left:0; bottom:0; width:100%;">
-         <form id="form_chat" class="form_chat"><input type="text" ng-model = "chatMessage" id="chatboxy" class="chatboxy" style="font-size: 16px;esize: none; padding: 10px; width: 100%; border:1px solid #ccc;border-radius: 4px; box-shadow:  0px 2px 11px 0px rgba(0, 0, 0, 0.3);" placeholder="Type your message here" />
-
-            <input type="submit" class="btn btn-default col-lg-2 col-md-2" ng-click="sendMsg()" value="Send" /> 
+        <div class="container-fluid" style="background-color: #eee; padding: 10px; position:absolute; left:0; bottom:0;">
+         <form class="form_chat"><input type="text" ng-model = "chatMessage" id="chatboxy" class="chatboxy" style="font-size: 16px;esize: none; padding: 10px; width: 100%; border:1px solid #ccc;border-radius: 4px; box-shadow:  0px 2px 11px 0px rgba(0, 0, 0, 0.3);" placeholder="Type your message here" />
+            <button class="btn btn-default col-lg-2 col-md-2" ng-click="sendMsg()">Send</button>  
       </form>
+
+
+
         </div>
 
 
@@ -1500,25 +1502,16 @@
 
       });
 
-      function sendMsg(){
+      $scope.sendMsg = function(){
         $log.info($scope.chatMessage);
         io.socket.post('/chat/addconv/',{user:$scope.Userfname,message: $scope.chatMessage,cid: $scope.chatSquareId});
         $scope.chatMessage = "";
         $log.info($scope.Userfname); //im logging both these variables here
         $log.info($scope.Userlname);
       };
-
     }]);
 
 
-$('.chatboxy').keypress(function (e) {
-  if (e.which == 13) {
-    $('form#login').submit();
-  }
-});
-
-
-/*
 
 setInterval(function(){ checkInternetConnection(); },1000);
 function checkInternetConnection() {
@@ -1531,6 +1524,4 @@ function checkInternetConnection() {
         $('#onlinetag').fadeOut(1);
    }
 }
-
-*/
 </script>
