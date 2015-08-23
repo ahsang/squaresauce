@@ -5,10 +5,33 @@
     <link href="styles/specific/ss-icons.css" rel="stylesheet" type="text/css">
     <link class="main-stylesheet" href="styles/specific/squaresauce.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<style>
 
-<script>
-console.log(user);
-</script>
+#squares:nth-child(1) {
+    background-color: #f16521;
+}
+#squares:nth-child(2) {
+    background-color: #440d2b;
+}
+#squares:nth-child(3) {
+    background-color: rgb(204, 31, 53);
+}
+#squares:nth-child(4) {
+    background-color: #00adef;
+}
+#squares:nth-child(5) {
+    background-color: rgb(204, 31, 53);
+}
+#squares:nth-child(6) {
+    background-color: #8cc63e;
+}
+#squares:nth-child(7) {
+    background-color: #652c90;
+}
+#squares:nth-child(8) {
+    background-color: #ea9600;
+}
+</style>
 
 <body class="fixed-header">
     <!-- BEGIN SIDEBPANEL-->
@@ -285,7 +308,8 @@ console.log(user);
                   <div class="col-sm-3 m-b-5" data-ng-repeat="square in squares">
                     <div class="ar-1-1">
                       <!-- START WIDGET -->
-                      <div class="widget-2 panel no-border bg-complete widget widget-loader-circle-lg no-margin">
+                      <a href="http://squaresauce.com/square/{{ square.id }}">
+                        <div class="widget-2 panel no-border widget widget-loader-circle-lg no-margin" id="squares">
                         <div class="panel-heading">
                           <div class="panel-controls">
                             <ul>
@@ -302,9 +326,10 @@ console.log(user);
                             <p class="text-white hint-text hidden-md">squaresauce.com/square/{{ square.id }}</p>
                           </div>
                         </div>
-                      </div>
+                      </div></a>
                       <!-- END WIDGET -->
                     </div>
+
                   </div>
                 </div>
               </div>
