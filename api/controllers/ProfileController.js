@@ -93,6 +93,7 @@ module.exports = {
 
             req.session.user_data=user;
             req.session.userd=user[0].profile;
+
             req.session.square_data=user[0].mysquares;
             // console.log(user);
             console.log("Profile");

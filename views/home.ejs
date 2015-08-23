@@ -32,7 +32,7 @@
     background-color: #ea9600;
 }
 </style>
-<% console.log(req.session.square_data) %>
+
 <body ng-app="saxApp" ng-controller="SaxController" class="fixed-header">
     <!-- BEGIN SIDEBPANEL-->
     <nav class="page-sidebar" data-pages="sidebar">
@@ -307,7 +307,7 @@
                       <!-- START WIDGET -->
 
                       <a ng-href="http://squaresauce.com/square/{{ chat.id }}">
-                        <div class="widget-2 panel no-border widget widget-loader-circle-lg no-margin" id="{{ chat.color }}">
+                        <div class="widget-2 panel no-border widget widget-loader-circle-lg no-margin" id="tcolor2">
                         <div class="panel-heading">
                           <div class="panel-controls">
                             <ul>
@@ -1464,18 +1464,31 @@
 
     <!-- END QUICKVIEW-->
     <!-- END OVERLAY -->
- 
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js"></script>
+  
   <script type="text/javascript">
 
     var saxApp = angular.module('saxApp',[]);
 
     saxApp.controller('SaxController',['$http','$log','$scope',function($http,$log,$scope){
-
+    $scope.getAllchat = function(){
+      // $log.info(<%=JSON.stringify(req.session.user_data)%>);
+      $http.get('/user/getSquares?id=<%=req.session.passport.user%>')
+           .success(function(success_data){
+              
+              console.log("This is success_data");
+              $scope.chatList = success_data[0].mysquares;
+              $log.info(success_data);
+          });
 
       $scope.predicate = '-id';
       $scope.reverse = false;
-      $scope.chatList =<%=req.session.square_data%>;
-      $log.info($scope.chatList);
-    }
+      // $scope.chatList =<%=JSON.stringify(req.session.user_data)%>;
+      // $log.info(<%=JSON.stringify(req.session.square_data)%>);
+      }
+    
+    
+    $scope.getAllchat();  
+    }]);
 </script>
   

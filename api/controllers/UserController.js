@@ -153,6 +153,18 @@ rejectRequest: function(req,res){
     //  GET USER PROFILE HERE. Perhaps have a seperate model for profiles, and reference all 
     //  the users friends over there to have easy access policies?
 },
+getSquares: function(req,res){
+  console.log(req.param('id'));
+  User.find({id:req.param('id')}).populateAll().exec(function(err,user){
+    if(err){
+      console.log(err);
+      res.send("Yo Bro");
+    }else{
+    res.send(user);
+    }
+  })
+  
+},
 
 me: function (req, res) {
   console.log(req.session.passport.user);
