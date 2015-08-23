@@ -1451,6 +1451,8 @@ console.log("<%= req.session.passport.user %>");
       $scope.Userfname = "";          // the data gets pushed into these variables..
       $scope.Userlname = "";          // use them where needed.. they should contain the names
       $scope.currUser =  "<%= req.session.passport.user %>";     //##### I load the user id from session here! ######3
+      $scope.fbkid =  "<%= req.session.profile_data.fbkid %>";
+      $scope.username =  "<%= req.session.profile_data.username %>";
       //console.log(req.session.userId);
       $scope.chatSquareId = location.hash.replace(/^#/, "");   //chatter/#2 means this is 2
       $scope.subSocket = function(){
@@ -1504,7 +1506,7 @@ console.log("<%= req.session.passport.user %>");
 
       $scope.sendMsg = function(){
         $log.info($scope.chatMessage);
-        io.socket.post('/chat/addconv/',{user:$scope.Userfname,message: $scope.chatMessage,cid: $scope.chatSquareId});
+        io.socket.post('/chat/addconv/',{user:$scope.Userfname,message: $scope.chatMessage,cid: $scope.chatSquareId,username:$scope.username,fbkid:$scope.fbkid});
         $scope.chatMessage = "";
         $log.info($scope.Userfname); //im logging both these variables here
         $log.info($scope.Userlname);
