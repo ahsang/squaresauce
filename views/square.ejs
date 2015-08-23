@@ -10,7 +10,7 @@
 
 var urll = window.location.href;
 sname = urll.substr(urll.lastIndexOf('/') + 1); 
-/*
+
 
 $(document).ready(function () {
  $.ajax({
@@ -22,14 +22,16 @@ $(document).ready(function () {
   headers : { 'Content-Type': 'application/json' }  
 
   }) .success(function(izdone){
-             if(izdone==true) {
-                 alert("success");
+             if(izdone=="error") {
+                 alert(izdone);
+                 console.log(izdone);
 
          } else {
                  alert("no success");
+                 console.log(izdone);
                  }
 
-
+/*
 
 
  $.ajax({
@@ -48,9 +50,9 @@ $(document).ready(function () {
                  alert("no success");
                  }
 
-
-}
 */
+}
+
 </script>
 
 
