@@ -136,24 +136,24 @@ rejectRequest: function(req,res){
     });
   },
 
-  updateInfo: function(req,res){
-    if(err)console.log(err);
-    res.ok();
-  },
 
   getProfile: function(req,res){
     console.log(req.session);
-    res.ok();
-  //  GET USER PROFILE HERE. Perhaps have a seperate model for profiles, and reference all 
-  //  the users friends over there to have easy access policies?
+    Profile.find({user:req.session.passport.user}).then(function (profile){
+      if(profile==''){
+        res.send('no profile exists');
+      }else{
+        res.send(profile);
+      }
+
+
+        }).catch(function(err){
+      console.log(err);
+    });
+    //  GET USER PROFILE HERE. Perhaps have a seperate model for profiles, and reference all 
+    //  the users friends over there to have easy access policies?
 },
 
-isFriends: function(req,res){
-  //  Do we need this funciton?
-  //  Can help to have a simple friends check, for easier policy implementaion?
-  //  But then we should not check for policies in profiles or users themselves.
-  //  Food for thoguht....
-},
 me: function (req, res) {
   console.log(req.session.passport.user);
   User.find({id:req.session.passport.user}).populate('profile').populate('mysquares').populate('myforums').then(function(user){
@@ -162,7 +162,7 @@ me: function (req, res) {
   }).catch(function(err){
     console.log(err);
     res.ok();
-  })
+  });
 
 },
 

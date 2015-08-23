@@ -50,8 +50,6 @@
 	 						});
 	 					}
 	 				});	
-		
-
 	// 		"name" "tag" 'sid' 'uid' 		
 	//		WORKING!
 	},
@@ -262,14 +260,6 @@
 	//		NEED TO TEST!
 	},
 
-	addSubsquare: function(req,res){
-
-	},
-
-	removeSubsquare: function(req,res){
-
-	},
-
 	addDiscussionForum: function(req,res){
 		info = new Array();
 		info.sid=req.param('square_id');
@@ -404,7 +394,8 @@
 	 					if(err) console.log(err);
 	 			res.ok();
 	 		});
-},
+	},
+
 	removeChat: function(req,res){
 		//Create the chat model
 		//TODO: Write the function maybe?:p
@@ -412,18 +403,15 @@
 	//TODO: Need to figure out the chat module first...
 	},
 
-	addWorkSpace: function(req,res){
-		//Create the workspace module
-		//TODO: Write the function maybe?:p
-		res.ok();
-	//TODO: Scrape this for now? MVP focus somewhere else?
-	},
-
-	removeWorkspace: function(req,res){
-		//Create the workspace module
-		//TODO: Write the function maybe?:p
-		res.ok();
-	//TODO: Scrape this for now? MVP focus somewhere else?
+	getSquare: function(req, res){
+		sid = req.param('sid');
+		Square.find({id:sid}).populateAll().then(function(square){
+	    	console.log(square);
+	    	res.ok(square);
+	  	}).catch(function(err){
+	    	console.log(err);
+	    	res.ok();
+	  	});
 	},
 
 	addBadge: function(req,res){
