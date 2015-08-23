@@ -1450,7 +1450,7 @@
       $scope.chatList =[];
       $scope.Userfname = "";          // the data gets pushed into these variables..
       $scope.Userlname = "";          // use them where needed.. they should contain the names
-      $scope.currUser = '55d8ee3c4c4d02110055dc84';     //##### I load the user id from session here! ######3
+      $scope.currUser =   if(<%= req.session.passport.user %>) { <%= req.session.passport.user %> } //'55d8ee3c4c4d02110055dc84';     //##### I load the user id from session here! ######3
       //console.log(req.session.userId);
       $scope.chatSquareId = location.hash.replace(/^#/, "");   //chatter/#2 means this is 2
       $scope.subSocket = function(){
