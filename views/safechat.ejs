@@ -107,10 +107,29 @@
 			$scope.predicate = '-id';
 			$scope.reverse = false;
 			$scope.chatList =[];
-			$scope.userId = '22';
+			$scope.Userfname = "";					// the data gets pushed into these variables..
+			$scope.Userlname = "";					// use them where needed.. they should contain the names
+			$scope.currUser = req.session.userId;     //##### I load the user id from session here! ######3
+			console.log(req.session.userId);
 			$scope.chatSquareId = location.hash.replace(/^#/, "");   //chatter/#2 means this is 2
 			$scope.subSocket = function(){
+
 				io.socket.post('/chat/subSocket/',{cid: $scope.chatSquareId});
+			};
+
+
+			$scope.getUserData = function(){			//###This the funciton where i retrieve the actual data####
+
+				
+
+				$http.get('/Profile/find?user='+ $scope.currUser)     //###i go to the profile and find with id########
+					 .success(function(success_user_data){
+					 		
+					 		console.log("This is success_user_data");
+					 		$scope.userfname = success_data[0].fname;	//###here i push the data into variables!###
+					 		$scope.userlname = success_data[0].lname;	// ive tested the function till here on my
+					 		$log.info(success_data);
+					 });
 			};
 			$scope.getAllchat = function(){
 
@@ -124,6 +143,7 @@
 					 		$log.info(success_data);
 					 });
 			};
+			$scope.getUserData();		//here i am calling the funciton i added above
 			$scope.getAllchat();
 			$scope.subSocket();
 			$scope.chatUser = "tashfeen";
