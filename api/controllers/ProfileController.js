@@ -158,6 +158,15 @@ module.exports = {
 
           // res.send(req.param('username'));
         }
+      },
+
+      readNotification : function(req,res){
+        notif_id = req.param('notif_id')
+        Notification.update({id:notif_id},{unread:false}).exec(function (err, updated){
+            if(err)console.log(err);
+            res.ok();
+        });
+
       }
 
 };

@@ -5,7 +5,7 @@ module.exports = function(req, res, next) {
 	var profileId = req.param('pid');  // GET THE ROOM ID HERE!
   // User is allowed, proceed to the next policy, 
   // or if this is the last policy, the controller
-  			Profile.find(user: userId}).then(function (profile){
+  			Profile.find({user: userId}).then(function (profile){
   				var users_check = false;
   				if(profile=='')
   				{
