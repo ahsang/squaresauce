@@ -84,7 +84,7 @@ module.exports = {
   	  },
       viewProfile:function(req,res){
         if(req.session.passport){
-         User.find({id:req.session.passport.user}).populate('profile').populate('mysquares').exec(function(err,user){
+         User.find({id:req.session.passport.user}).populate('profile').populate('mysquares').then(function(user){
             if(err){
               console.log(err)
             }else{
@@ -92,11 +92,15 @@ module.exports = {
 
             req.session.user_data=user;
             req.session.profile_data=user[0].profile;
+            req.session.square_data=user[0].mysquares;
             // console.log(user);
             console.log("Profile");
             // console.log(req.session.profile_data.name);
             res.view('home');  
             }
+         }).catch(function(err){
+            console.log("Error in updating the user's profile data for home");
+            console.log(err);
          });
         }else{
             console.log("Hello");
