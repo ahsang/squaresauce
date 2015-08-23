@@ -280,14 +280,14 @@
                           <div class="row" ng-repeat="chat in chatList | limitTo: 10000">
                             <a ng-href="http://squaresauce.com/users/{{ chat.username }}">
                               <div class="col-md-1">
-                              <div style="background-color: #eee; width:50px; height:50px;">
-                                <img style="margin-top: 5px;"width="50" height="50" data-src-retina="https://graph.facebook.com/{{ chat.fbkid }}/picture" data-src="https://graph.facebook.com/{{ chat.fbkid }}/picture" alt="" src="https://graph.facebook.com/{{ chat.fbkid }}/picture" ng-src="https://graph.facebook.com/{{ chat.fbkid }}/picture"></div>
+                              <div style="background-color: #eee; width:50px; height:50px;margin-top: 5px;">
+                                <img width="50" height="50" data-src-retina="https://graph.facebook.com/{{ chat.fbkid }}/picture" data-src="https://graph.facebook.com/{{ chat.fbkid }}/picture" alt="" src="https://graph.facebook.com/{{ chat.fbkid }}/picture" ng-src="https://graph.facebook.com/{{ chat.fbkid }}/picture"></div>
                               <div class="chat-status available">
                                <p class="small hint-text m-t-5"> {{ chat.user }} </p>
                               </div>
                             </div></a>
                             <div class="col-md-11" >
-                              <p style="font-size: 16px;" >{{ chat.message }} <i>username: {{ chat.username }}</i></p>
+                              <p style="font-size: 16px;" >{{ chat.message }}</p>
                             </div>
                           </div>
                           
