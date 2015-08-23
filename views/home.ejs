@@ -314,13 +314,14 @@
                 []
 
 
-                <%}%}
+                <%}%>
                 ">
                   <div class="col-sm-3 m-b-5" data-ng-repeat="square in squares">
                     <div class="ar-1-1">
                       <!-- START WIDGET -->
-                      <a href="http://squaresauce.com/square/{{ square.name }}">
-                        <div class="widget-2 panel no-border widget widget-loader-circle-lg no-margin" id="{{ square.name }}">
+
+                      <a ng-href="http://squaresauce.com/square/{{ square.id }}">
+                        <div class="widget-2 panel no-border widget widget-loader-circle-lg no-margin" id="{{ square.color }}">
                         <div class="panel-heading">
                           <div class="panel-controls">
                             <ul>

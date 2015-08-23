@@ -4,7 +4,7 @@
     <link href="styles/specific/font-awesome.css" rel="stylesheet" type="text/css" />
     <link href="styles/specific/ss-icons.css" rel="stylesheet" type="text/css">
     <link class="main-stylesheet" href="styles/specific/squaresauce.css" rel="stylesheet" type="text/css" />
-<body class="fixed-header">
+<body class="fixed-header" ng-app="socketApp" ng-controller="ChatController">
     <!-- BEGIN SIDEBPANEL-->
     <nav class="page-sidebar" data-pages="sidebar">
       <!-- BEGIN SIDEBAR MENU TOP TRAY CONTENT-->
@@ -277,7 +277,7 @@
                         <div class="panel-body">
                           
 
-                          <div class="row">
+                          <div class="row" ng-repeat="chat in chatList | limitTo: 10000">
                             <div class="col-md-1">
                               <img style="margin-top: 5px;"width="50" height="50" data-src-retina="images/profiles/avatar_small2x.jpg" data-src="images/profiles/avatar_small.jpg" alt="" src="images/profiles/avatar_small2x.jpg">
                               <div class="chat-status available">
@@ -285,21 +285,10 @@
                               </div>
                             </div>
                             <div class="col-md-11" >
-                              <p style="font-size: 16px;" >Boys what scene? </p>
+                              <p style="font-size: 16px;" > <strong>{{ chat.user }} : </strong> {{ chat.message }} </p>
                             </div>
                           </div>
                           
-                          <div class="row">
-                            <div class="col-md-1">
-                              <img style="margin-top: 5px;"width="50" height="50" data-src-retina="images/profiles/avatar_small2x.jpg" data-src="images/profiles/avatar_small.jpg" alt="" src="images/profiles/avatar_small2x.jpg">
-                              <div class="chat-status available">
-                               <p class="small hint-text m-t-5"> 10:50 PM </p>
-                              </div>
-                            </div>
-                            <div class="col-md-11" >
-                              <p style="font-size: 16px;" >Ammar ko fruit chat khani hay Ammar ko fruit chat khani hay Ammar ko fruit chat khani hay Ammar ko fruit chat khani hay Ammar ko fruit chat khani hay v Ammar ko fruit chat khani hay Ammar ko fruit chat khani hay Ammar ko fruit chat khani hay Ammar ko fruit chat khani hay v v vAmmar ko fruit chat khani hay Ammar ko fruit chat khani hay </p>
-                            </div>
-                          </div>
                         </div>
                       </div>
                     </div>
@@ -318,8 +307,13 @@
 
 
 
-        <div class="container-fluid container-fixed-lg footer" style="background-color: #eee; padding: 10px;">
-         <textarea id="chatboxy" class="chatboxy" style="font-size: 16px;esize: none; padding: 10px; width: 100%; border:1px solid #ccc;border-radius: 4px; box-shadow:  0px 2px 11px 0px rgba(0, 0, 0, 0.3);" placeholder="Type your message here"></textarea>
+        <div class="container-fluid container-fixed-lg footer" style="background-color: #eee; padding: 10px; position:absolute; left:0; bottom:0;">
+         <form class="form_chat"><textarea ng-model = "chatMessage" id="chatboxy" class="chatboxy" style="font-size: 16px;esize: none; padding: 10px; width: 100%; border:1px solid #ccc;border-radius: 4px; box-shadow:  0px 2px 11px 0px rgba(0, 0, 0, 0.3);" placeholder="Type your message here"></textarea>
+            <button class="btn btn-default col-lg-2 col-md-2" ng-click="sendMsg()">Send</button>  
+      </form>
+
+
+
         </div>
 
 
@@ -1440,4 +1434,94 @@
     <!-- END QUICKVIEW-->
     <!-- END OVERLAY -->
  
-  
+  <script type="text/javascript" src="/js/dependencies/sails.io.js"></script>
+  <script type="text/javascript">
+  </script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js"></script>
+  <script type="text/javascript">
+
+    var socketApp = angular.module('socketApp',[]);
+
+    socketApp.controller('ChatController',['$http','$log','$scope',function($http,$log,$scope){
+
+
+      $scope.predicate = '-id';
+      $scope.reverse = false;
+      $scope.chatList =[];
+      $scope.Userfname = "";          // the data gets pushed into these variables..
+      $scope.Userlname = "";          // use them where needed.. they should contain the names
+      $scope.currUser = '55d8ee3c4c4d02110055dc84';     //##### I load the user id from session here! ######3
+      //console.log(req.session.userId);
+      $scope.chatSquareId = location.hash.replace(/^#/, "");   //chatter/#2 means this is 2
+      $scope.subSocket = function(){
+
+        io.socket.post('/chat/subSocket/',{cid: $scope.chatSquareId});
+      };
+
+
+      $scope.getUserData = function(){      //###This the funciton where i retrieve the actual data####
+
+        
+
+        $http.get('/Profile/find?user='+ $scope.currUser)     //###i go to the profile and find with id########
+           .success(function(success_user_data){
+              
+              console.log("This is success_user_data");
+              $scope.Userfname = success_user_data[0].fname;  //###here i push the data into variables!###
+              $scope.Userlname = success_user_data[0].lname;  // ive tested the function till here on my
+              $log.info(success_user_data);
+           });
+      };
+      $scope.getAllchat = function(){
+
+        
+
+        $http.get('/ChatSquare/find?cid='+ $scope.chatSquareId)
+           .success(function(success_data){
+              
+              console.log("This is success_data");
+              $scope.chatList = success_data[0].messages;
+              $log.info(success_data);
+           });
+      };
+      $scope.getUserData();   //here i am calling the funciton i added above
+      $scope.getAllchat();
+      $scope.subSocket();
+      $scope.chatUser = "whatever"
+      $scope.chatMessage="";
+
+
+      io.socket.on('chatsquare',function(obj){
+          console.log('i was turned on');
+          console.log(obj.data);
+          $log.info(obj)
+          $scope.chatList.push(obj.data.messages);
+          $scope.$digest();
+        window.scrollTo(0, document.body.scrollHeight); // scroll to bottom
+        
+
+      });
+
+      $scope.sendMsg = function(){
+        $log.info($scope.chatMessage);
+        io.socket.post('/chat/addconv/',{user:$scope.Userfname,message: $scope.chatMessage,cid: $scope.chatSquareId});
+        $scope.chatMessage = "";
+        $log.info($scope.Userfname); //im logging both these variables here
+        $log.info($scope.Userlname);
+      };
+    }]);
+
+
+
+setInterval(function(){ checkInternetConnection(); },1000);
+function checkInternetConnection() {
+  var isOnLine = navigator.onLine;
+   if (isOnLine) {
+        $('#onlinetag').fadeIn(1);
+        $('#offlinetag').fadeOut(1);
+   } else {
+        $('#offlinetag').fadeIn(1);
+        $('#onlinetag').fadeOut(1);
+   }
+}
+</script>
