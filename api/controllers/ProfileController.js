@@ -85,8 +85,9 @@ module.exports = {
       viewProfile:function(req,res){
         if(req.session.passport){
          User.find({id:req.session.passport.user}).populate('profile').populate('mysquares').then(function(user){
-            if(err){
-              console.log(err)
+            if(user==''){
+              res.view("403");
+              // console.log(err)
             }else{
 
 
