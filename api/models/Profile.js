@@ -63,6 +63,10 @@ module.exports = {
     oongal:{
         type: 'integer',
         defaultsTo : 3
+    },
+    notifications:{
+        type: 'array',
+        defaultsTo : ['Welcome To SquareSauce!','See squaresauce.com/policy for privacy terms']
     }
     	
 
