@@ -41,23 +41,23 @@ module.exports.session = {
   * session store that can be shared across multiple Sails.js servers        *
   ***************************************************************************/
 
-  adapter: 'redis',
+  // adapter: 'redis',
 
-  /***************************************************************************
-  *                                                                          *
-  * The following values are optional, if no options are set a redis         *
-  * instance running on localhost is expected. Read more about options at:   *
-  * https://github.com/visionmedia/connect-redis                             *
-  *                                                                          *
-  *                                                                          *
-  ***************************************************************************/
+  // **************************************************************************
+  // *                                                                          *
+  // * The following values are optional, if no options are set a redis         *
+  // * instance running on localhost is expected. Read more about options at:   *
+  // * https://github.com/visionmedia/connect-redis                             *
+  // *                                                                          *
+  // *                                                                          *
+  // **************************************************************************
 
-  host: 'cod.redistogo.com',
-  port: 10198,
-  // ttl: <redis session TTL in seconds>,
-  db: 'redistogo',
-  pass: '21ac27d07fc30e1847d0e0319427d9a4'
-  // prefix: 'sess:',
+  // host: 'cod.redistogo.com',
+  // port: 10198,
+  // // ttl: <redis session TTL in seconds>,
+  // db: 'redistogo',
+  // pass: '21ac27d07fc30e1847d0e0319427d9a4'
+  // // prefix: 'sess:',
 
 
   /***************************************************************************
