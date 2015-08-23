@@ -1,9 +1,9 @@
 
     <title>Square</title>
-    <script src="js/specific/jquery-1.11.1.min.js"></script>
-    <link href="styles/specific/font-awesome.css" rel="stylesheet" type="text/css" />
-    <link href="styles/specific/ss-icons.css" rel="stylesheet" type="text/css">
-    <link class="main-stylesheet" href="styles/specific/squaresauce.css" rel="stylesheet" type="text/css" />
+    <script src="http://squaresauce.comjs/specific/jquery-1.11.1.min.js"></script>
+    <link href="http://squaresauce.comstyles/specific/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="http://squaresauce.comstyles/specific/ss-icons.css" rel="stylesheet" type="text/css">
+    <link class="http://squaresauce.commain-stylesheet" href="styles/specific/squaresauce.css" rel="stylesheet" type="text/css" />
 <body class="fixed-header" ng-app="socketApp" ng-controller="ChatController">
     <!-- BEGIN SIDEBPANEL-->
     <nav class="page-sidebar" data-pages="sidebar">
@@ -1436,9 +1436,8 @@
     <!-- END QUICKVIEW-->
     <!-- END OVERLAY -->
  
-  <script type="text/javascript" src="/js/dependencies/sails.io.js"></script>
-  <script type="text/javascript">
-  </script>
+  <script type="text/javascript" src="http://squaresauce.com/js/dependencies/sails.io.js"></script>
+
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js"></script>
   <script type="text/javascript">
 //console.log("<%= req.session.passport.user %>");
@@ -1446,6 +1445,7 @@
 
     socketApp.controller('ChatController',['$http','$log','$scope',function($http,$log,$scope){
 
+var urll = window.location.href;
 
       $scope.predicate = '-id';
       $scope.reverse = false;
@@ -1456,7 +1456,7 @@
       $scope.fbkid =  "<%= req.session.userd.fbkid %>";
       $scope.username =  "<%= req.session.user_data[0].username %>";
       //console.log(req.session.userId);
-      $scope.chatSquareId = location.hash.replace(/^#/, "");   //chatter/#2 means this is 2
+      $scope.chatSquareId = urll.substr(urll.lastIndexOf('/') + 1);   //chatter/#2 means this is 2
       $scope.subSocket = function(){
 
         io.socket.post('/chat/subSocket/',{cid: $scope.chatSquareId});
