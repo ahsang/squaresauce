@@ -4,6 +4,56 @@
     <link href="http://squaresauce.com/styles/specific/font-awesome.css" rel="stylesheet" type="text/css" />
     <link href="http://squaresauce.com/styles/specific/ss-icons.css" rel="stylesheet" type="text/css">
     <link class="main-stylesheet" href="http://squaresauce.com/styles/specific/squaresauce.css" rel="stylesheet" type="text/css" />
+
+
+<script>
+
+var urll = window.location.href;
+sname = urll.substr(urll.lastIndexOf('/') + 1); 
+/*
+
+$(document).ready(function () {
+ $.ajax({
+  method  : 'POST',
+  contentType: "application/json; charset=utf-8",
+  url     : '/getSquareUsers',
+  data    : '{"sname": "'+sname+'"}', 
+  dataType: 'json',
+  headers : { 'Content-Type': 'application/json' }  
+
+  }) .success(function(izdone){
+             if(izdone==true) {
+                 alert("success");
+
+         } else {
+                 alert("no success");
+                 }
+
+
+
+
+ $.ajax({
+  method  : 'POST',
+  contentType: "application/json; charset=utf-8",
+  url     : '/square/broadcast',
+  data    : '{"sname": "'+sname+'"}', 
+  dataType: 'json',
+  headers : { 'Content-Type': 'application/json' }  
+
+  }) .success(function(izzdone){
+             if(izzdone==true) {
+                 alert("success");
+
+         } else {
+                 alert("no success");
+                 }
+
+
+}
+*/
+</script>
+
+
 <body class="fixed-header" ng-app="socketApp" ng-controller="ChatController">
     <!-- BEGIN SIDEBPANEL-->
     <nav class="page-sidebar" data-pages="sidebar">
@@ -1457,7 +1507,6 @@
  
   <script type="text/javascript" src="http://squaresauce.com/js/dependencies/sails.io.js"></script>
 
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js"></script>
   <script type="text/javascript">
 //console.log("<%= req.session.passport.user %>");
     var socketApp = angular.module('socketApp',[]);
