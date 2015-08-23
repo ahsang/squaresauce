@@ -16,7 +16,7 @@
  		createSquare: function(req,res){
  			info = new Array();
  			info.name=req.param('name')
- 			info.tag=req.param('tag');
+ 			info.sname=req.param('sname');
  			info.sid=req.param('sid');
  			info.uid=req.param('uid');
  			
@@ -32,11 +32,18 @@
 	 				// 			if(subsquare = '')
 	 				
 	 				// 			{
-	 					Square.create({name : info.name,admin:req.param('uid'),people:req.param('uid')}).exec(function createCB(err, created){
+	 					Square.create({name : info.name,sname:info.sname,admin:req.param('uid'),people:req.param('uid')}).then(function(created){
 	 						console.log('Created a new square with the following stuff: ');
 		 								// console.log(name);
-		 								
-		 							});	 									
+		 					req.session.sid=created.id;
+		 					req.session.cid=created.sname;				
+		 					return [created];
+		 				}).spread(function(abc){
+		 					res.redirect('/createChatForSquare');
+
+		 				}).catch(function(err){
+		 					console.log(err);
+		 				});	 									
 	 					// 		}
 	 					// 		else
 	 					// 		{
@@ -361,9 +368,13 @@ removeDiscussionForum: function(req,res){
 },
 
 addChat: function(req,res){
+	console.log("AddChat");
 	info = new Array();
-	info.sid=req.param('sid');
-	info.cid=req.param('cid');
+	info.sid=req.param('sid')||req.session.sid;
+	info.cid=req.param('cid')||req.session.cid;
+	req.session.sid=null;
+	req.session.cid=null;
+
 
 
 	Square.findOne({ id : info.sid }).populate('people').exec(function (err, square) {
