@@ -64,12 +64,19 @@ module.exports = {
         type: 'integer',
         defaultsTo : 3
     },
-    notifications:{
+    unreadNotifications:{
         type: 'array',
         defaultsTo : ['Welcome To SquareSauce!','See squaresauce.com/policy for privacy terms']
+    },
+    readNotifications:{
+        type: 'array',
+        defaultsTo : []
+    },
+    notifications: {
+        collection : 'Notification',
+        via : 'profile'
     }
     	
-
 
   }
 };
