@@ -278,8 +278,11 @@ console.log(user);
             <!-- START ROW -->
             <div class="row">
               <div class="col-md-12 col-xlg-18" style="background-color:black;">
-                <div class="row">
-                  <div class="col-sm-6 m-b-10"  style="background-color:blue;">
+                <div class="row" data-ng-app="" data-ng-init="squares=[
+  {super:'LUMS', squarrrre:'Orientation Week', id:'oweek'},
+  {super:'OWEEK', squarrrre:'Group 5', id:'g5'},
+  {super:'M5', squarrrre:'5th Floor', id:'m2f5'}]">
+                  <div class="col-sm-3 m-b-5" data-ng-repeat="square in squares">
                     <div class="ar-1-1">
                       <!-- START WIDGET -->
                       <div class="widget-2 panel no-border bg-complete widget widget-loader-circle-lg no-margin">
@@ -293,10 +296,10 @@ console.log(user);
                         </div>
                         <div class="panel-body">
                           <div class="pull-bottom bottom-left bottom-right padding-25">
-                            <span class="label font-montserrat fs-11">OWEEK</span>
+                            <span class="label font-montserrat fs-11">{{ square.super }}</span>
                             <br>
-                            <h3 class="text-white">Group 20</h3>
-                            <p class="text-white hint-text hidden-md">Interactions in the Square</p>
+                            <h3 class="text-white">{{ square.squarrrre }}</h3>
+                            <p class="text-white hint-text hidden-md">squaresauce.com/square/{{ square.id }}</p>
                           </div>
                         </div>
                       </div>
