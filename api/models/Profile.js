@@ -31,9 +31,10 @@ module.exports = {
         type:'string',
         defaultsTo:''
     },
-    // uname: 'fhatim303', 
-    // pass: 'hahahhahahahah123456', 
-    // email: 'tworldpk@gmail.com', 
+    gender:{
+        type: 'string',
+        defaultsTo: ''
+    },
     cemail:{
         type:'string',
         defaultsTo:''
