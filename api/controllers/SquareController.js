@@ -427,8 +427,9 @@ addBadge: function(req,res){
 		// Reject a users request for a badge
 	},
 	sendNotification: function(req,res){
-		var notification = req.param('notification');
-		var sid = req.param('sid');
+
+		var notification = req.param('notification')||req.session.notification;
+		var sid = req.param('sid') || req.session.abc;
 		//var admin = req.param('admin');
 		
 			Square.findOne({id:sid}).populate('people').then(function (sq){
@@ -457,7 +458,22 @@ addBadge: function(req,res){
 				console.log(err);
 				res.ok();
 			});
+	},
 
+	addBroadcast: function(req,res){
+		var new_broadcast = req.param('broadcast');
+		var sid = req.param('sid');
+		req.session.abc = sid;
+		req.session.brodcast = new_broadcast;
+		Square.update({id:sid},{broadcast:new_broadcast}).then(function (sq){
+ 
+			return [sq];
+
+		}).spread(function(abcd){
+			res.redirect('/square/sendNotification');
+		}).catch(function(err){
+			console.log(err);
+		});
 
 	}
 };

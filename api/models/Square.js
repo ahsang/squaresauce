@@ -48,6 +48,10 @@ module.exports = {
     },
     chatSquare:{
       model: 'ChatSquare'
+    },
+    broadcast:{
+      type: 'string',
+      defaultsTo : ''
     }
     
 
