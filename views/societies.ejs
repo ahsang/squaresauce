@@ -1,5 +1,5 @@
 
-    <title>Home</title>
+    <title>Societies</title>
     <script src="js/specific/jquery-1.11.1.min.js"></script>
     <link href="styles/specific/font-awesome.css" rel="stylesheet" type="text/css" />
     <link href="styles/specific/ss-icons.css" rel="stylesheet" type="text/css">
@@ -95,7 +95,7 @@
         <!-- END MOBILE CONTROLS -->
         <div class=" pull-left sm-table">
           <div class="header-inner">
-            <a href="#" class="toggle-email-sidebar">Chat <span class="text-info">(12)</span> <span class="caret"></span></a>
+            <a href="#" class="toggle-email-sidebar">Societies</a>
             <div class="brand inline">
               <img src="images/squaresauce-logo.png" alt="logo" data-src="images/squaresauce-logo.png" data-src-retina="images/squaresauce-logo.png" width="120">
             </div>
@@ -262,30 +262,23 @@
           <!-- START CONTAINER FLUID -->
           <div class="container-fluid padding-25 sm-padding-10">
             <!-- START ROW -->
-            <div class="row">
-              <div class="col-md-12 col-xlg-18">
-                <div class="row" >
-                  <div class="col-sm-3 m-b-5" ng-repeat="chat in chatList | limitTo: 10000">
-                    <div class="ar-1-1">
-                      <!-- START WIDGET -->
+            
 
-                      <a ng-href="http://squaresauce.com/square/{{ chat.id }}">
-                        <div class="widget-2 panel no-border widget widget-loader-circle-lg no-margin" id="tcolor3">
-                       
-                        <div class="panel-body">
-                          <div class="pull-bottom bottom-left bottom-right padding-25">
-                            <span class="label font-montserrat fs-11">LUMS</span>
-                            <br>
-                            <a style="color:white;" ng-href="http://squaresauce.com/square/{{ chat.id }}"><h3 class="text-white">{{ chat.name }}</h3></a>
-                            <p class="text-white hint-text hidden-md">All Interactions in Squares</p>
-                          </div>
+            <div class="panel panel-transparent">
+              
+              <div class="panel-body">
+                
+
+                <div class="col-md-12">
+                    <div id="portlet-circular" class="panel panel-default">
+                      <div class="panel-heading ">
+                        <div class="panel-title">One Click Society Registrations
                         </div>
-                      </div></a>
-                      <!-- END WIDGET -->
+                      </div>
+                      <div class="panel-body">
+                        <p>If you want to join a society, click the subscribe button, and we'll automatically register you to them.</p>
+                      </div>
                     </div>
-
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -300,7 +293,7 @@
               <span class="hint-text">Copyright © 2015 </span>
               <span class="font-montserrat">SQUARESAUCE</span>.
               <span class="hint-text">All rights reserved. </span>
-              <span class="sm-block"><a href="#" class="m-l-10 m-r-10">Terms of use</a> | <a href="#" class="m-l-10">Privacy Policy</a></span>
+              <span class="sm-block"><a href="http://squaresauce.com/policy" class="m-l-10">Privacy Policy</a></span>
             </p>
             <p class="small no-margin pull-right sm-pull-reset">
               Hand-crafted<span class="hint-text"> &amp; Made with Love ®</span>
@@ -321,7 +314,7 @@
 
     saxApp.controller('SaxController',['$http','$log','$scope',function($http,$log,$scope){
     $scope.getAllchat = function(){
-      // $log.info(<%=JSON.stringify(req.session.user_data)%>);
+
       $http.get('/user/getSquares?id=<%=req.session.passport.user%>')
            .success(function(success_data){
               
@@ -332,8 +325,7 @@
 
       $scope.predicate = '-id';
       $scope.reverse = false;
-      // $scope.chatList =<%=JSON.stringify(req.session.user_data)%>;
-      // $log.info(<%=JSON.stringify(req.session.square_data)%>);
+
       }
     
     

@@ -85,6 +85,9 @@ module.exports.routes = {
   '/support':{
     view: 'support'
   },
+  '/societies':{
+    view: 'societies'
+  },
   
 
 
