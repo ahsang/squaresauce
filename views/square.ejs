@@ -1439,7 +1439,7 @@
   </script>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js"></script>
   <script type="text/javascript">
-console.log(<%= req.session.passport.user %>);
+console.log("<%= req.session.passport.user %>");
     var socketApp = angular.module('socketApp',[]);
 
     socketApp.controller('ChatController',['$http','$log','$scope',function($http,$log,$scope){
@@ -1450,7 +1450,7 @@ console.log(<%= req.session.passport.user %>);
       $scope.chatList =[];
       $scope.Userfname = "";          // the data gets pushed into these variables..
       $scope.Userlname = "";          // use them where needed.. they should contain the names
-      $scope.currUser =  <%= req.session.passport.user %>;     //##### I load the user id from session here! ######3
+      $scope.currUser =  "<%= req.session.passport.user %>";     //##### I load the user id from session here! ######3
       //console.log(req.session.userId);
       $scope.chatSquareId = location.hash.replace(/^#/, "");   //chatter/#2 means this is 2
       $scope.subSocket = function(){
