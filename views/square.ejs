@@ -1453,7 +1453,7 @@
       $scope.Userlname = "";          // use them where needed.. they should contain the names
       $scope.currUser =  "<%= req.session.passport.user %>";     //##### I load the user id from session here! ######3
       $scope.fbkid = '<img style="margin-top: 5px;"width="50" height="50" data-src-retina="https://graph.facebook.com/<%= req.session.userd.fbkid %>/picture" data-src="https://graph.facebook.com/<%= req.session.userd.fbkid %>/picture" alt="" src="https://graph.facebook.com/<%= req.session.userd.fbkid %>/picture" ng-src="https://graph.facebook.com/<%= req.session.userd.fbkid %>/picture"';
-      $scope.username =  "<%= req.session.user_data.username %>";
+      $scope.username =  '<a href="<%= req.session.user_data.username %>"><%= req.session.passport.user %></a>'; 
       //console.log(req.session.userId);
       $scope.chatSquareId = location.hash.replace(/^#/, "");   //chatter/#2 means this is 2
       $scope.subSocket = function(){
