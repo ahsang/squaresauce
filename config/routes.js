@@ -78,6 +78,9 @@ module.exports.routes = {
   '/chatuitest':{
     view: 'chatuitest'
   },
+  '/safechat':{
+    view: 'safechat'
+  },
 
 
   'POST /oweek/voucher' : 'Otest.retrieveVoucher',
