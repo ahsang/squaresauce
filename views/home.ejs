@@ -33,7 +33,7 @@
 }
 </style>
 <% console.log(req.session.square_data) %>
-<body class="fixed-header">
+<body ng-app="saxApp" ng-controller="SaxController" class="fixed-header">
     <!-- BEGIN SIDEBPANEL-->
     <nav class="page-sidebar" data-pages="sidebar">
       <!-- BEGIN SIDEBAR MENU TOP TRAY CONTENT-->
@@ -301,29 +301,13 @@
             <!-- START ROW -->
             <div class="row">
               <div class="col-md-12 col-xlg-18">
-                <div class="row" data-ng-app="" data-ng-init="square_data=[
-                <% if(req.session.square_data) { %>
-
-
-                    <%=req.session.square_data %> 
-
-
-
-                <% } else { %>
-
-                
-
-
-
-
-                <%}%>
-                ]">
-                  <div class="col-sm-3 m-b-5" data-ng-repeat="square in square_data">
+                <div class="row" >
+                  <div class="col-sm-3 m-b-5" ng-repeat="chat in chatList | limitTo: 10000">
                     <div class="ar-1-1">
                       <!-- START WIDGET -->
 
-                      <a ng-href="http://squaresauce.com/square/{{ square.id }}">
-                        <div class="widget-2 panel no-border widget widget-loader-circle-lg no-margin" id="{{ square.color }}">
+                      <a ng-href="http://squaresauce.com/square/{{ chat.id }}">
+                        <div class="widget-2 panel no-border widget widget-loader-circle-lg no-margin" id="{{ chat.color }}">
                         <div class="panel-heading">
                           <div class="panel-controls">
                             <ul>
@@ -336,8 +320,8 @@
                           <div class="pull-bottom bottom-left bottom-right padding-25">
                             <span class="label font-montserrat fs-11">LUMS</span>
                             <br>
-                            <h3 class="text-white">{{ square.name }}</h3>
-                            <p class="text-white hint-text hidden-md">squaresauce.com/square/{{ square.id }}</p>
+                            <h3 class="text-white">{{ chat.name }}</h3>
+                            <p class="text-white hint-text hidden-md">squaresauce.com/square/{{ chat.id }}</p>
                           </div>
                         </div>
                       </div></a>
@@ -1477,7 +1461,21 @@
         </div>
       </div>
     </div>
+
     <!-- END QUICKVIEW-->
     <!-- END OVERLAY -->
  
+  <script type="text/javascript">
+
+    var saxApp = angular.module('saxApp',[]);
+
+    saxApp.controller('SaxController',['$http','$log','$scope',function($http,$log,$scope){
+
+
+      $scope.predicate = '-id';
+      $scope.reverse = false;
+      $scope.chatList =<%=req.session.square_data%>;
+      $log.info($scope.chatList);
+    }
+</script>
   
