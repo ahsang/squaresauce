@@ -8,11 +8,7 @@
 module.exports = {
 
   attributes: {
-  	sid:{
-  		type: 'integer',
-  		autoIncrement: true,
-  		unique: true
-  	},
+  	
   	name: {
   		type: 'string',
   		notNull: true

@@ -32,7 +32,7 @@
 	 				// 			if(subsquare = '')
 	 				
 	 				// 			{
-	 					Square.create({name : info.name}).exec(function createCB(err, created){
+	 					Square.create({name : info.name,admin:req.param('uid'),people:req.param('uid')}).exec(function createCB(err, created){
 	 						console.log('Created a new square with the following stuff: ');
 		 								// console.log(name);
 		 								

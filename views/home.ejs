@@ -301,15 +301,26 @@
             <!-- START ROW -->
             <div class="row">
               <div class="col-md-12 col-xlg-18">
-                <div class="row" data-ng-app="" data-ng-init="squares=[
-  {super:'LUMS', squarrrre:'Orientation Week', id:'oweek', color: 'tcolor1'},
-  {super:'OWEEK', squarrrre:'Group 5', id:'g5', color: 'tcolor2'},
-  {super:'M5', squarrrre:'5th Floor', id:'m2f5', color: 'tcolor3'}]">
+                <div class="row" data-ng-app="" data-ng-init="squares=
+                <% if(req.session.square_data){%>
+
+
+                    <%=req.session.square_data %>
+
+
+
+                <%}else{%>
+
+                []
+
+
+                <%}%}
+                ">
                   <div class="col-sm-3 m-b-5" data-ng-repeat="square in squares">
                     <div class="ar-1-1">
                       <!-- START WIDGET -->
-                      <a href="http://squaresauce.com/square/{{ square.id }}">
-                        <div class="widget-2 panel no-border widget widget-loader-circle-lg no-margin" id="{{ square.color }}">
+                      <a href="http://squaresauce.com/square/{{ square.name }}">
+                        <div class="widget-2 panel no-border widget widget-loader-circle-lg no-margin" id="{{ square.name }}">
                         <div class="panel-heading">
                           <div class="panel-controls">
                             <ul>
@@ -320,9 +331,9 @@
                         </div>
                         <div class="panel-body">
                           <div class="pull-bottom bottom-left bottom-right padding-25">
-                            <span class="label font-montserrat fs-11">{{ square.super }}</span>
+                            <span class="label font-montserrat fs-11">LUMS</span>
                             <br>
-                            <h3 class="text-white">{{ square.squarrrre }}</h3>
+                            <h3 class="text-white">{{ square.name }}</h3>
                             <p class="text-white hint-text hidden-md">squaresauce.com/square/{{ square.id }}</p>
                           </div>
                         </div>
