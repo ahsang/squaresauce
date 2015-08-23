@@ -32,7 +32,7 @@
     background-color: #ea9600;
 }
 </style>
-
+<script><%= console.log(req.session.square_data); %></script>
 <body class="fixed-header">
     <!-- BEGIN SIDEBPANEL-->
     <nav class="page-sidebar" data-pages="sidebar">
@@ -301,11 +301,11 @@
             <!-- START ROW -->
             <div class="row">
               <div class="col-md-12 col-xlg-18">
-                <div class="row" data-ng-app="" data-ng-init="squares=
+                <div class="row" data-ng-app="" data-ng-init="square_data=[
                 <% if(req.session.square_data){%>
 
 
-                    <%=req.session.square_data %>
+                    <%=req.session.square_data %> ]
 
 
 
@@ -316,7 +316,7 @@
 
                 <%}%>
                 ">
-                  <div class="col-sm-3 m-b-5" data-ng-repeat="square in squares">
+                  <div class="col-sm-3 m-b-5" data-ng-repeat="square in square_data">
                     <div class="ar-1-1">
                       <!-- START WIDGET -->
 
