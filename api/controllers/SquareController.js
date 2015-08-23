@@ -20,35 +20,35 @@
 	 		info.sid=req.param('sid');
 	 		info.uid=req.param('uid');
 				
-	 				UniSquare.find({id: info.uid}).exec(function (err, unisquare) {
+	 				// UniSquare.find({id: info.uid}).exec(function (err, unisquare) {
 
-	 					if(unisquare == '')
-	 					{
-							console.log('The university you requested this square to be added to does not exist!');
-	 					}
-	 					else
-	 					{
-	 						Square.find({sqrtag: info.tag}).exec(function (err, subsquare) {
-	 							if(subsquare = '')
+	 				// 	if(unisquare == '')
+	 				// 	{
+						// 	console.log('The university you requested this square to be added to does not exist!');
+	 				// 	}
+	 				// 	else
+	 				// 	{
+	 				// 		Square.find({sqrtag: info.tag}).exec(function (err, subsquare) {
+	 				// 			if(subsquare = '')
 	 								
-	 							{
+	 				// 			{
 	 								Square.create({name : info.name}).exec(function createCB(err, created){
 		 								console.log('Created a new square with the following stuff: ');
 		 								console.log(name);
-		 								unisquare.squares.add( info.uid );
-				    					unisquare.save(function(err){
+		 								unisquare[0].squares.add( info.uid );
+				    					unisquare[0].save(function(err){
 					    					console.log('Added the square '+created.name+'to the univeristy ' +unisquare.name);
 					    				});
 		 							});	 									
-	 							}
-	 							else
-	 							{
-									console.log('The University already has this square!');
-	 							}
-	 							if(err)console.log(err);
-	 							res.ok();					          
-	 						});
-	 					}
+	 					// 		}
+	 					// 		else
+	 					// 		{
+							// 		console.log('The University already has this square!');
+	 					// 		}
+	 					// 		if(err)console.log(err);
+	 					// 		res.ok();					          
+	 					// 	});
+	 					// }
 	 				});	
 	// 		"name" "tag" 'sid' 'uid' 		
 	//		WORKING!
