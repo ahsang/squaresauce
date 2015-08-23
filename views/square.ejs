@@ -318,8 +318,8 @@ $("#chatboxy").keyup(function(event){
 });
 
 $(".form_chat").on('submit', function(e){
-    sendMsg();
-    $("#chatboxy").val("");
+    $scope.sendMsg();
+    $("textarea#chatboxy").val("");
 });
 </script>
         </div>
@@ -1510,13 +1510,14 @@ $(".form_chat").on('submit', function(e){
 
       });
 
-      $scope.sendMsg = function(){
+      function sendMsg(){
         $log.info($scope.chatMessage);
         io.socket.post('/chat/addconv/',{user:$scope.Userfname,message: $scope.chatMessage,cid: $scope.chatSquareId});
         $scope.chatMessage = "";
         $log.info($scope.Userfname); //im logging both these variables here
         $log.info($scope.Userlname);
       };
+
     }]);
 
 
