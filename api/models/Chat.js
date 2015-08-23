@@ -18,7 +18,13 @@ module.exports = {
   		},
   		myparent:{
   			model : 'ChatSquare'
-  		}
+  		},
+      username:{
+        type: 'string'
+      },
+      fbkid:{
+        type: 'string'
+      }
   }
 };
 
