@@ -34,11 +34,8 @@
 	 				// 			{
 	 								Square.create({name : info.name}).exec(function createCB(err, created){
 		 								console.log('Created a new square with the following stuff: ');
-		 								console.log(name);
-		 								unisquare[0].squares.add( info.uid );
-				    					unisquare[0].save(function(err){
-					    					console.log('Added the square '+created.name+'to the univeristy ' +unisquare.name);
-					    				});
+		 								// console.log(name);
+		 								
 		 							});	 									
 	 					// 		}
 	 					// 		else
