@@ -217,26 +217,27 @@ updatedata: function(req,res){
 
   console.log(req.body);
   var uid=req.session.passport.user;
-  User.update({id:uid},{username:req.param('uname'),email:req.param('email')}).then(function(updated){
-    // if(err)console.log(err);
-    console.log("User object updated" + updated);
-        Profile.update({id:updated.profile},{fbkid:req.session.fbk_data.id,
+  User.update({id:uid},{username:req.param('uname'),email:req.param('email')}).exec(function(err,updated){
+    if(err)console.log(err);
+    
+    console.log("User object updated");
+    console.log(updated);
+    
+        
+  });
+  Profile.update({user:uid},{fbkid:req.session.fbk_data.id,
         fname:req.param('fname'),
         lname:req.param('lname'),
         cemail:req.param('cemail'),
         pinstitution:req.param('pinstitution'),
         major:req.param('major')
-        }).then(function(updatedProf){
+        }).exec(function abc(err,updatedProf){
+          if(err)console.log(err);
           console.log("The profile has been updated");
 
-        }).catch(function(err){
-          console.log(err);
-        });
-        Passport.update({user:uid,protocol:'local'},{password:req.param('pass')}).exec(function abc(err,prt){
-            if(err)console.log(err);
-        });
-  }).catch(function(err){
-    console.log("Error in the updateData");
+  });
+  Passport.update({user:uid,protocol:'local'},{password:req.param('pass')}).exec(function abc(err,prt){
+      if(err)console.log(err);
   });
 
 

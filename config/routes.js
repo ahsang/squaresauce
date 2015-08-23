@@ -32,8 +32,8 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
-    view: 'homepage'
+  '/':{
+    view:'homepage'
   },
   '/chatio': {
     view: 'chatio'
@@ -41,6 +41,7 @@ module.exports.routes = {
   '/chatter':{
     view: 'chatter'
   },
+  
   '/pchatter':{
     view: 'pchatter'
   },  
@@ -65,7 +66,9 @@ module.exports.routes = {
     '/test':{
     view: 'test'
   },
-
+    '/profile':{
+    view: 'profile'
+  },
     '/oldhomepage':{
     view: 'homepageold'
   },
@@ -94,7 +97,8 @@ module.exports.routes = {
   'POST /square/profile/plus': 'Profile.increaseOongal',
   'POST /square/profile/minus': 'Profile.decreaseOongal',
   'GET /chatter2':'Chat.loadChat',
-  'GET /home':'Profile.viewProfile'
+  'GET /home':'Profile.viewProfile',
+  'GET /users/:username': 'ProfileController.username'
 
   /***************************************************************************
   *                                                                          *

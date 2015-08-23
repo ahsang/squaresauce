@@ -1,15 +1,11 @@
 
-    <title>(12) oWeek Group 32</title>
-    <script src="js/specific/jquery-1.11.1.min.js"></script>
-    <link href="styles/specific/font-awesome.css" rel="stylesheet" type="text/css" />
-    <link href="styles/specific/ss-icons.css" rel="stylesheet" type="text/css">
-    <link class="main-stylesheet" href="styles/specific/squaresauce.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <title><% if(req.session.profile_data){ %><%= req.session.profile_data.fname %><%}%> <% if(req.session.profile_data){ %><%= req.session.profile_data.lname %><%}%></title>
 
-<script>
-console.log(user);
-</script>
 
+
+    <link href="http://squaresauce.com/styles/specific/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="http://squaresauce.com/styles/specific/ss-icons.css" rel="stylesheet" type="text/css">
+    <link class="main-stylesheet" href="http://squaresauce.com/styles/specific/squaresauce.css" rel="stylesheet" type="text/css" />
 <body class="fixed-header">
     <!-- BEGIN SIDEBPANEL-->
     <nav class="page-sidebar" data-pages="sidebar">
@@ -17,21 +13,21 @@ console.log(user);
       <div class="sidebar-overlay-slide from-top" id="appMenu">
         <div class="row">
           <div class="col-xs-6 no-padding">
-            <a href="#" class="p-l-40"><img src="images/demo/social_app.svg" alt="socail" width="100" height="100">
+            <a href="#" class="p-l-40"><img src="http://squaresauce.com/images/demo/social_app.svg" alt="socail" width="100" height="100">
             </a>
           </div>
           <div class="col-xs-6 no-padding">
-            <a href="#" class="p-l-10"><img src="images/demo/email_app.svg" alt="socail"  width="100" height="100">
+            <a href="#" class="p-l-10"><img src="http://squaresauce.com/images/demo/email_app.svg" alt="socail"  width="100" height="100">
             </a>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-6 m-t-20 no-padding">
-            <a href="#" class="p-l-40"><img src="images/demo/calendar_app.svg" alt="socail"  width="100" height="100">
+            <a href="#" class="p-l-40"><img src="http://squaresauce.com/images/demo/calendar_app.svg" alt="socail"  width="100" height="100">
             </a>
           </div>
           <div class="col-xs-6 m-t-20 no-padding">
-            <a href="#" class="p-l-10"><img src="images/demo/add_more.svg" alt="socail" width="100" height="100">
+            <a href="#" class="p-l-10"><img src="http://squaresauce.com/images/demo/add_more.svg" alt="socail" width="100" height="100">
             </a>
           </div>
         </div>
@@ -40,7 +36,7 @@ console.log(user);
       <!-- BEGIN SIDEBAR MENU HEADER-->
       <div class="sidebar-header">
         
-        <img src="images/landing-page/squaresauce-white.png" alt="logo" class="brand" data-src="images/landing-page/squaresauce-white.png" data-src-retina="images/landing-page/squaresauce-white.png" width="80">
+        <img src="http://squaresauce.com/images/landing-page/squaresauce-white.png" alt="logo" class="brand" data-src="http://squaresauce.com/images/landing-page/squaresauce-white.png" data-src-retina="http://squaresauce.com/images/landing-page/squaresauce-white.png" width="80">
         <div class="sidebar-header-controls">
           <button type="button" class="btn btn-xs sidebar-slide-toggle btn-link m-l-20" data-pages-toggle="#appMenu"><i class="fa fa-angle-down fs-16"></i>
           </button>
@@ -58,14 +54,14 @@ console.log(user);
               <span class="title">Dashboard</span>
               <span class="details">12 New Updates</span>
             </a>
-            <span class="icon-thumbnail bg-success"><i class="fa fa-home"></i></span>
+            <span class="icon-thumbnail"><i class="pg-home"></i></span>
           </li>
           <li class="open">
             <a href="#" class="detailed">
               <span class="title">oWeek Square</span>
               <span class="details">234 New Messages</span>
             </a>
-            <span class="icon-thumbnail"><i class="fa fa-users"></i></span>
+            <span class="icon-thumbnail bg-success"><i class="pg-social"></i></span>
           </li>
         </ul>
         <div class="clearfix"></div>
@@ -74,21 +70,12 @@ console.log(user);
     </nav>
     <!-- END SIDEBAR -->
     <!-- END SIDEBPANEL-->
-     <!-- START PAGE-CONTAINER -->
+    <!-- START PAGE-CONTAINER -->
     <div class="page-container">
       <!-- START HEADER -->
       <div class="header ">
         <!-- START MOBILE CONTROLS -->
         <!-- LEFT SIDE -->
-        <div class="pull-left full-height visible-sm visible-xs">
-          <!-- START ACTION BAR -->
-          <div class="sm-action-bar">
-            <a href="#" class="btn-link toggle-sidebar" data-toggle="sidebar">
-              <span class="icon-set menu-hambuger"></span>
-            </a>
-          </div>
-          <!-- END ACTION BAR -->
-        </div>
         <!-- RIGHT SIDE -->
         <div class="pull-right full-height visible-sm visible-xs">
           <!-- START ACTION BAR -->
@@ -102,11 +89,10 @@ console.log(user);
         <!-- END MOBILE CONTROLS -->
         <div class=" pull-left sm-table">
           <div class="header-inner">
-            <a href="#" class="toggle-email-sidebar">Chat <span class="text-info">(12)</span> <span class="caret"></span></a>
+            <a href="#" class="toggle-email-sidebar">Profile <span class="caret"></span></a>
             <div class="brand inline">
-              <img src="images/squaresauce-logo.png" alt="logo" data-src="images/squaresauce-logo.png" data-src-retina="images/squaresauce-logo.png" width="120">
+              <img src="http://squaresauce.com/images/squaresauce-logo.png" alt="logo" data-src="http://squaresauce.com/images/squaresauce-logo.png" data-src-retina="http://squaresauce.com/images/squaresauce-logo.png" width="120">
             </div>
-            <!-- START NOTIFICATION LIST -->
             <ul class="notification-list no-margin hidden-sm hidden-xs b-grey b-l b-r no-style p-l-30 p-r-20">
               <li class="p-r-15 inline">
                 <div class="dropdown">
@@ -191,7 +177,7 @@ console.log(user);
                         <div class="notification-item unread clearfix">
                           <div class="heading">
                             <div class="thumbnail-wrapper d24 circular b-white m-r-5 b-a b-white m-t-10 m-r-10">
-                              <img width="30" height="30" data-src-retina="images/profiles/1x.jpg" data-src="images/profiles/1.jpg" alt="" src="images/profiles/1.jpg">
+                              <img width="30" height="30" data-src-retina="http://squaresauce.com/images/profiles/1x.jpg" data-src="http://squaresauce.com/images/profiles/1.jpg" alt="" src="http://squaresauce.com/images/profiles/1.jpg">
                             </div>
                             <a href="#" class="text-complete">
                               <span class="bold">Square Labs</span>
@@ -222,15 +208,8 @@ console.log(user);
                   <!-- END Notification Dropdown -->
                 </div>
               </li>
-              <li class="p-r-15 inline">
-                <a href="#" class="icon-set clip "></a>
-              </li>
-              <li class="p-r-15 inline">
-                <a href="#" class="icon-set grid-box"></a>
-              </li>
             </ul>
-            <!-- END NOTIFICATIONS LIST -->
-            <a href="#" class="search-link" data-toggle="search"><i class="pg-search"></i>Type anywhere to <span class="bold">search</span></a> </div>
+          </div>
         </div>
         <div class=" pull-right">
           <div class="header-inner">
@@ -257,7 +236,7 @@ console.log(user);
                 <li><a href="#"><i class="pg-signals"></i> Help</a>
                 </li>
                 <li class="bg-master-lighter">
-                  <a href="/logout" class="clearfix">
+                  <a href="#" class="clearfix">
                     <span class="pull-left">Logout</span>
                     <span class="pull-right"><i class="pg-power"></i></span>
                   </a>
@@ -269,66 +248,216 @@ console.log(user);
         </div>
       </div>
       <!-- END HEADER -->
+      
+
+
+
+
+
+
+
+
+
+
+
+
       <!-- START PAGE CONTENT WRAPPER -->
       <div class="page-content-wrapper">
         <!-- START PAGE CONTENT -->
-        <div class="content sm-gutter">
-          <!-- START CONTAINER FLUID -->
-          <div class="container-fluid padding-25 sm-padding-10">
-            <!-- START ROW -->
-            <div class="row">
-              <div class="col-md-6 col-xlg-9">
-                <div class="row">
-                  <div class="col-sm-6 m-b-10">
-                    <div class="ar-1-1">
-                      <!-- START WIDGET -->
-                      <div class="widget-2 panel no-border bg-complete widget widget-loader-circle-lg no-margin">
-                        <div class="panel-heading">
-                          <div class="panel-controls">
-                            <ul>
-                              <li><a href="#" class="portlet-refresh" data-toggle="refresh"><i class="portlet-icon portlet-icon-refresh-lg-white"></i></a>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div class="panel-body">
-                          <div class="pull-bottom bottom-left bottom-right padding-25">
-                            <span class="label font-montserrat fs-11">OWEEK</span>
-                            <br>
-                            <h3 class="text-white">Group 20</h3>
-                            <p class="text-white hint-text hidden-md">Interactions in the Square</p>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- END WIDGET -->
+        <div class="content">
+          <div class="social-wrapper">
+            <div class="social " data-pages="social">
+              <!-- START JUMBOTRON -->
+              <div class="jumbotron" data-pages="parallax" data-social="cover">
+                <div class="cover-photo">
+
+                    <!-- if in future -->
+
+                </div>
+                <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+                  <div class="inner">
+                    <div class="pull-bottom bottom-left m-b-40">
+
+                      <div class="social-user-profile col-xs-height text-center col-top">
+                                  <div class=" bordered b-white">
+                                    <img alt="Avatar" width="80" height="80" data-src-retina="https://graph.facebook.com/<% if(req.session.profile_data){ %><%= req.session.profile_data.fbkid %><%}%>/picture" data-src="https://graph.facebook.com/<% if(req.session.profile_data){ %><%= req.session.profile_data.fbkid %><%}%>/picture" src="https://graph.facebook.com/<% if(req.session.profile_data){ %><%= req.session.profile_data.fbkid %><%}%>/picture">
+                                  </div>
+                                </div>
+                      <div class="col-xs-height p-l-20">
+                      <h3 class="text-white no-margin"><span class="semi-bold">
+
+                        <% if(req.session.profile_data){ %>
+                        <%= req.session.profile_data.fname %>
+                        <%}%>
+                      </span> 
+                      <% if(req.session.profile_data){ %>
+                        <%= req.session.profile_data.lname %>
+                        <%}%>
+
+                    </h3>
+                                  <p class="text-white no-margin fs-16">Lahore University of Management Sciences</p>
+                                  <p class="text-white hint-text m-t-5 small"><%= req.session.profile_data.cemail %> | <%= req.session.profile_data.major %></p>
+                                </div>
+
                     </div>
                   </div>
                 </div>
               </div>
+              <!-- END JUMBOTRON -->
+              <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+                <div class="feed">
+                  <!-- START DAY -->
+                  <div class="day" data-social="day">
+                    <!-- START ITEM -->
+                    <div class="card no-border bg-transparent full-width" data-social="item">
+                      <!-- START CONTAINER FLUID -->
+                      <div class="container-fluid p-t-30 p-b-30 ">
+                        <div class="row">
+
+                          <div class="col-md-4">
+                            <p class="m-b-5 small">10 Square(s)</p>
+                            <ul class="list-unstyled ">
+                              <li class="m-r-10">
+                                <div class="thumbnail-wrapper d32 circular b-white m-r-5 b-a b-white" style="background-color: red;">
+                                  
+                                </div>
+                              </li>
+                              
+                              <li class="m-r-10">
+                                <div class="thumbnail-wrapper d32 circular b-white m-r-5 b-a b-white" style="background-color: red;">
+                                  
+                                </div>
+                              </li>
+                              
+                              <li class="m-r-10">
+                                <div class="thumbnail-wrapper d32 circular b-white m-r-5 b-a b-white" style="background-color: red;">
+                                  
+                                </div>
+                              </li>
+                              
+                              <li class="m-r-10">
+                                <div class="thumbnail-wrapper d32 circular b-white m-r-5 b-a b-white" style="background-color: red;">
+                                  
+                                </div>
+                              </li>
+                              
+                              <li class="m-r-10">
+                                <div class="thumbnail-wrapper d32 circular b-white m-r-5 b-a b-white" style="background-color: red;">
+                                  
+                                </div>
+                              </li>
+                              
+                              <li class="m-r-10">
+                                <div class="thumbnail-wrapper d32 circular b-white m-r-5 b-a b-white" style="background-color: red;">
+                                  
+                                </div>
+                              </li>
+                              
+                              <li class="m-r-10">
+                                <div class="thumbnail-wrapper d32 circular b-white m-r-5 b-a b-white" style="background-color: red;">
+                                  
+                                </div>
+                              </li>
+                              
+                              <li>
+                                <div class="thumbnail-wrapper d32 circular b-white">
+                                  <div class="bg-master text-center text-white"><span>+34</span>
+                                  </div>
+                                </div>
+                              </li>
+                            </ul>
+                            <br>
+                            <p class="m-t-5 small">more</p>
+                          </div>
+                          <div class="col-md-4">
+                            <p class="no-margin fs-16">I love reading people's about page especially those who are in the same industry as me.</p>
+                            <p class="hint-text m-t-5 small">I love reading people's about page especially those who are in the same industry as me.</p>
+                          </div>
+                          <div class="col-md-4">
+                            <p class="m-b-5 small">1,435 Mutual Friends</p>
+                            <ul class="list-unstyled ">
+                              <li class="m-r-10">
+                                <div class="thumbnail-wrapper d32 circular b-white m-r-5 b-a b-white">
+                                  <img width="35" height="35" data-src-retina="http://squaresauce.com/images/profiles/1x.jpg" data-src="http://squaresauce.com/images/profiles/1.jpg" alt="Profile Image" src="http://squaresauce.com/images/profiles/1.jpg">
+                                </div>
+                              </li>
+                              <li>
+                                <div class="thumbnail-wrapper d32 circular b-white m-r-5 b-a b-white">
+                                  <img width="35" height="35" data-src-retina="http://squaresauce.com/images/profiles/2x.jpg" data-src="http://squaresauce.com/images/profiles/2.jpg" alt="Profile Image" src="http://squaresauce.com/images/profiles/2.jpg">
+                                </div>
+                              </li>
+                              <li>
+                                <div class="thumbnail-wrapper d32 circular b-white m-r-5 b-a b-white">
+                                  <img width="35" height="35" data-src-retina="http://squaresauce.com/images/profiles/3x.jpg" data-src="http://squaresauce.com/images/profiles/3.jpg" alt="Profile Image" src="http://squaresauce.com/images/profiles/3.jpg">
+                                </div>
+                              </li>
+                              <li>
+                                <div class="thumbnail-wrapper d32 circular b-white m-r-5 b-a b-white">
+                                  <img width="35" height="35" data-src-retina="http://squaresauce.com/images/profiles/4x.jpg" data-src="http://squaresauce.com/images/profiles/4.jpg" alt="Profile Image" src="http://squaresauce.com/images/profiles/4.jpg">
+                                </div>
+                              </li>
+                              <li>
+                                <div class="thumbnail-wrapper d32 circular b-white m-r-5 b-a b-white">
+                                  <img width="35" height="35" data-src-retina="http://squaresauce.com/images/profiles/5x.jpg" data-src="http://squaresauce.com/images/profiles/5.jpg" alt="Profile Image" src="http://squaresauce.com/images/profiles/5.jpg">
+                                </div>
+                              </li>
+                              <li>
+                                <div class="thumbnail-wrapper d32 circular b-white m-r-5 b-a b-white">
+                                  <img width="35" height="35" data-src-retina="http://squaresauce.com/images/profiles/6x.jpg" data-src="http://squaresauce.com/images/profiles/6.jpg" alt="Profile Image" src="http://squaresauce.com/images/profiles/6.jpg">
+                                </div>
+                              </li>
+                              <li>
+                                <div class="thumbnail-wrapper d32 circular b-white m-r-5 b-a b-white">
+                                  <img width="35" height="35" data-src-retina="http://squaresauce.com/images/profiles/7x.jpg" data-src="http://squaresauce.com/images/profiles/7.jpg" alt="Profile Image" src="http://squaresauce.com/images/profiles/7.jpg">
+                                </div>
+                              </li>
+                              <li>
+                                <div class="thumbnail-wrapper d32 circular b-white">
+                                  <div class="bg-master text-center text-white"><span>+34</span>
+                                  </div>
+                                </div>
+                              </li>
+                            </ul>
+                            <br>
+                            <p class="m-t-5 small">More friends</p>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- END CONTAINER FLUID -->
+                    </div>
+                    
+                  </div>
+                  <!-- END DAY -->
+                </div>
+                <!-- END FEED -->
+              </div>
+              <!-- END CONTAINER FLUID -->
             </div>
+            <!-- /container -->
           </div>
-          <!-- END CONTAINER FLUID -->
         </div>
         <!-- END PAGE CONTENT -->
-        <!-- START COPYRIGHT -->
-        <!-- START CONTAINER FLUID -->
-        <div class="container-fluid container-fixed-lg footer">
-          <div class="copyright sm-text-center">
-            <p class="small no-margin pull-left sm-pull-reset">
-              <span class="hint-text">Copyright © 2015 </span>
-              <span class="font-montserrat">SQUARESAUCE</span>.
-              <span class="hint-text">All rights reserved. </span>
-              <span class="sm-block"><a href="#" class="m-l-10 m-r-10">Terms of use</a> | <a href="#" class="m-l-10">Privacy Policy</a></span>
-            </p>
-            <p class="small no-margin pull-right sm-pull-reset">
-              Hand-crafted<span class="hint-text"> &amp; Made with Love ®</span>
-            </p>
-            <div class="clearfix"></div>
-          </div>
-        </div>
-        <!-- END COPYRIGHT -->
       </div>
       <!-- END PAGE CONTENT WRAPPER -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
     <!-- END PAGE CONTAINER -->
     <!--START QUICKVIEW -->
@@ -686,7 +815,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/1x.jpg" data-src="images/profiles/1.jpg" src="images/profiles/1x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/1x.jpg" data-src="http://squaresauce.com/images/profiles/1.jpg" src="http://squaresauce.com/images/profiles/1x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -706,7 +835,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/2x.jpg" data-src="images/profiles/2.jpg" src="images/profiles/2x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/2x.jpg" data-src="http://squaresauce.com/images/profiles/2.jpg" src="http://squaresauce.com/images/profiles/2x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -721,7 +850,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/3x.jpg" data-src="images/profiles/3.jpg" src="images/profiles/3x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/3x.jpg" data-src="http://squaresauce.com/images/profiles/3.jpg" src="http://squaresauce.com/images/profiles/3x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -741,7 +870,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/4x.jpg" data-src="images/profiles/4.jpg" src="images/profiles/4x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/4x.jpg" data-src="http://squaresauce.com/images/profiles/4.jpg" src="http://squaresauce.com/images/profiles/4x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -756,7 +885,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/5x.jpg" data-src="images/profiles/5.jpg" src="images/profiles/5x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/5x.jpg" data-src="http://squaresauce.com/images/profiles/5.jpg" src="http://squaresauce.com/images/profiles/5x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -776,7 +905,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/6x.jpg" data-src="images/profiles/6.jpg" src="images/profiles/6x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/6x.jpg" data-src="http://squaresauce.com/images/profiles/6.jpg" src="http://squaresauce.com/images/profiles/6x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -791,7 +920,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/7x.jpg" data-src="images/profiles/7.jpg" src="images/profiles/7x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/7x.jpg" data-src="http://squaresauce.com/images/profiles/7.jpg" src="http://squaresauce.com/images/profiles/7x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -811,7 +940,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/8x.jpg" data-src="images/profiles/8.jpg" src="images/profiles/8x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/8x.jpg" data-src="http://squaresauce.com/images/profiles/8.jpg" src="http://squaresauce.com/images/profiles/8x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -826,7 +955,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/9x.jpg" data-src="images/profiles/9.jpg" src="images/profiles/9x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/9x.jpg" data-src="http://squaresauce.com/images/profiles/9.jpg" src="http://squaresauce.com/images/profiles/9x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -841,7 +970,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/1x.jpg" data-src="images/profiles/1.jpg" src="images/profiles/1x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/1x.jpg" data-src="http://squaresauce.com/images/profiles/1.jpg" src="http://squaresauce.com/images/profiles/1x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -856,7 +985,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/3x.jpg" data-src="images/profiles/3.jpg" src="images/profiles/3x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/3x.jpg" data-src="http://squaresauce.com/images/profiles/3.jpg" src="http://squaresauce.com/images/profiles/3x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -876,7 +1005,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/4x.jpg" data-src="images/profiles/4.jpg" src="images/profiles/4x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/4x.jpg" data-src="http://squaresauce.com/images/profiles/4.jpg" src="http://squaresauce.com/images/profiles/4x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -896,7 +1025,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/5x.jpg" data-src="images/profiles/5.jpg" src="images/profiles/5x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/5x.jpg" data-src="http://squaresauce.com/images/profiles/5.jpg" src="http://squaresauce.com/images/profiles/5x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -911,7 +1040,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/6x.jpg" data-src="images/profiles/6.jpg" src="images/profiles/6x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/6x.jpg" data-src="http://squaresauce.com/images/profiles/6.jpg" src="http://squaresauce.com/images/profiles/6x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -931,7 +1060,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/7x.jpg" data-src="images/profiles/7.jpg" src="images/profiles/7x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/7x.jpg" data-src="http://squaresauce.com/images/profiles/7.jpg" src="http://squaresauce.com/images/profiles/7x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -951,7 +1080,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/8x.jpg" data-src="images/profiles/8.jpg" src="images/profiles/8x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/8x.jpg" data-src="http://squaresauce.com/images/profiles/8.jpg" src="http://squaresauce.com/images/profiles/8x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -971,7 +1100,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/9x.jpg" data-src="images/profiles/9.jpg" src="images/profiles/9x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/9x.jpg" data-src="http://squaresauce.com/images/profiles/9.jpg" src="http://squaresauce.com/images/profiles/9x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -986,7 +1115,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/1x.jpg" data-src="images/profiles/1.jpg" src="images/profiles/1x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/1x.jpg" data-src="http://squaresauce.com/images/profiles/1.jpg" src="http://squaresauce.com/images/profiles/1x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -1001,7 +1130,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/2x.jpg" data-src="images/profiles/2.jpg" src="images/profiles/2x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/2x.jpg" data-src="http://squaresauce.com/images/profiles/2.jpg" src="http://squaresauce.com/images/profiles/2x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -1016,7 +1145,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/3x.jpg" data-src="images/profiles/3.jpg" src="images/profiles/3x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/3x.jpg" data-src="http://squaresauce.com/images/profiles/3.jpg" src="http://squaresauce.com/images/profiles/3x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -1036,7 +1165,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/4x.jpg" data-src="images/profiles/4.jpg" src="images/profiles/4x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/4x.jpg" data-src="http://squaresauce.com/images/profiles/4.jpg" src="http://squaresauce.com/images/profiles/4x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -1051,7 +1180,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/5x.jpg" data-src="images/profiles/5.jpg" src="images/profiles/5x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/5x.jpg" data-src="http://squaresauce.com/images/profiles/5.jpg" src="http://squaresauce.com/images/profiles/5x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -1066,7 +1195,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/6x.jpg" data-src="images/profiles/6.jpg" src="images/profiles/6x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/6x.jpg" data-src="http://squaresauce.com/images/profiles/6.jpg" src="http://squaresauce.com/images/profiles/6x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -1081,7 +1210,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/7x.jpg" data-src="images/profiles/7.jpg" src="images/profiles/7x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/7x.jpg" data-src="http://squaresauce.com/images/profiles/7.jpg" src="http://squaresauce.com/images/profiles/7x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -1096,7 +1225,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/8x.jpg" data-src="images/profiles/8.jpg" src="images/profiles/8x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/8x.jpg" data-src="http://squaresauce.com/images/profiles/8.jpg" src="http://squaresauce.com/images/profiles/8x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -1111,7 +1240,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/9x.jpg" data-src="images/profiles/9.jpg" src="images/profiles/9x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/9x.jpg" data-src="http://squaresauce.com/images/profiles/9.jpg" src="http://squaresauce.com/images/profiles/9x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -1132,7 +1261,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/1x.jpg" data-src="images/profiles/1.jpg" src="images/profiles/1x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/1x.jpg" data-src="http://squaresauce.com/images/profiles/1.jpg" src="http://squaresauce.com/images/profiles/1x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -1152,7 +1281,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/2x.jpg" data-src="images/profiles/2.jpg" src="images/profiles/2x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/2x.jpg" data-src="http://squaresauce.com/images/profiles/2.jpg" src="http://squaresauce.com/images/profiles/2x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -1172,7 +1301,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/3x.jpg" data-src="images/profiles/3.jpg" src="images/profiles/3x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/3x.jpg" data-src="http://squaresauce.com/images/profiles/3.jpg" src="http://squaresauce.com/images/profiles/3x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -1187,7 +1316,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/4x.jpg" data-src="images/profiles/4.jpg" src="images/profiles/4x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/4x.jpg" data-src="http://squaresauce.com/images/profiles/4.jpg" src="http://squaresauce.com/images/profiles/4x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -1202,7 +1331,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/5x.jpg" data-src="images/profiles/5.jpg" src="images/profiles/5x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/5x.jpg" data-src="http://squaresauce.com/images/profiles/5.jpg" src="http://squaresauce.com/images/profiles/5x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -1222,7 +1351,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/6x.jpg" data-src="images/profiles/6.jpg" src="images/profiles/6x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/6x.jpg" data-src="http://squaresauce.com/images/profiles/6.jpg" src="http://squaresauce.com/images/profiles/6x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -1237,7 +1366,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/7x.jpg" data-src="images/profiles/7.jpg" src="images/profiles/7x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/7x.jpg" data-src="http://squaresauce.com/images/profiles/7.jpg" src="http://squaresauce.com/images/profiles/7x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -1252,7 +1381,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/8x.jpg" data-src="images/profiles/8.jpg" src="images/profiles/8x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/8x.jpg" data-src="http://squaresauce.com/images/profiles/8.jpg" src="http://squaresauce.com/images/profiles/8x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -1272,7 +1401,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/9x.jpg" data-src="images/profiles/9.jpg" src="images/profiles/9x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/9x.jpg" data-src="http://squaresauce.com/images/profiles/9.jpg" src="http://squaresauce.com/images/profiles/9x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -1287,7 +1416,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/1x.jpg" data-src="images/profiles/1.jpg" src="images/profiles/1x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/1x.jpg" data-src="http://squaresauce.com/images/profiles/1.jpg" src="http://squaresauce.com/images/profiles/1x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -1302,7 +1431,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/2x.jpg" data-src="images/profiles/2.jpg" src="images/profiles/2x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/2x.jpg" data-src="http://squaresauce.com/images/profiles/2.jpg" src="http://squaresauce.com/images/profiles/2x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -1317,7 +1446,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/3x.jpg" data-src="images/profiles/3.jpg" src="images/profiles/3x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/3x.jpg" data-src="http://squaresauce.com/images/profiles/3.jpg" src="http://squaresauce.com/images/profiles/3x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -1337,7 +1466,7 @@ console.log(user);
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="images/profiles/4x.jpg" data-src="images/profiles/4.jpg" src="images/profiles/4x.jpg" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="http://squaresauce.com/images/profiles/4x.jpg" data-src="http://squaresauce.com/images/profiles/4.jpg" src="http://squaresauce.com/images/profiles/4x.jpg" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -1381,7 +1510,7 @@ console.log(user);
                 <!-- BEGIN From Them Message  !-->
                 <div class="message clearfix">
                   <div class="profile-img-wrapper m-t-5 inline">
-                    <img class="col-top" width="30" height="30" src="images/profiles/avatar_small.jpg" alt="" data-src="images/profiles/avatar_small.jpg" data-src-retina="images/profiles/avatar_small2x.jpg">
+                    <img class="col-top" width="30" height="30" src="http://squaresauce.com/images/profiles/avatar_small.jpg" alt="" data-src="http://squaresauce.com/images/profiles/avatar_small.jpg" data-src-retina="http://squaresauce.com/images/profiles/avatar_small2x.jpg">
                   </div>
                   <div class="chat-bubble from-them">
                     Hey
@@ -1405,7 +1534,7 @@ console.log(user);
                 <!-- BEGIN From Them Message  !-->
                 <div class="message clearfix">
                   <div class="profile-img-wrapper m-t-5 inline">
-                    <img class="col-top" width="30" height="30" src="images/profiles/avatar_small.jpg" alt="" data-src="images/profiles/avatar_small.jpg" data-src-retina="images/profiles/avatar_small2x.jpg">
+                    <img class="col-top" width="30" height="30" src="http://squaresauce.com/images/profiles/avatar_small.jpg" alt="" data-src="http://squaresauce.com/images/profiles/avatar_small.jpg" data-src-retina="http://squaresauce.com/images/profiles/avatar_small2x.jpg">
                   </div>
                   <div class="chat-bubble from-them">
                     Yea
@@ -1437,5 +1566,5 @@ console.log(user);
     </div>
     <!-- END QUICKVIEW-->
     <!-- END OVERLAY -->
- 
+    <script src="http://squaresauce.com/js/specific/jquery-1.11.1.min.js"></script>
   

@@ -12,31 +12,39 @@ module.exports = {
     	model: 'User'
     },   
     pictureurl: {
-    	type: 'string'
+    	type: 'string',
+        defaultsTo:''
     },
     pictureid: {
-        type: 'string'
+        type: 'string',
+        defaultsTo:''
     },
     fbkid: {
-        type:'string'
+        type:'string',
+        defaultsTo:''
     },
     fname: {
-        type:'string'
+        type:'string',
+        defaultsTo:''
     }, 
     lname: {
-        type:'string'
+        type:'string',
+        defaultsTo:''
     },
     // uname: 'fhatim303', 
     // pass: 'hahahhahahahah123456', 
     // email: 'tworldpk@gmail.com', 
     cemail:{
-        type:'string'
+        type:'string',
+        defaultsTo:''
     },
     pinstitution: {
-        type:'string'
+        type:'string',
+        defaultsTo:''
     },
     major:{
-        type:'string'
+        type:'string',
+        defaultsTo:''
     },
     gentags:{
     	collection:'Gentag',

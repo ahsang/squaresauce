@@ -94,7 +94,7 @@ module.exports = {
             req.session.profile_data=user[0].profile;
             // console.log(user);
             console.log("Profile");
-            console.log(req.session.profile_data.name);
+            // console.log(req.session.profile_data.name);
             res.view('home');  
             }
          });
@@ -104,6 +104,54 @@ module.exports = {
 
         } 
         
+      },
+      username:function(req,res){
+        // console.log("yeah");
+        console.log("username"+req.param('username'));
+        if(!req.param('username')){
+        res.view('homepage');
+        }else{
+          if(req.session.passport){
+              User.find({id:req.session.passport.user}).populate('profile').then(function(user){
+                  if(user==''){
+                    req.session.userd="hello";
+                    req.session.userd.profile="hello";
+                    req.session.userd.profile.fname="Not";
+                    req.session.userd.profile.lname="Logged in";
+                    req.session.userd.profile.fbkid="123456";
+    
+                      
+                  }else{
+                  req.session.userd=user[0].profile;
+                }
+              }).catch(function(err){
+                  console.log(err);
+              });
+          }else{
+                    profile=new Object();
+                    profile.fname="Not";
+                    profile.lname="Not Logged in";
+                    profile.fbkid="123456";
+                    req.session.userd=profile;
+                                        
+          }
+          User.find({username:req.param('username')}).populate('profile').then(function(usr){
+            console.log(usr);
+            if(usr==''){
+              res.view('abc');
+            }else{
+            req.session.profile_data=usr[0].profile;
+            res.view('profile');
+            }
+          }).catch(function(err){
+            console.log(err);
+            console.log("Error in user finding");
+          });
+
+
+
+          // res.send(req.param('username'));
+        }
       }
 
 };
