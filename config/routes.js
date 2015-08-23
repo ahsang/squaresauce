@@ -79,9 +79,7 @@ module.exports.routes = {
   '/safechat':{
     view: 'safechat'
   },
-  '/square':{
-    view: 'square'
-  },
+  
 
 
   'POST /oweek/voucher' : 'Otest.retrieveVoucher',
@@ -103,7 +101,8 @@ module.exports.routes = {
   'GET /chatter2':'Chat.loadChat',
   'GET /login':'Main.login',
   'GET /home':'Profile.viewProfile',
-  'GET /users/:username': 'ProfileController.username'
+  'GET /users/:username': 'ProfileController.username',
+   'GET /square/:abcd':'Main.viewSquare'
 
   /***************************************************************************
   *                                                                          *

@@ -13,6 +13,11 @@ module.exports = {
   		type: 'string',
   		notNull: true
   	},
+    sname: {
+      type: 'string',
+      notNull: true,
+      unique: true
+    },
   	admins: {
       collection:'User',
       via: "isAdmin",

@@ -14,6 +14,9 @@ module.exports = {
     	}
   	
   
+	},
+	viewSquare: function(req,res){
+		res.view('square');
 	}
 };
 
