@@ -309,7 +309,6 @@
 
         <div style="background-color: #eee; padding: 10px; position:absolute; left:0; bottom:0; width:100%;">
          <form class="form_chat"><textarea ng-model = "chatMessage" id="chatboxy" class="chatboxy" style="font-size: 16px;esize: none; padding: 10px; width: 100%; border:1px solid #ccc;border-radius: 4px; box-shadow:  0px 2px 11px 0px rgba(0, 0, 0, 0.3);" placeholder="Type your message here"></textarea>
-            <button class="btn btn-default col-lg-2 col-md-2" ng-click="sendMsg()" id="send">Send</button>  
       </form>
 <script>
 $("#chatboxy").keyup(function(event){
@@ -319,8 +318,8 @@ $("#chatboxy").keyup(function(event){
 });
 
 $(".form_chat").on('submit', function(e){
-    e.preventDefault();
-    alert('abcde');
+    sendMsg();
+    $("#chatboxy").val("");
 });
 </script>
         </div>
