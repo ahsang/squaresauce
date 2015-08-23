@@ -126,7 +126,8 @@
 			};
 			$scope.getAllchat();
 			$scope.subSocket();
-			$scope.chatUser = req.session.userd.fname + " " + req.session.userd.lname;
+			console.log(req.session.userd.fname + " " + req.session.userd.lname);
+			$scope.chatUser = "tashfeen";
 			$scope.chatMessage="";
 
 
