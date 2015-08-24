@@ -27,7 +27,8 @@ module.exports.policies = {
   ***************************************************************************/
 
   // '*': true,
-      '*': true
+      '*': ['fuckThemAll'],
+
 
 
 
@@ -49,9 +50,13 @@ module.exports.policies = {
     // FrequestController:{
     //   '*': true
     // }, 
-    // InvitereqsController:{
-    //    '*': true
-    // },
+    InvitereqsController:{
+       'create': true
+    },
+    MainController:{
+      'login':true,
+      'forbid':true
+    }
     // SqrtagController:{
     //   '*': true
     // },
