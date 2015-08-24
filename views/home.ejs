@@ -5,7 +5,12 @@
     <link href="styles/specific/ss-icons.css" rel="stylesheet" type="text/css">
     <link class="main-stylesheet" href="styles/specific/squaresauce.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
 <style>
+
+#tcolor {
+    background-color: black;
+}
 
 #tcolor1 {
     background-color: #f16521;
@@ -31,8 +36,25 @@
 #tcolor8 {
     background-color: #ea9600;
 }
-</style>
 
+</style>
+<script>
+function ran_col() { //function name
+                var color; // hexadecimal starting symbol
+                var letters = ['f16521','440d2b','00adef','8cc63e','652c90','ea9600','cc1f35']; //Set your colors here
+
+                var x= document.getElementsByClassName("posts");
+                var i;
+                for(i=0;i<x.length;i++)
+                {
+                    color="#";
+                    color += letters[Math.floor(Math.random() * letters.length)];
+                    x[i].style.backgroundColor = color;
+                }
+            }
+
+
+</script>
 <body ng-app="saxApp" ng-controller="SaxController" class="fixed-header">
     <!-- BEGIN SIDEBPANEL-->
     <nav class="page-sidebar" data-pages="sidebar">
@@ -95,7 +117,7 @@
         <!-- END MOBILE CONTROLS -->
         <div class=" pull-left sm-table">
           <div class="header-inner">
-            <a href="#" class="toggle-email-sidebar">Chat <span class="text-info">(12)</span> <span class="caret"></span></a>
+            <a href="#" class="toggle-email-sidebar">Home</a>
             <div class="brand inline">
               <img src="images/squaresauce-logo.png" alt="logo" data-src="images/squaresauce-logo.png" data-src-retina="images/squaresauce-logo.png" width="120">
             </div>
@@ -215,6 +237,11 @@
                   <!-- END Notification Dropdown -->
                 </div>
               </li>
+
+              <li class="p-r-15 inline">
+                <a href="#" class="fa fa-bolt fa-2"></a>
+              </li>
+
             </ul>
           </div>
         </div>
@@ -265,13 +292,13 @@
             <div class="row">
               <div class="col-md-12 col-xlg-18">
                 <div class="row" >
-                  <div class="col-sm-3 m-b-5" ng-repeat="chat in chatList | limitTo: 10000">
-                    <div class="ar-1-1">
+                  <div id="sage" class="col-sm-3 m-b-5" ng-repeat="chat in chatList | limitTo: 10000">
+                    
                       <!-- START WIDGET -->
 
                       <a ng-href="http://squaresauce.com/square/{{ chat.sname }}">
-                        <div class="widget-2 panel no-border widget widget-loader-circle-lg no-margin" id="tcolor3">
-                       
+                        <div class=" ar-1-1 widget-2 panel no-border widget widget-loader-circle-lg no-margin">
+                       <div class="posts">
                         <div class="panel-body">
                           <div class="pull-bottom bottom-left bottom-right padding-25">
                             <a ng-href="http://squaresauce.com/square/{{ chat.sname }}"><span class="label font-montserrat fs-11">LUMS</span></a>
@@ -282,9 +309,9 @@
                            </p></a>
                           </div>
                         </div>
+                      </div>
                       </div></a>
                       <!-- END WIDGET -->
-                    </div>
 
                   </div>
                 </div>
@@ -323,7 +350,7 @@
 
     saxApp.controller('SaxController',['$http','$log','$scope',function($http,$log,$scope){
     $scope.getAllchat = function(){
-      // $log.info(<%=JSON.stringify(req.session.user_data)%>);
+
       $http.get('/user/getSquares?id=<%=req.session.passport.user%>')
            .success(function(success_data){
               
@@ -340,6 +367,9 @@
     
     
     $scope.getAllchat();  
+
     }]);
+
+    ran_col();
 </script>
   
