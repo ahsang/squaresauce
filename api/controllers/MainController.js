@@ -40,6 +40,9 @@ module.exports = {
 		}else{
 			res.send("Please send me a square name brother");
 		}
+	},
+	getUserProfile: function(req,res){
+		
 	}
 
 

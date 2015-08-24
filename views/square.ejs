@@ -10,33 +10,6 @@
 
 
 
-$(document).ready(function () {
-
-
-var urll = window.location.href;
-sname = urll.substr(urll.lastIndexOf('/') + 1); 
-
-console.log(sname);
- $.ajax({
-  method  : 'POST',
-  contentType: "application/json; charset=utf-8",
-  url     : '/getSquareUsers',
-  data    : '{"sname": "'+sname+'"}', 
-  dataType: 'json',
-  headers : { 'Content-Type': 'application/json' }  
-
-console.log(sname);
-
-  }) .success(function(izdone){
-             if(izdone=="error") {
-                 alert(izdone);
-                 console.log(izdone);
-
-         } else {
-                 alert("no success");
-                 console.log(izdone);
-                 }
-});
 /*
 
 
@@ -1522,7 +1495,7 @@ console.log(sname);
     socketApp.controller('ChatController',['$http','$log','$scope',function($http,$log,$scope){
 
 var urll = window.location.href;
-
+var sname = urll.substr(urll.lastIndexOf('/') + 1); 
       $scope.predicate = '-id';
       $scope.reverse = false;
       $scope.chatList =[];
@@ -1546,10 +1519,10 @@ var urll = window.location.href;
         $http.get('/Profile/find?user='+ $scope.currUser)     //###i go to the profile and find with id########
            .success(function(success_user_data){
               
-              console.log("This is success_user_data");
+              // console.log("This is success_user_data");
               $scope.Userfname = success_user_data[0].fname;  //###here i push the data into variables!###
               $scope.Userlname = success_user_data[0].lname;  // ive tested the function till here on my
-              $log.info(success_user_data);
+              // $log.info(success_user_data);
            });
       };
       $scope.getAllchat = function(){
@@ -1559,13 +1532,28 @@ var urll = window.location.href;
         $http.get('/ChatSquare/find?cid='+ $scope.chatSquareId)
            .success(function(success_data){
               
-              console.log("This is success_data");
+              // console.log("This is success_data");
               $scope.chatList = success_data[0].messages;
-              $log.info(success_data);
+              // $log.info(success_data);
            });
       };
+
+      $scope.getAllusers = function(){
+
+        
+
+        $http.get('/getSquareUsers?sname='+sname)
+           .success(function(success_data){
+              
+              // console.log("This is success_data");
+              $log.info(success_data);
+              // $log.info(success_data);
+           });
+      };
+
       $scope.getUserData();   //here i am calling the funciton i added above
       $scope.getAllchat();
+      $scope.getAllusers();
       $scope.subSocket();
       $scope.chatUser = "whatever"
       $scope.chatMessage="";
