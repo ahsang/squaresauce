@@ -1,18 +1,4 @@
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat:400,700" />
-<script type="text/javascript">
-  WebFontConfig = {
-    google: { families: [ 'Montserrat::latin' ] }
-  };
-  (function() {
-    var wf = document.createElement('script');
-    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-    wf.type = 'text/javascript';
-    wf.async = 'true';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(wf, s);
-  })(); </script>
-
   <link rel="stylesheet" type="text/css" href="styles/specific/jquery.pagepiling.css" />
     <link class="main-stylesheet" href="styles/specific/squaresauce.css" rel="stylesheet" type="text/css" />
 
@@ -23,6 +9,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
 
   <script type="text/javascript" src="js/specific/jquery.pagepiling.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
 
   <link rel="stylesheet" href="styles/specific/homepage-slider-style.css"> <!-- Resource style -->
@@ -30,7 +17,11 @@
 <script src="js/specific/main.js"></script> 
 
 <title>Squaresauce - Your Campus in a Square</title>
-
+<meta property="og:title" content="Squaresauce"/>
+    <meta property="og:url" content="http://www.squaresauce.com"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:description" content="Your Campus in a Square"/>
+    <meta property="og:image" content="http://squaresauce.com/images/fbimg.png"/>
   <script type="text/javascript">
     var deleteLog = false;
 
@@ -297,7 +288,7 @@ line-height: 13px;
         <div class="section1menu">
           <a href="/login">LOGIN</a>
           <a href="#page3">SIGNUP</a>
-          <a href="#page3">EXPLORE</a>
+          <a href="#page4">EXPLORE</a>
         </div>
     
     <div class="section1scroll">
@@ -343,27 +334,340 @@ line-height: 13px;
     <form id="signupform" ng-submit="processForm()" style="font-family: 'Segoe UI';">
            
      <div class="form-group form-group-default">
-              <label style="font-size: 10px;">Full Name</label>
+              <label>Full Name</label>
               <div class="controls">
                 <input type="text" name="name" ng-model="formData.name" class="form-control" required>
               </div>
             </div>
 
      <div class="form-group form-group-default">
-              <label style="font-size: 10px;">Email Address</label>
+              <label>Email Address</label>
               <div class="controls">
                 <input type="email" name="email" class="form-control" ng-model="formData.email" required>
               </div>
             </div>
 
 
-     <div class="form-group form-group-default">
-              <label style="font-size: 10px;">Campus</label>
-              <div class="controls">
-                <input type="text" name="institution" class="form-control"  ng-model="formData.institution" required>
-              </div>
-            </div>
 
+                   <div class="form-group form-group-default form-group-default-select2 required">
+                        <label class="">Campus</label>
+                        <select class="full-width" data-placeholder="Search and Select your Campus"  ng-model="formData.institution" name="institution" id="institution" data-init-plugin="select2">
+                          <option value="Other">Search and Select your Campus</option>
+
+                          <optgroup label="Abbottabad">
+                            <option value="Cadet College Hassanabdal GT Road Abbottabad">Cadet College Hassanabdal GT Road Abbottabad</option>
+<option value="Beaconhouse School System, Abbottabad 6-Liaquat Road  Abbottabad">Beaconhouse School System, Abbottabad 6-Liaquat Road  Abbottabad</option>
+<option value="The City School Street No. 9, Community Centre  Abbottabad">The City School Street No. 9, Community Centre  Abbottabad</option>
+                            </optgroup>
+                          <optgroup label="Bahawalpur">
+                            <option value="Allied School 12-D, Bahawalpur">Allied School 12-D, Bahawalpur</option>
+<option value="Army Public School & College  Bahawalpur Cantt Pakistan Bahawalpur">Army Public School & College  Bahawalpur Cantt Pakistan Bahawalpur</option>
+<option value="Sadiq Public School Sadiq Public School Bahawalpur">Sadiq Public School Sadiq Public School Bahawalpur</option>
+<option value="The City School House No 18/B-1 Bahawalpur">The City School House No 18/B-1 Bahawalpur</option>
+                          </optgroup>
+                          <optgroup label="Bannu">
+                           <option value=" Tracks Institute of Management Education & IT 1st Floor Malik Plaza, Near Milad Park  Bannu">Tracks Institute of Management Education & IT 1st Floor Malik Plaza, Near Milad Park  Bannu</option>
+                          </optgroup>
+                          <optgroup label="Dera Ghazi Khan">
+                           <option value=" The City School 17/18 Block 23  Dera Ghazi Khan">The City School 17/18 Block 23  Dera Ghazi Khan</option>
+                          </optgroup>
+                          <optgroup label="Faisalabad">
+                           <option value=" Beaconhouse School System Canal Campus ,  Faisalabad">Beaconhouse School System Canal Campus ,  Faisalabad</option>
+<option value="Faisalabad Grammar School   Faisalabad">Faisalabad Grammar School   Faisalabad</option>
+<option value="La Salle High School  Peoples Colony # 1  Faisalabad">La Salle High School  Peoples Colony # 1  Faisalabad</option>
+<option value="Lahore Grammar School Faisalabad  Canal Campus ,  Faisalabad">Lahore Grammar School Faisalabad  Canal Campus ,  Faisalabad</option>
+<option value="Sacred Heart Convent High School  Rajbah Road Faisalabad">Sacred Heart Convent High School  Rajbah Road Faisalabad</option>
+<option value="The City School East Canal Road,  Faisalabad">The City School East Canal Road,  Faisalabad</option>
+<option value="COMSATS Institute of Information Technology University Road, Tobe Camp Postal Code 22060  Faisalabad">COMSATS Institute of Information Technology University Road, Tobe Camp Postal Code 22060  Faisalabad</option>
+<option value="Punjab College of Commerce  108-C, Peoples Colony, Jaranwala Road Faisalabad">Punjab College of Commerce  108-C, Peoples Colony, Jaranwala Road Faisalabad</option>
+<option value="Govt. College University  Main City Faisalabad">Govt. College University  Main City Faisalabad</option>
+<option value="Roots Faislabad   Faisalabad">Roots Faislabad   Faisalabad</option>
+                          </optgroup>
+                          <optgroup label="Gujranwala">
+                           <option value=" Beaconhouse School System Wania More  Gujranwala">Beaconhouse School System Wania More  Gujranwala</option>
+<option value="Garrison Academy  Defence Phase -1  Gujranwala">Garrison Academy  Defence Phase -1  Gujranwala</option>
+<option value="Quaid-e-Azam Public College G T Road  Gujranwala">Quaid-e-Azam Public College G T Road  Gujranwala</option>
+<option value="The City School Gujranwala  157-D, Satellite Town Gujranwala">The City School Gujranwala  157-D, Satellite Town Gujranwala</option>
+                          </optgroup>
+                          <optgroup label="Gujrat">
+                           <option value=" Beaconhouse School System   Gujrat">Beaconhouse School System   Gujrat</option>
+<option value="Jinnah Public School  Hafiz Hayat Gujrat  Gujrat">Jinnah Public School  Hafiz Hayat Gujrat  Gujrat</option>
+<option value="The City School Ali Pur Road  Gujrat">The City School Ali Pur Road  Gujrat</option>
+                          </optgroup>
+                          <optgroup label="Hyderabad">
+                           <option value=" Army Public School And College  Hyderabad Cantt Hyderabad">Army Public School And College  Hyderabad Cantt Hyderabad</option>
+<option value="Beaconhouse School System 202 Amenity Plot, Hyderabad">Beaconhouse School System 202 Amenity Plot, Hyderabad</option>
+<option value="Rockford Cambridge School Bungalow No. 144/B  Hyderabad">Rockford Cambridge School Bungalow No. 144/B  Hyderabad</option>
+<option value="The City School, Jinnah Campus  Plot No 201, Sehrish Nagar, Hyderabad">The City School, Jinnah Campus  Plot No 201, Sehrish Nagar, Hyderabad</option>
+<option value="The City School, Liaquat Campus 505 - 506, Kohsar Housing Scheme, Hyderabad">The City School, Liaquat Campus 505 - 506, Kohsar Housing Scheme, Hyderabad</option>
+<option value="Shaheed Zulfiqar Ali Bhutto Institute of Science and Technology (SZABIST) Hyderabad Campus  B-5, Sindh Muslim Housing Society, National Highway Road, Hyderabad Hyderabad">Shaheed Zulfiqar Ali Bhutto Institute of Science and Technology (SZABIST) Hyderabad Campus  B-5, Sindh Muslim Housing Society, National Highway Road, Hyderabad Hyderabad</option>
+<option value="Superior College of Science G.O.R Colony  Hyderabad">Superior College of Science G.O.R Colony  Hyderabad</option>
+                          </optgroup>
+                          <optgroup label="Islamabad">
+                           <option value=" Bahria College  Naval Complex Islamabad">Bahria College  Naval Complex Islamabad</option>
+<option value="Beaconhouse School System Margala Campus, Islamabad">Beaconhouse School System Margala Campus, Islamabad</option>
+<option value="Beaconhouse School System A level Branch  Islamabad">Beaconhouse School System A level Branch  Islamabad</option>
+<option value="Beaconhouse School System 87-A, Main Double Road  Islamabad">Beaconhouse School System 87-A, Main Double Road  Islamabad</option>
+<option value="Headstart School  House 19, St-13 Islamabad">Headstart School  House 19, St-13 Islamabad</option>
+<option value="International Grammar School  Street-58 Islamabad">International Grammar School  Street-58 Islamabad</option>
+<option value="OPF College for Boys  H-8/4 Islamabad">OPF College for Boys  H-8/4 Islamabad</option>
+<option value="OPF College for Girls Park Road Islamabad">OPF College for Girls Park Road Islamabad</option>
+<option value="Roots School System DHA Campus  Islamabad">Roots School System DHA Campus  Islamabad</option>
+<option value="Roots School System, Islamabad  36 Nazimuddin Road  Islamabad">Roots School System, Islamabad  36 Nazimuddin Road  Islamabad</option>
+<option value="Shaheen School System PAF Complex Islamabad">Shaheen School System PAF Complex Islamabad</option>
+<option value="SheikhZayed International Academy St.No-9 Islamabad">SheikhZayed International Academy St.No-9 Islamabad</option>
+<option value="The City School Capital Campus  Islamabad">The City School Capital Campus  Islamabad</option>
+<option value="Westminster School & College  226- Margalla Road  Islamabad">Westminster School & College  226- Margalla Road  Islamabad</option>
+<option value="Quaid-i-Azam University (Qau) 45320 Islamabad">Quaid-i-Azam University (Qau) 45320 Islamabad</option>
+<option value="Pakistan Institute of Development Economics P.O. Box. 1091, 44000 Islamabad">Pakistan Institute of Development Economics P.O. Box. 1091, 44000 Islamabad</option>
+<option value="Allama Iqbal Open University  Directorate of Students Advisory & Counselling Services, Gateway Block,First Floor, Allama Iqbal Open University, Sector H-8  Islamabad">Allama Iqbal Open University  Directorate of Students Advisory & Counselling Services, Gateway Block,First Floor, Allama Iqbal Open University, Sector H-8  Islamabad</option>
+<option value="National University of Sciences and Technology  National University of Sciences and Technology. NUST Campus, H-12 Islamabad">National University of Sciences and Technology  National University of Sciences and Technology. NUST Campus, H-12 Islamabad</option>
+<option value="Bahria University Shangrilla Road, Sector E-8 Islamabad">Bahria University Shangrilla Road, Sector E-8 Islamabad</option>
+<option value="College of Financial and Management Sciences (CFMS)/Accountancy College of Exellence  Adajcent to ZBTL Zonal Office, G-7/2  Islamabad">College of Financial and Management Sciences (CFMS)/Accountancy College of Exellence  Adajcent to ZBTL Zonal Office, G-7/2  Islamabad</option>
+<option value="Islamabad College of Accounts and Finance (ICAF)  24-West Raza Plaza, Jinnah Avenue, Blue Area  Islamabad">Islamabad College of Accounts and Finance (ICAF)  24-West Raza Plaza, Jinnah Avenue, Blue Area  Islamabad</option>
+<option value="Jinnah College of Commerce  Aabpara Market  Islamabad">Jinnah College of Commerce  Aabpara Market  Islamabad</option>
+<option value="Islamabad College of Management & Design  House# 29, Street# F-8/1  Islamabad">Islamabad College of Management & Design  House# 29, Street# F-8/1  Islamabad</option>
+                          </optgroup>
+                          <optgroup label="Jamshoro">
+                           <option value=" University of Sindh Jamshoro. Sindh Jamshoro">University of Sindh Jamshoro. Sindh Jamshoro</option>
+                          </optgroup>
+                          <optgroup label="Karachi">
+                           <option value=" Acacia Institute  C-41, Lane 11,  Karachi">Acacia Institute  C-41, Lane 11,  Karachi</option>
+<option value="Aisha Bawany Academy O'Level  185, Bazarta Line,  Karachi">Aisha Bawany Academy O'Level  185, Bazarta Line,  Karachi</option>
+<option value="Army Public School Saddar O'Level 158, Iqbal Shaheed Road,  Karachi">Army Public School Saddar O'Level 158, Iqbal Shaheed Road,  Karachi</option>
+<option value="Arts and Science Academy  Street 8 / C, Block I, Scheme 5,  Karachi">Arts and Science Academy  Street 8 / C, Block I, Scheme 5,  Karachi</option>
+<option value="Bahria College Karachi - Nore 1 M.T. Khan Road, Karachi">Bahria College Karachi - Nore 1 M.T. Khan Road, Karachi</option>
+<option value="Bahria Foundation College E - 115, Block 7, Karachi">Bahria Foundation College E - 115, Block 7, Karachi</option>
+<option value="Bahria Foundation College Nazimabad IV E - 11 / 8,  Karachi">Bahria Foundation College Nazimabad IV E - 11 / 8,  Karachi</option>
+<option value="Bai Virbaiji Soparivala Parsi High School Abdullah Haroon Road, Karachi">Bai Virbaiji Soparivala Parsi High School Abdullah Haroon Road, Karachi</option>
+<option value="Bay View Academy  SL - 3, 12th Street,  Karachi">Bay View Academy  SL - 3, 12th Street,  Karachi</option>
+<option value="Bay View High School College Campus 8 Flench Street,  Karachi">Bay View High School College Campus 8 Flench Street,  Karachi</option>
+<option value="Beaconhouse Jubilee Campus  S - 2, 31 / F, Darulsalam Housing Society,  Karachi">Beaconhouse Jubilee Campus  S - 2, 31 / F, Darulsalam Housing Society,  Karachi</option>
+<option value="Beaconhouse School System Defence Campus Karachi  207 - A, Saba Avenue, Karachi">Beaconhouse School System Defence Campus Karachi  207 - A, Saba Avenue, Karachi</option>
+<option value="Beaconhouse School System North Nazimabad Cambridge Branch  F - 118 / 119, Block 7, Karachi">Beaconhouse School System North Nazimabad Cambridge Branch  F - 118 / 119, Block 7, Karachi</option>
+<option value="Beaconhouse School System, Gulshan A Level  E - 28, Block4, Karachi">Beaconhouse School System, Gulshan A Level  E - 28, Block4, Karachi</option>
+<option value="Convent of Jesus And Mary 101,  Karachi">Convent of Jesus And Mary 101,  Karachi</option>
+<option value="Cordoba School for A' Level 151 H/2, Block 2, P. E. C. H. S.  Karachi">Cordoba School for A' Level 151 H/2, Block 2, P. E. C. H. S.  Karachi</option>
+<option value="Creek High School (CBM Campus)  Korangi Creek,  Karachi">Creek High School (CBM Campus)  Korangi Creek,  Karachi</option>
+<option value="DA Public School (O&A) Levels 216, Khayaban-e-Shaheen,  Karachi">DA Public School (O&A) Levels 216, Khayaban-e-Shaheen,  Karachi</option>
+<option value="Dawood Public School - A Level  Plot S.T.1, Bahadurabad,  Karachi">Dawood Public School - A Level  Plot S.T.1, Bahadurabad,  Karachi</option>
+<option value="Falconhouse Grammar School  F - 71, Block B, North Nazimabad, Karachi">Falconhouse Grammar School  F - 71, Block B, North Nazimabad, Karachi</option>
+<option value="Foundation Public School, A-Level Campus  42 - B, Block 6, PECHS, Karachi">Foundation Public School, A-Level Campus  42 - B, Block 6, PECHS, Karachi</option>
+<option value="Foundation Public School, O-Level Defence Campus  College Campus, P. N. Shifa Road  Karachi">Foundation Public School, O-Level Defence Campus  College Campus, P. N. Shifa Road  Karachi</option>
+<option value="Froebel Education Centre  208, 32 Street, Karachi">Froebel Education Centre  208, 32 Street, Karachi</option>
+<option value="Generation's School F - 100, Block B, Karachi">Generation's School F - 100, Block B, Karachi</option>
+<option value="Habib Public School M.T. Khan Road, Karachi">Habib Public School M.T. Khan Road, Karachi</option>
+<option value="Happy Home School 12 / A, Hussainabad,  Karachi">Happy Home School 12 / A, Hussainabad,  Karachi</option>
+<option value="Head Start School System  41-C, Block-6,  Karachi">Head Start School System  41-C, Block-6,  Karachi</option>
+<option value="Jinnah University College 22 / 23,  Karachi">Jinnah University College 22 / 23,  Karachi</option>
+<option value="Karachi Grammar School  19 Street , Block 5,  Karachi">Karachi Grammar School  19 Street , Block 5,  Karachi</option>
+<option value="Karachi Public School Plot No. 9, Sector 30 A,  Karachi">Karachi Public School Plot No. 9, Sector 30 A,  Karachi</option>
+<option value="L'ecole for Advanced Studies  211, Khayaban-e-Shaheen,  Karachi">L'ecole for Advanced Studies  211, Khayaban-e-Shaheen,  Karachi</option>
+<option value="Lahore Grammar School 206 - A, 32nd Street, Karachi">Lahore Grammar School 206 - A, 32nd Street, Karachi</option>
+<option value="LINKS D 101 / 1, Block - 4, Karachi">LINKS D 101 / 1, Block - 4, Karachi</option>
+<option value="Nakhlah Boys Campus   Karachi">Nakhlah Boys Campus   Karachi</option>
+<option value="Nixor College C - 59, Khayaban-e- Shaheen,  Karachi">Nixor College C - 59, Khayaban-e- Shaheen,  Karachi</option>
+<option value="Practical Schooling System  C-2, Block 13-D,  Karachi">Practical Schooling System  C-2, Block 13-D,  Karachi</option>
+<option value="River Oaks Academy  43 / 15 / F,  Karachi">River Oaks Academy  43 / 15 / F,  Karachi</option>
+<option value="Shahwilayat Public School 8th Street, Block 13, Karachi">Shahwilayat Public School 8th Street, Block 13, Karachi</option>
+<option value="Southshore School for A' Level Studies  SL - 10, 14th Street, Karachi">Southshore School for A' Level Studies  SL - 10, 14th Street, Karachi</option>
+<option value="Springfield School  ST - 5, Karachi">Springfield School  ST - 5, Karachi</option>
+<option value="ST. Gregory's High School C - 5, Block 3, Moti Mahal, Karachi">ST. Gregory's High School C - 5, Block 3, Moti Mahal, Karachi</option>
+<option value="ST. Joseph's Convent School Shahrah-e-Iraq, Karachi">ST. Joseph's Convent School Shahrah-e-Iraq, Karachi</option>
+<option value="ST. Michael's Convent School  Plot No. St - 5, Kehkashan, Karachi">ST. Michael's Convent School  Plot No. St - 5, Kehkashan, Karachi</option>
+<option value="St. Patrick's Girls' High School  Shahrah-e-Iraq, Karachi">St. Patrick's Girls' High School  Shahrah-e-Iraq, Karachi</option>
+<option value="ST. Patrick's High School Ahmed Munir,  Karachi">ST. Patrick's High School Ahmed Munir,  Karachi</option>
+<option value="ST. Paul's English High School (Morning Shift)  Iqbal Shaheed, S.J. Road, Karachi">ST. Paul's English High School (Morning Shift)  Iqbal Shaheed, S.J. Road, Karachi</option>
+<option value="St. Peter's High School a Karachi">St. Peter's High School a Karachi</option>
+<option value="The Avicenna School C / 119, Block 2, Karachi">The Avicenna School C / 119, Block 2, Karachi</option>
+<option value="The Avicenna School C / 119, Block 2, Karachi">The Avicenna School C / 119, Block 2, Karachi</option>
+<option value="The C.A.S. School 205, Saba Venue,  Karachi">The C.A.S. School 205, Saba Venue,  Karachi</option>
+<option value="The City School School Senior Girls North Nazimabad F - 126, Block F, Karachi">The City School School Senior Girls North Nazimabad F - 126, Block F, Karachi</option>
+<option value="The City School Senior Boys North Nazimabad 102, F, Block F,  Karachi">The City School Senior Boys North Nazimabad 102, F, Block F,  Karachi</option>
+<option value="The City School, Darakshan Campus (Senior Boys Section) DK 2, Khayaban-e-Bukhari, Phase 6,  Karachi">The City School, Darakshan Campus (Senior Boys Section) DK 2, Khayaban-e-Bukhari, Phase 6,  Karachi</option>
+<option value="The City School, Darakshan Campus (Senior Girls Section)  DK - 4, Phase 6,  Karachi">The City School, Darakshan Campus (Senior Girls Section)  DK - 4, Phase 6,  Karachi</option>
+<option value="The City School, Gulshan A' Level E - 14, Block 7,  Karachi">The City School, Gulshan A' Level E - 14, Block 7,  Karachi</option>
+<option value="The City School, PAF Chapter, A' Level Section  Shaheed-e-Millat Road Extension,  Karachi">The City School, PAF Chapter, A' Level Section  Shaheed-e-Millat Road Extension,  Karachi</option>
+<option value="The City School, Senior Boys PECHS  42 - Q, Dr. Mahmood Hussain Road, Karachi">The City School, Senior Boys PECHS  42 - Q, Dr. Mahmood Hussain Road, Karachi</option>
+<option value="The City School, Senior Girls PECHS 42 - T, Block 6 PECHS,  Karachi">The City School, Senior Girls PECHS 42 - T, Block 6 PECHS,  Karachi</option>
+<option value="The Froebel's School  E - 26, Block 7,  Karachi">The Froebel's School  E - 26, Block 7,  Karachi</option>
+<option value="The Lyceum School 78, Clifton,  Karachi">The Lyceum School 78, Clifton,  Karachi</option>
+<option value="The Mama Parsi Girl's Secondary School  M. A. Jinnah Road,  Karachi">The Mama Parsi Girl's Secondary School  M. A. Jinnah Road,  Karachi</option>
+<option value="Westminster School & College  D - 120, Block 4, Karachi">Westminster School & College  D - 120, Block 4, Karachi</option>
+<option value="Iqra University Defence View, Shaheed-e-MillatRoad, Karachi Karachi">Iqra University Defence View, Shaheed-e-MillatRoad, Karachi Karachi</option>
+<option value="Shaheed Zulfiqar Ali Bhutto Institute of Science and Technology (SZABIST) Karachi Campus  90 and 100 Clifton, Karachi Karachi">Shaheed Zulfiqar Ali Bhutto Institute of Science and Technology (SZABIST) Karachi Campus  90 and 100 Clifton, Karachi Karachi</option>
+<option value="Agha Khan University Hospital Stadium Road, P.O. Box 3500, Karachi  Karachi">Agha Khan University Hospital Stadium Road, P.O. Box 3500, Karachi  Karachi</option>
+<option value="Institute of Business Administration  University Enclave, University Road, Karachi  Karachi">Institute of Business Administration  University Enclave, University Road, Karachi  Karachi</option>
+<option value="Institute of Business and Technology - Main Campus  Main Ibraim Hydri Road, Korangi Creek, Karachi  Karachi">Institute of Business and Technology - Main Campus  Main Ibraim Hydri Road, Korangi Creek, Karachi  Karachi</option>
+<option value="Institute of Business Management (IoBM) Korangi Creek, Karachi  Karachi">Institute of Business Management (IoBM) Korangi Creek, Karachi  Karachi</option>
+<option value="DHA Suffa University  DG-78, Off Khayaban-e- Tufail, Phase VII (Ext.), DHA, Karachi Karachi">DHA Suffa University  DG-78, Off Khayaban-e- Tufail, Phase VII (Ext.), DHA, Karachi Karachi</option>
+<option value="Indus Valley School of Art and Architecture (IVS) ST-33, Block-2, Scheme-5, Clifton, Karachi  Karachi">Indus Valley School of Art and Architecture (IVS) ST-33, Block-2, Scheme-5, Clifton, Karachi  Karachi</option>
+<option value="NED University of Engineering & Technology (FAST) University Road, Karachi – 75270  Karachi">NED University of Engineering & Technology (FAST) University Road, Karachi – 75270  Karachi</option>
+<option value="National University of Computer and Emerging Sciences Shah Latif Town (On National Highway), Karachi. Karachi">National University of Computer and Emerging Sciences Shah Latif Town (On National Highway), Karachi. Karachi</option>
+<option value="DOW University of Health Sciences Shah Latif Town (On National Highway), Karachi. Karachi">DOW University of Health Sciences Shah Latif Town (On National Highway), Karachi. Karachi</option>
+<option value="Sir Syed University of Engineering and Technology Baba-e-Urdu Road, Karachi Karachi">Sir Syed University of Engineering and Technology Baba-e-Urdu Road, Karachi Karachi</option>
+<option value="Ziauddin University 4/B, Shahrah-e-Ghalib, Block 6, Clifton, Karachi  Karachi">Ziauddin University 4/B, Shahrah-e-Ghalib, Block 6, Clifton, Karachi  Karachi</option>
+<option value="Pakistan Institute of Management  Management House, Shahra-e-Iran, Clifton, Karachi Karachi">Pakistan Institute of Management  Management House, Shahra-e-Iran, Clifton, Karachi Karachi</option>
+                          </optgroup>
+                          <optgroup label="Khairpur">
+                           <option value=" Shah Abdul Latif Bhittai University Campus road, Khairpur Khairpur">Shah Abdul Latif Bhittai University Campus road, Khairpur Khairpur</option>
+                          </optgroup>
+                          <optgroup label="Khanewal">
+                           <option value=" The City School 151, Afzal Town,  Khanewal">The City School 151, Afzal Town,  Khanewal</option>
+                          </optgroup>
+                          <optgroup label="Kohat">
+                           <option value="Cadet College Kohat">Cadet College Kohat</option>
+                          </optgroup>
+                          <optgroup label="Lahore">
+                           <option value=" Forman Christian College    Lahore">Forman Christian College    Lahore</option>
+<option value="Beaconhouse School System 112/113 Garden Block  Lahore">Beaconhouse School System 112/113 Garden Block  Lahore</option>
+<option value="Beaconhouse School System 47.C.II Lahore">Beaconhouse School System 47.C.II Lahore</option>
+<option value="Beaconhouse School System 488 Y Block,  Lahore">Beaconhouse School System 488 Y Block,  Lahore</option>
+<option value="Beaconhouse School System 224 R.II  Lahore">Beaconhouse School System 224 R.II  Lahore</option>
+<option value="Beaconhouse School System 1.5 KM Raiwand Road Lahore">Beaconhouse School System 1.5 KM Raiwand Road Lahore</option>
+<option value="Beaconhouse School System 33 Aziz Avenue  Lahore">Beaconhouse School System 33 Aziz Avenue  Lahore</option>
+<option value="Beaconhouse School System Nishat Colony Lahore">Beaconhouse School System Nishat Colony Lahore</option>
+<option value="Beaconhouse School System 33 E-I  Lahore">Beaconhouse School System 33 E-I  Lahore</option>
+<option value="Beaconhouse School System 45-1-B-1  Lahore">Beaconhouse School System 45-1-B-1  Lahore</option>
+<option value="Beaconhouse School System 95-A, CMA Colony  Lahore">Beaconhouse School System 95-A, CMA Colony  Lahore</option>
+<option value="Beaconhouse School System Thornton Road Lahore">Beaconhouse School System Thornton Road Lahore</option>
+<option value="Beaconhouse School System 6-Durand Road Lahore">Beaconhouse School System 6-Durand Road Lahore</option>
+<option value="Beaconhouse School System 10/11 Industrial Area Lahore">Beaconhouse School System 10/11 Industrial Area Lahore</option>
+<option value="Beaconhouse School System 274 II/C-1  Lahore">Beaconhouse School System 274 II/C-1  Lahore</option>
+<option value="Beaconhouse School System 303-304, H3 Johar Town  Lahore">Beaconhouse School System 303-304, H3 Johar Town  Lahore</option>
+<option value="Beaconhouse School System Imperial Garden, Paragon City Lahore">Beaconhouse School System Imperial Garden, Paragon City Lahore</option>
+<option value="Beaconhouse School System 35-B III  Lahore">Beaconhouse School System 35-B III  Lahore</option>
+<option value="Convent of Jesus and Mary 4 Durand Road Lahore">Convent of Jesus and Mary 4 Durand Road Lahore</option>
+<option value="Convent of Jesus and Mary 15-A  Lahore">Convent of Jesus and Mary 15-A  Lahore</option>
+<option value="Convent of Jesus and Mary 28 D 1  Lahore">Convent of Jesus and Mary 28 D 1  Lahore</option>
+<option value="Convent of Jesus and Mary 1-Ghumman Avenue, Lahore">Convent of Jesus and Mary 1-Ghumman Avenue, Lahore</option>
+<option value="Crescent Model Higher Secondary School  Shadman Colony  Lahore">Crescent Model Higher Secondary School  Shadman Colony  Lahore</option>
+<option value="Crescent Model Higher Secondary School  13 F Model Town Lahore">Crescent Model Higher Secondary School  13 F Model Town Lahore</option>
+<option value="Forman Christian College  Feerozpur Road  Lahore">Forman Christian College  Feerozpur Road  Lahore</option>
+<option value="Forman Christian College  2-E/III Main Boulevard  Lahore">Forman Christian College  2-E/III Main Boulevard  Lahore</option>
+<option value="International School of Choueifat Lahore  662-G/1 Lahore">International School of Choueifat Lahore  662-G/1 Lahore</option>
+<option value="International School of Choueifat Lahore  Sector B  Lahore">International School of Choueifat Lahore  Sector B  Lahore</option>
+<option value="Lahore College of Arts and Sciences 302 F/II  Lahore">Lahore College of Arts and Sciences 302 F/II  Lahore</option>
+<option value="Lahore College of Arts and Sciences 55 Main Gulberg Lahore">Lahore College of Arts and Sciences 55 Main Gulberg Lahore</option>
+<option value="Lahore Grammer School 364-E1, Lahore">Lahore Grammer School 364-E1, Lahore</option>
+<option value="Laurelbank Public School  165 GT Road Lahore">Laurelbank Public School  165 GT Road Lahore</option>
+<option value="Laurelbank Public School  468 Ravi Block  Lahore">Laurelbank Public School  468 Ravi Block  Lahore</option>
+<option value="Pakistan College of Law 46 - A, Tipu Block  Lahore">Pakistan College of Law 46 - A, Tipu Block  Lahore</option>
+<option value="Pakistan College of Law 73 B-1  Lahore">Pakistan College of Law 73 B-1  Lahore</option>
+<option value="Pepperdine Senior School  12-L  Lahore">Pepperdine Senior School  12-L  Lahore</option>
+<option value="Pepperdine Senior School  1 A 1, Ghalib Market  Lahore">Pepperdine Senior School  1 A 1, Ghalib Market  Lahore</option>
+<option value="Salamat-ICAS  112-Main Gulberg Road, near Sherpao Bridge, Lahore">Salamat-ICAS  112-Main Gulberg Road, near Sherpao Bridge, Lahore</option>
+<option value="Salamat-ICAS  85 Arif Jan Road  Lahore">Salamat-ICAS  85 Arif Jan Road  Lahore</option>
+<option value="St Anthony’s College  3 Lawrence Road Lahore">St Anthony’s College  3 Lawrence Road Lahore</option>
+<option value="St Anthony’s College  81-Babar Block, Lahore">St Anthony’s College  81-Babar Block, Lahore</option>
+<option value="St Anthony’s College  487 Sector Y  Lahore">St Anthony’s College  487 Sector Y  Lahore</option>
+<option value="St Anthony’s College  58-1/B-1, Lahore">St Anthony’s College  58-1/B-1, Lahore</option>
+<option value="The City School 75 H  Lahore">The City School 75 H  Lahore</option>
+<option value="The City School 31- Industrial Area Lahore">The City School 31- Industrial Area Lahore</option>
+<option value="The City School 90 K  Lahore">The City School 90 K  Lahore</option>
+<option value="The City School Faisal Town Lahore">The City School Faisal Town Lahore</option>
+<option value="The City School 39 Main Gulberg Lahore">The City School 39 Main Gulberg Lahore</option>
+<option value="The City School 12 FCC Syed Maratab Ali Road, Lahore">The City School 12 FCC Syed Maratab Ali Road, Lahore</option>
+<option value="The Lahore Alma 48-C  Lahore">The Lahore Alma 48-C  Lahore</option>
+<option value="The Lahore Alma 136 H Lahore">The Lahore Alma 136 H Lahore</option>
+<option value="University College Lahore 1.5 Km off Thoker Niaz Baig Lahore">University College Lahore 1.5 Km off Thoker Niaz Baig Lahore</option>
+<option value="University College Lahore 6 A Canal Park  Lahore">University College Lahore 6 A Canal Park  Lahore</option>
+<option value="Imperial College Of Business Studies  Shakam Chowk 53720  Lahore">Imperial College Of Business Studies  Shakam Chowk 53720  Lahore</option>
+<option value="Institute Of Management Sciences  23-E-III, Gulberg-III, 54660  Lahore">Institute Of Management Sciences  23-E-III, Gulberg-III, 54660  Lahore</option>
+<option value="Kinnaird College for Women  93- Jail Road Lahore">Kinnaird College for Women  93- Jail Road Lahore</option>
+<option value="Lahore School of Economics  Intersection Main Boulevard Phase VI DHA, Burki Road 53200  Lahore">Lahore School of Economics  Intersection Main Boulevard Phase VI DHA, Burki Road 53200  Lahore</option>
+<option value="University of Management and Technology C-II, Johar Town  Lahore">University of Management and Technology C-II, Johar Town  Lahore</option>
+<option value="Premier College 12-Tipu Block New Garden Town Lahore">Premier College 12-Tipu Block New Garden Town Lahore</option>
+<option value="KIPS College  30-A Johar Town Lahore">KIPS College  30-A Johar Town Lahore</option>
+<option value="National College of Business Admin. & Eco.(NCBA&E)  40-E 1, Gulberg III Lahore">National College of Business Admin. & Eco.(NCBA&E)  40-E 1, Gulberg III Lahore</option>
+<option value="University Of south asia  47-Tufail road  Lahore">University Of south asia  47-Tufail road  Lahore</option>
+<option value="West Minster College  93-A D/1, Main Boulevard  Lahore">West Minster College  93-A D/1, Main Boulevard  Lahore</option>
+<option value="Hailey College of Banking and Finance Old Hailey College Building, Opposite University Lahore Lahore">Hailey College of Banking and Finance Old Hailey College Building, Opposite University Lahore Lahore</option>
+<option value="CAPS  15-Aurangzeb Block, New Garden Town Lahore">CAPS  15-Aurangzeb Block, New Garden Town Lahore</option>
+<option value="Beaconhouse School System 136 E Lahore Cantt">Beaconhouse School System 136 E Lahore Cantt</option>
+<option value="Beaconhouse School System 47 Tufail Road  Lahore Cantt">Beaconhouse School System 47 Tufail Road  Lahore Cantt</option>
+<option value="Beaconhouse School System Tufail Road Lahore Cantt">Beaconhouse School System Tufail Road Lahore Cantt</option>
+<option value="Beaconhouse School System (Paragon City)  Lahore Cantt">Beaconhouse School System (Paragon City)  Lahore Cantt</option>
+<option value="Convent of Jesus and Mary 80 Sarfraz Rafiqui Road Lahore Cantt">Convent of Jesus and Mary 80 Sarfraz Rafiqui Road Lahore Cantt</option>
+<option value="University of South Asia  47 Tufail Road  Lahore Cantt">University of South Asia  47 Tufail Road  Lahore Cantt</option>
+<option value="Lahore Grammar School   Lahore, Cantt">Lahore Grammar School   Lahore, Cantt</option>
+                          </optgroup>
+                          <optgroup label="Larkana">
+                           <option value=" The City School, Larkana Campus Civic Centre, Ratodero Road,  Larkana">The City School, Larkana Campus Civic Centre, Ratodero Road,  Larkana</option>
+<option value="Shaheed Zulfiqar Ali Bhutto Institute of Science and Technology (SZABIST) Larkana Campus  SZABIST Sachal Colony, Larkana  Larkana">Shaheed Zulfiqar Ali Bhutto Institute of Science and Technology (SZABIST) Larkana Campus  SZABIST Sachal Colony, Larkana  Larkana</option>
+                          </optgroup>
+                          <optgroup label="Multan">
+                           <option value=" Beaconhouse School System Bahadurpur, Multan">Beaconhouse School System Bahadurpur, Multan</option>
+<option value="Bloomfield Hall Multan  1 ½ Km  Multan">Bloomfield Hall Multan  1 ½ Km  Multan</option>
+<option value="La Salle Higher Secondary School  Bosan Road, Multan">La Salle Higher Secondary School  Bosan Road, Multan</option>
+<option value="Lahore Grammar School Multan Branch 12-A  Multan">Lahore Grammar School Multan Branch 12-A  Multan</option>
+<option value="Multan Public School  P.O. Box No 402,  Multan">Multan Public School  P.O. Box No 402,  Multan</option>
+<option value="The City School 34-A, Multan">The City School 34-A, Multan</option>
+                          </optgroup>
+                          <optgroup label="Murree">
+                           <option value=" Lawrence College  Ghora Gali  Murree">Lawrence College  Ghora Gali  Murree</option>
+                          </optgroup>
+                          <optgroup label="Peshawar">
+                           <option value=" Army Public School & Girls College  56-A The Mall Peshawar">Army Public School & Girls College  56-A The Mall Peshawar</option>
+<option value="Beaconhouse Schools System  Frontier Campus Peshawar">Beaconhouse Schools System  Frontier Campus Peshawar</option>
+<option value="Bloomfield Hall Peshawar  39/D, Jamal-ud-din Afghani Road Peshawar">Bloomfield Hall Peshawar  39/D, Jamal-ud-din Afghani Road Peshawar</option>
+<option value="Edwardes College  The Mall  Peshawar">Edwardes College  The Mall  Peshawar</option>
+<option value="Edwards College School  Tariq Road  Peshawar">Edwards College School  Tariq Road  Peshawar</option>
+<option value="Lahore Grammar School 28-B/2 (behind RMI) Peshawar">Lahore Grammar School 28-B/2 (behind RMI) Peshawar</option>
+<option value="Roots School System House No.264, St. No.7, Sector K-1  Peshawar">Roots School System House No.264, St. No.7, Sector K-1  Peshawar</option>
+<option value="The City School Senior Branch H.No. 27-B, Chinar Road Peshawar">The City School Senior Branch H.No. 27-B, Chinar Road Peshawar</option>
+<option value="Islamia College University  25120 Jamrud Road, Peshawar Peshawar">Islamia College University  25120 Jamrud Road, Peshawar Peshawar</option>
+<option value="University of Peshawar    Peshawar">University of Peshawar    Peshawar</option>
+<option value="Fast university 160, Hayatabad Industrial Estate, Jamrud Road Peshawar">Fast university 160, Hayatabad Industrial Estate, Jamrud Road Peshawar</option>
+<option value="Iqra university Phase-II, Hayatabad Peshawar">Iqra university Phase-II, Hayatabad Peshawar</option>
+<option value="Institute of Management Sciences  1-A, Sector E / 5, Phase VII, Hayatabad Peshawar">Institute of Management Sciences  1-A, Sector E / 5, Phase VII, Hayatabad Peshawar</option>
+                          </optgroup>
+                          <optgroup label="Quetta">
+                           <option value=" The City School, Quetta Campus  758 - A, Jinnah Town, Quetta">The City School, Quetta Campus  758 - A, Jinnah Town, Quetta</option>
+<option value="University of Balochistan (Qau)   Quetta">University of Balochistan (Qau)   Quetta</option>
+<option value="Balochistan University of Information Technology, Engineering and Management Sciences Jinnah Town, Samungli Road  Quetta">Balochistan University of Information Technology, Engineering and Management Sciences Jinnah Town, Samungli Road  Quetta</option>
+                          </optgroup>
+                          <optgroup label="Rawalpindi">
+                           <option value=" ACE International Academy Phase II  Rawalpindi">ACE International Academy Phase II  Rawalpindi</option>
+<option value="Army Public School for Boys Ordinance Road  Rawalpindi">Army Public School for Boys Ordinance Road  Rawalpindi</option>
+<option value="Army Public School for Girls  208 Rawalpindi">Army Public School for Girls  208 Rawalpindi</option>
+<option value="Beaconhouse School System 400-A Rawalpindi">Beaconhouse School System 400-A Rawalpindi</option>
+<option value="Beaconhouse School System, Boys 81-A, Rawalpindi">Beaconhouse School System, Boys 81-A, Rawalpindi</option>
+<option value="Roots School System 82-A Satellite Town Rawalpindi">Roots School System 82-A Satellite Town Rawalpindi</option>
+<option value="Silver Oaks High Shool  179 - Firdusi Lane  Rawalpindi">Silver Oaks High Shool  179 - Firdusi Lane  Rawalpindi</option>
+<option value="St. Mary’s Academy  Tulsa Road  Rawalpindi">St. Mary’s Academy  Tulsa Road  Rawalpindi</option>
+<option value="The City School 59-A  Rawalpindi">The City School 59-A  Rawalpindi</option>
+<option value="The City School 337, Lane- 6  Rawalpindi">The City School 337, Lane- 6  Rawalpindi</option>
+<option value="Viqar-un-Nisa Noon College  Girls High School Rawalpindi">Viqar-un-Nisa Noon College  Girls High School Rawalpindi</option>
+<option value="Army Public College of Management Ordnance Road, Rawalpindi Cantt Rawalpindi">Army Public College of Management Ordnance Road, Rawalpindi Cantt Rawalpindi</option>
+<option value="Jinnah Islamia College of Commerce  65-A, Satellite Town, Murree Road Rawalpindi">Jinnah Islamia College of Commerce  65-A, Satellite Town, Murree Road Rawalpindi</option>
+<option value="Rawal Cadet College Rawal Cadet College, Gulrez II  Rawalpindi">Rawal Cadet College Rawal Cadet College, Gulrez II  Rawalpindi</option>
+                          </optgroup>
+                          <optgroup label="Risalpur">
+                           <option value=" Nust university PAF Academy Risalpur">Nust university PAF Academy Risalpur</option>
+                          </optgroup>
+                          <optgroup label="Sahiwal">
+                            <option value="The City School, Senior Branch  Shadman Town  Sahiwal">The City School, Senior Branch  Shadman Town  Sahiwal</option>
+                          </optgroup>
+                          <optgroup label="Sargodha">
+                            <option value="Beaconhouse School System 1-University Road Sargodha">Beaconhouse School System 1-University Road Sargodha</option>
+                          </optgroup>
+                          <optgroup label="Sialkot">
+                            <option value="Cadet College Sialkot Village Kotli Noonan  Sialkot">Cadet College Sialkot Village Kotli Noonan  Sialkot</option>
+<option value="Lahore Grammar School Kalma Chowk, Said Pur Gondal Road Sialkot">Lahore Grammar School Kalma Chowk, Said Pur Gondal Road Sialkot</option>
+<option value="The City School Sialkot Said pur Gondal Road  Sialkot">The City School Sialkot Said pur Gondal Road  Sialkot</option>
+<option value="The City School Sialkot Iqbal Campus  Sialkot">The City School Sialkot Iqbal Campus  Sialkot</option>
+<option value="Army Public College 39 Zafar Ali Road Silakot">Army Public College 39 Zafar Ali Road Silakot</option>
+                          </optgroup>
+                          <optgroup label="Sukkur">
+                            <option value="The City School Senior Branch Sukkur  A - 54, Akhuwat Nagar,  Sukkur">The City School Senior Branch Sukkur  A - 54, Akhuwat Nagar,  Sukkur</option>
+<option value="Institute of Business Administration (Sukkur) Airport Road, Sukkur  Sukkur">Institute of Business Administration (Sukkur) Airport Road, Sukkur  Sukkur</option>
+                          </optgroup>
+                          <optgroup label="Swabi">
+                            <option value="Ghulam Ishaq Khan Institute of Engineering Sciences and Technology, Topi, Swabi">Ghulam Ishaq Khan Institute of Engineering Sciences and Technology  Topi, Swabi</option>
+                          </optgroup>
+                        </select>
+                      </div>
 
            
     <br/><br/>

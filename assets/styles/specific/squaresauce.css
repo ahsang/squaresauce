@@ -5670,7 +5670,7 @@ fieldset[disabled] .form-control {
 }
 .form-group label:not(.error) {
   font-family: 'Montserrat';
-  font-size: 11px;
+  font-size: 10px;
   text-transform: uppercase;
   font-weight: 600;
 }
@@ -5788,7 +5788,7 @@ fieldset[disabled] .form-control {
   top: 9px;
 }
 .form-group-default label.label-sm {
-  font-size: 11px;
+  font-size: 10px;
   left: 11px;
   top: 6px;
 }
