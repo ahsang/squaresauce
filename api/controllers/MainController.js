@@ -45,18 +45,24 @@ module.exports = {
 		
 	},
 	getfbkid: function(req, res) {
-      	Profile.find({user: req.param('id')}).exec(function (err, profile) {
+      	Profile.findOne({user: req.param('id')}).exec(function (err, profile) {
 	        if (err || !profile) 
 	        { 
-	          console.log(profile);
+	          console.log(err);
 	          res.send('Error'); 
 	        } 
 	        else
 	        {
 	          console.log(profile);
-	          res.send(profile[0].fbk_id);
+	          res.send(profile.fbk_id);
 	        }
     	});
+  	},
+  	test: function(req,res){
+  		if(req.param('id')){
+  		console.log(SquareService.getSquareData(req.param('id')));
+  		res.send(SquareService.getSquareData(req.param('id')));
+  		}
   	}
 
 
