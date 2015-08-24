@@ -333,18 +333,12 @@
                       <div class="panel-heading ">
                         <div class="panel-title">BROADCAST
                         </div>
-                        <div class="panel-controls">
-                          <ul>
-                            <li><a href="#" class="portlet-close" data-toggle="close"><i class="portlet-icon portlet-icon-close"></i></a>
-                            </li>
-                          </ul>
-                        </div>
                       </div>
                       <div class="panel-body">
+                        <div id="nobroadcast"><p>No new broadcast update</p></div>
                         <p>
                           {{square.broadcast}}
                         </p>
-                        <h4>Ahsan Gondal</h4>
                       </div>
                     </div>
               </div>
@@ -1548,7 +1542,12 @@ var sname = urll.substr(urll.lastIndexOf('/') + 1);
               
               // console.log("This is success_data");
               $scope.SquareData=success_data;
-              
+
+              if(success_data[0].broadcast==""){
+                $( "#nobroadcast" ).fadeIn(1);//No broadcast message
+              } else {
+                $( "#nobroadcast" ).fadeOut(1);//No broadcast message
+              }
 
 
 
