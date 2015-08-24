@@ -107,7 +107,7 @@ module.exports.routes = {
   // 'POST /dipshit/addBroadcast' : 'Square.addBroadcast',
   // 'GET /chatter2':'Chat.loadChat',
   'GET /login':'Main.login',
-  'GET /:abc':'Main.forbidden'
+  'GET /:abc':'Main.forbid'
   // 'GET /home':'Profile.viewProfile',
   // 'GET /users/:username': 'ProfileController.username',
   // 'GET /square/:abcd':'Main.viewSquare',
