@@ -13,7 +13,7 @@
 						if(err)console.log(err);
 						//console.log(duper);
 						//console.log(profile);
-						Notification.create({content: notification ,profile:found}).exec(function (err, created){
+						Notification.create({content: notification ,profile:found, creator:userId}).exec(function (err, created){
 							found.notifications.add(created);
 							found.save(function(err){
 								if(err){
