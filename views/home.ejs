@@ -71,16 +71,9 @@ function ran_col() { //function name
           <li class="m-t-30 ">
             <a href="#" class="detailed">
               <span class="title">Dashboard</span>
-              <span class="details">12 New Updates</span>
+              <span class="details">All my Squares</span>
             </a>
             <span class="icon-thumbnail bg-success"><i class="fa fa-home"></i></span>
-          </li>
-          <li class="open">
-            <a href="#" class="detailed">
-              <span class="title">oWeek Square</span>
-              <span class="details">234 New Messages</span>
-            </a>
-            <span class="icon-thumbnail"><i class="fa fa-users"></i></span>
           </li>
         </ul>
         <div class="clearfix"></div>
@@ -246,16 +239,8 @@ function ran_col() { //function name
           </div>
         </div>
         <div class=" pull-right">
-          <div class="header-inner">
-            <a href="#" class="btn-link icon-set menu-hambuger-plus m-l-20 sm-no-margin hidden-sm hidden-xs" data-toggle="quickview" data-toggle-element="#quickview"></a>
-          </div>
-        </div>
-        <div class=" pull-right">
           <!-- START User Info-->
           <div class="visible-lg visible-md m-t-10">
-            <div class="pull-left p-r-10 p-t-10 fs-16 font-heading">
-              <span class="semi-bold"><%= req.session.userd.fname %></span> <span class="text-master"><%= req.session.userd.lname %></span>
-            </div>
             <div class="dropdown pull-right">
               <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="thumbnail-wrapper d32 circular inline m-t-5">
@@ -263,7 +248,7 @@ function ran_col() { //function name
             </span>
               </button>
               <ul class="dropdown-menu profile-dropdown" role="menu">
-                <li><a href="#"><i class="pg-settings_small"></i> Settings</a>
+                <li><a href="#"><i class="fa fa-user"></i>  <span class="semi-bold"><%= req.session.userd.fname %></span> <span class="text-master"><%= req.session.userd.lname %></span></a>
                 </li>
                 <li><a href="#"><i class="pg-outdent"></i> Feedback</a>
                 </li>
@@ -279,6 +264,15 @@ function ran_col() { //function name
             </div>
           </div>
           <!-- END User Info-->
+        </div>
+
+        <div class=" pull-right">
+          <div class="header-inner">
+            
+           <button class="btn btn-sm btn-primary">Create</button>
+ &nbsp;&nbsp;
+
+          </div>
         </div>
       </div>
       <!-- END HEADER -->
