@@ -111,9 +111,14 @@ module.exports.routes = {
   'GET /login':'Main.login',
   'GET /home':'Profile.viewProfile',
   'GET /users/:username': 'ProfileController.username',
-   'GET /square/:abcd':'Main.viewSquare',
-   'GET /createChatForSquare':'Square.addChat',
-   'GET /getSquareUsers':'Main.getSquareUsers'
+  'GET /square/:abcd':'Main.viewSquare',
+  'GET /createChatForSquare':'Square.addChat',
+  'GET /getSquareUsers':'Main.getSquareUsers'
+  
+
+
+
+
 
   /***************************************************************************
   *                                                                          *

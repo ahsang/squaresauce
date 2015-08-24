@@ -43,7 +43,21 @@ module.exports = {
 	},
 	getUserProfile: function(req,res){
 		
-	}
+	},
+	getfbkid: function(req, res) {
+      	Profile.find({user: req.param('id')}).exec(function (err, profile) {
+	        if (err || !profile) 
+	        { 
+	          console.log(profile);
+	          res.send('Error'); 
+	        } 
+	        else
+	        {
+	          console.log(profile);
+	          res.send(profile[0].fbk_id);
+	        }
+    	});
+  	}
 
 
 };

@@ -32,6 +32,18 @@ module.exports = {
       	}
     });
   },
+  getfbkid: function(req, res) {
+      Profile.find({user: req.params('id')}).exec(function (err, profile) {
+        if (err || !profile) 
+        { 
+          return res.send('Error'); 
+        } 
+        else
+        {
+          return res.send(profile[0].fbk_id);
+        }
+    });
+  },
 
   	  addBadge: function(req,res){
   	  					// User can add a badge, this creates a badge request, to the approriate square
