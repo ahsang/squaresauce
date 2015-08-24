@@ -41,6 +41,27 @@ module.exports = {
 			res.send("Please send me a square name brother");
 		}
 	},
+	getSquareBroadCasts: function(req,res){
+		if(req.param('sname')){
+			var a=new Array();
+			Square.findOne({sname:req.param('sname')}).populateAll().then(function(found){
+				// if(err)console.log(err);
+
+				var users=found;
+				
+				
+				return [users];
+				// console.log(a);
+			}).spread(function(abc){
+				console.log(abc);
+				res.send(abc);
+			}).catch(function(err){
+				console.log(err);
+			});
+		}else{
+			res.send("Please send me a square name brother");
+		}
+	},
 	getUserProfile: function(req,res){
 		
 	},
