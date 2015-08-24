@@ -17,39 +17,55 @@
  			info = new Array();
  			info.name=req.param('name')
  			info.sname=req.param('sname');
- 			// info.sid=req.param('sid');
+ 			info.sid=req.param('sid');
  			info.uid=req.param('uid');
  			
+	 				// UniSquare.find({id: info.uid}).exec(function (err, unisquare) {
+
+	 				// 	if(unisquare == '')
+	 				// 	{
+						// 	console.log('The university you requested this square to be added to does not exist!');
+	 				// 	}
+	 				// 	else
+	 				// 	{
+	 				// 		Square.find({sqrtag: info.tag}).exec(function (err, subsquare) {
+	 				// 			if(subsquare = '')
 	 				
+	 				// 			{
 	 					Square.create({name : info.name,sname:info.sname,admin:req.param('uid'),people:req.param('uid')}).then(function(created){
 	 						console.log('Created a new square with the following stuff: ');
-		 					console.log(created);
+		 								// console.log(name);
+		 					req.session.sid=created.id;
+		 					req.session.cid=created.sname;				
 		 					return [created];
-		 				}).spread(function(sq){
-		 					ChatSquare.create({cid:sq.sname,users:req.param('uid'),square:sq}).then(function (chatsqr) {		
-	 							console.log("ChatSquare created for "+sq.sname);
-	 							console.log(chatsqr);
-	 						}).then(function(){
-	 							res.ok();
-	 						}).catch(function(err){
-	 							console.log(err);
-	 							res.ok();
-	 						});
+		 				}).spread(function(abc){
+		 					res.redirect('/createChatForSquare');
 
 		 				}).catch(function(err){
 		 					console.log(err);
 		 				});	 									
-	 					
+	 					// 		}
+	 					// 		else
+	 					// 		{
+							// 		console.log('The University already has this square!');
+	 					// 		}
+	 					// 		if(err)console.log(err);
+	 					// 		res.ok();					          
+	 					// 	});
+	 					// }
+	 				// });	
+	// 		"name" "tag" 'sid' 'uid' 		
+	//		WORKING!
 },
 
 addUser: function(req,res){
 
 	info = new Array();
-	info.sid=req.param('sname');
+	info.sid=req.param('sid');
 	info.uid=req.param('uid');
 
 
-	Square.findOne({ sname : info.sid}).then(function (square) {
+	Square.find({ id : info.sid}).exec(function (err,square) {
 		if(square == '')
 		{
 			console.log("Square not found");
@@ -64,57 +80,16 @@ addUser: function(req,res){
 				else
 				{
 				    				//TODO: Cannot add if user already exists in members.
-				    				square.people.add( info.uid );
-				    				square.save(function(err){
-				    					console.log('added the following user for square ' + square.sname);
+				    				square[0].people.add( info.uid );
+				    				square[0].save(function(err){
+				    					console.log('added the following user for square ' + square.name);
 				    					console.log(info.uid);
-				    				});
-
-				    				
-
+				    				});	    				
 				    			}
 				    		});
-
 		}
-		// return [square];
-	}).catch(function(err){
-		console.log(err);
+		res.ok();
 	});
-
-
-	ChatSquare.findOne({ cid : info.sid}).then(function (square) {
-		if(square == '')
-		{
-			console.log("ChatSquare not found");
-		}
-		else
-		{	
-			User.find({ id : info.uid}).exec(function (err,user) {
-				if(user == '')
-				{
-					console.log('User not found');
-				}
-				else
-				{
-				    				//TODO: Cannot add if user already exists in members.
-				    				square.users.add( info.uid );
-				    				square.save(function(err){
-				    					console.log('added the following user for chatsquare ' + square.cid);
-				    					console.log(info.uid);
-				    				});
-
-				    				
-
-				    			}
-				    		});
-
-		}
-		// return [square];
-	}).catch(function(err){
-		console.log(err);
-	});
-	
-	res.ok();
 	//		"square_id" "user_id"
 	//TODO: Add checks here to see, if any submodules exist within this square, if yes, then update all their users 
 	// 		as well.
@@ -395,9 +370,10 @@ removeDiscussionForum: function(req,res){
 addChat: function(req,res){
 	console.log("AddChat");
 	info = new Array();
-	info.sid=req.session.sid;
-	info.cid=req.session.cid;
-	
+	info.sid=req.param('sid')||req.session.sid;
+	info.cid=req.param('cid')||req.session.cid;
+	req.session.sid=null;
+	req.session.cid=null;
 
 
 
@@ -411,7 +387,7 @@ addChat: function(req,res){
 	 						console.log(square);
 
 
-	 						ChatSquare.create({cid:info.cid,users:square.people}).then(function (chatsqr) {		
+	 						ChatSquare.create({cid:info.cid,users:square.people}).exec(function (err, chatsqr) {		
 	 							// console.log('Created a chat square');
 	 							// console.log(dforum.id);
 	 							Square.update({sid:info.sid},{chatSquare:chatsqr.id}).exec(function (err, updated){
@@ -421,11 +397,6 @@ addChat: function(req,res){
 	 								if(err) console.log(err);
 	 							});	 							
 	 							if(err) console.log(err);
-	 						}).then(function(){
-	 							req.session.sid=null;
-								req.session.cid=null;
-	 						}).catch(function(err){
-	 							console.log(err);
 	 						});
 
 	 						if(err) console.log(err);
@@ -470,15 +441,15 @@ addBadge: function(req,res){
 
 	addBroadcast: function(req,res){
 		var new_broadcast = req.param('broadcast');
-		var sid = req.param('sid');
+		var sname = req.param('sname');
 		req.session.abc = sid;
 		req.session.brodcast = new_broadcast;
-		Square.update({id:sid},{broadcast:new_broadcast}).then(function (sq){
+		Square.update({sname:sname},{broadcast:new_broadcast}).then(function (sq){
  
 			return [sq];
 
 		}).spread(function(abcd){
-			Notify.sendNotification(new_broadcast,sid)
+			Notify.sendNotification(new_broadcast,sname)
 		}).catch(function(err){
 			console.log(err);
 

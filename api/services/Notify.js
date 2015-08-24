@@ -1,10 +1,10 @@
 	module.exports = {
 
-	sendNotification: function(notification,sid){
+	sendNotification: function(notification,sname){
 
 		//var admin = req.param('admin');
 		
-			Square.findOne({id:sid}).populate('people').then(function (sq){
+			Square.findOne({sname:sname}).populate('people').then(function (sq){
 				var temp_square = sq;
 				while(temp_square.people.length!=0){//since people object is an array we have to iterate through it
 					// var temp_people=temp_square.people.pop();
