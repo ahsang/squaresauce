@@ -442,8 +442,7 @@ addBadge: function(req,res){
 	addBroadcast: function(req,res){
 		var new_broadcast = req.param('broadcast');
 		var sname = req.param('sname');
-		req.session.abc = sid;
-		req.session.brodcast = new_broadcast;
+		console.log('hello there');
 		Square.update({sname:sname},{broadcast:new_broadcast}).then(function (sq){
  
 			return [sq];

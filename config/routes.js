@@ -107,6 +107,7 @@ module.exports.routes = {
   'POST /square/addadmin' : 'Square,addAdmin',
   'POST /square/profile/plus': 'Profile.increaseOongal',
   'POST /square/profile/minus': 'Profile.decreaseOongal',
+  'POST /dipshit/addBroadcast' : 'Square.addBroadcast',
   'GET /chatter2':'Chat.loadChat',
   'GET /login':'Main.login',
   'GET /home':'Profile.viewProfile',
