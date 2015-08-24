@@ -220,7 +220,7 @@ module.exports = {
 
         Profile.findOne(req.session.passport.user).exec(function (err, profile){
           if (err) return res.negotiate(err);
-          console.log()
+          console.log(profile);
           if (!profile) return res.notFound();
 
           // User has no avatar image uploaded.
