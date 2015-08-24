@@ -119,16 +119,12 @@
 
  setInterval(function(){
         $("#explainer1").fadeOut(function() {
-            $(this).attr("src","images/landing-page/slide2-1b.png").fadeIn().delay(2000).fadeOut(function(){
-                $(this).attr('src', 'images/landing-page/slide2-2.png').fadeIn().delay(2000).fadeOut(function(){
-                  $(this).attr('src', 'images/landing-page/slide2-3.png').fadeIn().delay(2000).fadeOut(function(){
-                  $(this).attr('src', 'images/landing-page/slide2-1.png').fadeIn().delay(2000);
-            });
-            });
+            $(this).attr("src","images/landing-page/slide2-4.png").fadeIn().delay(2000).fadeOut(function(){
+                $(this).attr('src', 'images/landing-page/slide2-3.png').fadeIn().delay(2000);
             });
          }
         );
-    }, 12000);        
+    }, 5000);        
     
 
 setInterval(function(){
@@ -270,6 +266,7 @@ line-height: 13px;
 #onm4 { display:block; }
 
 #disclaim1 { display:none; }
+#plan9 { display:none; }
 
 }
     </style>
@@ -685,12 +682,12 @@ line-height: 13px;
         <h1 style="color: #fff; font-family: Montserrat, Arial; font-size: 32px;">Up next</h1>
           <p style=" color: white;">And the next square is...<br/></p><br/>
           
-          <div style="width: 300px; height: 300px; background-color: #cc1f35; margin: auto; text-align: center; font-family: 'Segoe UI', Arial; font-size: 72px; font-weight: 100; color: white;"><br/>NUST</div>
+          <div style="width: 300px;  height: 300px; line-height:300px; background-color: #cc1f35; margin: auto; text-align: center; font-family: 'Segoe UI', Arial; font-size: 72px; font-weight: 100; color: white;">LUMS</div>
           <br/>
           <div style="margin-left:10px;">
-          <div style="display: inline-block; width: 90px; height: 90px; background-color: #cc1f35; margin-right: 10px; font-family: 'Segoe UI', Arial; font-size: 22px; font-weight: 100; color: white;"><br/>GIKI</div>
-          <div style="display: inline-block; width: 90px; height: 90px; background-color: #cc1f35; margin-right: 10px; font-family: 'Segoe UI', Arial; font-size: 22px; font-weight: 100; color: white;"><br/>LUMS</div>
-          <div style="display: inline-block; width: 90px; height: 90px; background-color: #cc1f35; margin-right: 10px; font-family: 'Segoe UI', Arial; font-size: 22px; font-weight: 100; color: white;"><br/>...</div>
+          <div style="display: inline-block; width: 90px; height: 90px; line-height:90px; background-color: #cc1f35; margin-right: 10px; font-family: 'Segoe UI', Arial; font-size: 22px; font-weight: 100; color: white;">NUST</div>
+          <div style="display: inline-block; width: 90px; height: 90px; line-height:90px; background-color: #cc1f35; margin-right: 10px; font-family: 'Segoe UI', Arial; font-size: 22px; font-weight: 100; color: white;">GIKI</div>
+          <div style="display: inline-block; width: 90px; height: 90px; line-height:90px; background-color: #cc1f35; margin-right: 10px; font-family: 'Segoe UI', Arial; font-size: 22px; font-weight: 100; color: white;">...</div>
           </div>
           <br/><br/>
           <div id="disclaim1"><font size="2" color="#cc1f35"><b>Secret Sauce:</b> The campus with the highest number of signups gets its square first. <br/> If you want more people to signup for your campus, <br/> you may want to share this (just saying!)</font>
@@ -818,7 +815,12 @@ line-height: 13px;
           <li><a href="#0">SuperSquares</a></li>
         </ul>
       </nav> 
+
+    
     </div> <!-- .cd-slider-nav -->
+<div id="plan9" style="position:absolute;margin:auto;top:40px;right:40px;"><a href="http://plan9.pitb.gov.pk" target="_blank">
+      <img src="images/plan9.png" width="80"/></a>
+    </div>
   </section>
 
       </div>
