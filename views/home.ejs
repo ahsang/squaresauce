@@ -39,6 +39,8 @@
 
 </style>
 <script>
+
+//RANDOM COLORS
 function ran_col() { //function name
                 var color; // hexadecimal starting symbol
                 var letters = ['f16521','440d2b','00adef','8cc63e','652c90','ea9600','cc1f35']; //Set your colors here
@@ -53,7 +55,17 @@ function ran_col() { //function name
                 }
             }
 
+//RANDOM COLORS END
 
+// USERNAME SUGGEST
+$(document).ready(function(){
+$("#sqname").keyup(function () {
+  var str=$(this).val();
+  str = str.replace(/\s+/g, '').toLowerCase();
+var value = "http://www.squaresauce.com/square/" + str;
+$("#hinturl").text(value);
+}).keyup();
+});
 </script>
 <body ng-app="saxApp" ng-controller="SaxController" class="fixed-header">
     <!-- BEGIN SIDEBPANEL-->
@@ -269,7 +281,7 @@ function ran_col() { //function name
         <div class=" pull-right">
           <div class="header-inner">
             
-           <button class="btn btn-sm btn-primary">Create</button>
+           <button class="btn btn-sm btn-primary" data-target="#modalFillIn" data-toggle="modal" id="btnFillSizeToggler2">Create</button>
  &nbsp;&nbsp;
 
           </div>
@@ -336,6 +348,54 @@ function ran_col() { //function name
       <!-- END PAGE CONTENT WRAPPER -->
     </div>
     <!-- END PAGE CONTAINER -->
+
+
+
+<div class="modal fade fill-in" id="modalFillIn" tabindex="-1" role="dialog" aria-hidden="true">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+        <i class="pg-close"></i>
+      </button>
+      <div class="modal-dialog ">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="text-left p-b-5"><span class="semi-bold">Create</span> a new Square</h5>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-9">
+                        <select class="full-width" data-init-plugin="select2" id="type" name="type">
+                            <option value="class">Class</option>
+                            <option value="club">Club</option>
+                            <option value="cause">Cause</option>
+                            <option value="sports">Sports</option>
+                        </select>
+                      <br/>
+                      <br/>
+                      </div>
+            </div>
+            <div class="row">
+              <div class="col-md-9 ">
+                <input id="sqname" type="text" placeholder="Name your Square" class="form-control input-lg" id="icon-filter" name="icon-filter">
+              </div>
+              <div class="col-md-3 no-padding sm-m-t-10 sm-text-center">
+                <button type="button" class="btn btn-primary btn-lg btn-large fs-15">Create</button>
+              </div>
+            </div>
+            <p class="text-right sm-text-center hinted-text p-t-10 p-r-10" id="hinturl"></p>
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+
+
+
+
+
+
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js"></script>
   
   <script type="text/javascript">
