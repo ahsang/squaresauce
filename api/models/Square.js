@@ -57,6 +57,9 @@ module.exports = {
     broadcast:{
       type: 'string',
       defaultsTo : ''
+    },
+    broadcastBy:{
+      model : 'User'
     }
     
 

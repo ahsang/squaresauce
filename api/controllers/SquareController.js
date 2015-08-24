@@ -442,13 +442,14 @@ addBadge: function(req,res){
 	addBroadcast: function(req,res){
 		var new_broadcast = req.param('broadcast');
 		var sname = req.param('sname');
+		userId = req.session.passport.user;
 		console.log('hello there');
-		Square.update({sname:sname},{broadcast:new_broadcast}).then(function (sq){
+		Square.update({sname:sname},{broadcast:new_broadcast,broadcastBy: userId}).then(function (sq){
  
 			return [sq];
 
 		}).spread(function(abcd){
-			Notify.sendNotification(new_broadcast,sname)
+			Notify.sendNotification(new_broadcast,sname,userId)
 		}).catch(function(err){
 			console.log(err);
 

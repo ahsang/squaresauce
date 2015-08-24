@@ -1,6 +1,6 @@
 	module.exports = {
 
-	sendNotification: function(notification,sname){
+	sendNotification: function(notification,sname,userId){
 
 		//var admin = req.param('admin');
 		
