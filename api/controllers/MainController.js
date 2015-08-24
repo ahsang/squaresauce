@@ -110,7 +110,7 @@ module.exports = {
              
         }
     },
-    forbidden: function(req,res){
+    forbid: function(req,res){
     	res.view('403');
     }
 

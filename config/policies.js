@@ -27,58 +27,58 @@ module.exports.policies = {
   ***************************************************************************/
 
   // '*': true,
-      '*': false,
-
-
-
-    AuthController: {
-      '*': [ 'passport' ]
-    },
-    UserController: {
-      // '*': true
-      'me': [ 'basicAuth', 'passport', 'sessionAuth' ],
-      'create': true,
-      // 'read': true
-    },
-    // DforumController: {
-      // '*': true
-    // },  
-    SquareController: {
-      'createSquare': true
-    },
-    FrequestController:{
       '*': true
-    }, 
-    InvitereqsController:{
-       '*': true
-    },
-    SqrtagController:{
-      '*': true
-    },
-    // UniSquareController:{
-      // '*': true
-    // },            
-    // FriendController:{
+
+
+
+    // AuthController: {
+    //   '*': [ 'passport' ]
+    // },
+    // UserController: {
+    //   // '*': true
+    //   'me': [ 'basicAuth', 'passport', 'sessionAuth' ],
+    //   'create': true,
+    //   // 'read': true
+    // },
+    // // DforumController: {
+    //   // '*': true
+    // // },  
+    // SquareController: {
+    //   'createSquare': true
+    // },
+    // FrequestController:{
+    //   '*': true
+    // }, 
+    // InvitereqsController:{
+    //    '*': true
+    // },
+    // SqrtagController:{
     //   '*': true
     // },
-    // ProfileController:{
-    //   '*': true
+    // // UniSquareController:{
+    //   // '*': true
+    // // },            
+    // // FriendController:{
+    // //   '*': true
+    // // },
+    // // ProfileController:{
+    // //   '*': true
+    // // },
+    // // GentagController:{
+    // //   '*': true
+    // // },
+    // // OTestController:{
+    // //   '*': true
+    // // },
+    // // ForumcommentController:{
+    // //   '*': true
+    // // },
+    // ChatController:{
+    //   'loadChat': ['basicAuth', 'passport', 'sessionAuth','hasAccessToChatRoom']
     // },
-    // GentagController:{
-    //   '*': true
-    // },
-    // OTestController:{
-    //   '*': true
-    // },
-    // ForumcommentController:{
-    //   '*': true
-    // },
-    ChatController:{
-      'loadChat': ['basicAuth', 'passport', 'sessionAuth','hasAccessToChatRoom']
-    },
-    PChatController:{
-      'loadChat': ['basicAuth', 'passport', 'sessionAuth','isMemberOfPersonalChat']
-    }
+    // PChatController:{
+    //   'loadChat': ['basicAuth', 'passport', 'sessionAuth','isMemberOfPersonalChat']
+    // }
 
 
 
