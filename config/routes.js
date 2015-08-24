@@ -57,19 +57,14 @@ module.exports.routes = {
   '/oweeksignupcomplete': {
     view: 'oweeksignupcomplete'
   },
-  '/login': {
-    view: 'login'
-  },
+  
   '/forbidden': {
     view: '403'
   },
     '/test':{
     view: 'test'
   },
-    '/profile':{
-    view: 'profile'
-  },
-    '/oldhomepage':{
+  '/oldhomepage':{
     view: 'homepageold'
   },
   '/testing-home':{
@@ -78,6 +73,19 @@ module.exports.routes = {
   '/chatuitest':{
     view: 'chatuitest'
   },
+  '/safechat':{
+    view: 'safechat'
+  },
+  '/policy':{
+    view: 'policy'
+  },
+  '/support':{
+    view: 'support'
+  },
+  '/societies':{
+    view: 'societies'
+  },
+  
 
 
   'POST /oweek/voucher' : 'Otest.retrieveVoucher',
@@ -96,9 +104,19 @@ module.exports.routes = {
   'POST /square/addadmin' : 'Square,addAdmin',
   'POST /square/profile/plus': 'Profile.increaseOongal',
   'POST /square/profile/minus': 'Profile.decreaseOongal',
+  'POST /dipshit/addBroadcast' : 'Square.addBroadcast',
   'GET /chatter2':'Chat.loadChat',
+  'GET /login':'Main.login',
   'GET /home':'Profile.viewProfile',
-  'GET /users/:username': 'ProfileController.username'
+  'GET /users/:username': 'ProfileController.username',
+  'GET /square/:abcd':'Main.viewSquare',
+  'GET /createChatForSquare':'Square.addChat',
+  'GET /getSquareUsers':'Main.getSquareUsers'
+  
+
+
+
+
 
   /***************************************************************************
   *                                                                          *

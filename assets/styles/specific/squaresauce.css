@@ -1771,7 +1771,7 @@ h6.block {
 */
 a {
   text-shadow: none !important;
-  color: #3a8fc8;
+  color: #cc1f35;
   transition: color 0.1s linear 0s, background-color 0.1s linear 0s, opacity 0.2s linear 0s !important;
 }
 a:focus,
@@ -1986,7 +1986,7 @@ hr.dotted {
   background-color: #CC1F35;
 }
 .bg-complete-dark {
-  background-color: #3a8fc8;
+  background-color: #cc1f35;
 }
 .bg-complete-darker {
   background-color: #2b6a94;
@@ -2185,7 +2185,7 @@ hr.dotted {
   color: #fff;
 }
 .label-inverse {
-  background-color: #3a8fc8;
+  background-color: #cc1f35;
   color: #fff;
 }
 .label-white {
@@ -2561,8 +2561,8 @@ fieldset[disabled] .btn-success.active {
 .btn-complete:active:focus,
 .btn-complete:active:hover,
 .open .dropdown-toggle.btn-complete {
-  background-color: #3a8fc8;
-  border-color: #3a8fc8;
+  background-color: #cc1f35;
+  border-color: #cc1f35;
   color: #ffffff;
 }
 .btn-complete.hover,

@@ -11,111 +11,133 @@
  	//	while '' mean optional params.
  	//	
 
- module.exports = {
+ 	module.exports = {
 
-	createSquare: function(req,res){
-	 		info = new Array();
-	 		info.name=req.param('name')
-	 		info.tag=req.param('tag');
-	 		info.sid=req.param('sid');
-	 		info.uid=req.param('uid');
-				
-	 				UniSquare.find({id: info.uid}).exec(function (err, unisquare) {
-
-	 					if(unisquare == '')
-	 					{
-							console.log('The university you requested this square to be added to does not exist!');
-	 					}
-	 					else
-	 					{
-	 						Square.find({sqrtag: info.tag}).exec(function (err, subsquare) {
-	 							if(subsquare = '')
-	 								
-	 							{
-	 								Square.create({name : info.name}).exec(function createCB(err, created){
-		 								console.log('Created a new square with the following stuff: ');
-		 								console.log(name);
-		 								unisquare.squares.add( info.uid );
-				    					unisquare.save(function(err){
-					    					console.log('Added the square '+created.name+'to the univeristy ' +unisquare.name);
-					    				});
-		 							});	 									
-	 							}
-	 							else
-	 							{
-									console.log('The University already has this square!');
-	 							}
-	 							if(err)console.log(err);
-	 							res.ok();					          
+ 		createSquare: function(req,res){
+ 			info = new Array();
+ 			info.name=req.param('name')
+ 			info.sname=req.param('sname');
+ 			// info.sid=req.param('sid');
+ 			info.uid=req.param('uid');
+ 			
+	 				
+	 					Square.create({name : info.name,sname:info.sname,admin:req.param('uid'),people:req.param('uid')}).then(function(created){
+	 						console.log('Created a new square with the following stuff: ');
+		 					console.log(created);
+		 					return [created];
+		 				}).spread(function(sq){
+		 					ChatSquare.create({cid:sq.sname,users:req.param('uid'),square:sq}).then(function (chatsqr) {		
+	 							console.log("ChatSquare created for "+sq.sname);
+	 							console.log(chatsqr);
+	 						}).then(function(){
+	 							res.ok();
+	 						}).catch(function(err){
+	 							console.log(err);
+	 							res.ok();
 	 						});
-	 					}
-	 				});	
-		
 
-	// 		"name" "tag" 'sid' 'uid' 		
-	//		WORKING!
-	},
+		 				}).catch(function(err){
+		 					console.log(err);
+		 				});	 									
+	 					
+		},
+addUser: function(req,res){
 
-	addUser: function(req,res){
-
-	 	info = new Array();
-	 	info.sid=req.param('sid');
-	 	info.uid=req.param('uid');
+	info = new Array();
+	info.sid=req.param('sname');
+	info.uid=req.param('uid');
 
 
-	 	Square.find({ id : info.sid}).exec(function (err,square) {
-	 		if(square == '')
-	 		{
-	 			console.log("Square not found");
-	 		}
-	 		else
-	 		{	
-	 			User.find({ id : info.uid}).exec(function (err,user) {
-	 				if(user == '')
-	 				{
-	 					console.log('User not found');
-	 				}
-	 				else
-	 				{
+	Square.findOne({ sname : info.sid}).then(function (square) {
+		if(square == '')
+		{
+			console.log("Square not found");
+		}
+		else
+		{	
+			User.find({ id : info.uid}).exec(function (err,user) {
+				if(user == '')
+				{
+					console.log('User not found');
+				}
+				else
+				{
 				    				//TODO: Cannot add if user already exists in members.
-				    				square[0].people.add( info.uid );
-				    				square[0].save(function(err){
-				    					console.log('added the following user for square ' + square.name);
+				    				square.people.add( info.uid );
+				    				square.save(function(err){
+				    					console.log('added the following user for square ' + square.sname);
 				    					console.log(info.uid);
-				    				});	    				
+				    				});
+
+				    				
+
 				    			}
 				    		});
-	 		}
-	 		res.ok();
-	 	});
-	//		"square_id" "user_id"
-	//TODO: Add checks here to see, if any submodules exist within this square, if yes, then update all their users 
-	// 		as well.
-	//		WORKING!			
-	},
 
-	removeUser: function(req,res){
-
-		info = new Array();
-
-		info.sid=req.param('square_id');
-		info.uid=req.param('user_id');
+		}
+		// return [square];
+	}).catch(function(err){
+		console.log(err);
+	});
 
 
-		Square.find({ id : info.sid}).exec(function (err,square) {
-			if(square == '')
-			{
-				console.log("Square not found");
-			}
-			else
-			{	
-				User.find({ id : info.uid}).exec(function (err,user) {
-					if(user == '')
-					{
-						console.log('User not found');
-					}
-					else
-					{
+	ChatSquare.findOne({ cid : info.sid}).then(function (square) {
+		if(square == '')
+		{
+			console.log("ChatSquare not found");
+		}
+		else
+		{	
+			User.find({ id : info.uid}).exec(function (err,user) {
+				if(user == '')
+				{
+					console.log('User not found');
+				}
+				else
+				{
+				    				//TODO: Cannot add if user already exists in members.
+				    				square.users.add( info.uid );
+				    				square.save(function(err){
+				    					console.log('added the following user for chatsquare ' + square.cid);
+				    					console.log(info.uid);
+				    				});
+
+				    				
+
+				    			}
+				    		});
+
+		}
+	}).catch(function(err){
+		console.log(err);
+	});
+	
+	res.ok();
+				
+},
+
+removeUser: function(req,res){
+
+	info = new Array();
+
+	info.sid=req.param('square_id');
+	info.uid=req.param('user_id');
+
+
+	Square.find({ id : info.sid}).exec(function (err,square) {
+		if(square == '')
+		{
+			console.log("Square not found");
+		}
+		else
+		{	
+			User.find({ id : info.uid}).exec(function (err,user) {
+				if(user == '')
+				{
+					console.log('User not found');
+				}
+				else
+				{
 				    				//TODO: Cannot remove if user doesnt exist.
 				    				square.people.remove( info.uid );
 				    				square.save(function(err){
@@ -124,54 +146,54 @@
 				    				});	    				
 				    			}
 				    		});
-			}
-			res.ok();
-		});
+		}
+		res.ok();
+	});
 	//		"square_id" "user_id"
 	//TODO: Add checks here to see, if any submodules exist within this square, if yes, then update all their users 
 	// 		as well.
 	//		WORKING!
-	},
+},
 
-	deleteSquare: function(req,res){
+deleteSquare: function(req,res){
 
-		info = new Array();
-		info.id=req.param('square_id')
-		Square.find({id: info.id}).exec(function (err, square) {
+	info = new Array();
+	info.id=req.param('square_id')
+	Square.find({id: info.id}).exec(function (err, square) {
 
-			if(square == '')
-			{
-				console.log('No such square to delete!');   
-			}
-			else
-			{
-				Square.destroy({id : info.id}).exec(function deleteCB(err){
-					console.log('Square with name: ' +  square.name  + ' has been deleted!' );
-				});						
-			}
-			if(err)console.log(err);
-			res.ok();
-		});
+		if(square == '')
+		{
+			console.log('No such square to delete!');   
+		}
+		else
+		{
+			Square.destroy({id : info.id}).exec(function deleteCB(err){
+				console.log('Square with name: ' +  square.name  + ' has been deleted!' );
+			});						
+		}
+		if(err)console.log(err);
+		res.ok();
+	});
 	//		"square_id"
 	//TODO: Add checks here to see, if any submodules exist within this square, if yes, then destroy them 
 	// 	 	as well.
 	//		WORKING!
-	},
+},
 
 
-	addAdmin: function(req,res){
+addAdmin: function(req,res){
 
 
-		info = new Array();
+	info = new Array();
 
-		info.sid=req.param('square_id');
-		info.uid=req.param('user_id');
+	info.sid=req.param('square_id');
+	info.uid=req.param('user_id');
 
 
-		var temp;
-		var users_check=false;
-		Square.findOne({id: info.sid}).populate('people').then(function(sq){
-			var temp_square=sq;
+	var temp;
+	var users_check=false;
+	Square.findOne({id: info.sid}).populate('people').then(function(sq){
+		var temp_square=sq;
 	 					//check if the user is in the square or not
 	 					while(temp_square.people.length!=0){//since people object is an array we have to iterate through it
 	 						var temp_people=temp_square.people.pop();
@@ -209,20 +231,20 @@
 	//TODO: Add checks here to see, if any submodules exist within this square, if yes, then update all their admins 
  	// 		as well.
  	//		WORKING!
-	 },
+ },
 
-	removeAdmin: function(req,res){
+ removeAdmin: function(req,res){
 
-	 	info = new Array();
+ 	info = new Array();
 
-	 	info.sid=req.param('square_id');
-	 	info.uid=req.param('user_id');
+ 	info.sid=req.param('square_id');
+ 	info.uid=req.param('user_id');
 
 
-	 	var temp;
-	 	var users_check=false;
-	 	Square.findOne({id: info.sid}).populate('admins').then(function(sq){
-	 		var temp_square=sq;
+ 	var temp;
+ 	var users_check=false;
+ 	Square.findOne({id: info.sid}).populate('admins').then(function(sq){
+ 		var temp_square=sq;
 	 					//check if the user is an admin in the square or not
 	 					while(temp_square.people.length!=0){//since people object is an array we have to iterate through it
 	 						var temp_people=temp_square.people.pop();
@@ -260,25 +282,17 @@
 	//TODO: Add checks here to see, if any submodules exist within this square, if yes, then update all their admins 
 	// 		as well.
 	//		NEED TO TEST!
-	},
+},
 
-	addSubsquare: function(req,res){
-
-	},
-
-	removeSubsquare: function(req,res){
-
-	},
-
-	addDiscussionForum: function(req,res){
-		info = new Array();
-		info.sid=req.param('square_id');
-		info.name=req.param('forum_name');
+addDiscussionForum: function(req,res){
+	info = new Array();
+	info.sid=req.param('square_id');
+	info.name=req.param('forum_name');
 
 
-		Square.findOne({ id : info.sid }).populate('people').then(function (square) {
+	Square.findOne({ id : info.sid }).populate('people').then(function (square) {
 
-			var temp;
+		var temp;
 
 	 					//	Dforum.portOver({name : dforum.name , sid : square.id , dfid : dforum.id }).exec(function createCB(err, dforum) {
 	 					//	 });
@@ -306,25 +320,25 @@
 	 						});
 
 
-	 			res.ok();
-	 		}).catch(function(err){
-	 			console.log(err);
-	 		});	
+	 						res.ok();
+	 					}).catch(function(err){
+	 						console.log(err);
+	 					});	
 	//		"square_id" "forumm_name"
 	//TODO: Nothing in mind yet... think perhaps?
 	//		WORKING!
-	},
+},
 
-	removeDiscussionForum: function(req,res){
-		info = new Array();
-		info.sid=req.param('square_id');
-		info.id=req.param('forum_id');
+removeDiscussionForum: function(req,res){
+	info = new Array();
+	info.sid=req.param('square_id');
+	info.id=req.param('forum_id');
 
 
-		Square.findOne({ id : info.sid }).populate('people').then(function (square) {
+	Square.findOne({ id : info.sid }).populate('people').then(function (square) {
 
-			var temp;
-			var dforum_check=false;
+		var temp;
+		var dforum_check=false;
 		//	Dforum.portOver({name : dforum.name , sid : square.id , dfid : dforum.id }).exec(function createCB(err, dforum) {
 		//	 });
 			// if(err)console.log(err);
@@ -348,7 +362,7 @@
 						{
 							console.log(err);
 						}
-							else
+						else
 						{
 							console.log('removed' + dforum.id +' as discussion forum for square ' + square.name);
 						}
@@ -361,27 +375,31 @@
 				}
 				console.log(square.people);
 			}).catch(function(err){
-			console.log(err);
+				console.log(err);
 			});
 
-		 	res.ok();
-		 	}).catch(function(err){
+			res.ok();
+		}).catch(function(err){
 			console.log(err);
 		});	
 	//		"square_id" "forumm_id"
 	//TODO: Nothing in mind yet... think perhaps?
 	//		WORKING!
-	},
+},
 
-	addChat: function(req,res){
-		info = new Array();
-		info.sid=req.param('sid');
-		info.cid=req.param('cid');
+addChat: function(req,res){
+	console.log("AddChat");
+	info = new Array();
+	info.sid=req.param('sid')||req.session.sid;
+	info.cid=req.param('cid')||req.session.cid;
+	req.session.sid=null;
+	req.session.cid=null;
 
 
-		Square.findOne({ id : info.sid }).populate('people').exec(function (err, square) {
 
-			var temp;
+	Square.findOne({ id : info.sid }).populate('people').exec(function (err, square) {
+
+		var temp;
 
 	 					//	Dforum.portOver({name : dforum.name , sid : square.id , dfid : dforum.id }).exec(function createCB(err, dforum) {
 	 					//	 });
@@ -401,32 +419,30 @@
 	 							if(err) console.log(err);
 	 						});
 
-	 					if(err) console.log(err);
-	 			res.ok();
-	 		});
+	 						if(err) console.log(err);
+	 						res.ok();
+	 					});
 },
-	removeChat: function(req,res){
+
+removeChat: function(req,res){
 		//Create the chat model
 		//TODO: Write the function maybe?:p
 		res.ok();
 	//TODO: Need to figure out the chat module first...
-	},
+},
 
-	addWorkSpace: function(req,res){
-		//Create the workspace module
-		//TODO: Write the function maybe?:p
+getSquare: function(req, res){
+	sid = req.param('sid');
+	Square.find({id:sid}).populateAll().then(function(square){
+		console.log(square);
+		res.ok(square);
+	}).catch(function(err){
+		console.log(err);
 		res.ok();
-	//TODO: Scrape this for now? MVP focus somewhere else?
-	},
+	});
+},
 
-	removeWorkspace: function(req,res){
-		//Create the workspace module
-		//TODO: Write the function maybe?:p
-		res.ok();
-	//TODO: Scrape this for now? MVP focus somewhere else?
-	},
-
-	addBadge: function(req,res){
+addBadge: function(req,res){
 		// Add a badge that can be alotted to members or people in general
 	},
 
@@ -440,6 +456,25 @@
 
 	rejectBadge: function(req,res){
 		// Reject a users request for a badge
+	},
+
+
+	addBroadcast: function(req,res){
+		var new_broadcast = req.param('broadcast');
+		var sname = req.param('sname');
+		userId = req.session.passport.user;
+		console.log('hello there');
+		Square.update({sname:sname},{broadcast:new_broadcast,broadcastBy: userId}).then(function (sq){
+ 
+			return [sq];
+
+		}).spread(function(abcd){
+			Notify.sendNotification(new_broadcast,sname,userId)
+		}).catch(function(err){
+			console.log(err);
+
+		});
+
 	}
 };
 

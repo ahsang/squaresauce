@@ -31,9 +31,10 @@ module.exports = {
         type:'string',
         defaultsTo:''
     },
-    // uname: 'fhatim303', 
-    // pass: 'hahahhahahahah123456', 
-    // email: 'tworldpk@gmail.com', 
+    gender:{
+        type: 'string',
+        defaultsTo: ''
+    },
     cemail:{
         type:'string',
         defaultsTo:''
@@ -63,9 +64,20 @@ module.exports = {
     oongal:{
         type: 'integer',
         defaultsTo : 3
+    },
+    unreadNotifications:{
+        type: 'array',
+        defaultsTo : ['Welcome To SquareSauce!','See squaresauce.com/policy for privacy terms']
+    },
+    readNotifications:{
+        type: 'array',
+        defaultsTo : []
+    },
+    notifications: {
+        collection : 'Notification',
+        via : 'profile'
     }
     	
-
 
   }
 };

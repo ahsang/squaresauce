@@ -1,5 +1,17 @@
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat:400,700" />
-
+<script type="text/javascript">
+  WebFontConfig = {
+    google: { families: [ 'Montserrat::latin' ] }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })(); </script>
 
   <link rel="stylesheet" type="text/css" href="styles/specific/jquery.pagepiling.css" />
     <link class="main-stylesheet" href="styles/specific/squaresauce.css" rel="stylesheet" type="text/css" />
@@ -331,14 +343,14 @@ line-height: 13px;
     <form id="signupform" ng-submit="processForm()" style="font-family: 'Segoe UI';">
            
      <div class="form-group form-group-default">
-              <label>Full Name</label>
+              <label style="font-size: 10px;">Full Name</label>
               <div class="controls">
                 <input type="text" name="name" ng-model="formData.name" class="form-control" required>
               </div>
             </div>
 
      <div class="form-group form-group-default">
-              <label>Email Address</label>
+              <label style="font-size: 10px;">Email Address</label>
               <div class="controls">
                 <input type="email" name="email" class="form-control" ng-model="formData.email" required>
               </div>
@@ -346,7 +358,7 @@ line-height: 13px;
 
 
      <div class="form-group form-group-default">
-              <label>Campus</label>
+              <label style="font-size: 10px;">Campus</label>
               <div class="controls">
                 <input type="text" name="institution" class="form-control"  ng-model="formData.institution" required>
               </div>

@@ -8,15 +8,16 @@
 module.exports = {
 
   attributes: {
-  	sid:{
-  		type: 'integer',
-  		autoIncrement: true,
-  		unique: true
-  	},
+  	
   	name: {
   		type: 'string',
   		notNull: true
   	},
+    sname: {
+      type: 'string',
+      notNull: true,
+      unique: true
+    },
   	admins: {
       collection:'User',
       via: "isAdmin",
@@ -52,6 +53,13 @@ module.exports = {
     },
     chatSquare:{
       model: 'ChatSquare'
+    },
+    broadcast:{
+      type: 'string',
+      defaultsTo : ''
+    },
+    broadcastBy:{
+      model : 'User'
     }
     
 

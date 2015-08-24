@@ -16,7 +16,6 @@ _.extend(exports, {
       delete req.user;
       delete req.session.passport;
       req.session.authenticated = false;
-      
       res.ok();
     }
   },

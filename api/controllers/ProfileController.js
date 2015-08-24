@@ -32,6 +32,18 @@ module.exports = {
       	}
     });
   },
+  getfbkid: function(req, res) {
+      Profile.find({user: req.params('id')}).exec(function (err, profile) {
+        if (err || !profile) 
+        { 
+          return res.send('Error'); 
+        } 
+        else
+        {
+          return res.send(profile);
+        }
+    });
+  },
 
   	  addBadge: function(req,res){
   	  					// User can add a badge, this creates a badge request, to the approriate square
@@ -84,19 +96,25 @@ module.exports = {
   	  },
       viewProfile:function(req,res){
         if(req.session.passport){
-         User.find({id:req.session.passport.user}).populate('profile').populate('mysquares').exec(function(err,user){
-            if(err){
-              console.log(err)
+         User.find({id:req.session.passport.user}).populate('profile').populate('mysquares').then(function(user){
+            if(user==''){
+              res.view("403");
+              // console.log(err)
             }else{
 
 
             req.session.user_data=user;
-            req.session.profile_data=user[0].profile;
+            req.session.userd=user[0].profile;
+
+            req.session.square_data=user[0].mysquares;
             // console.log(user);
             console.log("Profile");
             // console.log(req.session.profile_data.name);
             res.view('home');  
             }
+         }).catch(function(err){
+            console.log("Error in updating the user's profile data for home");
+            console.log(err);
          });
         }else{
             console.log("Hello");
@@ -152,6 +170,76 @@ module.exports = {
 
           // res.send(req.param('username'));
         }
+      },
+
+      readNotification : function(req,res){
+        notif_id = req.param('notif_id')
+        Notification.update({id:notif_id},{unread:false}).then(function (err, updated){
+            if(err)console.log(err);
+            res.ok();
+        }).catch(function(err){
+            console.log(err);
+            console.log("Error when reading notification");
+          });
+
+      },
+
+      uploadAvatar: function (req, res) {
+
+        req.file('avatar').upload({
+          // don't allow the total upload size to exceed ~3MB
+          dirname: require('path').resolve(sails.config.appPath, '/app/assets/images'),
+          maxBytes: 3000000
+        },function whenDone(err, uploadedFiles) {
+          if (err) {
+            return res.negotiate(err);
+          }
+
+          // If no files were uploaded, respond with an error.
+          if (uploadedFiles.length === 0){
+            return res.badRequest('No file was uploaded');
+          }
+
+
+          // Save the "fd" and the url where the avatar for a user can be accessed
+          Profile.update({user: req.session.passport.user}, {
+
+            // Generate a unique URL where the avatar can be downloaded.
+            avatarUrl: require('util').format('%s/user/avatar/%s', sails.getBaseUrl(), req.session.passport.user),
+
+            // Grab the first file and use it's `fd` (file descriptor)
+            avatarFd: uploadedFiles[0].fd
+          })
+          .exec(function (err){
+            if (err) return res.negotiate(err);
+            return res.ok();
+          });
+        });
+      },
+
+      avatar: function (req, res){
+
+        Profile.findOne({user:req.session.passport.user}).exec(function (err, profile){
+          if (err) return res.negotiate(err);
+          console.log(profile);
+          if (!profile) return res.notFound();
+
+          // User has no avatar image uploaded.
+          // (should have never have hit this endpoint and used the default image)
+          if (!profile.avatarFd) {
+            return res.notFound();
+          }
+
+          var SkipperDisk = require('skipper-disk');
+          var fileAdapter = SkipperDisk(/* optional opts */);
+
+          // Stream the file down
+          fileAdapter.read(profile.avatarFd)
+          .on('error', function (err){
+            return res.serverError(err);
+          })
+          .pipe(res);
+        });
       }
 
 };
