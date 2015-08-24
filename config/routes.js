@@ -64,10 +64,7 @@ module.exports.routes = {
     '/test':{
     view: 'test'
   },
-    '/profile':{
-    view: 'profile'
-  },
-    '/oldhomepage':{
+  '/oldhomepage':{
     view: 'homepageold'
   },
   '/testing-home':{
