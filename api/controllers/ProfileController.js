@@ -218,7 +218,7 @@ module.exports = {
 
       avatar: function (req, res){
 
-        Profile.findOne(req.session.passport.user).exec(function (err, profile){
+        Profile.findOne({user:req.session.passport.user}).exec(function (err, profile){
           if (err) return res.negotiate(err);
           console.log(profile);
           if (!profile) return res.notFound();
