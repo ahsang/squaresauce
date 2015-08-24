@@ -4,7 +4,7 @@
  * @description :: Server-side logic for managing mains
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
-
+var fs = require("fs");
 module.exports = {
 	login: function(req,res){
     	if(req.session.passport){
@@ -44,7 +44,7 @@ module.exports = {
 	getSquareBroadCasts: function(req,res){
 		if(req.param('sname')){
 			var a=new Array();
-			Square.findOne({sname:req.param('sname')}).populateAll().then(function(found){
+			Square.find({sname:req.param('sname')}).populateAll().then(function(found){
 				// if(err)console.log(err);
 
 				var users=found;
@@ -85,7 +85,31 @@ module.exports = {
   		console.log(a);
   		res.send(a);
   		}
-  	}
+  	},
+  	upload: function(req, res){
+ 
+        if (req.method === 'POST') {
+ 
+            req.file('filename').upload({dirname : process.cwd() + '/assets/images/uploads/'}, function (err, uploadedFiles) {
+              if (err) return res.send(500, err);
+ 
+                var filename = uploadedFiles[0].fd.substring(uploadedFiles[0].fd.lastIndexOf('/')+1);
+                var uploadLocation = process.cwd() +'/assets/images/uploads/' + filename;
+                var tempLocation = process.cwd() + '/.tmp/public/images/uploads/' + filename;
+ 
+                //Copy the file to the temp folder so that it becomes available immediately
+                fs.createReadStream(uploadLocation).pipe(fs.createWriteStream(tempLocation));
+ 
+                //Redirect or do something
+                res.view();
+            });
+                        
+        } else {
+             
+            res.view();
+             
+        }
+    }
 
 
 };

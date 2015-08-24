@@ -40,7 +40,7 @@ module.exports = {
         } 
         else
         {
-          return res.send(profile[0].fbk_id);
+          return res.send(profile);
         }
     });
   },
