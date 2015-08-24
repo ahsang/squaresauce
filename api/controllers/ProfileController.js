@@ -188,6 +188,7 @@ module.exports = {
 
         req.file('avatar').upload({
           // don't allow the total upload size to exceed ~3MB
+          dirname: require('path').resolve(sails.config.appPath, '/assets/images'),
           maxBytes: 3000000
         },function whenDone(err, uploadedFiles) {
           if (err) {
