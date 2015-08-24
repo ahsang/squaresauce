@@ -17,7 +17,7 @@
  			info = new Array();
  			info.name=req.param('name')
  			info.sname=req.param('sname');
- 			info.sid=req.param('sid');
+ 			info.sid=req.param('color');
  			info.uid=req.param('uid');
  			
 	 				// UniSquare.find({id: info.uid}).exec(function (err, unisquare) {

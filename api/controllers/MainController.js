@@ -60,8 +60,9 @@ module.exports = {
   	},
   	test: function(req,res){
   		if(req.param('id')){
-  		console.log(SquareService.getSquareData(req.param('id')));
-  		res.send(SquareService.getSquareData(req.param('id')));
+  		var a=SquareService.getSquareData(req.param('id'));
+  		console.log(a);
+  		res.send(a);
   		}
   	}
 

@@ -5,7 +5,7 @@ module.exports = {
 
         Square.findOne({ sname : snam}).then(function (square) {
             // console.log(square);
-            return square;
+            return "Hello";
         }).catch(function(err){
             console.log(err);
             return null;
