@@ -35,83 +35,84 @@ module.exports.routes = {
   '/':{
     view:'homepage'
   },
-  '/chatio': {
-    view: 'chatio'
-  },
-  '/chatter':{
-    view: 'chatter'
-  },
-  
-  '/pchatter':{
-    view: 'pchatter'
-  },  
-  // '/home': {
-  //   view: 'home'
+  // '/chatio': {
+  //   view: 'chatio'
   // },
-  '/oweek': {
-    view: 'oweek'
-  },
-  '/oweeksignup': {
-    view: 'oweeksignup'
-  },
-  '/oweeksignupcomplete': {
-    view: 'oweeksignupcomplete'
-  },
+  // '/chatter':{
+  //   view: 'chatter'
+  // },
   
-  '/forbidden': {
-    view: '403'
-  },
-    '/test':{
-    view: 'test'
-  },
-  '/oldhomepage':{
-    view: 'homepageold'
-  },
-  '/testing-home':{
-    view: 'sails-homepage'
-  },
-  '/chatuitest':{
-    view: 'chatuitest'
-  },
-  '/safechat':{
-    view: 'safechat'
-  },
-  '/policy':{
-    view: 'policy'
-  },
-  '/support':{
-    view: 'support'
-  },
-  '/societies':{
-    view: 'societies'
-  },
+  // '/pchatter':{
+  //   view: 'pchatter'
+  // },  
+  // // '/home': {
+  // //   view: 'home'
+  // // },
+  // '/oweek': {
+  //   view: 'oweek'
+  // },
+  // '/oweeksignup': {
+  //   view: 'oweeksignup'
+  // },
+  // '/oweeksignupcomplete': {
+  //   view: 'oweeksignupcomplete'
+  // },
+  
+  // '/forbidden': {
+  //   view: '403'
+  // },
+  //   '/test':{
+  //   view: 'test'
+  // },
+  // '/oldhomepage':{
+  //   view: 'homepageold'
+  // },
+  // '/testing-home':{
+  //   view: 'sails-homepage'
+  // },
+  // '/chatuitest':{
+  //   view: 'chatuitest'
+  // },
+  // '/safechat':{
+  //   view: 'safechat'
+  // },
+  // '/policy':{
+  //   view: 'policy'
+  // },
+  // '/support':{
+  //   view: 'support'
+  // },
+  // '/societies':{
+  //   view: 'societies'
+  // },
   
 
 
-  'POST /oweek/voucher' : 'Otest.retrieveVoucher',
-  'POST /oweek/createUser' : 'Otest.createSpecialUser',
+  // 'POST /oweek/voucher' : 'Otest.retrieveVoucher',
+  // 'POST /oweek/createUser' : 'Otest.createSpecialUser',
   'POST /invitereqs/create' : 'Invitereqs.create',
-  'POST /user/send' : 'User.send',
-  'POST /user/accept' : 'User.accept',
-  'POST /user/sent' : 'Frequest.viewbysent',
-  'POST /user/recieved' : 'Frequest.viewbyrecieved',
-  'POST /square/add' : 'Square.createSquare',
-  'POST /square/addUser' : 'Square.addUser',
-  'POST /square/remUser' : 'Square.removeUser',
-  'POST /square/remove' : 'Square.deleteSquare',
-  'POST /square/addforum' : 'Square.addDiscussionForum',
-  'POST /square/removeforum' : 'Square.removeDiscussionForum',
-  'POST /square/addadmin' : 'Square,addAdmin',
-  'POST /square/profile/plus': 'Profile.increaseOongal',
-  'POST /square/profile/minus': 'Profile.decreaseOongal',
-  'POST /dipshit/addBroadcast' : 'Square.addBroadcast',
-  'GET /chatter2':'Chat.loadChat',
+  // 'POST /user/send' : 'User.send',
+  // 'POST /user/accept' : 'User.accept',
+  // 'POST /user/sent' : 'Frequest.viewbysent',
+  // 'POST /user/recieved' : 'Frequest.viewbyrecieved',
+  // 'POST /square/add' : 'Square.createSquare',
+  // 'POST /square/addUser' : 'Square.addUser',
+  // 'POST /square/remUser' : 'Square.removeUser',
+  // 'POST /square/remove' : 'Square.deleteSquare',
+  // 'POST /square/addforum' : 'Square.addDiscussionForum',
+  // 'POST /square/removeforum' : 'Square.removeDiscussionForum',
+  // 'POST /square/addadmin' : 'Square,addAdmin',
+  // 'POST /square/profile/plus': 'Profile.increaseOongal',
+  // 'POST /square/profile/minus': 'Profile.decreaseOongal',
+  // 'POST /dipshit/addBroadcast' : 'Square.addBroadcast',
+  // 'GET /chatter2':'Chat.loadChat',
   'GET /login':'Main.login',
-  'GET /home':'Profile.viewProfile',
-  'GET /users/:username': 'ProfileController.username',
-  'GET /square/:abcd':'Main.viewSquare',
-  'GET /createChatForSquare':'Square.addChat',
-  'GET /getSquareUsers':'Main.getSquareUsers'
+  'GET /:abc':'Main.forbid'
+  // 'GET /home':'Profile.viewProfile',
+  // 'GET /users/:username': 'ProfileController.username',
+  // 'GET /square/:abcd':'Main.viewSquare',
+  // 'GET /createChatForSquare':'Square.addChat',
+  // 'GET /getSquareUsers':'Main.getSquareUsers'
   
 
 

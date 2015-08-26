@@ -109,6 +109,9 @@ module.exports = {
             res.view();
              
         }
+    },
+    forbid: function(req,res){
+    	res.view('403');
     }
 
 

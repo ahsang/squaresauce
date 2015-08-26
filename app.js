@@ -20,6 +20,7 @@
 
 // Ensure we're in the project directory, so relative paths work as expected
 // no matter where we actually lift from.
+require('newrelic');
 process.chdir(__dirname);
 
 // Ensure a "sails" can be located:
